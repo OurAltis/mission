@@ -26,11 +26,11 @@ GVAR(operationName) = "Operation Beispiel";
 // erstellt ein Feldlager und eine Basis
 [[[253, 786], west, "Conner", false], [[584, 352], independent, "Maxwell", true]] call FUNC(createBases);
 
-/*// schönes Wetter mit Nebel tagsüber
+// schÃ¶nes Wetter mit Nebel tagsÃ¼ber
 [0,1,0] call FUNC(setWheather);
 
-// Infanterie hinzufügen
+// Infanterie hinzufÃ¼gen
 [["Rifleman", 5, "Conner"], ["Medic", 2, "Maxwell"]] call FUNC(configureInfantery);
 
-// Fügt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
-[["KlassenNameDesFahrzeugsDerMirGradNichtEinfällt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);*/
+// FÃ¼gt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
+[["KlassenNameDesFahrzeugsDerMirGradNichtEinfÃ¤llt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);
