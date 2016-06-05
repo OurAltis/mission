@@ -12,19 +12,32 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9657.4961,86.999496,7829.5415};
-		dir[]={0.98643935,-0.16330653,-0.017366825};
-		up[]={0.16329443,0.9865731,-0.002875047};
-		aside[]={-0.01760342,-3.9866336e-008,-0.99985969};
+		pos[]={14902.301,42.950001,16437.813};
+		dir[]={0.41118851,-0.48972216,0.76882976};
+		up[]={0.23095879,0.87187803,0.43184072};
+		aside[]={0.88180798,1.1292286e-008,-0.47161222};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Characters_F_BLUFOR",
-	"a3_characters_f"
+	"A3_Characters_F"
 };
-randomSeed=6118451;
+class AddonsMetaData
+{
+	class List
+	{
+		items=1;
+		class Item0
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+	};
+};
+randomSeed=4191327;
 class ScenarioData
 {
 	author="Raven";
@@ -46,8 +59,8 @@ class Mission
 		day=24;
 		hour=12;
 		minute=0;
-		startFogDecay=0.013;
-		forecastFogDecay=0.013;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
 	};
 	class Entities
 	{
@@ -64,8 +77,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9681.127,81.019981,7827.4028};
-						angles[]={0,1.4091963,0};
+						position[]={14917.242,17.951359,16471.156};
 					};
 					side="West";
 					flags=7;
@@ -74,36 +86,15 @@ class Mission
 						isPlayer=1;
 					};
 					id=1;
-					type="B_Soldier_A_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
+					type="B_Soldier_F";
+					atlOffset=-8.0108643e-005;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=0;
+			atlOffset=-8.0108643e-005;
 		};
 	};
 };

@@ -1,0 +1,7 @@
+#include "config\cfgFunctions.cfg"
+
+author = "Raven";
+onLoadName = "OurAltis_Mission";
+
+//debug stuff
+enableDebugConsole = 1;
