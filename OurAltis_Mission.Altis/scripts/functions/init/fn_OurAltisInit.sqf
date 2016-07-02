@@ -14,23 +14,38 @@
  * None <Any>
  * 
  */
-
-// only initialize on server
-if(!isServer) exitWith {};
-
-// variable init
-GVAR(BaseList) = [];
-GVAR(operationName) = "Operation Beispiel";
+ 
+ // set preferences
+GVAR(MarkerAccuracy) = 500;
 
 
-// erstellt ein Feldlager und eine Basis
-[[[253, 786], west, "Conner", false], [[584, 352], independent, "Maxwell", true]] call FUNC(createBases);
+if(isServer) then {
+	// only initialize on server
+	
+	// variable init
+	GVAR(BaseList) = [];
+	GVAR(Infantry) = [];
+	GVAR(OperationName) = "Operation Beispiel";
+	
+	
+	// initialize unique mission part
+	// erstellt ein Feldlager und eine Basis
+	[
+		[[14917, 16471], blufor, "Conner", false],
+		[[14817, 17671], independent, "Maxwell", true],
+		[[15317, 13471], east, "Rainbow", false]
+	] call FUNC(createBases);
+	
+	// schoenes Wetter mit Nebel tagsueber
+	[0,1,0] call FUNC(setMissionParameter);
+	
+	// Infanterie hinzufuegen
+	[["Rifleman", 5, "Conner"], ["Medic", 3, "Conner"], ["Medic", 2, "Maxwell"]] call FUNC(configureInfantry);
+	/*
+	// Fuegt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
+	[["KlassenNameDesFahrzeugsDerMirGradNichtEinfaellt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);*/
+};
 
-// schönes Wetter mit Nebel tagsüber
-[0,1,0] call FUNC(setWheather);
+[] call FUNC(initializeGenericMissionPart);
 
-// Infanterie hinzufügen
-[["Rifleman", 5, "Conner"], ["Medic", 2, "Maxwell"]] call FUNC(configureInfantery);
-
-// Fügt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
-[["KlassenNameDesFahrzeugsDerMirGradNichtEinfällt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);
+nil;

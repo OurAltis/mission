@@ -1,7 +1,17 @@
-#include "config\cfgFunctions.cfg"
+#include "config\cfgFunctions.cpp"
+#include "config\inventories.cpp"
+#include "config\roles.cpp"
+#include "macros.hpp"
 
 author = "Raven";
 onLoadName = "OurAltis_Mission";
 
+respawn = "BASE";
+respawnDialog = 0;
+respawnTemplates[] = {"MenuInventory", "MenuPosition", "Spectator", "Tickets"};
+respawnDelay = 10;
+respawnOnStart = 1;
+
 //debug stuff
 enableDebugConsole = 1;
+FUNCTIONS_RECOMPILE

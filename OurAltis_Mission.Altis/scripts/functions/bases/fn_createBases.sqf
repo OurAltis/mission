@@ -23,17 +23,30 @@
 			["_isCamp", nil, [true]]
 		];
 	
-	CHECK_TRUE(_success, Invalid parameters!)
+	CHECK_TRUE(_success, Invalid baseFormat!, {})
 	
 	if(_isCamp) then {
 		// create a camp
 		[_position, _side, _id] call FUNC(createCamp);
-	}else {
+	} else {
 		// create a base
 		[_position, _side, _id] call FUNC(createBase);
 	};
 	
+	// add base to list
+	GVAR(BaseList) pushBack [_id, _side, _position, _isCamp]; // [<ID>, <Side>, <Position>, <IsCamp>]
+	
+	// add respective respawn positions
+	if(count _position < 3) then {
+		// convert to Position3D
+		_position = [_position select 0, _position select 1, 0];
+	};
+	
+	[_side, _position, _id] call BIS_fnc_addRespawnPosition;
+	
+	nil;
 } count _this;
 
-// broadcast base list TODO: write function to acces bases from server
-publicVariable QGVAR(BaseList);
+[EVENT_BASES_INITIALIZED, []] call FUNC(fireGlobalClientEvent);
+
+nil;

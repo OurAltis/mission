@@ -1,0 +1,7 @@
+Base format: [<ID>, <Side>, <Position>, <IsCamp>] - [STRING, SIDE, POSITION2D, BOOLEAN]
+BaseList format: [Base, Base, ...]
+
+InfantryType format: [<ClassName>, <Amount>] - [STRING, NUMBER]
+InfantryCollection format: [InfantryType, InfantryType, ...]
+BaseInfantryList format: [<Base-ID>, InfantryCollection] - [STRING, <>]
+SideInfatry format: [<Side>, BaseInfantryList] - [SIDE, <>]

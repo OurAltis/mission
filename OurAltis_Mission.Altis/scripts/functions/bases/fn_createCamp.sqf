@@ -1,3 +1,4 @@
+#include "macros.hpp"
 /**
  * OurAltis_Mission - fn_createCamp
  * 
@@ -16,3 +17,12 @@
  * 
  */
 
+private _success = params[
+		["_position", nil, [[]], [2, 3]],
+		["_side", nil, [sideUnknown]],
+		["_id", nil, [""]]
+	];
+
+CHECK_TRUE(_success, Invalid parameters!, {})
+
+nil;

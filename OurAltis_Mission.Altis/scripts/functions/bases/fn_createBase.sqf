@@ -22,8 +22,7 @@ private _success = params[
 		["_side", nil, [sideUnknown]],
 		["_id", nil, [""]]
 	];
-	
-CHECK_TRUE(_success, Invalid parameters!)
 
-// add base to list
-GVAR(BaseList) pushBack [_id, _side, _position, false]; // [<ID>, <Side>, <IsCamp>]
+CHECK_TRUE(_success, Invalid parameters!, {})
+
+nil;
