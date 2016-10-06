@@ -49,4 +49,40 @@
 	}
 ] call FUNC(addEventHandler);
 
+// handler for respawn requests
+[
+	EVENT_REQUEST_RESPAWN,
+	{
+		params [
+			["_clientID", nil, [0]],
+			["_respawnInfo", [], [[]]]
+		];
+		
+		CHECK_FALSE(isNil "_clientID", Invalid client ID!, {})
+		
+		private ["_allow", "_extraParams"];
+		
+		_allow = false;
+		_extraParams = ["!Respawn error!"];
+		
+		CHECK_TRUE(count _respawnInfo == 2, Invalid respawn information!, {})
+		
+		_respawnInfo params [
+			"_base",
+			"_role"
+		];
+		
+		private _msg = [_base, _role] call FUNC(checkRespawn);
+		
+		_allow = _msg isEqualTo "";
+		_extraParams = [_msg];
+		
+		
+		// send the base list to the respective client
+		[EVENT_ANSWER_REQUEST_RESPAWN, [_allow, _extraParams], _clientID] call FUNC(fireClientEvent);
+		
+		nil;
+	}
+] call FUNC(addEventHandler);
+
 nil;

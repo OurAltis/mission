@@ -17,8 +17,32 @@
 
 [] call FUNC(initializeEventHandler);
 
-if(isServer) then {
+if (isServer) then {
 	[] call FUNC(configureServerEventHandler);
 	[] call FUNC(calculateBaseMarkerOffset);
-	[] call FUNC(setUpLoadouts);
+};
+
+if (hasInterface) then {
+	GVAR(currentPlayerRole) = "";
+	GVAR(lastPlayerRespawn) = "";
+	
+	[
+		{
+			// wait until the map is loaded
+			!((findDisplay 12) isEqualTo displayNull)
+		},
+		{
+			// initialize the respawn system
+			[] call FUNC(respawnInit);
+			[] call FUNC(configureRespawnData);
+			
+			// disable "faggot-button"
+			_display = uiNamespace getVariable "RSCDiary";
+			_ctrl = _display displayCtrl 1202;
+			_ctrl ctrlEnable false;
+			_ctrl ctrlsettextcolor [0,0,0,0];
+			_ctrl ctrlSetTooltip "";
+			_ctrl ctrlCommit 0;
+		}
+	] call CBA_fnc_waitUntilAndExecute;
 };

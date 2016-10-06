@@ -13,6 +13,7 @@
  * 2: The ID of the receive-event <String>
  * 3: The code to execute upon receiving <Code>
  * 4: The additional parameter for the code <Array>
+ * 5: The additional parameter that should be passed to the machine answering the request <Array>
  * 
  * Return Value:
  * None <Any>
@@ -26,7 +27,8 @@ _default = params [
 	["_requestID", nil, [""]],
 	["_receiveID", nil, [""]],
 	["_code", {}, [{}]],
-	["_originalParameter", [], [[]]]
+	["_originalParameter", [], [[]]],
+	["_parameterToPass", [], [[]]]
 ];
 
 CHECK_TRUE(_default, Invalid parameters!, {});
@@ -58,6 +60,6 @@ _handlerID = [
 	}
 ] call FUNC(addEventHandler);
 
-[_requestID, [], _machine] call FUNC(fireClientEvent);
+[_requestID, _parameterToPass, _machine] call FUNC(fireClientEvent);
 
 nil;

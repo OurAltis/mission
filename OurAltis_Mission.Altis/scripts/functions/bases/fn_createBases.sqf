@@ -16,14 +16,16 @@
  */
 
 {
-	private _success = _x params[
+	private ["_success", "_respawnID"];
+	
+	_success = _x params[
 			["_position", nil, [[]], [2,3]],
 			["_side", sideUnknown, [sideUnknown]],
 			["_id", nil, [""]],
 			["_isCamp", nil, [true]]
 		];
 	
-	CHECK_TRUE(_success, Invalid baseFormat!, {})
+	CHECK_TRUE(_success, Invalid baseFormat!, {});
 	
 	if(_isCamp) then {
 		// create a camp
@@ -35,14 +37,6 @@
 	
 	// add base to list
 	GVAR(BaseList) pushBack [_id, _side, _position, _isCamp]; // [<ID>, <Side>, <Position>, <IsCamp>]
-	
-	// add respective respawn positions
-	if(count _position < 3) then {
-		// convert to Position3D
-		_position = [_position select 0, _position select 1, 0];
-	};
-	
-	[_side, _position, _id] call BIS_fnc_addRespawnPosition;
 	
 	nil;
 } count _this;

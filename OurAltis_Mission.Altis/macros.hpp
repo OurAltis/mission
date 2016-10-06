@@ -1,7 +1,7 @@
 /*
  * Defines all necessary macros used within the mission
  */
- 
+
  #define MAJOR 0
  #define MINOR 1
  #define BUILD 0
@@ -17,12 +17,13 @@
  #define TAG OurA
  
  #define GVAR(var) TAG##_##var
- #define QGVAR(var) QUOTE(GVAR(msg))
+ #define QGVAR(var) QUOTE(GVAR(var))
  
  #define FUNC(function) TAG##_fnc_##function
  #define QFUNC(function) QUOTE(FUNC(function))
  
- #define QUOTE(txt) #txt 
+ #define QUOTE(txt) #txt
+ #define FORMAT(txt, var) format [QUOTE(txt), var]
  
  // Debug tools
  #ifdef DEBUG
@@ -50,16 +51,20 @@
  #endif
  
  // Logging
- #define ERROR_LOG(msg) LOG(OurAltis VERSION [Error]: msg)
- #define NOTIFICATION_LOG(msg) LOG(OurAltis VERSION [Notification]: msg)
- #define WARNING_LOG(msg) LOG(OurAltis VERSION [Warning]: msg)
+ #define ERROR_LOG(msg) LOG(<t color='#ff0000'>OurAltis VERSION [Error]:</t> msg)
+ #define NOTIFICATION_LOG(msg) LOG(<t color='#50dd00'>OurAltis VERSION [Notification]:</t> msg)
+ #define WARNING_LOG(msg) LOG(<t color='#ff8f00'>OurAltis VERSION [Warning]:</t> msg)
  
  #define SCRIPT_REFERENCE format["(%1: %2)", _fnc_scriptName, __LINE__]
  
  #ifdef SHOW_ONSCREEN_NOTIFICATIONS
  	//TODO: use popup window for error display
- 	#define LOG(msg) diag_log (QUOTE(msg) + SCRIPT_REFERENCE); hint (QUOTE(msg) + " " + SCRIPT_REFERENCE);
- 	#define LOG_VAR(var) diag_log (str var + SCRIPT_REFERENCE); hint (str var + " " + SCRIPT_REFERENCE);
+ 	#define LOG(msg) diag_log (parseText(QUOTE(msg) + " - " + SCRIPT_REFERENCE)); \
+ 		hintSilent (parseText(QUOTE(msg) + "</br>" + SCRIPT_REFERENCE));
+ 	#define LOG_VAR(var) diag_log (parseText(str var + " - " + SCRIPT_REFERENCE)); \
+ 		hintSilent (parseText(str var + "</br>" + SCRIPT_REFERENCE));
+ 	#define FORMAT_LOG(msg, var) diag_log (parseText(FORMAT(msg, var) + " - " + SCRIPT_REFERENCE)); \
+ 		hintSilent (parseText(FORMAT(msg, var) + " - " + SCRIPT_REFERENCE));
  #else
 	 #define LOG(msg) diag_log (QUOTE(msg) + " " + SCRIPT_REFERENCE);
 	 #define LOG_VAR(var) diag_log (str var + " " + SCRIPT_REFERENCE);
@@ -77,3 +82,6 @@
  #define EVENT_INFANTRY_LIST_RECEIVED QUOTE(EVENT_PREFIX.InfantryListReceived)
  
  #define EVENT_BASES_INITIALIZED QUOTE(EVENT_PREFIX.basesInitialized)
+ 
+ #define EVENT_REQUEST_RESPAWN QUOTE(EVENT_PREFIX.requestRespawn)
+ #define EVENT_ANSWER_REQUEST_RESPAWN QUOTE(EVENT_PREFIX.answerRespawnRequest)

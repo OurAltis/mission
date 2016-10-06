@@ -5,7 +5,7 @@
  * Author: Raven
  * 
  * Description:
- * Gets the side of the given base
+ * Gets the side of the given base. Has to be executed on server!
  * 
  * Parameter(s):
  * 0: The base's name <String>

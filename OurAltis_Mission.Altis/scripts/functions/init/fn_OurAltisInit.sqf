@@ -32,7 +32,7 @@ if(isServer) then {
 	// erstellt ein Feldlager und eine Basis
 	[
 		[[14917, 16471], blufor, "Conner", false],
-		[[14817, 17671], independent, "Maxwell", true],
+		[[14817, 17671], blufor, "Maxwell", true],
 		[[15317, 13471], east, "Rainbow", false]
 	] call FUNC(createBases);
 	
@@ -40,7 +40,7 @@ if(isServer) then {
 	[0,1,0] call FUNC(setMissionParameter);
 	
 	// Infanterie hinzufuegen
-	[["Rifleman", 5, "Conner"], ["Medic", 3, "Conner"], ["Medic", 2, "Maxwell"]] call FUNC(configureInfantry);
+	[["Rifleman", 5, "Conner"], ["Medic", 3, "Conner"], ["Medic", 1, "Maxwell"]] call FUNC(configureInfantry);
 	/*
 	// Fuegt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
 	[["KlassenNameDesFahrzeugsDerMirGradNichtEinfaellt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);*/

@@ -19,7 +19,7 @@ class CfgFunctions
 			file = FUNC_PATH(client);
 			
 			class clientInit {postInit = 1};
-			class configureLoadoutHandler {};
+			class doWithServerPermission {};
 			class markBases {};
 			class updateLoadoutForBase {};
 			class workWithBaseList {};
@@ -31,6 +31,7 @@ class CfgFunctions
 			file = FUNC_PATH(server);
 			
 			class calculateBaseMarkerOffset {};
+			class checkRespawn {};
 			class configureInfantry {};
 			class configureServerEventHandler {};
 			class setMissionParameter {};
@@ -48,11 +49,44 @@ class CfgFunctions
 			class initializeGenericMissionPart {};
 		};
 		
+		class respawn
+		{
+			file = FUNC_PATH(respawn);
+			
+			class addMultipleRespawnPositions {};
+			class addMultipleRespawnRoles {};
+			class addRespawnPosition {};
+			class addRespawnRole {};
+			class clearRespawnPositions {};
+			class clearRespawnRoles {};
+			class configureRespawnData {};
+			class createOurAltisUnit {};
+			class handlePlayerDeath {};
+			class hideRespawnMenu {};
+			class removeMultipleRespawnPositions {};
+			class removeMultipleRespawnRoles {};
+			class removeRespawnPosition {};
+			class removeRespawnRole {};
+			class RespawnButtonPressed {};
+			class respawnInit {};
+			class selectedPositionChanged {};
+			class selectedRoleChanged {};
+			class showRespawnMenu {};
+			class showRolesForSelectedPosition {};
+			class updateDisplayedRespawnPositions {};
+			class updateRoleList {};
+		};
+		
 		class util
 		{
 			file = FUNC_PATH(util);
 			
 			class calculateOffset {};
+			class getConfigRespawnDelay {};
+			class getLoadoutsForBase {};
+			class getReinforcementCount {};
+			class removeBaseRespawn {};
+			class showPauseMenu {};
 		};
 		
 		class events

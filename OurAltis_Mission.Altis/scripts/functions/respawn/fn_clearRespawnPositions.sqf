@@ -1,11 +1,11 @@
 #include "macros.hpp"
 /**
- * OurAltis_Mission - fn_clientInit
+ * OurAltis_Mission - fn_clearRespawnPositions
  * 
  * Author: Raven
  * 
  * Description:
- * Initializes OurAltis on the client
+ * Clears the respawn positions without a change event
  * 
  * Parameter(s):
  * 0: None <Any>
@@ -15,6 +15,6 @@
  * 
  */
 
-[] call FUNC(markBases);
+RGVAR(RespawnPositions) = [];
 
 nil;

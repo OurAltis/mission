@@ -24,8 +24,7 @@ params [
 
 CHECK_FALSE(isNil "_type", Invalid eventType!, {})
 
-DEBUG_EXEC(private _msg = ("OurAltis " + QVERSION + " [Event]: fired - " + str _type + " " + SCRIPT_REFERENCE); 
-diag_log _msg; hint _msg;)
+DEBUG_EXEC(EVENT_LOG(fired - %1, str _type))
 
 private _hasMatched = false;
 

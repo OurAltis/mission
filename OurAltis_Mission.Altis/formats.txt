@@ -3,5 +3,11 @@ BaseList format: [Base, Base, ...]
 
 InfantryType format: [<ClassName>, <Amount>] - [STRING, NUMBER]
 InfantryCollection format: [InfantryType, InfantryType, ...]
-BaseInfantryList format: [<Base-ID>, InfantryCollection] - [STRING, <>]
-SideInfatry format: [<Side>, BaseInfantryList] - [SIDE, <>]
+BaseInfantryList format: [[<BaseID>, InfantryCollection], ...] - [[STRING, <>], ...]
+SideInfantry format: [<Side>, BaseInfantryList] - [SIDE, <>]
+
+Pos format: [<ID>, <Name>, <Position>] - [NUMBER, STRING, POSITION]
+RespawnPositions format: [Pos, ...] - [<>]
+
+Role format: [<ID>, <Availability>, <name>, <Create>] - [NUMBER, ARRAY of Strings, STRING, CODE] -> Create will be called in order to create the new unit (has to return it)
+RespawnRoles format: [Role, ...] - [<>]

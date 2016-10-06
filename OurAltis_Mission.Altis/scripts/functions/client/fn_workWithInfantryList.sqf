@@ -23,6 +23,6 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {});
 
-[2, EVENT_INFANTRY_LIST_REQUEST, EVENT_INFANTRY_LIST_RECEIVED, _code, _parameter] call FUNC(workWithRequest);
+[2, EVENT_INFANTRY_LIST_REQUEST, EVENT_INFANTRY_LIST_RECEIVED, _code, _parameter, []] call FUNC(workWithRequest);
 
 nil;
