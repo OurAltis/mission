@@ -8,26 +8,24 @@
  * Checks whether the respawn with given data is valid. If so the infantry list will be updated.
  * 
  * Parameter(s):
- * 1: The base the respawn took playe <String>
- * 2: The role the respawn has been committed as <String>
+ * 1: The base the respawn takes place <String>
+ * 2: The role the respawn will been committed as <String>
  * 
  * Return Value:
  * The error message or an empty String if everything is okay <String>
  * 
  */
 
-private ["_success", "_errorMsg", "_baseSide"];
-
-_success = params [
+private _success = params [
 	["_base", "", [""]],
 	["_role", "", [""]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {"[Error]: Invalid respawn data!"});
 
-_errorMsg = "";
+private _errorMsg = "";
 
-_baseSide = [_base] call FUNC(getBaseSide);
+private _baseSide = [_base] call FUNC(getBaseSide);
 
 if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName sideUnknown)) then {
 	// The base couldn't be found
@@ -40,16 +38,16 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 		private _currentSideInfantry = _x;
 		
 		// search for the respective side's baseList
-		if ((_currentSideInfantry select 0) isEqualTo _baseSide) then {
+		if ((_currentSideInfantry select 0) isEqualTo _baseSide) exitWith {
 			{
 				private _currentBaseInfantryList = _x;
 				
 				// search for the respective base
-				if((_currentBaseInfantryList select 0) isEqualTo _base) then {		
+				if((_currentBaseInfantryList select 0) isEqualTo _base) exitWith {		
 					{
 						private _currentInfantryType = _x;
 						
-						if((_currentInfantryType select 0) isEqualTo _role) then {
+						if((_currentInfantryType select 0) isEqualTo _role) exitWith {
 							// found the respective role in the list
 							private _amount = _currentInfantryType select 1;
 							
@@ -74,8 +72,6 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 							
 							_found = true;
 						};
-						
-						if(_found) exitWith {};
 					} forEach (_currentBaseInfantryList select 1); // iterate through all available roles
 					
 					if(_needsClearing) then {
@@ -95,11 +91,7 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 					};
 					
 					(_currentSideInfantry select 1) set [_forEachIndex, _currentBaseInfantryList];
-					
-					_found = true;
 				};
-				
-				if(_found) exitWith {}; // break out of loop
 			} forEach (_currentSideInfantry select 1); // iterate through the base-specific list
 			
 			if(_needsClearing) then {
@@ -115,11 +107,7 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 			};
 			
 			GVAR(Infantry) set [_forEachIndex, _currentSideInfantry];
-			
-			_found = true;
 		};
-		
-		if(_found) exitWith {}; // don't search further as it has been found
 	} forEach GVAR(Infantry); // iterate through the complete infantry list
 	
 	if(_needsClearing) then {
@@ -128,6 +116,16 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 	
 	if(!_found) then {
 		_errorMsg = "The role '" + _role + "' is no longer available...";
+	} else {
+		// Notify Clients that list has changed
+		if(!isDedicated) then {
+			// for local host do everything manually
+			PGVAR(INF_CHANGED) = true;
+			
+			[EVENT_INF_CHANGED,[]] call FUNC(fireEvent);
+		} else {
+			publicVariable QPGVAR(INF_CHANGED);
+		};
 	};
 };
 

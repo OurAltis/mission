@@ -27,6 +27,8 @@ if(RGVAR(PreCloseRespawnMenuHandlerIsPresent)) then {
 };
 
 
+RGVAR(RespawnButtonEnabled) = false; // reset flag
+
 // hide respawn menu
 with uiNamespace do {
 	// disable respawn button for next respawn
@@ -48,6 +50,8 @@ openMap [false, false];
 [RGVAR(PositionChangeHandler)] call FUNC(removeEventHandler);
 // remove role change handler
 [RGVAR(RoleChangeHandler)] call FUNC(removeEventHandler);
+// remove infantry list change handler
+[RGVAR(InfantryListChangeHandler)] call FUNC(removeEventHandler);
 
 
 if(RGVAR(PostCloseRespawnMenuHandlerIsPresent)) then {

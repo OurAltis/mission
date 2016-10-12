@@ -17,6 +17,9 @@
 
 private ["_selectedClass", "_selectedBase"];
 
+// Don't proceed  if there is no selection
+if (lbCurSel (uiNamespace getVariable QRGVAR(RespawnMenuRoleSelection)) == -1) exitWith {};
+
 // get the current selection
 with uiNamespace do {
 	_selectedClass = (RGVAR(RespawnMenuRoleSelection) getVariable [

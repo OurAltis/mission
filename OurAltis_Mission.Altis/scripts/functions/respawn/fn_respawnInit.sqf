@@ -21,6 +21,7 @@ RGVAR(NewPositionID) = 0;
 RGVAR(NewRoleID) = 0;
 
 RGVAR(RespawnTime) = 0;
+RGVAR(RespawnButtonEnabled) = false;
 
 RGVAR(DeadGroup) = createGroup civilian;
 
@@ -74,6 +75,7 @@ with uiNamespace do {
 	RGVAR(RespawnMenuNoPositionText) = _mapDisplay ctrlCreate ["RscText", 1105, RGVAR(RespawnMenuControlsGroup)];
 	RGVAR(RespawnMenuNoPositionText) ctrlSetText "No respawn position available";
 	RGVAR(RespawnMenuNoPositionText) ctrlSetPosition [0.01, 0.1725, 0.3, 0.03];
+	RGVAR(RespawnMenuNoPositionText) ctrlSetTextColor [1,1,1,0.5];
 	RGVAR(RespawnMenuNoPositionText) ctrlCommit 0;
 	
 	// Role selection background

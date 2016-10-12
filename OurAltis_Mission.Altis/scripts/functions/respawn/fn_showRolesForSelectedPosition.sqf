@@ -15,20 +15,24 @@
  * 
  */
 
-disableSerialization;
-
 with uiNamespace do {
-	private ["_selectionIndex", "_selectedBase", "_rolesToDisplay"];
+	private _selectionIndex = lbCurSel RGVAR(RespawnMenuPositionSelection);
 	
-	_rolesToDisplay = [];
-	_selectionIndex = lbCurSel RGVAR(RespawnMenuPositionSelection);
+	// get current selected role in order to restore selection afterwards
+	private _selectedRoleIndex = lbCurSel RGVAR(RespawnMenuRoleSelection);
+	
+	for "_i" from 0 to (lbSize RGVAR(RespawnMenuRoleSelection)) do {
+		// delete all previously set meta variables
+		RGVAR(RespawnMenuRoleSelection) setVariable [str _i, nil];
+	};
+	
 	
 	// clear role display
 	lbClear RGVAR(RespawnMenuRoleSelection);
 	
 	
 	if(_selectionIndex >= 0) then {
-		_selectedBase = RGVAR(RespawnMenuPositionSelection) getVariable [str _selectionIndex, ""];
+		private _selectedBase = RGVAR(RespawnMenuPositionSelection) getVariable [str _selectionIndex, ""];
 		
 		{
 			_x params [
@@ -48,6 +52,7 @@ with uiNamespace do {
 		} count (missionNamespace getVariable [QRGVAR(RespawnRoles), []]);
 	};
 	
+	
 	if(lbSize RGVAR(RespawnMenuRoleSelection) > 0) then {
 		// hide "no-role"-text
 		RGVAR(RespawnMenuNoRoleText) ctrlEnable false;
@@ -56,9 +61,19 @@ with uiNamespace do {
 		
 		RGVAR(RespawnMenuRoleSelection) lbSetCurSel 0;
 		
-		// enable respawn button
-		RGVAR(RespawnMenuRespawnButton) ctrlEnable true;
-		RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
+		// indicate that respawn button should be enabled
+		missionNamespace setVariable [QRGVAR(RespawnButtonEnabled), true];
+		
+		// restore selection
+		if (_selectedRoleIndex >= lbSize RGVAR(RespawnMenuRoleSelection)) then {
+			RGVAR(RespawnMenuRoleSelection) lbSetCurSel (lbSize RGVAR(RespawnMenuRoleSelection) - 1);
+		} else {
+			if(_selectedRoleIndex == -1) then {
+				RGVAR(RespawnMenuRoleSelection) lbSetCurSel 0;
+			} else {
+				RGVAR(RespawnMenuRoleSelection) lbSetCurSel _selectedRoleIndex;
+			};
+		};
 		
 		// enable reinforcements display
 		RGVAR(RespawnMenuReinforcements) ctrlShow true;
@@ -69,9 +84,8 @@ with uiNamespace do {
 		RGVAR(RespawnMenuNoRoleText) ctrlShow true;
 		RGVAR(RespawnMenuNoRoleText) ctrlCommit 0;
 		
-		// disable respawn button
-		RGVAR(RespawnMenuRespawnButton) ctrlEnable false;
-		RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
+		// indicate that respawn button should be disabled
+		missionNamespace setVariable [QRGVAR(RespawnButtonEnabled), false];
 		
 		// disable reinforcements display
 		RGVAR(RespawnMenuReinforcements) ctrlShow false;

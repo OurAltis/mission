@@ -34,7 +34,7 @@ _finished = false;
 {
 	_x params ["_side", "_baseInfantryList"];
 	
-	if(_side isEqualTo (side player)) then {
+	if(_side isEqualTo (side (group player))) then {
 		{			
 			_x params ["_base", "_infantryCollection"];
 			

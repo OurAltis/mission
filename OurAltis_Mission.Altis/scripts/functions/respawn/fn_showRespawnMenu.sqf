@@ -34,11 +34,13 @@ with  uiNamespace do {
 	RGVAR(RespawnMenuControlsGroup) ctrlCommit 0;
 };
 
+// update respawn data
+[] call FUNC(updateRespawnData);
+
 // update position display
 [] call FUNC(updateDisplayedRespawnPositions);
 
 // update role display
-[] call FUNC(updateRoleList);
 [] call FUNC(showRolesForSelectedPosition);
 
 // open map
@@ -53,6 +55,12 @@ RGVAR(PositionChangeHandler) = [
 	{
 		[] call FUNC(updateDisplayedRespawnPositions);
 		[] call FUNC(showRolesForSelectedPosition);
+		
+		// update respawn button status if the respawn time has been reached
+		if ((RGVAR(RespawnTime) - time) <= 0) then {
+			(uiNamespace getVariable QRGVAR(RespawnMenuRespawnButton)) ctrlEnable RGVAR(RespawnButtonEnabled);
+			(uiNamespace getVariable QRGVAR(RespawnMenuRespawnButton)) ctrlCommit 0;
+		};
 	}
 ] call FUNC(addEventHandler);
 
@@ -60,7 +68,25 @@ RGVAR(PositionChangeHandler) = [
 RGVAR(RoleChangeHandler) = [
 	EVENT_RESPAWN_ROLES_CHANGED,
 	{
-		[] call FUNC(updateRolesForSelectedPosition);
+		[] call FUNC(showRolesForSelectedPosition);
+		
+		// update respawn button status if the respawn time has been reached
+		if ((RGVAR(RespawnTime) - time) <= 0) then {
+			(uiNamespace getVariable QRGVAR(RespawnMenuRespawnButton)) ctrlEnable RGVAR(RespawnButtonEnabled);
+			(uiNamespace getVariable QRGVAR(RespawnMenuRespawnButton)) ctrlCommit 0;
+		};
+	}
+] call FUNC(addEventHandler);
+
+
+// add EH for infantry list changes
+RGVAR(InfantryListChangeHandler) = [
+	EVENT_INF_CHANGED,
+	{
+		diag_log "INF changed";
+		
+		// update the respawn data according to the new list
+		[] call FUNC(updateRespawnData);
 	}
 ] call FUNC(addEventHandler);
 
@@ -70,9 +96,16 @@ RGVAR(RespawnTimeChecker) = [
 	{
 		if ((RGVAR(RespawnTime) - time) > 0) then {
 			with uiNamespace do {
+				if(!RGVAR(RespawnButtonEnabled)) exitWith {
+					// Make sure the button doesn't show the countdown if it can't be enabled anyway
+					RGVAR(RespawnMenuRespawnButton) ctrlSetText "Respawn";
+					RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
+					
+				};
+				
 				private ["_remainingDelay", "_delayArray"];
 				
-				_delayArray = (str ((missionNamespace getVariable QUOTE(RGVAR(RespawnTime))) - time)) splitString ".";
+				_delayArray  = (str ((missionNamespace getVariable QUOTE(RGVAR(RespawnTime))) - time)) splitString ".";
 			 
 				if (count _delayArray < 2) then {
 					// even number -> append zeros after comma
@@ -110,11 +143,13 @@ RGVAR(RespawnTimeChecker) = [
 			// remove the time checker
 			[RGVAR(RespawnTimeChecker)] call CBA_fnc_removePerFrameHandler;
 			
+			// reset respawn button
 			[
 				{
 					with uiNamespace do {
 						RGVAR(RespawnMenuRespawnButton) ctrlSetText "Respawn";
-						RGVAR(RespawnMenuRespawnButton) ctrlEnable true;
+						RGVAR(RespawnMenuRespawnButton) ctrlEnable (
+							missionNameSpace getVariable QRGVAR(RespawnButtonEnabled));
 						RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
 					};
 				}

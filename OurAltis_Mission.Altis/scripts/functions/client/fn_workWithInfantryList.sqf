@@ -23,6 +23,29 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {});
 
-[2, EVENT_INFANTRY_LIST_REQUEST, EVENT_INFANTRY_LIST_RECEIVED, _code, _parameter, []] call FUNC(workWithRequest);
+if(PGVAR(INF_CHANGED)) then {
+	_parameter pushBack _code;
+	
+	[
+		2,
+		EVENT_INFANTRY_LIST_REQUEST,
+		EVENT_INFANTRY_LIST_RECEIVED,
+		{
+			// update local list
+			GVAR(Infantry) = _this select 0;
+			PGVAR(INF_CHANGED) = false;
+			
+			// remove the code from the parameters
+			private _code = _this deleteAt (count _this - 1);
+			
+			_this call _code;
+		},
+		_parameter,
+		[]
+	] call FUNC(workWithRequest);
+} else {
+	// call the code with the local copy of the list as it hasn't changed
+	([GVAR(Infantry)] + _parameter) call _code;
+};
 
 nil;

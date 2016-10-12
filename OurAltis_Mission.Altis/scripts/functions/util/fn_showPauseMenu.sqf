@@ -5,7 +5,7 @@
  * Author: Raven - original from PRA3/addons/PRA3_Server/RespawnUI/fn_showDisplayInterruptEH.sqf (BadGuy, NetFusion)
  * 
  * Description:
- * This will open the pause menu that normally is triggered by Esc
+ * This will open the pause menu that is normally triggered by Esc
  * 
  * Parameter(s):
  * 0: None <Any>

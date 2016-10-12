@@ -20,12 +20,17 @@
 if (isServer) then {
 	[] call FUNC(configureServerEventHandler);
 	[] call FUNC(calculateBaseMarkerOffset);
+	
+	// indicators on client whether the lists have changed on the server
+	PGVAR(BASES_CHANGED) = true;
+	PGVAR(INF_CHANGED) = true;
+	
+	// broadcast indicators to all clients
+	publicVariable QPGVAR(BASES_CHANGED);
+	publicVariable QPGVAR(INF_CHANGED);
 };
 
 if (hasInterface) then {
-	GVAR(currentPlayerRole) = "";
-	GVAR(lastPlayerRespawn) = "";
-	
 	[
 		{
 			// wait until the map is loaded
@@ -43,6 +48,23 @@ if (hasInterface) then {
 			_ctrl ctrlsettextcolor [0,0,0,0];
 			_ctrl ctrlSetTooltip "";
 			_ctrl ctrlCommit 0;
+			
+			// add EH for the infantry list change
+			QPGVAR(INF_CHANGED) addPublicVariableEventHandler {
+				// fire event on this client
+				[
+					EVENT_INF_CHANGED,
+					[]
+				] call FUNC(fireEvent);
+			};
+			
+			// add EH for base list change
+			QPGVAR(BASES_CHANGED) addPublicVariableEventHandler {
+				[
+					EVENT_BASES_CHANGED,
+					[]
+				] call FUNC(fireEvent);
+			};
 		}
 	] call CBA_fnc_waitUntilAndExecute;
 };

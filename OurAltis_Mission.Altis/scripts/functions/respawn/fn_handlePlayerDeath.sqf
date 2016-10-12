@@ -14,26 +14,28 @@
  * None <Any>
  * 
  */
-
-// prevent auto-respawn
-setPlayerRespawnTime 99999999;
-
-if(time < 1) exitWith {[] call FUNC(showRespawnMenu); nil;};
-
-RGVAR(RespawnTime) = time + ([] call FUNC(getConfigRespawnDelay));
-
-// blend in blackscreen
-"respawnBlackScreen" cutText ["", "BLACK", 10, true];
-// fade out sound
-10 fadeSound 0;
-
-[
-	{
-		"respawnBlackScreen" cutFadeOut 0.001;
-		
-		[] call FUNC(updateRoleList);
-		[] call FUNC(showRespawnMenu);
-	},
-	[],
-	10
-] call CBA_fnc_waitAndExecute;
+ 
+// this function will be called in scheduled env -> switch to unscheduled
+isNil {
+	// prevent auto-respawn
+	setPlayerRespawnTime 99999999;
+	
+	if(time < 1) exitWith {[] call FUNC(showRespawnMenu); nil;};
+	
+	RGVAR(RespawnTime) = time + ([] call FUNC(getConfigRespawnDelay));
+	
+	// blend in blackscreen
+	"respawnBlackScreen" cutText ["", "BLACK", 10, true];
+	// fade out sound
+	10 fadeSound 0;
+	
+	[
+		{
+			"respawnBlackScreen" cutFadeOut 0.001;
+			
+			[] call FUNC(showRespawnMenu);
+		},
+		[],
+		10
+	] call CBA_fnc_waitAndExecute;
+};

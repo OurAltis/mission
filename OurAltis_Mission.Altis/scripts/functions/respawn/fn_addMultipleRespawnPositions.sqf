@@ -16,15 +16,13 @@
  * 
  */
 
-private ["_success", "_ids", "_fireEvent"];
-
-_success = params [
+private _success = params [
 	["_list", [], []]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {});
 
-_ids = [];
+private _ids = [];
 
 {
 	_ids pushBack ([_x select 0, _x select 1, false] call FUNC(addRespawnPosition));
@@ -33,7 +31,7 @@ _ids = [];
 } count _list;
 
 
-_fireEvent = true;
+private _fireEvent = true;
 // check if event should be fired
 if(count _this > 1) then {
 	_fireEvent = _this select 1;
@@ -44,6 +42,7 @@ if(count _this > 1) then {
 		_fireEvent = true;
 	};
 };
+
 // fire event if wished
 if (_fireEvent) then {
 	// fire event that a position has been added

@@ -77,6 +77,11 @@
 		_allow = _msg isEqualTo "";
 		_extraParams = [_msg];
 		
+		if(_allow) then {
+			// decrease the reinforcements of that role
+			[_base, _role] call FUNC(decreaseRoleReinforcements);
+		};
+		
 		
 		// send the base list to the respective client
 		[EVENT_ANSWER_REQUEST_RESPAWN, [_allow, _extraParams], _clientID] call FUNC(fireClientEvent);

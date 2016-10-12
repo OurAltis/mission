@@ -18,6 +18,8 @@
 private _types = [];
 {
 	_types pushBack (_x select 0);
+	
+	nil;
 } count GVAR(EventHandler);
 
 _types;

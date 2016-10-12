@@ -74,7 +74,7 @@ class CfgFunctions
 			class showRespawnMenu {};
 			class showRolesForSelectedPosition {};
 			class updateDisplayedRespawnPositions {};
-			class updateRoleList {};
+			class updateRespawnData {};
 		};
 		
 		class util
@@ -82,10 +82,10 @@ class CfgFunctions
 			file = FUNC_PATH(util);
 			
 			class calculateOffset {};
+			class getBasePosition {};
 			class getConfigRespawnDelay {};
 			class getLoadoutsForBase {};
 			class getReinforcementCount {};
-			class removeBaseRespawn {};
 			class showPauseMenu {};
 		};
 		

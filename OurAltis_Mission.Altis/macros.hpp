@@ -18,6 +18,8 @@
  
  #define GVAR(var) TAG##_##var
  #define QGVAR(var) QUOTE(GVAR(var))
+ #define PGVAR(var) TAG##_Public_##var
+ #define QPGVAR(var) QUOTE(PGVAR(var))
  
  #define FUNC(function) TAG##_fnc_##function
  #define QFUNC(function) QUOTE(FUNC(function))
@@ -85,3 +87,11 @@
  
  #define EVENT_REQUEST_RESPAWN QUOTE(EVENT_PREFIX.requestRespawn)
  #define EVENT_ANSWER_REQUEST_RESPAWN QUOTE(EVENT_PREFIX.answerRespawnRequest)
+ 
+ #define EVENT_INF_CHANGED QUOTE(EVENT_PREFIX.INF_CHANGED)
+ #define EVENT_BASES_CHANGED QUOTE(EVENT_PREFIX.BASES_CHANGED)
+ 
+ 
+ // define constants
+ #define BASES_CHANGED BaseListChangedOnServer
+ #define INF_CHANGED InfantryListChangedOnServer
