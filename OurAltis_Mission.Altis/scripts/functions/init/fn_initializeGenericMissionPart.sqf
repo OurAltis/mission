@@ -41,6 +41,8 @@ if (hasInterface) then {
 			[] call FUNC(respawnInit);
 			[] call FUNC(configureRespawnData);
 			
+			[] call FUNC(mapPositionsInit);
+			
 			// disable "faggot-button"
 			_display = uiNamespace getVariable "RSCDiary";
 			_ctrl = _display displayCtrl 1202;

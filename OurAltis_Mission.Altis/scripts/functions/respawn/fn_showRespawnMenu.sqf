@@ -5,7 +5,7 @@
  * Author: Raven
  * 
  * Description:
- * Shows/Opens the respawn menu and invokes respective EHs if present
+ * Shows/Opens the respawn menu and invokes respective entry points if present
  * 
  * Parameter(s):
  * 0: None <Any>
@@ -47,7 +47,26 @@ with  uiNamespace do {
 openMap [true, true];
 
 // add escape handler
-RGVAR(RespawnMenuEscHandler) = (findDisplay 12) displayAddEventHandler ["KeyDown", QUOTE(if((_this select 1) isEqualTo 1) then {[] call FUNC(showPauseMenu)};)];
+RGVAR(RespawnMenuEscHandler) = (findDisplay 12) displayAddEventHandler [
+									"KeyDown",
+									QUOTE(if((_this select 1) isEqualTo 1) then {[] call FUNC(showPauseMenu)};)
+								];
+								
+// add EH for closing the marker-place display when opened
+RGVAR(MarkerDisplayHandler) = [
+			{
+				if !(isNull (findDisplay 54)) then {
+					// close display as if pressed the cancel button
+					(findDisplay 54) closeDisplay 2;
+				};
+			}
+		] call CBA_fnc_addPerFrameHandler;
+		
+// hide user map-marker
+[] call FUNC(hideUserMapMarker);
+// hide own base marker
+[OWN_BASE_MARKER_PREFIX] call FUNC(hideMarkerByPrefix);
+
 
 // add EH for position change
 RGVAR(PositionChangeHandler) = [
@@ -96,16 +115,14 @@ RGVAR(RespawnTimeChecker) = [
 	{
 		if ((RGVAR(RespawnTime) - time) > 0) then {
 			with uiNamespace do {
-				if(!RGVAR(RespawnButtonEnabled)) exitWith {
+				if(!(missionNamespace getVariable QRGVAR(RespawnButtonEnabled))) exitWith {
 					// Make sure the button doesn't show the countdown if it can't be enabled anyway
 					RGVAR(RespawnMenuRespawnButton) ctrlSetText "Respawn";
 					RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
-					
 				};
 				
-				private ["_remainingDelay", "_delayArray"];
-				
-				_delayArray  = (str ((missionNamespace getVariable QUOTE(RGVAR(RespawnTime))) - time)) splitString ".";
+				private _delayArray  = (str ((missionNamespace getVariable QUOTE(
+							RGVAR(RespawnTime))) - time)) splitString ".";
 			 
 				if (count _delayArray < 2) then {
 					// even number -> append zeros after comma
@@ -129,9 +146,7 @@ RGVAR(RespawnTimeChecker) = [
 					];
 				};
 				
-				_remainingDelay = _delayArray joinString ".";
-				
-				RGVAR(RespawnMenuRespawnButton) ctrlSetText _remainingDelay;
+				RGVAR(RespawnMenuRespawnButton) ctrlSetText (_delayArray joinString ".");
 				RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
 			};
 		} else {

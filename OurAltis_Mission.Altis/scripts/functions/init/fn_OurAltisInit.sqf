@@ -40,7 +40,7 @@ if(isServer) then {
 	[0,1,0] call FUNC(setMissionParameter);
 	
 	// Infanterie hinzufuegen
-	[["Rifleman", 1, "Conner"]/*, ["Medic", 1, "Conner"], ["Medic", 1, "Maxwell"]*/] call FUNC(configureInfantry);
+	[["Rifleman", 2, "Conner"], ["Medic", 1, "Conner"], ["Medic", 1, "Maxwell"]] call FUNC(configureInfantry);
 	/*
 	// Fuegt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
 	[["KlassenNameDesFahrzeugsDerMirGradNichtEinfaellt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);*/

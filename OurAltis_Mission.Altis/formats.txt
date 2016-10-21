@@ -11,3 +11,5 @@ RespawnPositions format: [Pos, ...] - [<>]
 
 Role format: [<ID>, <Availability>, <name>, <Create>] - [NUMBER, ARRAY of Strings, STRING, CODE] -> Create will be called in order to create the new unit (has to return it)
 RespawnRoles format: [Role, ...] - [<>]
+
+mapPosition: [<Position>, <ShowID>, <SelectionCode>] - [POSITION2D, BOOLEAN, CODE]

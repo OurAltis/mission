@@ -45,6 +45,13 @@ openMap [false, false];
 
 // remove escape handler
 (findDisplay 12) displayRemoveEventHandler ["KeyDown", RGVAR(RespawnMenuEscHandler)];
+// remove the EH that prevents marler placement
+[RGVAR(MarkerDisplayHandler)] call CBA_fnc_removePerFrameHandler;
+
+// show user map marker again
+[] call FUNC(unhideUserMapMarker);
+// show own base marker again
+[OWN_BASE_MARKER_PREFIX] call FUNC(unhideMarkerByPrefix);
 
 // remove position change handler
 [RGVAR(PositionChangeHandler)] call FUNC(removeEventHandler);

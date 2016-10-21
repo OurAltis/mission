@@ -33,9 +33,8 @@
 			CHECK_TRUE(_success, Invalid base information!)
 			
 			if(_side isEqualTo (side player)) then {
-				// own base -> mark precicely
-				
-				_marker = createMarkerLocal [_id, _position];
+				// own base -> mark precicely				
+				_marker = createMarkerLocal [OWN_BASE_MARKER_PREFIX + _id, _position];
 				_marker setMarkerTextLocal _id;
 				_marker setMarkerTypeLocal "b_hq";
 			} else {
@@ -50,7 +49,8 @@
 				
 				// randomize position
 				_position = [(_position select 0) + (_offset select 0), (_position select 1) + (_offset select 1)];
-				_marker = createMarkerLocal [_id, _position];
+				
+				_marker = createMarkerLocal [ENEMY_BASE_MARKER_PREFIX + _id, _position];
 				_marker setMarkerShapeLocal "ELLIPSE";
 				_marker setMarkerSizeLocal [GVAR(MarkerAccuracy), GVAR(MarkerAccuracy)];
 				_marker setMarkerColorLocal "ColorRed";

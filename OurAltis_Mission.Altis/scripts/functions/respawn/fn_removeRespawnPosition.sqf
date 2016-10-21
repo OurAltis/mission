@@ -37,6 +37,10 @@ _found = false;
 {
 	if ((_x select _searchIndex) isEqualTo _id) then {
 		RGVAR(RespawnPositions) set [_forEachIndex, objNull];
+		
+		// remove respective mapMarker
+		[_x select 1] call FUNC(deleteMapPosition);
+		
 		_found = true;
 	};
 	
@@ -64,6 +68,7 @@ if(count _this > 1 && _found) then {
 if (_fireEvent && _found) then {
 	// fire event that position has been removed
 	[EVENT_RESPAWN_POSITIONS_CHANGED, [false]] call FUNC(fireEvent);
+	[{[] call FUNC(showRolesForSelectedPosition);}] call CBA_fnc_execNextFrame;
 };
 
 

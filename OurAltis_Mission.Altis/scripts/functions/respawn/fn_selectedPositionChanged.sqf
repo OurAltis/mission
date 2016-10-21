@@ -17,6 +17,20 @@
 
 [] call FUNC(showRolesForSelectedPosition);
 
+[
+	{
+		// make respective mapPosition active
+		private _id = "";
+		
+		with uiNamespace do {
+			_id =  RGVAR(RespawnMenuPositionSelection) lbText (lbCurSel RGVAR(RespawnMenuPositionSelection));
+		};
+		
+		[_id] call FUNC(setActiveMapPosition);
+		
+		nil;
+	}
+] call CBA_fnc_execNextFrame;
 //TODO: map animation
 
 nil;

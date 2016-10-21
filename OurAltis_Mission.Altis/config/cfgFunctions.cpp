@@ -49,6 +49,16 @@ class CfgFunctions
 			class initializeGenericMissionPart {};
 		};
 		
+		class mapPositions 
+		{
+			file = FUNC_PATH(mapPositions);
+			
+			class createMapPosition {};
+			class deleteMapPosition {};
+			class mapPositionsInit {};
+			class setActiveMapPosition {};
+		};
+		
 		class respawn
 		{
 			file = FUNC_PATH(respawn);
@@ -86,7 +96,12 @@ class CfgFunctions
 			class getConfigRespawnDelay {};
 			class getLoadoutsForBase {};
 			class getReinforcementCount {};
+			class hideMarkerByPrefix {};
+			class hideUserMapMarker {};
+			class setMarkerAlphaByPrefix {};
 			class showPauseMenu {};
+			class unhideMarkerByPrefix {};
+			class unhideUserMapMarker {};
 		};
 		
 		class events

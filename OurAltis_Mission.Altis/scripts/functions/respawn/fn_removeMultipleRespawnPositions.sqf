@@ -37,6 +37,10 @@ _foundNone = true;
 	nil;
 } count _list;
 
+if(!_foundNone) then {
+	[{[] call FUNC(showRolesForSelectedPosition);}] call CBA_fnc_execNextFrame;
+};
+
 
 _fireEvent = true;
 // check if event should be fired
