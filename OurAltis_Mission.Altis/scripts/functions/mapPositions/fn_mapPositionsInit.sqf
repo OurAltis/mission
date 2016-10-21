@@ -156,9 +156,11 @@ findDisplay 12 displayCtrl 51 ctrlAddEventHandler[
 
 
 // add mission-EH for the selection logic
-addMissionEventHandler [
-	"MapSingleClick", //TODO: is slow af
-	{		
+(findDisplay 12) displayAddEventHandler [
+	"MouseButtonUp",
+	{
+		//TODO: implement some rectangle area in which the positions are
+		
 		// get 3D mouse position
 		private _map = findDisplay 12 displayCtrl 51;
 		private _mousePosition = (_map ctrlMapScreenToWorld getMousePosition) + [0];
