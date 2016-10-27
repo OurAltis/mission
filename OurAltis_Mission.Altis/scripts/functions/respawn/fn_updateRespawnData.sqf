@@ -24,6 +24,8 @@
 		// clear the old data
 		[] call FUNC(clearRespawnRoles);
 		[] call FUNC(clearRespawnPositions);
+		// clear map positions
+		[] call FUNC(clearMapPositions);
 		
 		private _roleList = [];
 		private _baseList = [];

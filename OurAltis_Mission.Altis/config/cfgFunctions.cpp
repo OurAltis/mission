@@ -53,6 +53,7 @@ class CfgFunctions
 		{
 			file = FUNC_PATH(mapPositions);
 			
+			class clearMapPositions {};
 			class createMapPosition {};
 			class deleteMapPosition {};
 			class mapPositionsInit {};
