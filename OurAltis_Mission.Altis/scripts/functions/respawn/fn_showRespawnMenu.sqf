@@ -102,8 +102,6 @@ RGVAR(RoleChangeHandler) = [
 RGVAR(InfantryListChangeHandler) = [
 	EVENT_INF_CHANGED,
 	{
-		diag_log "INF changed";
-		
 		// update the respawn data according to the new list
 		[] call FUNC(updateRespawnData);
 	}
@@ -115,15 +113,16 @@ RGVAR(RespawnTimeChecker) = [
 	{
 		if ((RGVAR(RespawnTime) - time) > 0) then {
 			with uiNamespace do {
+				diag_log "Test";
+				
 				if(!(missionNamespace getVariable QRGVAR(RespawnButtonEnabled))) exitWith {
 					// Make sure the button doesn't show the countdown if it can't be enabled anyway
 					RGVAR(RespawnMenuRespawnButton) ctrlSetText "Respawn";
 					RGVAR(RespawnMenuRespawnButton) ctrlCommit 0;
 				};
 				
-				private _delayArray  = (str ((missionNamespace getVariable QUOTE(
-							RGVAR(RespawnTime))) - time)) splitString ".";
-			 
+				private _delayArray  = (str ((missionNamespace getVariable QRGVAR(RespawnTime)) - time)) splitString ".";
+			 	
 				if (count _delayArray < 2) then {
 					// even number -> append zeros after comma
 					_delayArray pushBack "000";
