@@ -25,6 +25,7 @@ if(isServer) then {
 	// variable init
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
+	GVAR(VehicleListVirtual) = [];
 	GVAR(OperationName) = "Operation Beispiel";
 	
 	
@@ -41,9 +42,25 @@ if(isServer) then {
 	
 	// Infanterie hinzufuegen
 	[["Rifleman", 2, "Conner"], ["Medic", 1, "Conner"], ["Medic", 1, "Maxwell"]] call FUNC(configureInfantry);
-	/*
-	// Fuegt einFahrzeug mit vollem Tank und voller Gesundheit hinzu
-	[["KlassenNameDesFahrzeugsDerMirGradNichtEinfaellt", "ID1", 1, 0, "Conner"], [...]] call FUNC(configureVehicles);*/
+	
+	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 
+	[3, 1] call FUNC(createHelipads);
+	
+	// Erstellt die Fahrzeuge ["CLassenname", Treibstofffüllstand, Schaden, Spawnpunkt]
+	[
+		["B_MRAP_01_F", 1, 0, "Conner"],
+		["B_G_Offroad_01_armed_F", 0.5, 0.8, "Conner"],
+		["B_MRAP_01_F", 1, 0, "Conner"],
+		["B_MRAP_01_F", 1, 0, "Conner"],
+		["B_Quadbike_01_F", 0.5, 0.2, "Maxwell"],
+		["B_Quadbike_01_F", 0, 0.7, "Maxwell"],
+		["B_Quadbike_01_F", 0.3, 0.1, "Maxwell"],
+		["B_Quadbike_01_F", 1, 0.9, "Maxwell"],
+		["B_Heli_Light_01_armed_F", 0, 0.8, "Conner"],
+		["B_Heli_Light_01_armed_F", 0, 0.9, "Conner"],
+		["B_Heli_Light_01_armed_F", 1, 0, "Conner"],
+		["B_Heli_Light_01_armed_F", 0.2, 0, "Maxwell"]
+	] call FUNC(createVehicles);
 };
 
 [] call FUNC(initializeGenericMissionPart);

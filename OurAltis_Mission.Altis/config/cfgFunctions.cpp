@@ -32,7 +32,7 @@ class CfgFunctions
 			
 			class calculateBaseMarkerOffset {};
 			class checkRespawn {};
-			class configureInfantry {};
+			class configureInfantry {};			
 			class configureServerEventHandler {};
 			class setMissionParameter {};
 		};
@@ -120,6 +120,20 @@ class CfgFunctions
 			class removeEventHandler {};
 			class removeEventHandlerType {};
 			class workWithRequest {};
+		};
+		
+		class vehicles
+		{
+			file = FUNC_PATH(vehicles);
+			
+			class createVehicles {}; 
+		};
+		
+		class dev
+		{
+			file = FUNC_PATH(dev);
+			
+			class createHelipads {};
 		};
 	};
 };
