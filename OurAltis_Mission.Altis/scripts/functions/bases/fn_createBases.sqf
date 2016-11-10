@@ -14,6 +14,8 @@
  * None <Any>
  * 
  */
+ 
+private _baseDir = _this call FUNC(getBaseDir);
 
 {
 	private ["_success", "_respawnID"];
@@ -32,7 +34,7 @@
 		[_position, _side, _id] call FUNC(createCamp);
 	} else {
 		// create a base
-		[_position, _side, _id] call FUNC(createBase);
+		[_position, _side, _id, _baseDir] call FUNC(createBase);
 	};
 	
 	// add base to list
@@ -43,4 +45,4 @@
 
 [EVENT_BASES_INITIALIZED, []] call FUNC(fireGlobalClientEvent);
 
-nil;
+nil
