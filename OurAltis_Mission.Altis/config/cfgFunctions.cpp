@@ -12,6 +12,8 @@ class CfgFunctions
 			class createBase {};
 			class createCamp {};
 			class getBaseSide {};
+			class detachBaseObjs {};
+			class getBaseDir {};
 		};
 		
 		class client
@@ -103,6 +105,7 @@ class CfgFunctions
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
+			class KK_arrayShuffle {};
 		};
 		
 		class events

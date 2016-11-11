@@ -39,16 +39,19 @@
 		
 		if(_spawn isEqualTo _id) then{
 			_objList = if(_type isKindOf "LandVehicle") then{
-				nearestObjects [_position, ["Land_HelipadEmpty_F"], 50];
+				nearestObjects [_position, ["Land_HelipadEmpty_F"], 80];
 			} else {
-				nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 50];
+				nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
 			};		
+			
+			_objList = [_objList, 10] call FUNC(KK_arrayShuffle);
 			
 			_return = {
 				if(!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith{
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					_obj setFuel _fuel;
 					_obj setDamage _damage;	
+					_obj setDir (getDir _x);
 					
 					_x setVariable [QGVAR(VehiclePlaced), true];
 					
