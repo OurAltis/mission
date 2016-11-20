@@ -12,7 +12,6 @@ class CfgFunctions
 			class createBase {};
 			class createCamp {};
 			class getBaseSide {};
-			class detachBaseObjs {};
 			class getBaseDir {};
 		};
 		
@@ -106,6 +105,7 @@ class CfgFunctions
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
 			class KK_arrayShuffle {};
+			class objectsMapper {};
 		};
 		
 		class events
