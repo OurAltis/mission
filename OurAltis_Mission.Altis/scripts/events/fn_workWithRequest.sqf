@@ -33,7 +33,7 @@ _default = params [
 
 CHECK_TRUE(_default, Invalid parameters!, {});
 
-_handlerID = [
+[
 	_receiveID,
 	{
 		params [
@@ -54,7 +54,7 @@ _handlerID = [
 		_parameter call _code;
 		
 		// remove this handler as it now has been executed
-		[_handlerID] call FUNC(removeEventHandler);
+		[_thisHandler] call FUNC(removeEventHandler);
 		
 		nil;
 	}
