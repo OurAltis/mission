@@ -26,22 +26,17 @@ CHECK_FALSE(isNil "_type", Invalid eventType!, {})
 
 DEBUG_EXEC(EVENT_LOG(fired - %1, str _type))
 
-private _hasMatched = false;
-
 {
-	if((_x select 0) isEqualTo _type) then {
+	if((_x select 0) isEqualTo _type) exitWith {
 		// execute all listeners
 		{
-			private _thisHandler = _forEachIndex;
+			private _thisHandler = _x select 1;
+			
 			_eventParameter call (_x select 0);
 			
 			nil;
 		} count (_x select 1);
-		
-		_hasMatched = true;
 	};
-	// exit loop because there won't come any more matches
-	if(_hasMatched) exitWith {};
-} forEach GVAR(EventHandler);
+} count GVAR(EventHandler);
 
 nil;
