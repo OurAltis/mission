@@ -42,6 +42,8 @@ GVAR(NextID) = GVAR(NextID) + 1;
 	
 	// don't loop any further
 	if(_matched) exitWith {};
+	
+	nil;
 } count GVAR(EventHandler);
 
 if(!_matched) then {
