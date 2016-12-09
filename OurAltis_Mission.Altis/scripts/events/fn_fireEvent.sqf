@@ -32,6 +32,7 @@ private _hasMatched = false;
 	if((_x select 0) isEqualTo _type) then {
 		// execute all listeners
 		{
+			private _thisHandler = _forEachIndex;
 			_eventParameter call (_x select 0);
 			
 			nil;
@@ -41,6 +42,6 @@ private _hasMatched = false;
 	};
 	// exit loop because there won't come any more matches
 	if(_hasMatched) exitWith {};
-} count GVAR(EventHandler);
+} forEach GVAR(EventHandler);
 
 nil;
