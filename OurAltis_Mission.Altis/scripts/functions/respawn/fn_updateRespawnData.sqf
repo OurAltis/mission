@@ -21,6 +21,10 @@
 			["_infantryList", [], [[]]]
 		];
 		
+		CHECK_FALSE(isNil "_infantryList", Nil-infantry list!, {})
+		
+		diag_log ("Updating infatry list according to " + str _infantryList);
+		
 		// clear the old data
 		[] call FUNC(clearRespawnRoles);
 		[] call FUNC(clearRespawnPositions);
