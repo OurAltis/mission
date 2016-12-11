@@ -39,7 +39,7 @@ if (hasInterface) then {
 		{
 			// initialize the respawn system
 			[] call FUNC(respawnInit);
-			[] call FUNC(configureRespawnData);
+			[] call FUNC(updateRespawnData);
 			
 			[] call FUNC(mapPositionsInit);
 			
