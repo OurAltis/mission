@@ -1,0 +1,19 @@
+#include "config\cfgFunctions.cpp"
+#include "config\inventories.cpp"
+#include "config\roles.cpp"
+#include "config\cfgRespawnTemplates.cpp"
+#include "macros.hpp"
+
+author = "Raven";
+onLoadName = "OurAltis_Mission";
+
+respawn = "BASE";
+respawnDialog = 0;
+respawnTemplates[] = {"OurAltis"};
+
+//allowFunctionsLog = 1;
+saving = 0;
+
+//debug stuff
+enableDebugConsole = 1;
+FUNCTIONS_RECOMPILE
