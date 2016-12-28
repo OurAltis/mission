@@ -60,10 +60,8 @@
 		
 		CHECK_FALSE(isNil "_clientID", Invalid client ID!, {})
 		
-		private ["_allow", "_extraParams"];
-		
-		_allow = false;
-		_extraParams = ["!Respawn error!"];
+		private _allow = false;
+		private _extraParams = ["!Respawn error!"];
 		
 		CHECK_TRUE(count _respawnInfo == 2, Invalid respawn information!, {})
 		

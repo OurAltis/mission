@@ -17,9 +17,11 @@
  * None <Any>
  * 
  */
- 
- private ["_selectedRoleIndex", "_roleData", "_base", "_position", "_oldPlayer", "_newPlayer"];
- 
+
+diag_log "Button pressed";
+
+private ["_selectedRoleIndex", "_roleData", "_base", "_position", "_oldPlayer", "_newPlayer"];
+
 // get needed data
 _selectedRoleIndex = lbCurSel (uiNamespace getVariable QRGVAR(RespawnMenuRoleSelection)); // get selection index
 
@@ -41,7 +43,7 @@ with uiNamespace do {
 		[-1, []] // default return value in case something goes wrong
 	]) select 1; // see fn_updateDisplayedRespawnPositions.sqf for implementation details
 	
-	CHECK_TRUE(count _position > 0, Unable to get respawn location!, {})
+	CHECK_TRUE(!isNil "_position" && count _position > 0, Unable to get respawn location!, {})
 };
 
 
@@ -50,6 +52,9 @@ with uiNamespace do {
 	EVENT_REQUEST_RESPAWN,
 	EVENT_ANSWER_REQUEST_RESPAWN,
 	{ // on permission
+		private _roleData = _this select 0;
+		private _position = _this select 1;
+		
 		// create unit by calling the stored creation code with the respective information
 		_newPlayer = [_roleData select 0, _position] call (_roleData select 1);
 		
@@ -86,10 +91,11 @@ with uiNamespace do {
 		] call CBA_fnc_waitAndExecute;
 	},
 	{ // on denial
+		diag_log "Respawn denied!";
 		hint "Respawn denied!";
 		
 		//TODO: open proper dialog + use server message
 	},
-	[_roleData], // parameter passed to the code
+	[_roleData, _position], // parameter passed to the code
 	[_base, _roleData select 0] // parameter passed to the server
 ] call FUNC(doWithServerPermission);

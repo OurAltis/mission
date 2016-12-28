@@ -36,18 +36,30 @@ CHECK_TRUE(_success, Invalid parameters!, {});
 	_request,
 	_answer,
 	{
-		(_this select 0) params [
+		diag_log "Executed server permission code";
+		
+		params [
+			["_serverParams", nil, [[]]],
+			["_parameter", nil, [[]]],
+			["_permissionCode", nil, [{}]],
+			["_denialCode", nil, [{}]]
+		];
+		
+		CHECK_FALSE(isNil "_serverParams" || isNil "_parameter" || isNil "_permissionCode" || isNil "_denialCode", Failed at retrieving parameter!, {})
+		
+		_serverParams params [
 			["_granted", false, [false]],
 			["_additionalParams", [], [[]]]
 		];
 		
 		// execute respective piece of code
 		if(_granted) then {
-			_codeParameter call _permissionCode;
+			_parameter call _permissionCode;
 		} else {
-			_codeParameter call _denialCode;
+			//TODO: add additional parameter
+			_parameter call _denialCode;
 		};
 	},
-	[],
+	[_codeParameter, _permissionCode, _denialCode],
 	_serverParameter
 ] call FUNC(workWithRequest);

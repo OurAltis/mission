@@ -113,8 +113,6 @@ RGVAR(RespawnTimeChecker) = [
 	{
 		if ((RGVAR(RespawnTime) - time) > 0) then {
 			with uiNamespace do {
-				diag_log "Test";
-				
 				if(!(missionNamespace getVariable QRGVAR(RespawnButtonEnabled))) exitWith {
 					// Make sure the button doesn't show the countdown if it can't be enabled anyway
 					RGVAR(RespawnMenuRespawnButton) ctrlSetText "Respawn";

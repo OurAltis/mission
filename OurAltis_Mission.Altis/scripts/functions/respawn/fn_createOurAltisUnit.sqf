@@ -17,6 +17,9 @@
  * 
  */
 
+diag_log "Creating unit";
+diag_log ("Parameter: " + str _this);
+
 params [
 	["_className", "Rifleman", [""]],
 	["_position", [0,0,0], [[]], [2,3]]
