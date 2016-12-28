@@ -35,7 +35,12 @@ CHECK_TRUE(_default, Invalid parameters!, {});
 
 [
 	_receiveID,
-	{
+	{		
+		// read out passed data
+		private _hasParameter = _thisParameter select 0;
+		private _parameterToAdd = _thisParameter select 1;
+		private _code = _thisParameter select 2;
+		
 		params [
 			"",
 			["_data", [], [[]]]
@@ -44,10 +49,10 @@ CHECK_TRUE(_default, Invalid parameters!, {});
 		private _parameter = [];
 		
 		// assemble parameters
-		if(!_default) then {
+		if(!_hasParameter) then {
 			_parameter = [_data];
 		} else {
-			_parameter = [_data] + _originalParameter;
+			_parameter = [_data] + _parameterToAdd;
 		};
 		
 		// executethe respective code
@@ -57,7 +62,8 @@ CHECK_TRUE(_default, Invalid parameters!, {});
 		[_thisHandler] call FUNC(removeEventHandler);
 		
 		nil;
-	}
+	},
+	[_default, _originalParameter, _code]
 ] call FUNC(addEventHandler);
 
 [_requestID, _parameterToPass, _machine] call FUNC(fireClientEvent);

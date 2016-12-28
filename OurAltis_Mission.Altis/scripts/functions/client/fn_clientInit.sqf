@@ -15,6 +15,8 @@
  * 
  */
 
+if (!hasInterface) exitWith {}; // server shouldn't execute this
+
 [] call FUNC(markBases);
 
 nil;

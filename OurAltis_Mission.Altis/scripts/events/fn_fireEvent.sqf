@@ -26,11 +26,13 @@ CHECK_FALSE(isNil "_type", Invalid eventType!, {})
 
 DEBUG_EXEC(EVENT_LOG(fired - %1, str _type))
 
-{
-	if((_x select 0) isEqualTo _type) exitWith {
+{	
+	if((_x select 0) isEqualTo _type) exitWith {		
 		// execute all listeners
 		{
+			// create magic variables for reference inside the EHs code
 			private _thisHandler = _x select 1;
+			private _thisParameter = _x select 2;
 			
 			_eventParameter call (_x select 0);
 			
