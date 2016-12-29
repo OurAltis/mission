@@ -51,6 +51,13 @@ class CfgFunctions
 			class initializeGenericMissionPart {};
 		};
 		
+		class loadouts {
+			file = FUNC_PATH(loadouts);
+			
+			class compileLoadouts {};
+			class equipUnitAsClass {};
+		};
+		
 		class mapPositions 
 		{
 			file = FUNC_PATH(mapPositions);

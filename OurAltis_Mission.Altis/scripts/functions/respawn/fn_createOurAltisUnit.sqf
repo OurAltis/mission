@@ -26,7 +26,11 @@ params [
 ];
 
 //TODO: create actual unit of respective class
-"B_Soldier_F" createUnit [_position, group player, "NewPlayerUnit = this;"];
+"B_Survivor_F" createUnit [_position, group player, "NewPlayerUnit = this;"];
+
+[NewPlayerUnit, _className] call FUNC(equipUnitAsClass);
+
+NewPlayerUnit setVariable [CLASS_NAME_VARIABLE, _className];
 
 // Variable assigned in init; return created unit
 NewPlayerUnit;

@@ -68,6 +68,4 @@
 	nil
 } count GVAR(BaseList);
 
-if(DEBUG) then{LOG_VAR(GVAR(VehicleListVirtual))}:
-
 nil

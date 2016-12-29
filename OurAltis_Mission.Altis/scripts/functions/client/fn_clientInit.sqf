@@ -19,4 +19,6 @@ if (!hasInterface) exitWith {}; // server shouldn't execute this
 
 [] call FUNC(markBases);
 
+[] call FUNC(compileLoadouts);
+
 nil;

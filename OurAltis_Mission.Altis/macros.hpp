@@ -70,6 +70,7 @@
  #else
 	 #define LOG(msg) diag_log (QUOTE(msg) + " " + SCRIPT_REFERENCE);
 	 #define LOG_VAR(var) diag_log (str var + " " + SCRIPT_REFERENCE);
+	 #define FORMAT_LOG(msg, var) diag_log (parseText(FORMAT(msg, var) + " - " + SCRIPT_REFERENCE));
  #endif
  
  
@@ -99,3 +100,4 @@
  #define INF_CHANGED InfantryListChangedOnServer
  #define OWN_BASE_MARKER_PREFIX QUOTE(TAG.OWN_BASE_)
  #define ENEMY_BASE_MARKER_PREFIX QUOTE(TAG.ENEMY_BASE_)
+ #define CLASS_NAME_VARIABLE "currentClassName"
