@@ -44,7 +44,7 @@
 				nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
 			};		
 			
-			_objList = [_objList, 10] call FUNC(KK_arrayShuffle);
+			_objList = [_objList, 100] call FUNC(KK_arrayShuffle);
 			
 			_return = {
 				if(!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith{
