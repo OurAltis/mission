@@ -38,9 +38,13 @@ with uiNamespace do {
 			_x params [
 				["_id", -1, [0]],
 				["_bases", [], [[]]],
-				["_className", "Error", [""]],
+				["_classNameInternal", "Error", [""]],
 				["_createCode", {ERROR_LOG(Creation code not given!)}, [{}]]
 			];
+			
+			private _className = localize ("OurA_str_" + _classNameInternal);
+			
+			CHECK_FALSE(count _className == 0, Invalid class!, {})
 			
 			if(_selectedBase in _bases || count _bases == 0) then {
 				// display respective role

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="OurAltis_Mission">
+	<Package name="Loadouts">
+		<Container name="Classnames">
+			<Key ID="OurA_str_Schütze">
+				<Original>Rifleman</Original>
+				<German>Schütze</German>
+				<English>Rifleman</English>
+			</Key>
+			<Key ID="OurA_str_Grenadier">
+				<Original>Grenadier</Original>
+				<German>Grenadier</German>
+				<English>Grenadier</English>
+			</Key>
+			<Key ID="OurA_str_MG-Schütze">
+				<Original>Automatic Rifleman</Original>
+				<German>MG-Schütze</German>
+				<English>Automatic Rifleman</English>
+			</Key>
+			<Key ID="OurA_str_Panzerabwehr">
+				<Original>Anti-Tank Force</Original>
+				<German>Panzerabwehr</German>
+				<English>Anti-Tank Force</English>
+			</Key>
+			<Key ID="OurA_str_Luftabwehr">
+				<Original>Anti-Aircraft Force</Original>
+				<German>Luftabwehr</German>
+				<English>Anti-Aircraft Force</English>
+			</Key>
+			<Key ID="OurA_str_Scharfschütze">
+				<Original>Marksman</Original>
+				<German>Scharfschütze</German>
+				<English>Marksman</English>
+			</Key>
+			<Key ID="OurA_str_Aufklärer">
+				<Original>Spotter</Original>
+				<German>Aufklärer</German>
+				<English>Spotter</English>
+			</Key>
+			<Key ID="OurA_str_Sanitäter">
+				<Original>Comat Life Saver</Original>
+				<German>Sanitäter</German>
+				<English>Comat Life Saver</English>
+			</Key>
+			<Key ID="OurA_str_Ingenieur">
+				<Original>Engineer</Original>
+				<German>Ingenieur</German>
+				<English>Engineer</English>
+			</Key>
+			<Key ID="OurA_str_Pilot">
+				<Original>Pilot</Original>
+				<German>Pilot</German>
+				<English>Pilot</English>
+			</Key>
+			<Key ID="OurA_str_Fahrer">
+				<Original>Driver</Original>
+				<German>Fahrer</German>
+				<English>Driver</English>
+			</Key>
+			<Key ID="OurA_str_Crew">
+				<Original>Crewman</Original>
+				<German>Besatzungsmitglied</German>
+				<English>Crewman</English>
+			</Key>
+			<Key ID="OurA_str_MG-Assistent">
+				<Original>MG Assistant</Original>
+				<German>MG Assistent</German>
+				<English>MG Assistant</English>
+			</Key>
+			<Key ID="OurA_str_Truppführer">
+				<Original>Squadleader</Original>
+				<German>Truppführer</German>
+				<English>Squadleader</English>
+			</Key>
+			<Key ID="OurA_str_Drohnenoperator">
+				<Original>UAV Operator</Original>
+				<German>Drohnenoperator</German>
+				<English>UAV Operator</English>
+			</Key>
+		</Container>
+	</Package>
+</Project>
