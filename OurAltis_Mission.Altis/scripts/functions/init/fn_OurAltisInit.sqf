@@ -41,7 +41,7 @@ if(isServer) then {
 	[0,1,0] call FUNC(setMissionParameter);
 	
 	// Infanterie hinzufuegen
-	[["Rifleman", 2, "Conner"], ["Medic", 1, "Conner"], ["Medic", 1, "Maxwell"]] call FUNC(configureInfantry);
+	[["Schütze", 2, "Conner"], ["Sanitäter", 1, "Conner"], ["Ingenieur", 1, "Maxwell"]] call FUNC(configureInfantry);
 	
 	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 
 	// [3, 1] call FUNC(createHelipads);

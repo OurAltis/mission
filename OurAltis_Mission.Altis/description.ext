@@ -1,6 +1,4 @@
 #include "config\cfgFunctions.cpp"
-#include "config\inventories.cpp"
-#include "config\roles.cpp"
 #include "config\cfgRespawnTemplates.cpp"
 #include "macros.hpp"
 

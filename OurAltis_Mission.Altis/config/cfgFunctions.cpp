@@ -103,6 +103,7 @@ class CfgFunctions
 			class calculateOffset {};
 			class getBasePosition {};
 			class getConfigRespawnDelay {};
+			class getInternalClassName {};
 			class getLoadoutsForBase {};
 			class getReinforcementCount {};
 			class hideMarkerByPrefix {};

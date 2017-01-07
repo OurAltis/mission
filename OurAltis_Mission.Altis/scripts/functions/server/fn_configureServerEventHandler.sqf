@@ -70,7 +70,7 @@
 			"_role"
 		];
 		
-		private _msg = [_base, _role] call FUNC(checkRespawn);
+		private _msg = [_base, [_role] call FUNC(getInternalClassName)] call FUNC(checkRespawn);
 		
 		_allow = _msg isEqualTo "";
 		_extraParams = [_msg];

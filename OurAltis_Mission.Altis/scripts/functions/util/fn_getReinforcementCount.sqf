@@ -20,12 +20,14 @@
 private ["_success", "_finished", "_amount"];
 
 _succes = params [
-	["_className", "", [""]],
+	["_displayedClassName", "", [""]],
 	["_baseName", "", [""]],
 	["_infantryList", [],[[]]]
 ];
 
 CHECK_TRUE(_succes, Invalid parameters!, {})
+
+private _className = [_displayedClassName] call FUNC(getInternalClassName);
 
 _amount = 0;
 _finished = false;
