@@ -12,6 +12,21 @@ respawnTemplates[] = {"OurAltis"};
 //allowFunctionsLog = 1;
 saving = 0;
 
+
+class Header {
+	gameType = SC;
+	minPlayers = 2;
+	maxPlayers = 8;
+};
+
+disableAI = 1;
+respawnDialog = 0;
+enableTeamSwitch = 0;
+
+// disable all channels but the global text chat
+disableChannels[]={{0,false,true},{1,true,false},{1,true,false},{1,true,false},{1,true,false},{1,true,false},{1,true,false}};
+
+
 //debug stuff
 enableDebugConsole = 1;
 FUNCTIONS_RECOMPILE
