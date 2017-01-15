@@ -20,7 +20,6 @@ class Header {
 };
 
 disableAI = 1;
-respawnDialog = 0;
 enableTeamSwitch = 0;
 
 // disable all channels but the global text chat

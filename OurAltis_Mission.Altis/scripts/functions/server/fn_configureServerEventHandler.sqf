@@ -75,6 +75,7 @@
 		_allow = _msg isEqualTo "";
 		_extraParams = [_msg];
 		
+		
 		if(_allow) then {
 			// decrease the reinforcements of that role
 			[_base, _role] call FUNC(decreaseRoleReinforcements);
