@@ -70,9 +70,6 @@
 			"_role"
 		];
 		
-		diag_log ("Respawn request for role: " + str _role);
-		diag_log ("Internal role name: " + str ([_role] call FUNC(getInternalClassName)));
-		
 		private _msg = [_base, [_role] call FUNC(getInternalClassName)] call FUNC(checkRespawn);
 		
 		_allow = _msg isEqualTo "";
