@@ -3,79 +3,79 @@
 	<Package name="Loadouts">
 		<Container name="Classnames">
 			<Key ID="OurA_str_Schütze">
-				<Original>Rifleman</Original>
 				<German>Schütze</German>
 				<English>Rifleman</English>
+				<Original>Rifleman</Original>
 			</Key>
 			<Key ID="OurA_str_Grenadier">
-				<Original>Grenadier</Original>
 				<German>Grenadier</German>
 				<English>Grenadier</English>
+				<Original>Grenadier</Original>
 			</Key>
 			<Key ID="OurA_str_MG-Schütze">
-				<Original>Automatic Rifleman</Original>
 				<German>MG-Schütze</German>
 				<English>Automatic Rifleman</English>
+				<Original>Automatic Rifleman</Original>
 			</Key>
 			<Key ID="OurA_str_Panzerabwehr">
-				<Original>Anti-Tank Force</Original>
 				<German>Panzerabwehr</German>
 				<English>Anti-Tank Force</English>
+				<Original>Anti-Tank Force</Original>
 			</Key>
 			<Key ID="OurA_str_Luftabwehr">
-				<Original>Anti-Aircraft Force</Original>
 				<German>Luftabwehr</German>
 				<English>Anti-Aircraft Force</English>
+				<Original>Anti-Aircraft Force</Original>
 			</Key>
 			<Key ID="OurA_str_Scharfschütze">
-				<Original>Marksman</Original>
 				<German>Scharfschütze</German>
 				<English>Marksman</English>
+				<Original>Marksman</Original>
 			</Key>
 			<Key ID="OurA_str_Aufklärer">
-				<Original>Spotter</Original>
 				<German>Aufklärer</German>
 				<English>Spotter</English>
+				<Original>Spotter</Original>
 			</Key>
 			<Key ID="OurA_str_Sanitäter">
-				<Original>Comat Life Saver</Original>
 				<German>Sanitäter</German>
 				<English>Comat Life Saver</English>
+				<Original>Combat Life Saver</Original>
 			</Key>
 			<Key ID="OurA_str_Ingenieur">
-				<Original>Engineer</Original>
 				<German>Ingenieur</German>
 				<English>Engineer</English>
+				<Original>Engineer</Original>
 			</Key>
 			<Key ID="OurA_str_Pilot">
-				<Original>Pilot</Original>
 				<German>Pilot</German>
 				<English>Pilot</English>
+				<Original>Pilot</Original>
 			</Key>
 			<Key ID="OurA_str_Fahrer">
-				<Original>Driver</Original>
 				<German>Fahrer</German>
 				<English>Driver</English>
+				<Original>Driver</Original>
 			</Key>
 			<Key ID="OurA_str_Crew">
-				<Original>Crewman</Original>
 				<German>Besatzungsmitglied</German>
 				<English>Crewman</English>
+				<Original>Crewman</Original>
 			</Key>
 			<Key ID="OurA_str_MG-Assistent">
-				<Original>MG Assistant</Original>
 				<German>MG Assistent</German>
 				<English>MG Assistant</English>
+				<Original>MG Assistant</Original>
 			</Key>
 			<Key ID="OurA_str_Truppführer">
-				<Original>Squadleader</Original>
 				<German>Truppführer</German>
 				<English>Squadleader</English>
+				<Original>Squadleader</Original>
 			</Key>
 			<Key ID="OurA_str_Drohnenoperator">
-				<Original>UAV Operator</Original>
 				<German>Drohnenoperator</German>
 				<English>UAV Operator</English>
+				<Original>UAV Operator</Original>
 			</Key>
 		</Container>
 	</Package>
