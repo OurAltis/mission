@@ -19,7 +19,10 @@ class CfgFunctions
 		{
 			file = FUNC_PATH(client);
 			
-			class clientInit {postInit = 1};
+			class clientInit {
+				postInit = 1;
+			};
+			
 			class doWithServerPermission {};
 			class markBases {};
 			class updateLoadoutForBase {};

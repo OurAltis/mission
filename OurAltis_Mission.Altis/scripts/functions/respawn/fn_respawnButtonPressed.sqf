@@ -18,8 +18,6 @@
  * 
  */
 
-diag_log "Button pressed";
-
 private ["_selectedRoleIndex", "_roleData", "_base", "_position", "_oldPlayer", "_newPlayer"];
 
 // get needed data
