@@ -21,7 +21,7 @@ private _success = params [
 	["_role", "", [""]]
 ];
 
-CHECK_TRUE(_success, Invalid parameters!, {"[Error]: Invalid respawn data!"});
+CHECK_TRUE(_success, Invalid parameters!, {"Invalid respawn data!"});
 
 private _errorMsg = "";
 

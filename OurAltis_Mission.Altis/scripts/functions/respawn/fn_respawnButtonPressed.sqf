@@ -18,6 +18,8 @@
  * 
  */
 
+diag_log "Button pressed";
+
 private ["_selectedRoleIndex", "_roleData", "_base", "_position", "_oldPlayer", "_newPlayer"];
 
 // get needed data
@@ -99,5 +101,7 @@ with uiNamespace do {
 		//TODO: open proper dialog + use server message
 	},
 	[_roleData, _position], // parameter passed to the code
-	[_base, _roleData select 0] // parameter passed to the server
+	[_base, [_roleData select 0] call FUNC(getInternalClassName)] // parameter passed to the server
 ] call FUNC(doWithServerPermission);
+
+nil;

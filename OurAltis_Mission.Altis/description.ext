@@ -19,7 +19,7 @@ class Header {
 	maxPlayers = 8;
 };
 
-disabledAI = 1;
+disableAI = 1;
 enableTeamSwitch = 0;
 
 // disable all channels but the global text chat

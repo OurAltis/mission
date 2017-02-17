@@ -154,7 +154,7 @@ MapPositionInternalFunction = {
 findDisplay 12 displayCtrl 51 ctrlAddEventHandler[
 	"Draw",
 	{
-		[] call MapPositionInternalFunction;
+		_this call MapPositionInternalFunction;
 	}
 ];
 

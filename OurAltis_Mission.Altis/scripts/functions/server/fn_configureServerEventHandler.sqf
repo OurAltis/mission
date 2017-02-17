@@ -70,16 +70,10 @@
 			"_role"
 		];
 		
-		private _msg = [_base, [_role] call FUNC(getInternalClassName)] call FUNC(checkRespawn);
+		private _msg = [_base, _role] call FUNC(checkRespawn);
 		
 		_allow = _msg isEqualTo "";
 		_extraParams = [_msg];
-		
-		
-		if(_allow) then {
-			// decrease the reinforcements of that role
-			[_base, _role] call FUNC(decreaseRoleReinforcements);
-		};
 		
 		
 		// send the base list to the respective client
