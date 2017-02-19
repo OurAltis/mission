@@ -32,7 +32,8 @@
 			["_type", "", [""]],
 			["_fuel", 0, [0]],
 			["_damage", 0, [0]],
-			["_spawn", "", [""]]
+			["_spawn", "", [""]],
+			["_vehID", -1, [0]]
 		];
 
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
@@ -53,6 +54,7 @@
 					_obj setDamage _damage;	
 					_obj setDir (getDir _x);
 					
+					_obj setVariable [QGVAR(vehID), _vehID];
 					_x setVariable [QGVAR(VehiclePlaced), true];
 					
 					true
