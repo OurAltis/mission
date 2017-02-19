@@ -33,7 +33,7 @@
 			["_fuel", 0, [0]],
 			["_damage", 0, [0]],
 			["_spawn", "", [""]],
-			["_vehID", -1, [0]]
+			["_vehID", "", [""]]
 		];
 
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
