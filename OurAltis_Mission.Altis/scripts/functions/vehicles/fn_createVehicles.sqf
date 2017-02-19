@@ -8,7 +8,7 @@
  * Creates the Vehicles at Bases
  * 
  * Parameter(s):
- * 0: Vehicles <Array> - format [Type<Classname>, Fuel Level<Number>, Damage Level<Number>, Spawn<BaseID>]
+ * 0: Vehicles <Array> - format [Type<Classname>, Fuel Level<Number>, Damage Level<Number>, Spawn<BaseID>, ID<Number>]
  * 
  * Return Value:
  * None <Any>
@@ -54,7 +54,7 @@
 					_obj setDamage _damage;	
 					_obj setDir (getDir _x);
 					
-					_obj setVariable [QGVAR(vehID), _vehID];
+					_obj setVariable [VEHICLE_ID, _vehID];
 					_x setVariable [QGVAR(VehiclePlaced), true];
 					
 					true
