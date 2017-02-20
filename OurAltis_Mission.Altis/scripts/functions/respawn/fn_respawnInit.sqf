@@ -34,22 +34,20 @@ RGVAR(PostCloseRespawnMenuHandlerIsPresent) = !(isNil {getMissionConfigValue "re
 disableSerialization;
 
 with uiNamespace do {
-	private ["_mapDisplay", "_currentControl", "_tempPos"];
-	
-	_mapDisplay = findDisplay 12;
+	private _mapDisplay = findDisplay 12;
 	
 	RGVAR(RespawnMenuControlsGroup) = _mapDisplay ctrlCreate ["RscControlsGroup", 1200];
 	RGVAR(RespawnMenuControlsGroup) ctrlSetPosition [0.22 * safeZoneW + safeZoneX, 0.7 * safeZoneH + safeZoneY  , 0.555 * safeZoneW, 0.29 * safeZoneH];
 	RGVAR(RespawnMenuControlsGroup) ctrlCommit 0;
 	
 	
-	_tempPos = ctrlPosition RGVAR(RespawnMenuControlsGroup);
+	private _tempPos = ctrlPosition RGVAR(RespawnMenuControlsGroup);
 	totalHeight = _tempPos select 3;
 	totalWidth = _tempPos select 2;
 	
 	
 	// Background
-	_currentControl = _mapDisplay ctrlCreate ["IGUIBack", 1100, RGVAR(RespawnMenuControlsGroup)];
+	private _currentControl = _mapDisplay ctrlCreate ["IGUIBack", 1100, RGVAR(RespawnMenuControlsGroup)];
 	_currentControl ctrlSetPosition [0,0, totalWidth, totalHeight];
 //	_currentControl ctrlSetBackgroundColor [0.08,0.168,0.137,0.3];
 	_currentControl ctrlSetBackgroundColor [0,0,0,0.3];
@@ -67,13 +65,6 @@ with uiNamespace do {
 	_currentControl ctrlSetBackgroundColor [0,0,0,0.2];
 	_currentControl ctrlCommit 0;
 	
-	// Position selection
-	RGVAR(RespawnMenuPositionSelection) = _mapDisplay ctrlCreate ["RscListbox", 1201, RGVAR(RespawnMenuControlsGroup)];
-	RGVAR(RespawnMenuPositionSelection) ctrlSetPosition [0.011479 * totalWidth, 0.146558 * totalHeight, 0.3443688 * totalWidth, 0.80607 * totalHeight];
-	RGVAR(RespawnMenuPositionSelection) ctrlSetTextColor [0.7,0.4,0,1];
-	RGVAR(RespawnMenuPositionSelection) ctrlSetEventHandler ["LBSelChanged", QUOTE([] call FUNC(selectedPositionChanged))];
-	RGVAR(RespawnMenuPositionSelection) ctrlCommit 0;
-	
 	// No respawn position text
 	RGVAR(RespawnMenuNoPositionText) = _mapDisplay ctrlCreate ["RscText", 1105, RGVAR(RespawnMenuControlsGroup)];
 	RGVAR(RespawnMenuNoPositionText) ctrlSetText "No respawn position available";
@@ -81,18 +72,18 @@ with uiNamespace do {
 	RGVAR(RespawnMenuNoPositionText) ctrlSetTextColor [1,1,1,0.5];
 	RGVAR(RespawnMenuNoPositionText) ctrlCommit 0;
 	
+	// Position selection
+	RGVAR(RespawnMenuPositionSelection) = _mapDisplay ctrlCreate ["RscListbox", 1201, RGVAR(RespawnMenuControlsGroup)];
+	RGVAR(RespawnMenuPositionSelection) ctrlSetPosition [0.011479 * totalWidth, 0.146558 * totalHeight, 0.3443688 * totalWidth, 0.80607 * totalHeight];
+	RGVAR(RespawnMenuPositionSelection) ctrlSetTextColor [0.7,0.4,0,1];
+	RGVAR(RespawnMenuPositionSelection) ctrlSetEventHandler ["LBSelChanged", QUOTE([] call FUNC(selectedPositionChanged))];
+	RGVAR(RespawnMenuPositionSelection) ctrlCommit 0;
+	
 	// Role selection background
 	_currentControl = _mapDisplay ctrlCreate ["IGUIBack", 1106, RGVAR(RespawnMenuControlsGroup)];
 	_currentControl ctrlSetPosition [0.367327 * totalWidth, 0.146558 * totalHeight, 0.3443688 * totalWidth, 0.80607 * totalHeight];
 	_currentControl ctrlSetBackgroundColor [0,0,0,0.2];
 	_currentControl ctrlCommit 0;
-	
-	// Role selection
-	RGVAR(RespawnMenuRoleSelection) = _mapDisplay ctrlCreate ["RscListbox", 1202, RGVAR(RespawnMenuControlsGroup)];
-	RGVAR(RespawnMenuRoleSelection) ctrlSetPosition [0.367327 * totalWidth, 0.146558 * totalHeight, 0.3443688 * totalWidth, 0.80607 * totalHeight];
-	RGVAR(RespawnMenuRoleSelection) ctrlSetTextColor [0.607,0.729,0,1];
-	RGVAR(RespawnMenuRoleSelection) ctrlSetEventHandler ["LBSelChanged", QUOTE([] call FUNC(selectedRoleChanged))];
-	RGVAR(RespawnMenuRoleSelection) ctrlCommit 0;
 	
 	// No respawn role text
 	RGVAR(RespawnMenuNoRoleText) = _mapDisplay ctrlCreate ["RscText", 1106, RGVAR(RespawnMenuControlsGroup)];
@@ -100,6 +91,13 @@ with uiNamespace do {
 	RGVAR(RespawnMenuNoRoleText) ctrlSetPosition [0.367327 * totalWidth, 0.50563 * totalHeight, 0.3443688 * totalWidth, 0.087935 * totalHeight];
 	RGVAR(RespawnMenuNoRoleText) ctrlSetTextColor [1,1,1,0.5];
 	RGVAR(RespawnMenuNoRoleText) ctrlCommit 0;
+	
+	// Role selection
+	RGVAR(RespawnMenuRoleSelection) = _mapDisplay ctrlCreate ["RscListbox", 1202, RGVAR(RespawnMenuControlsGroup)];
+	RGVAR(RespawnMenuRoleSelection) ctrlSetPosition [0.367327 * totalWidth, 0.146558 * totalHeight, 0.3443688 * totalWidth, 0.80607 * totalHeight];
+	RGVAR(RespawnMenuRoleSelection) ctrlSetTextColor [0.607,0.729,0,1];
+	RGVAR(RespawnMenuRoleSelection) ctrlSetEventHandler ["LBSelChanged", QUOTE([] call FUNC(selectedRoleChanged))];
+	RGVAR(RespawnMenuRoleSelection) ctrlCommit 0;
 	
 	//Position text
 	_currentControl = _mapDisplay ctrlCreate ["RscText", 1102, RGVAR(RespawnMenuControlsGroup)];

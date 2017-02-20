@@ -24,21 +24,21 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _internalClassName = "UnableToResolveClassName";
 
 switch (_displayedClassName) do {
-	case localize "OurA_str_Schütze" : {_internalClassName = "Schütze";};
+	case localize "OurA_str_Rifleman" : {_internalClassName = "Rifleman";};
 	case localize "OurA_str_Grenadier" : {_internalClassName = "Grenadier";};
-	case localize "OurA_str_MG-Schütze" : {_internalClassName = "MG-Schütze";};
-	case localize "OurA_str_Panzerabwehr" : {_internalClassName = "Panzerabwehr";};
-	case localize "OurA_str_Luftabwehr" : {_internalClassName = "Luftabwehr";};
-	case localize "OurA_str_Scharfschütze" : {_internalClassName = "Scharfschütze"};
-	case localize "OurA_str_Aufklärer" : {_internalClassName = "Aufklärer";};
-	case localize "OurA_str_Sanitäter" : {_internalClassName = "Sanitäter";};
-	case localize "OurA_str_Ingenieur" : {_internalClassName = "Ingenieur";};
+	case localize "OurA_str_MG" : {_internalClassName = "MG";};
+	case localize "OurA_str_AT" : {_internalClassName = "AT";};
+	case localize "OurA_str_AA" : {_internalClassName = "AA";};
+	case localize "OurA_str_Marksman" : {_internalClassName = "Marksman"};
+	case localize "OurA_str_Spotter" : {_internalClassName = "Spotter";};
+	case localize "OurA_str_Medic" : {_internalClassName = "Medic";};
+	case localize "OurA_str_Engineer" : {_internalClassName = "Engineer";};
 	case localize "OurA_str_Pilot" : {_internalClassName = "Pilot";};
-	case localize "OurA_str_Fahrer" : {_internalClassName = "Fahrer";};
+	case localize "OurA_str_Driver" : {_internalClassName = "Driver";};
 	case localize "OurA_str_Crew" : {_internalClassName = "Crew";};
-	case localize "OurA_str_MG-Assistent" : {_internalClassName = "MG-Assistent";};
-	case localize "OurA_str_Truppführer": {_internalClassName = "Trupführer";};
-	case localize "OurA_str_Drohnenoperator" : {__internalClassName = "Drohnenoperator";};
+	case localize "OurA_str_MGAssistant" : {_internalClassName = "MGAssistent";};
+	case localize "OurA_str_SQL": {_internalClassName = "SQL";};
+	case localize "OurA_str_UAV" : {_internalClassName = "UAV";};
 	default {FORMAT_LOG(Unknown class %1!, _className);};
 };
 

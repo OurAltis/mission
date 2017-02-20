@@ -44,7 +44,7 @@ with uiNamespace do {
 			
 			private _className = localize ("OurA_str_" + _classNameInternal);
 			
-			CHECK_FALSE(count _className == 0, Invalid class!, {})
+			CHECK_FALSE(count _className == 0, Invalid class!)
 			
 			if(_selectedBase in _bases || count _bases == 0) then {
 				// display respective role

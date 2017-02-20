@@ -2,81 +2,83 @@
 <Project name="OurAltis_Mission">
 	<Package name="Loadouts">
 		<Container name="Classnames">
-			<Key ID="OurA_str_Schütze">
-				<Original>Rifleman</Original>
+			<Key ID="OurA_str_Rifleman">
 				<German>Schütze</German>
+				<Original>Rifleman</Original>
 				<English>Rifleman</English>
 			</Key>
 			<Key ID="OurA_str_Grenadier">
-				<Original>Grenadier</Original>
 				<German>Grenadier</German>
+				<Original>Grenadier</Original>
 				<English>Grenadier</English>
 			</Key>
-			<Key ID="OurA_str_MG-Schütze">
-				<Original>Automatic Rifleman</Original>
+			<Key ID="OurA_str_MG">
 				<German>MG-Schütze</German>
+				<Original>Automatic Rifleman</Original>
 				<English>Automatic Rifleman</English>
 			</Key>
-			<Key ID="OurA_str_Panzerabwehr">
-				<Original>Anti-Tank Force</Original>
+			<Key ID="OurA_str_AT">
 				<German>Panzerabwehr</German>
+				<Original>Anti-Tank Force</Original>
 				<English>Anti-Tank Force</English>
 			</Key>
-			<Key ID="OurA_str_Luftabwehr">
-				<Original>Anti-Aircraft Force</Original>
+			<Key ID="OurA_str_AA">
 				<German>Luftabwehr</German>
+				<Original>Anti-Aircraft Force</Original>
 				<English>Anti-Aircraft Force</English>
 			</Key>
-			<Key ID="OurA_str_Scharfschütze">
-				<Original>Marksman</Original>
+			<Key ID="OurA_str_Marksman">
 				<German>Scharfschütze</German>
+				<Original>Marksman</Original>
 				<English>Marksman</English>
 			</Key>
-			<Key ID="OurA_str_Aufklärer">
-				<Original>Spotter</Original>
+			<Key ID="OurA_str_Spotter">
 				<German>Aufklärer</German>
+				<Original>Spotter</Original>
 				<English>Spotter</English>
 			</Key>
-			<Key ID="OurA_str_Sanitäter">
-				<Original>Comat Life Saver</Original>
+			<Key ID="OurA_str_Medic">
 				<German>Sanitäter</German>
+				<Original>Combat Life Saver</Original>
 				<English>Comat Life Saver</English>
 			</Key>
-			<Key ID="OurA_str_Ingenieur">
-				<Original>Engineer</Original>
+			<Key ID="OurA_str_Engineer">
 				<German>Ingenieur</German>
+				<Original>Engineer</Original>
 				<English>Engineer</English>
 			</Key>
 			<Key ID="OurA_str_Pilot">
-				<Original>Pilot</Original>
 				<German>Pilot</German>
+				<Original>Pilot</Original>
 				<English>Pilot</English>
 			</Key>
-			<Key ID="OurA_str_Fahrer">
-				<Original>Driver</Original>
+			<Key ID="OurA_str_Driver">
 				<German>Fahrer</German>
+				<Original>Driver</Original>
 				<English>Driver</English>
 			</Key>
 			<Key ID="OurA_str_Crew">
-				<Original>Crewman</Original>
-				<German>Besatzungsmitglied</German>
-				<English>Crewman</English>
+				<German>Panzerbesatzung</German>
+				<Original>Tank Crewman</Original>
+				<English>Tank Crewman</English>
 			</Key>
-			<Key ID="OurA_str_MG-Assistent">
-				<Original>MG Assistant</Original>
+			<Key ID="OurA_str_MGAssistant">
 				<German>MG Assistent</German>
+				<Original>MG Assistant</Original>
 				<English>MG Assistant</English>
 			</Key>
-			<Key ID="OurA_str_Truppführer">
-				<Original>Squadleader</Original>
+			<Key ID="OurA_str_SQL">
 				<German>Truppführer</German>
+				<Original>Squadleader</Original>
 				<English>Squadleader</English>
 			</Key>
-			<Key ID="OurA_str_Drohnenoperator">
-				<Original>UAV Operator</Original>
+			<Key ID="OurA_str_UAV">
 				<German>Drohnenoperator</German>
+				<Original>UAV Operator</Original>
 				<English>UAV Operator</English>
 			</Key>
 		</Container>
+	</Package>
+	<Package name="New package">
 	</Package>
 </Project>
