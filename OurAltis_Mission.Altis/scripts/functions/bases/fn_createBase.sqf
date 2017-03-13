@@ -19,9 +19,9 @@
  * 
  */
 
-private ["_dir", "_baseTemplate"];
+private ["_dir", "_baseTemplate", "_objs"];
  
-private _success = params[
+private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_side", sideUnknown, [sideUnknown]],
 	["_id", nil, [""]],

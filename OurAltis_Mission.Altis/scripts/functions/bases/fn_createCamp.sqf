@@ -17,12 +17,16 @@
  * 
  */
 
-private _success = params[
-		["_position", nil, [[]], [2, 3]],
-		["_side", nil, [sideUnknown]],
-		["_id", nil, [""]]
-	];
+private _success = params [
+	["_position", nil, [[]], [2, 3]],
+	["_side", nil, [sideUnknown]],
+	["_id", nil, [""]]
+];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-nil;
+private _objs = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
+
+[_position, floor random 360, _objs] call FUNC(objectsMapper);
+
+nil
