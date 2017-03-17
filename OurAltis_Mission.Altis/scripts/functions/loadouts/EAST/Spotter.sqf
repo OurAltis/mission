@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for OPFOR Spotter by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR Spotter by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;
@@ -35,3 +35,4 @@ _this linkItem "ItemWatch";
 _this linkItem "ItemRadioAcreFlagged";
 _this linkItem "NVGoggles";
 _this linkItem "ItemGPS";
+

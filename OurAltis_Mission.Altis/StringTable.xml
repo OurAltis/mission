@@ -40,7 +40,7 @@
 			<Key ID="OurA_str_Medic">
 				<German>Sanitäter</German>
 				<Original>Combat Life Saver</Original>
-				<English>Comat Life Saver</English>
+				<English>Combat Life Saver</English>
 			</Key>
 			<Key ID="OurA_str_Engineer">
 				<German>Ingenieur</German>
@@ -78,7 +78,5 @@
 				<English>UAV Operator</English>
 			</Key>
 		</Container>
-	</Package>
-	<Package name="New package">
 	</Package>
 </Project>

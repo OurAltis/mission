@@ -98,6 +98,7 @@
  // define constants
  #define BASES_CHANGED BaseListChangedOnServer
  #define INF_CHANGED InfantryListChangedOnServer
+ #define SERVER_INITIALIZED serverFrameworkInitialized
  #define OWN_BASE_MARKER_PREFIX QUOTE(TAG.OWN_BASE_)
  #define ENEMY_BASE_MARKER_PREFIX QUOTE(TAG.ENEMY_BASE_)
  #define CLASS_NAME_VARIABLE "currentClassName"

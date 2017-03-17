@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for BLUEFOR Grenadier by [FS]Yoshi";
+comment "OUR Altis Loadout for BLUEFOR Grenadier by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;

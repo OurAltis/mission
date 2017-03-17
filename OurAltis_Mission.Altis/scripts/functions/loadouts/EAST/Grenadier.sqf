@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for OPFOR Grenadier by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR Grenadier by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;
@@ -13,7 +13,7 @@ removeGoggles _this;
 comment "Add containers";
 _this forceAddUniform "U_O_CombatUniform_ocamo";
 _this addItemToUniform "ACRE_PRC148_ID_1";
-_this addItemToUniform "FirstAidKit"
+_this addItemToUniform "FirstAidKit";
 for "_i" from 1 to 3 do {_this addItemToUniform "16Rnd_9x21_Mag";};
 for "_i" from 1 to 2 do {_this addItemToUniform "Chemlight_green";};
 _this addVest "V_HarnessOGL_brn";
@@ -34,3 +34,4 @@ _this linkItem "ItemMap";
 _this linkItem "ItemCompass";
 _this linkItem "ItemWatch";
 _this linkItem "NVGoggles";
+

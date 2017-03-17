@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for OPFOR CombatMedic by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR CombatMedic by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;
@@ -35,3 +35,5 @@ _this linkItem "ItemCompass";
 _this linkItem "ItemWatch";
 _this linkItem "ItemRadioAcreFlagged";
 _this linkItem "NVGoggles";
+
+

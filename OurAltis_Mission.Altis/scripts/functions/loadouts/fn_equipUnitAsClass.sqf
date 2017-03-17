@@ -5,7 +5,7 @@
  * Author: Raven
  * 
  * Description:
- * Equips the given unit with the loadout of the gicen class
+ * Equips the given unit with the loadout of the given class
  * 
  * Parameter(s):
  * 0: The unit to equip <Object>

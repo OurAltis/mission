@@ -20,17 +20,30 @@
 if (isServer) then {
 	[] call FUNC(configureServerEventHandler);
 	[] call FUNC(calculateBaseMarkerOffset);
+	[] call FUNC(initializeDataBase);
 	
 	// indicators on client whether the lists have changed on the server
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;
+	PGVAR(SERVER_INITIALIZED) = true;
 	
 	// broadcast indicators to all clients
 	publicVariable QPGVAR(BASES_CHANGED);
 	publicVariable QPGVAR(INF_CHANGED);
+	
+	// indicate that the server framework is ready
+	publicVariable QPGVAR(SERVER_INITIALIZED);
 };
 
 if (hasInterface) then {
+	[
+		// wait until server framework has initialized
+		{
+			!isNil QPGVAR(SERVER_INITIALIZED) && QPGVAR(SERVER_INITIALIZED)
+		},
+		{}
+	] call CBA_waitUntilAndExecute;
+	
 	[
 		{
 			// wait until the map is loaded
@@ -69,4 +82,6 @@ if (hasInterface) then {
 			};
 		}
 	] call CBA_fnc_waitUntilAndExecute;
+	
+	JUST_CONNECTED = true;
 };

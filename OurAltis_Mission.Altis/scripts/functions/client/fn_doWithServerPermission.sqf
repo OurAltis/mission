@@ -36,8 +36,6 @@ CHECK_TRUE(_success, Invalid parameters!, {});
 	_request,
 	_answer,
 	{
-		diag_log "Executed server permission code";
-		
 		params [
 			["_serverParams", nil, [[]]],
 			["_parameter", nil, [[]]],

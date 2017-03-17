@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for BLUEFOR VehicleCrew by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR VehicleCrew by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;
@@ -18,7 +18,7 @@ for "_i" from 1 to 2 do {_this addItemToUniform "Chemlight_green";};
 for "_i" from 1 to 3 do {_this addItemToUniform "16Rnd_9x21_Mag";};
 _this addVest "V_Chestrig_khk";
 _this addItemToVest "B_IR_Grenade";
-_this addItemToVest "SmokeShellGreen"
+_this addItemToVest "SmokeShellGreen";
 for "_i" from 1 to 6 do {_this addItemToVest "30Rnd_9x21_Mag_SMG_02";};
 _this addHeadgear "H_Cap_brn_SPECOPS";
 

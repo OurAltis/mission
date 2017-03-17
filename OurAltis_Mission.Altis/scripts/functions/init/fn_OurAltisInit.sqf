@@ -51,7 +51,11 @@ if(isServer) then {
 		["UAV", 3, "Conner"],
 		["Driver", 1, "Conner"],
 		["AA", 7, "Conner"],
-		["Pilot", 9, "Conner"]
+		["Pilot", 9, "Conner"],
+		["SQL", 53, "Conner"],
+		["Crew", 3, "Conner"],
+		["MG", 4, "Conner"],
+		["MGAssistant", 7, "Conner"]
 	] call FUNC(configureInfantry);
 	
 	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 

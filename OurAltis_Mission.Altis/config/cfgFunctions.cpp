@@ -38,6 +38,14 @@ class CfgFunctions
 			class setMissionParameter {};
 		};
 		
+		class database
+		{
+			file=FUNC_PATH(server\database);
+			
+			class initializeDataBase {};
+			class writeToDataBase {};
+		};
+		
 		class init
 		{
 			file = FUNC_PATH(init);

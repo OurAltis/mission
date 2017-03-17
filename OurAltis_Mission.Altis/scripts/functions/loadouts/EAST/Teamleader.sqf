@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for OPFOR Teamlead by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR Teamlead by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;
@@ -12,7 +12,7 @@ removeGoggles _this;
 
 comment "Add containers";
 _this forceAddUniform "U_O_OfficerUniform_ocamo";
-_this addItemToUniform "FirstAidKit"
+_this addItemToUniform "FirstAidKit";
 _this addItemToUniform "ACRE_PRC148_ID_1";
 for "_i" from 1 to 3 do {_this addItemToUniform "16Rnd_9x21_Mag";};
 for "_i" from 1 to 2 do {_this addItemToUniform "Chemlight_green";};

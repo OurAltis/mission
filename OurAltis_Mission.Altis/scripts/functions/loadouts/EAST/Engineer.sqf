@@ -1,4 +1,4 @@
-comment "OUR Altis Loadout for OPFOR Ingenieur by [FS]Yoshi";
+comment "OUR Altis Loadout for OPFOR Ingenieur by Yoshi";
 
 comment "Remove existing items";
 removeAllWeapons _this;

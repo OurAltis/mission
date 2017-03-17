@@ -18,9 +18,9 @@
 // this function will be called in scheduled env -> switch to unscheduled
 isNil {
 	// prevent auto-respawn
-	setPlayerRespawnTime 99999999;
+	setPlayerRespawnTime 99999999999;
 	
-	if(time < 1) exitWith {[] call FUNC(showRespawnMenu); nil;};
+	if(JUST_CONNECTED) exitWith {JUST_CONNECTED = false; [] call FUNC(showRespawnMenu); nil;};
 	
 	RGVAR(RespawnTime) = time + ([] call FUNC(getConfigRespawnDelay));
 	
