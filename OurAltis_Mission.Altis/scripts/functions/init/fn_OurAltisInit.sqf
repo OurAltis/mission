@@ -27,12 +27,14 @@ if(isServer) then {
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];	
 	GVAR(OperationName) = "Operation Beispiel";
+	GVAR(targetAreaName) = "Telos";
+	GVAR(dataBase) = "a";
 	
 	
 	// initialize unique mission part
 	// erstellt ein Feldlager und eine Basis
 	[
-		[[14917, 16471], blufor, "Conner", false, 1],
+		[[14917, 16471], blufor, "Charkia", false, 1],
 		[[14817, 17671], blufor, "Maxwell", true, 6],
 		[[15317, 13471], east, "Rainbow", false, 6]
 	] call FUNC(createBases);
@@ -42,20 +44,20 @@ if(isServer) then {
 	
 	// Infanterie hinzufuegen
 	[
-		["Rifleman", 15, "Conner"],
-		["Medic", 1, "Conner"],
+		["Rifleman", 15, "Charkia"],
+		["Medic", 1, "Charkia"],
 		["Engineer", 8, "Maxwell"],
-		["Grenadier", 5, "Conner"],
-		["Spotter", 3, "Conner"],
-		["Marksman", 2, "Conner"],
-		["UAV", 3, "Conner"],
-		["Driver", 1, "Conner"],
-		["AA", 7, "Conner"],
-		["Pilot", 9, "Conner"],
-		["SQL", 53, "Conner"],
-		["Crew", 3, "Conner"],
-		["MG", 4, "Conner"],
-		["MGAssistant", 7, "Conner"]
+		["Grenadier", 5, "Charkia"],
+		["Spotter", 3, "Charkia"],
+		["Marksman", 2, "Charkia"],
+		["UAV", 3, "Charkia"],
+		["Driver", 1, "Charkia"],
+		["AA", 7, "Charkia"],
+		["Pilot", 9, "Charkia"],
+		["SQL", 53, "Charkia"],
+		["Crew", 3, "Charkia"],
+		["MG", 4, "Charkia"],
+		["MGAssistant", 7, "Charkia"]
 	] call FUNC(configureInfantry);
 	
 	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 

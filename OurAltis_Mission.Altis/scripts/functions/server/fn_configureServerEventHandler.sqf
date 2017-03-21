@@ -83,4 +83,23 @@
 	}
 ] call FUNC(addEventHandler);
 
+// handler for unit death
+[
+	UNIT_DIED,
+	{
+		private _success = params [
+			["_clientID", nil, [0]],
+			["_classCode", -2, [0]],
+			["_base", "", [""]]
+		];
+		
+		CHECK_TRUE(_success, Invalid parameters!, {})
+		
+		[_classCode, _base] call FUNC(reportDeadUnit);
+		
+		
+		// TODO: checkl if "_thisParameter" is available and whether it should be used
+	}
+] call FUNC(addEventHandler);
+
 nil;

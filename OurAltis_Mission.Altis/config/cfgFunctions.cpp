@@ -35,6 +35,7 @@ class CfgFunctions
 			class checkRespawn {};
 			class configureInfantry {};			
 			class configureServerEventHandler {};
+			class reportDeadUnit {};
 			class setMissionParameter {};
 		};
 		
@@ -43,7 +44,7 @@ class CfgFunctions
 			file=FUNC_PATH(server\database);
 			
 			class initializeDataBase {};
-			class writeToDataBase {};
+			class transferSQLRequestToDataBase {};
 		};
 		
 		class init
@@ -110,6 +111,7 @@ class CfgFunctions
 			
 			class calculateOffset {};
 			class getBasePosition {};
+			class getClassCode {};
 			class getConfigRespawnDelay {};
 			class getInternalClassName {};
 			class getLoadoutsForBase {};

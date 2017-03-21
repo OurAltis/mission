@@ -20,14 +20,28 @@ isNil {
 	// prevent auto-respawn
 	setPlayerRespawnTime 99999999999;
 	
+	// don't fade out right after start
 	if(JUST_CONNECTED) exitWith {JUST_CONNECTED = false; [] call FUNC(showRespawnMenu); nil;};
+	
+	
+	CHECK_FALSE(alive player, PlayerUnit is still alive!)
+	
+	
+	private _playerClass = [player getVariable CLASS_NAME_VARIABLE] call FUNC(getInternalClassName);
+	private _classCode = [_playerClass, side group player] call FUNC(getClassCode);
+	
+	if(_classCode > 0) then {
+		// report the death of the player to the server
+		[UNIT_DIED, [_classCode, player getVariable SPAWN_BASE_VARIABLE]] call FUNC(fireServerEvent);
+	};
+	
 	
 	RGVAR(RespawnTime) = time + ([] call FUNC(getConfigRespawnDelay));
 	
 	// blend in blackscreen
 	"respawnBlackScreen" cutText ["", "BLACK", 10, true];
 	// fade out sound
-	10 fadeSound 0;
+	FADE_OUT_TIME fadeSound 0;
 	
 	[
 		{
@@ -36,6 +50,6 @@ isNil {
 			[] call FUNC(showRespawnMenu);
 		},
 		[],
-		10
+		FADE_OUT_TIME
 	] call CBA_fnc_waitAndExecute;
 };

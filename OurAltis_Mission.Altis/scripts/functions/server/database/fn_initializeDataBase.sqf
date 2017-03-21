@@ -17,6 +17,8 @@
 
 DB_INITIALIZED = false;
 
+CHECK_TRUE(isServer, Function can only be executed on the server!, {})
+
 private _result = DATABASE_EXT callExtension format ["9:ADD_DATABASE:%1", DATABASE_NAME];
 
 CHECK_DB_RESULT(_result)

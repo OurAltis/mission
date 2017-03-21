@@ -52,9 +52,10 @@ with uiNamespace do {
 	{ // on permission
 		private _roleData = _this select 0;
 		private _position = _this select 1;
+		private _baseName = _this select 2;
 		
 		// create unit by calling the stored creation code with the respective information
-		_newPlayer = [_roleData select 0, _position] call (_roleData select 1);
+		_newPlayer = [_roleData select 0, _position, _baseName] call (_roleData select 1);
 		
 		CHECK_FALSE(isNil "_newPlayer", Failed at creating new player unit!, {})
 		
@@ -98,7 +99,7 @@ with uiNamespace do {
 		
 		//TODO: open proper dialog + use server message
 	},
-	[_roleData, _position], // parameter passed to the code
+	[_roleData, _position, _base], // parameter passed to the code
 	[_base, [_roleData select 0] call FUNC(getInternalClassName)] // parameter passed to the server
 ] call FUNC(doWithServerPermission);
 

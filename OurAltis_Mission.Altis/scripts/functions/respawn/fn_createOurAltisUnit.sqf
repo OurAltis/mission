@@ -20,17 +20,21 @@
 diag_log "Creating unit";
 diag_log ("Parameter: " + str _this);
 
-params [
+private _success = params [
 	["_className", "Rifleman", [""]],
-	["_position", [0,0,0], [[]], [2,3]]
+	["_position", [0,0,0], [[]], [2,3]],
+	["_spawnBase", "Unknown", [""]]
 ];
 
-//TODO: create actual unit of respective class
+CHECK_TRUE(_success, Invalid parameters!)
+
 "B_Survivor_F" createUnit [_position, group player, "NewPlayerUnit = this;"];
 
 [NewPlayerUnit, _className] call FUNC(equipUnitAsClass);
 
+// store meta data on the unit
 NewPlayerUnit setVariable [CLASS_NAME_VARIABLE, _className];
+NewPlayerUnit setVariable [SPAWN_BASE_VARIABLE, _spawnBase];
 
 // Variable assigned in init; return created unit
 NewPlayerUnit;
