@@ -11,7 +11,7 @@
  * 0: None <Any>
  * 
  * Return Value:
- * None <Any>
+ * Whether the initialization has been successfull <Boolean>
  * 
  */
 
@@ -29,4 +29,4 @@ CHECK_DB_RESULT(_result)
 
 DB_INITIALIZED = true;
 
-nil;
+true;

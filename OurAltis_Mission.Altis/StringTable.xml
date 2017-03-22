@@ -4,81 +4,88 @@
 		<Container name="Classnames">
 			<Key ID="OurA_str_Rifleman">
 				<English>Rifleman</English>
-				<Original>Rifleman</Original>
 				<German>Schütze</German>
+				<Original>Rifleman</Original>
 			</Key>
 			<Key ID="OurA_str_Grenadier">
 				<English>Grenadier</English>
-				<Original>Grenadier</Original>
 				<German>Grenadier</German>
+				<Original>Grenadier</Original>
 			</Key>
 			<Key ID="OurA_str_MG">
 				<English>Automatic Rifleman</English>
-				<Original>Automatic Rifleman</Original>
 				<German>MG-Schütze</German>
+				<Original>Automatic Rifleman</Original>
 			</Key>
 			<Key ID="OurA_str_AT">
 				<English>Anti-Tank Force</English>
-				<Original>Anti-Tank Force</Original>
 				<German>Panzerabwehr</German>
+				<Original>Anti-Tank Force</Original>
 			</Key>
 			<Key ID="OurA_str_AA">
 				<English>Anti-Aircraft Force</English>
-				<Original>Anti-Aircraft Force</Original>
 				<German>Luftabwehr</German>
+				<Original>Anti-Aircraft Force</Original>
 			</Key>
 			<Key ID="OurA_str_Marksman">
 				<English>Marksman</English>
-				<Original>Marksman</Original>
 				<German>Scharfschütze</German>
+				<Original>Marksman</Original>
 			</Key>
 			<Key ID="OurA_str_Spotter">
 				<English>Spotter</English>
-				<Original>Spotter</Original>
 				<German>Aufklärer</German>
+				<Original>Spotter</Original>
 			</Key>
 			<Key ID="OurA_str_Medic">
 				<English>Combat Life Saver</English>
-				<Original>Combat Life Saver</Original>
 				<German>Sanitäter</German>
+				<Original>Combat Life Saver</Original>
 			</Key>
 			<Key ID="OurA_str_Engineer">
 				<English>Engineer</English>
-				<Original>Engineer</Original>
 				<German>Ingenieur</German>
+				<Original>Engineer</Original>
 			</Key>
 			<Key ID="OurA_str_Pilot">
 				<English>Pilot</English>
-				<Original>Pilot</Original>
 				<German>Pilot</German>
+				<Original>Pilot</Original>
 			</Key>
 			<Key ID="OurA_str_Driver">
 				<English>Driver</English>
-				<Original>Driver</Original>
 				<German>Fahrer</German>
+				<Original>Driver</Original>
 			</Key>
 			<Key ID="OurA_str_Crew">
 				<English>Tank Crewman</English>
-				<Original>Tank Crewman</Original>
 				<German>Panzerbesatzung</German>
+				<Original>Tank Crewman</Original>
 			</Key>
 			<Key ID="OurA_str_MGAssistant">
 				<English>MG Assistant</English>
-				<Original>MG Assistant</Original>
 				<German>MG Assistent</German>
+				<Original>MG Assistant</Original>
 			</Key>
 			<Key ID="OurA_str_SQL">
 				<English>Squadleader</English>
-				<Original>Squadleader</Original>
 				<German>Truppführer</German>
+				<Original>Squadleader</Original>
 			</Key>
 			<Key ID="OurA_str_UAV">
 				<English>UAV Operator</English>
-				<Original>UAV Operator</Original>
 				<German>Drohnenoperator</German>
+				<Original>UAV Operator</Original>
 			</Key>
 		</Container>
 	</Package>
-	<Package name="New package">
+	<Package name="SystemMessages">
+		<Container name="ErrorMessages">
+			<Key ID="OurA_str_ServerInitFailed">
+				<English>Failed at initializing mission due to server errors.\nPlease inform a developer about this issue.\n\nWe are sorry for the inconvenience</English>
+				<German>Die Initialisierung der Mission ist aufgrund von Fehlern auf dem Server fehlgeschlagen\nBitte informieren Sie einen Entwickler darüber\n\nWir entschuldigen uns für die Unannehmlichkeit</German>
+				<Original>Failed at initializing mission due to server errors.\nPlease inform a developer about this issue.\n\nWe are sorry for the inconvenience</Original>
+			</Key>
+		</Container>
 	</Package>
 </Project>

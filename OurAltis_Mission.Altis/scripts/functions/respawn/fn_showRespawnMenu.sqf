@@ -5,7 +5,7 @@
  * Author: Raven
  * 
  * Description:
- * Shows/Opens the respawn menu and invokes respective entry points if present
+ * Shows/Opens the respawn menu and invokes respective entry points if present. If the current player unit does not have a map it will receive one
  * 
  * Parameter(s):
  * 0: None <Any>
@@ -28,6 +28,11 @@ if(RGVAR(PreOpenRespawnMenuHandlerIsPresent)) then {
 	};
 };
 
+// make sure the player has a map
+player linkItem "ItemMap";
+// open map
+openMap [true, true];
+
 with  uiNamespace do {
 	// show controls
 	RGVAR(RespawnMenuControlsGroup) ctrlShow true;
@@ -42,9 +47,6 @@ with  uiNamespace do {
 
 // update role display
 [] call FUNC(showRolesForSelectedPosition);
-
-// open map
-openMap [true, true];
 
 // add escape handler
 RGVAR(RespawnMenuEscHandler) = (findDisplay 12) displayAddEventHandler [

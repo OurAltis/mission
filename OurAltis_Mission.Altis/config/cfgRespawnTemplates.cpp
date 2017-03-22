@@ -8,6 +8,6 @@ class CfgRespawnTemplates
 		
 		respawnDelay = 30;
 		
-		respawnOnStart = 1;
+		respawnOnStart = -1;
 	};
 };

@@ -20,10 +20,6 @@ isNil {
 	// prevent auto-respawn
 	setPlayerRespawnTime 99999999999;
 	
-	// don't fade out right after start
-	if(JUST_CONNECTED) exitWith {JUST_CONNECTED = false; [] call FUNC(showRespawnMenu); nil;};
-	
-	
 	CHECK_FALSE(alive player, PlayerUnit is still alive!)
 	
 	

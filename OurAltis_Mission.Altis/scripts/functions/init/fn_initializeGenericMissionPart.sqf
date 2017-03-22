@@ -18,31 +18,31 @@
 [] call FUNC(initializeEventHandler);
 
 if (isServer) then {
-	[] call FUNC(configureServerEventHandler);
-	[] call FUNC(calculateBaseMarkerOffset);
-	[] call FUNC(initializeDataBase);
-	
-	// indicators on client whether the lists have changed on the server
+	// indicators on client
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;
 	PGVAR(SERVER_INITIALIZED) = true;
+	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
+	
+	
+	[] call FUNC(configureServerEventHandler);
+	[] call FUNC(calculateBaseMarkerOffset);
+	
+	if (!([] call FUNC(initializeDataBase))) then {
+		PGVAR(SERVER_ERRORS) pushBack "Failed at initializing database";
+	};
 	
 	// broadcast indicators to all clients
 	publicVariable QPGVAR(BASES_CHANGED);
 	publicVariable QPGVAR(INF_CHANGED);
 	
+	publicVariable QPGVAR(SERVER_ERRORS);
 	// indicate that the server framework is ready
 	publicVariable QPGVAR(SERVER_INITIALIZED);
 };
 
 if (hasInterface) then {
-	[
-		// wait until server framework has initialized
-		{
-			!isNil QPGVAR(SERVER_INITIALIZED) && QPGVAR(SERVER_INITIALIZED)
-		},
-		{}
-	] call CBA_waitUntilAndExecute;
+	"loadingBlackScreen" cutText ["Initializing Mission...", "BLACK", 0.00000001, true];
 	
 	[
 		{
@@ -80,8 +80,25 @@ if (hasInterface) then {
 					[]
 				] call FUNC(fireEvent);
 			};
+			
+			// wait for the server to initialize the framework
+			[
+				{
+					!isNil QPGVAR(SERVER_INITIALIZED) && PGVAR(SERVER_INITIALIZED)
+				},
+				{
+					// Check for error messages
+					if(count PGVAR(SERVER_ERRORS) != 0) then {
+						// Display error messages to the user
+						[] call FUNC(displayServerErrorMessages);
+					} else {
+						"loadingBlackScreen" cutFadeOut 0.1;
+						[] call FUNC(showRespawnMenu);
+					};
+				}
+			] call CBA_fnc_waitUntilAndExecute;
+			
+			nil;
 		}
 	] call CBA_fnc_waitUntilAndExecute;
-	
-	JUST_CONNECTED = true;
 };
