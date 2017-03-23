@@ -36,6 +36,7 @@ class CfgFunctions
 			class configureInfantry {};			
 			class configureServerEventHandler {};
 			class reportDeadUnit {};
+			class reportVehicleStatus {};
 			class setMissionParameter {};
 		};
 		

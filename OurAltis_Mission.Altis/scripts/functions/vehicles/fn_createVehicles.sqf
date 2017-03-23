@@ -14,7 +14,7 @@
  * None <Any>
  * 
  */
- 
+
 {
 	private["_success", "_objList", "_return"];
 	
@@ -48,13 +48,25 @@
 			_objList = [_objList, 100] call FUNC(KK_arrayShuffle);
 			
 			_return = {
-				if(!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith{
+				if(!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					_obj setFuel _fuel;
-					_obj setDamage _damage;	
+					_obj setDamage _damage;
 					_obj setDir (getDir _x);
 					
+					// save the vehicle's ID
 					_obj setVariable [VEHICLE_ID, _vehID];
+					
+					// add EH for vehicle destruction (MP-EH is needed in case the vehicle's locality changes (e.g. a player enter it))
+					_obj addMPEventHandler ["MPKilled", {
+						if(isServer) then {
+							// report destroyed vehicle to the DB immediately
+							[_this select 0] call FUNC(reportVehicleStatus);
+						};
+						
+						nil;
+					}];
+					
 					_x setVariable [QGVAR(VehiclePlaced), true];
 					
 					true

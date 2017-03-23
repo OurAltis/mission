@@ -16,6 +16,10 @@
  */
 
 with uiNamespace do {
+	// get the text of the currently selected position
+	private _currentSelectionText = RGVAR(RespawnMenuPositionSelection) lbText lbCurSel RGVAR(RespawnMenuPositionSelection);
+	
+	// clear the current list
 	lbClear RGVAR(RespawnMenuPositionSelection);
 	
 	{
@@ -46,6 +50,14 @@ with uiNamespace do {
 		RGVAR(RespawnMenuNoPositionText) ctrlEnable false;
 		RGVAR(RespawnMenuNoPositionText) ctrlShow false;
 		RGVAR(RespawnMenuNoPositionText) ctrlCommit 0;
+		
+		
+		// restore the previous selection if possible
+		for "_i" from 0 to (lbSize RGVAR(RespawnMenuPositionSelection) - 1) do {
+			if (RGVAR(RespawnMenuPositionSelection) lbText _i isEqualTo _currentSelectionText) exitWith {
+				RGVAR(RespawnMenuPositionSelection) lbSetCurSel _i;
+			};
+		};
 	} else {
 		RGVAR(RespawnMenuPositionSelection) ctrlEnable false;
 		RGVAR(RespawnMenuPositionSelection) ctrlCommit 0;
