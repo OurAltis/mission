@@ -29,6 +29,7 @@ if(isServer) then {
 	GVAR(OperationName) = "Operation Beispiel";
 	GVAR(targetAreaName) = "Telos";
 	GVAR(dataBase) = "a";
+	GVAR(defenderSide) = east;
 	
 	
 	// initialize unique mission part
@@ -39,8 +40,8 @@ if(isServer) then {
 		[[15317, 13471], east, "Rainbow", false, 6]
 	] call FUNC(createBases);
 	
-	// schoenes Wetter mit Nebel tagsueber
-	[0,1,0] call FUNC(setMissionParameter);
+	// schoenes Wetter ohne Nebel tagsueber
+	[0,0,0] call FUNC(setMissionParameter);
 	
 	// Infanterie hinzufuegen
 	[
@@ -57,7 +58,7 @@ if(isServer) then {
 		["SQL", 53, "Charkia"],
 		["Crew", 3, "Charkia"],
 		["MG", 4, "Charkia"],
-		["MGAssistant", 7, "Charkia"]
+		["MGAssistant", 1, "Charkia"]
 	] call FUNC(configureInfantry);
 	
 	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 

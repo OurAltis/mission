@@ -96,6 +96,10 @@
  
  #define UNIT_DIED QUOTE(EVENT_PREFIX.unitDied)
  
+ #define ALL_PLAYER_OF_SIDE_DEAD QUOTE(EVENT_PREFIX.allPlayerOfSideDead)
+ 
+ #define MISSION_ENDED QUOTE(EVENT_PREFIX.missionEnded)
+ 
  
  // define constants
  #define BASES_CHANGED baseListChangedOnServer

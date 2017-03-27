@@ -97,8 +97,43 @@
 		
 		[_classCode, _base] call FUNC(reportDeadUnit);
 		
+		nil;
+	}
+] call FUNC(addEventHandler);
+
+// handler for when all players iof one side are dead
+[
+	ALL_PLAYER_OF_SIDE_DEAD,
+	{
+		private _success = params [
+			["_clientID", nil, [0]],
+			["_side", sideUnknown, [sideUnknown]]
+		];
 		
-		// TODO: checkl if "_thisParameter" is available and whether it should be used
+		CHECK_TRUE(_success, Invalid parameters!, {})
+		
+		private _remainingSides = [blufor, opfor, independent];
+		_remainingSides = _remainingSides - [_side];
+		
+		{
+			if (!([_x] call FUNC(sideHasLivingUnits))) then {
+				_remainingSides set [_forEachIndex, objNull];
+			};
+		} forEach _remainingSides;
+		
+		_allSides = _remainingSides - [objNull];
+		
+		if (count _allSides == 1) then {
+			// There are only players of one side left -> end mission in their favour
+			[_remainingSides select 0] call FUNC(endMission);
+		} else {
+			if(count _allSides == 0) then {
+				// no one is left alive -> defender has won
+				[GVAR(defenderSide)] call FUNC(endMission);
+			};
+		};
+		
+		nil;
 	}
 ] call FUNC(addEventHandler);
 

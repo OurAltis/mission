@@ -35,9 +35,12 @@ class CfgFunctions
 			class checkRespawn {};
 			class configureInfantry {};			
 			class configureServerEventHandler {};
+			class endMission {};
 			class reportDeadUnit {};
 			class reportVehicleStatus {};
 			class setMissionParameter {};
+			class sideHasLivingUnits {};
+			class watchForAliveUnits {};
 		};
 		
 		class database
@@ -120,12 +123,13 @@ class CfgFunctions
 			class getReinforcementCount {};
 			class hideMarkerByPrefix {};
 			class hideUserMapMarker {};
+			class KK_arrayShuffle {};
+			class objectsGrabber {};
+			class objectsMapper {};
 			class setMarkerAlphaByPrefix {};
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
-			class KK_arrayShuffle {};
-			class objectsMapper {};
 		};
 		
 		class events

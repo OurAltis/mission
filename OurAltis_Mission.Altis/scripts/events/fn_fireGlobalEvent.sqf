@@ -11,7 +11,7 @@
  * Parameter(s):
  * 0: The event type <String>
  * 1: Parameter to hand over to the running script <Array>
- * 2: Whether to use the clients ID <Boolean>
+ * 2: Whether to use the clients ID <Boolean> (optional)
  * 
  * Return Value:
  * None <Any>

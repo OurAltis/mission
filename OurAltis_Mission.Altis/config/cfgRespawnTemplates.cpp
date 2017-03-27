@@ -3,7 +3,7 @@
 class CfgRespawnTemplates
 {
 	class OurAltis
-	{	
+	{
 		onPlayerKilled = QFUNC(handlePlayerDeath);
 		
 		respawnDelay = 30;

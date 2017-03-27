@@ -16,7 +16,7 @@
  * 
  */
 
-private _success = params[
+private _success = params [
 	["_code", -1, [0]],
 	["_base", "", [""]]
 ];

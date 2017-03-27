@@ -8,6 +8,7 @@ onLoadName = "OurAltis_Mission";
 respawn = "BASE";
 respawnDialog = 0;
 respawnTemplates[] = {"OurAltis"};
+respawnButton = 0;
 
 //allowFunctionsLog = 1;
 saving = 0;

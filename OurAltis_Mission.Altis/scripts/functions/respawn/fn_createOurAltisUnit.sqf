@@ -17,9 +17,6 @@
  * 
  */
 
-diag_log "Creating unit";
-diag_log ("Parameter: " + str _this);
-
 private _success = params [
 	["_className", "Rifleman", [""]],
 	["_position", [0,0,0], [[]], [2,3]],
@@ -28,7 +25,7 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!)
 
-"B_Survivor_F" createUnit [_position, group player, "NewPlayerUnit = this;"];
+NewPlayerUnit = group player createUnit ["B_Survivor_F", _position, [], 0, "NONE"];
 
 [NewPlayerUnit, _className] call FUNC(equipUnitAsClass);
 

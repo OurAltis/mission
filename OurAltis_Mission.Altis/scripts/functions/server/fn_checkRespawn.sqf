@@ -103,6 +103,17 @@ if(_baseSide isEqualTo sideUnknown || !(typeName _baseSide isEqualTo typeName si
 				} else {
 					// This side does no longer has reinforcements
 					_currentSideInfantry = objNull;
+					
+					// set the server up so it's watching out now to when there are no alive units anymore
+					[
+						{
+							[_this select 0] call FUNC(watchForAliveUnits);
+							
+							nil;
+						},
+						[_baseSide],
+						5 // wait 5 secs in order to give the client the time to actually respawn
+					] call CBA_fnc_waitAndExecute;
 				};
 			};
 			
