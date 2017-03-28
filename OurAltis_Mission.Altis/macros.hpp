@@ -50,6 +50,7 @@
  	#define FUNCTIONS_RECOMPILE
  	#define DEBUG_LOG(msg)
  	#define DEBUG_EXEC(code)
+ 	#define DEBUG false
  #endif
  
  // Logging

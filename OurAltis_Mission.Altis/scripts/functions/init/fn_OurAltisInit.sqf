@@ -37,7 +37,7 @@ if(isServer) then {
 	[
 		[[14917, 16471], blufor, "Charkia", false, 1],
 		[[14817, 17671], blufor, "Maxwell", true, 6],
-		[[15317, 13471], east, "Rainbow", false, 6]
+		[[18317, 13471], east, "Rainbow", false, 6]
 	] call FUNC(createBases);
 	
 	// schoenes Wetter ohne Nebel tagsueber
@@ -45,7 +45,8 @@ if(isServer) then {
 	
 	// Infanterie hinzufuegen
 	[
-		["Rifleman", 15, "Charkia"],
+		["Rifleman", 2, "Charkia"],
+		["Rifleman", 2, "Rainbow"],
 		["Medic", 1, "Charkia"],
 		["Engineer", 8, "Maxwell"],
 		["Grenadier", 5, "Charkia"],

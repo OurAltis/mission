@@ -16,7 +16,7 @@
  */
 
 private _success = params[
-	["_side"]
+	["_side", sideUnknown, [sideUnknown]]
 ];
 
 CHECK_TRUE(_success, invalid parameters!, {false})
@@ -26,12 +26,13 @@ private _hasAliveUnits = false;
 
 // first check reinforcements
 {
-	if(_x select 1 isEqualTo _Side) exitWith {
+	
+	if(_x select 1 == _side) exitWith {
 		_hasAliveUnits = true;
 	};
 	
 	nil;
-} count GVAR(BaseList);
+} count GVAR(InfantryList);
 
 
 if(!_hasAliveUnits) then {

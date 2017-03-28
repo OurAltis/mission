@@ -25,6 +25,8 @@ CHECK_TRUE(_succcess, Invalid parameters!, {})
 
 diag_log ("Watched side: " + str _side);
 
+("Started watching side" +  str _side) remoteExecCall ["hint", 0];
+
 [
 	{
 		! ([_this select 0] call FUNC(sideHasLivingUnits));

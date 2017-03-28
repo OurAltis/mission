@@ -25,7 +25,9 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!)
 
-NewPlayerUnit = group player createUnit ["B_Survivor_F", _position, [], 0, "NONE"];
+private _sidePrefix = toString [toArray str group player select 0];
+
+NewPlayerUnit = group player createUnit [_sidePrefix + "_Survivor_F", _position, [], 0, "NONE"];
 
 [NewPlayerUnit, _className] call FUNC(equipUnitAsClass);
 
