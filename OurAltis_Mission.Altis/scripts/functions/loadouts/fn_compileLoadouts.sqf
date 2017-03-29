@@ -17,7 +17,7 @@
 
 CHECK_FALSE(isNull player, Player object not yet initialized!, {})
 
-private _sidePrefix = str (side player) + "\";
+private _sidePrefix = str (side group player) + "\";
 
 COMPILE_LOADOUT(AA);
 COMPILE_LOADOUT(AT);

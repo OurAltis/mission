@@ -22,7 +22,6 @@ class CfgFunctions
 			class clientInit {postInit = 1;};
 			class doWithServerPermission {};
 			class markBases {};
-			class updateLoadoutForBase {};
 			class workWithBaseList {};
 			class workWithInfantryList {};
 		};
@@ -77,6 +76,7 @@ class CfgFunctions
 			class clearMapPositions {};
 			class createMapPosition {};
 			class deleteMapPosition {};
+			class lockMapPositions {};
 			class mapPositionsInit {};
 			class setActiveMapPosition {};
 		};

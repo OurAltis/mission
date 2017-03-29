@@ -27,13 +27,38 @@ CHECK_TRUE(_success, Invalid parameters!)
 
 private _sidePrefix = toString [toArray str group player select 0];
 
-NewPlayerUnit = group player createUnit [_sidePrefix + "_Survivor_F", _position, [], 0, "NONE"];
+private _newPlayerUnit = group player createUnit [_sidePrefix + "_Survivor_F", _position, [], 0, "NONE"];
 
-[NewPlayerUnit, _className] call FUNC(equipUnitAsClass);
+[_newPlayerUnit, _className] call FUNC(equipUnitAsClass);
+
 
 // store meta data on the unit
-NewPlayerUnit setVariable [CLASS_NAME_VARIABLE, _className];
-NewPlayerUnit setVariable [SPAWN_BASE_VARIABLE, _spawnBase];
+_newPlayerUnit setVariable [CLASS_NAME_VARIABLE, _className];
+
+private _classCode = [_className, side group player] call FUNC(getClassCode);
+_newPlayerUnit setVariable [CLASS_CODE_VARIABLE, _classCode, true];
+
+_newPlayerUnit setVariable [SPAWN_BASE_VARIABLE, _spawnBase, true];
+
+
+// add EH that fires when the unit dies
+_newPlayerUnit addMPEventHandler [
+	"MPKilled",
+	{
+		if(!isServer) exitWith {}; // execute only on server
+		
+		private _classCode = _this select 0 getVariable CLASS_CODE_VARIABLE;
+		private _base = _this select 0 getVariable SPAWN_BASE_VARIABLE;
+		
+		if(_classCode >= 0) then {
+			// fire event that the respectiev unit has died
+			[UNIT_DIED, [clientOwner, _classCode, _base]] call FUNC(fireEvent);
+		};
+		
+		nil;
+	}
+];
+
 
 // Variable assigned in init; return created unit
-NewPlayerUnit;
+_newPlayerUnit;

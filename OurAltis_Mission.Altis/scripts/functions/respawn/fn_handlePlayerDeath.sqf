@@ -20,19 +20,12 @@ isNil {
 	// prevent auto-respawn
 	setPlayerRespawnTime 99999999999;
 	
-	CHECK_FALSE(alive player, PlayerUnit is still alive!)
-	
-	
-	private _playerClass = [player getVariable CLASS_NAME_VARIABLE] call FUNC(getInternalClassName);
-	private _classCode = [_playerClass, side group player] call FUNC(getClassCode);
-	
-	if(_classCode > 0) then {
-		// report the death of the player to the server
-		[UNIT_DIED, [_classCode, player getVariable SPAWN_BASE_VARIABLE]] call FUNC(fireServerEvent);
-	};
-	
+	CHECK_FALSE(alive player, PlayerUnit is still alive!)	
 	
 	RGVAR(RespawnTime) = time + ([] call FUNC(getConfigRespawnDelay));
+	
+	// close map
+	openMap [false, true];
 	
 	// blend in blackscreen
 	"respawnBlackScreen" cutText ["", "BLACK", 10, true];

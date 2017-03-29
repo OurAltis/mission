@@ -48,10 +48,6 @@ openMap [false, false];
 // remove the EH that prevents marler placement
 [RGVAR(MarkerDisplayHandler)] call CBA_fnc_removePerFrameHandler;
 
-// show user map marker again
-[] call FUNC(unhideUserMapMarker);
-// show own base marker again
-[OWN_BASE_MARKER_PREFIX] call FUNC(unhideMarkerByPrefix);
 
 // remove position change handler
 [RGVAR(PositionChangeHandler)] call FUNC(removeEventHandler);
@@ -59,6 +55,17 @@ openMap [false, false];
 [RGVAR(RoleChangeHandler)] call FUNC(removeEventHandler);
 // remove infantry list change handler
 [RGVAR(InfantryListChangeHandler)] call FUNC(removeEventHandler);
+
+
+// show user map marker again
+[] call FUNC(unhideUserMapMarker);
+//clear mapPositions
+[] call FUNC(clearMapPositions);
+// show own base marker again
+[OWN_BASE_MARKER_PREFIX] call FUNC(unhideMarkerByPrefix);
+
+// prevent changes in the mapPosition framework
+[true] call FUNC(lockMapPositions);
 
 
 if(RGVAR(PostCloseRespawnMenuHandlerIsPresent)) then {

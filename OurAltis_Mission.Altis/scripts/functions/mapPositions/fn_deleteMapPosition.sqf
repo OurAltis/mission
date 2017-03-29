@@ -21,9 +21,12 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid mapPosition!, {})
 
+// make sure the fra,ework is unlocked
+if(MGVAR(mapPositionsAreLocked)) exitWith {WARNING_LOG(Blocked access to mapPosition framework as it is currently locked!)};
+
 
 MGVAR(mapPositions) setVariable [_mapPos, nil];
-MGVAR(mapPositionIDs) deleteAt (MGVAR(mapPositionIDs) find _id);
+MGVAR(mapPositionIDs) deleteAt (MGVAR(mapPositionIDs) find _mapPos);
 
 
 nil;

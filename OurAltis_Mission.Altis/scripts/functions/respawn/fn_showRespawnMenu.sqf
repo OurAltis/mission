@@ -39,6 +39,9 @@ with  uiNamespace do {
 	RGVAR(RespawnMenuControlsGroup) ctrlCommit 0;
 };
 
+// allow changes in the mapPositions
+[false] call FUNC(lockMapPositions);
+
 // update respawn data
 [] call FUNC(updateRespawnData);
 

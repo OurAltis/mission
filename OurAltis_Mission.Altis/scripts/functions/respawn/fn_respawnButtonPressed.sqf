@@ -69,10 +69,6 @@ with uiNamespace do {
 		_oldPlayer setDammage 1; // Make sure that the old player unit is dead
 		
 		
-		//clear mapPositions
-		[] call FUNC(clearMapPositions);
-		
-		
 		// create blackscreen
 		"respawnBlackScreen" cutText ["", "BLACK", 0.0001, true];
 		

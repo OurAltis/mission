@@ -22,6 +22,7 @@
 MGVAR(mapPositions) = [] call CBA_fnc_createNamespace;
 MGVAR(mapPositionIDs) = [];
 MGVAR(selectedMapPosition) = "";
+MGVAR(mapPositionsAreLocked) = false;
 
 MapPositionInternalFunction = {
 	// get mouse position on the map and convert it into world coordinates

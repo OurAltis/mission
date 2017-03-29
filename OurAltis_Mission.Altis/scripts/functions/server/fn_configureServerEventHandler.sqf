@@ -15,6 +15,17 @@
  * 
  */
 
+// add EH for disconnects
+addMissionEventHandler [
+	"HandleDisconnect",
+	{
+		// kill player's unit in order for the 'Killed' EH to get executed
+		_this select 0 setDamage 1;
+		
+		nil;
+	}
+];
+
 // handler for providing the base list on request
 [
 	EVENT_BASE_LIST_REQUEST,

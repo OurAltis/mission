@@ -110,5 +110,6 @@
  #define OWN_BASE_MARKER_PREFIX QUOTE(TAG.OWN_BASE_)
  #define ENEMY_BASE_MARKER_PREFIX QUOTE(TAG.ENEMY_BASE_)
  #define CLASS_NAME_VARIABLE "currentClassName"
+ #define CLASS_CODE_VARIABLE "currentClassCode"
  #define SPAWN_BASE_VARIABLE "lastSpawnBase"
  #define VEHICLE_ID QGVAR(VehicleID)
