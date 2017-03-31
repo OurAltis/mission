@@ -29,13 +29,15 @@ private _sidePrefix = toString [toArray str group player select 0];
 
 private _newPlayerUnit = group player createUnit [_sidePrefix + "_Survivor_F", _position, [], 0, "NONE"];
 
-[_newPlayerUnit, _className] call FUNC(equipUnitAsClass);
+private _internalClassName = [_className] call FUNC(getInternalClassName);
+
+[_newPlayerUnit, _internalClassName] call FUNC(equipUnitAsClass);
 
 
 // store meta data on the unit
-_newPlayerUnit setVariable [CLASS_NAME_VARIABLE, _className];
+_newPlayerUnit setVariable [CLASS_NAME_VARIABLE, _internalClassName];
 
-private _classCode = [_className, side group player] call FUNC(getClassCode);
+private _classCode = [_internalClassName, side group player] call FUNC(getClassCode);
 _newPlayerUnit setVariable [CLASS_CODE_VARIABLE, _classCode, true];
 
 _newPlayerUnit setVariable [SPAWN_BASE_VARIABLE, _spawnBase, true];

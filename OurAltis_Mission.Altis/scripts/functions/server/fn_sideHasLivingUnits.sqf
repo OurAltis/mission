@@ -5,7 +5,7 @@
  * Author: Raven
  * 
  * Description:
- * Checks whether the given side has living units. units not yet spüawned are also considered living.
+ * Checks whether the given side has living units. units not yet spï¿½awned are also considered living.
  * 
  * Parameter(s):
  * 0: The side to check <Any>
