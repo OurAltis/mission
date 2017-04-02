@@ -21,7 +21,7 @@ if (isServer) then {
 	// indicators on client
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;
-	PGVAR(SERVER_INITIALIZED) = true;
+	PGVAR(SERVER_INITIALIZED) = false;
 	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
 	
 	
@@ -37,11 +37,23 @@ if (isServer) then {
 	publicVariable QPGVAR(INF_CHANGED);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
-	// indicate that the server framework is ready
-	publicVariable QPGVAR(SERVER_INITIALIZED);
+	
+	// give the server some time to really start the mission in order to prevent it from doing stupid stuff on its own
+	[
+		{
+			PGVAR(SERVER_INITIALIZED) = true;
+			// indicate that the server framework is ready
+			publicVariable QPGVAR(SERVER_INITIALIZED);
+			
+			nil;
+		},
+		[],
+		7
+	] call CBA_fnc_waitAndExecute;
 };
 
 if (hasInterface) then {
+	// TODO: use pretty image
 	"loadingBlackScreen" cutText ["Initializing Mission...", "BLACK", 0.00000001, true];
 	
 	[

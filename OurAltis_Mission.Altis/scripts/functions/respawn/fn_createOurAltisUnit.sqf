@@ -9,7 +9,7 @@
  * This function assumes that there is currently a valid player object!
  * 
  * Parameter(s):
- * 0: The unit's class name <String>
+ * 0: The unit's localized class name <String>
  * 1: The unit's position <Position>
  * 
  * Return Value:

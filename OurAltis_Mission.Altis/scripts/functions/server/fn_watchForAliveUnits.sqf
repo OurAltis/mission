@@ -27,6 +27,8 @@ diag_log ("Watched side: " + str _side);
 
 ("Started watching side" +  str _side) remoteExecCall ["hint", 0];
 
+// TODO: delay function or implement the whole system via the Killed-EH
+
 [
 	{
 		! ([_this select 0] call FUNC(sideHasLivingUnits));

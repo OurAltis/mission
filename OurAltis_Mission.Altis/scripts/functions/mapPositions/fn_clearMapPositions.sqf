@@ -18,8 +18,6 @@
 // make sure the fra,ework is unlocked
 if(MGVAR(mapPositionsAreLocked)) exitWith {WARNING_LOG(Blocked access to mapPosition framework as it is currently locked!)};
 
-diag_log "Cleating mapPositions ...";
-
 {
 	[_x] call FUNC(deleteMapPosition);
 	

@@ -46,7 +46,6 @@ switch(_side) do {
 	case west : {_classCode = _classCode + 1};
 	case east : {_classCode = _classCode + 2};
 	default {FORMAT_LOG(Unexpected side %1!, str _side);};
-	
 };
 
 _classCode;

@@ -65,8 +65,16 @@ with uiNamespace do {
 		
 		selectPlayer _newPlayer;
 		
+		diag_log ("Dead group: " + str RGVAR(DeadGroup));
+		
+		diag_log ("Old player: " + str _oldPlayer);
+		
+		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
-		_oldPlayer setDammage 1; // Make sure that the old player unit is dead
+		
+		diag_log ("Old player's group: " + str group _oldPlayer);
+		diag_log ("Old player: " + str _oldPlayer);
+		diag_log ("Dead group members: " + str units RGVAR(DeadGroup));
 		
 		
 		// create blackscreen

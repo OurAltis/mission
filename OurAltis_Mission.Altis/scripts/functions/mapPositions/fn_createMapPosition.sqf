@@ -32,8 +32,6 @@ CHECK_FALSE(_id isEqualTo "", ID may not be empty!, {})
 // make sure the fra,ework is unlocked
 if(MGVAR(mapPositionsAreLocked)) exitWith {WARNING_LOG(Blocked access to mapPosition framework as it is currently locked!)};
 
-diag_log "Creating mapPosition";
-
 MGVAR(mapPositions) setVariable [_id, [_pos, _displayID, _selectionCode]];
 MGVAR(mapPositionIDs) pushBack _id;
 
