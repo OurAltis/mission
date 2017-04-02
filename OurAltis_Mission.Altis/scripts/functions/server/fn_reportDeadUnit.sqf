@@ -24,7 +24,6 @@ private _success = params [
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-
 private _result = ["UPDATE armeen SET bestand = '0' WHERE code = '" + str _code + "' && gebiet = '" + _base + "' && einsatz = '" + GVAR(targetAreaName) + "' && bestand != '0' LIMIT 1"] call FUNC(transferSQLRequestToDatabase);
 
 CHECK_DB_RESULT(_result)

@@ -27,6 +27,28 @@ CHECK_TRUE(_success, Invalid winner side!, {})
 	true
 ] call FUNC(fireGlobalClientEvent);
 
+private _dataBaseWinner = "Unknown";
+
+switch(_winnerSide) do {
+	case east: {_dataBaseWinner = "ost"};
+	case west: {_dataBaseWinner =  "west"};
+	default {FORMAT_LOG(Unexpected winner side %1, str _winnerSide)}
+};
+
+// report status to the DB
+["UPDATE missionen SET sieger='" + _dataBaseWinner + "' WHERE mission_id='" + str GVAR(MissionID) + "'"] call FUNC(transferSQLRequestToDataBase);
+
+diag_log "Transmitting vehicles...";
+
+// feed back the status of the remaining vehicles
+{
+	if (! (_x getVariable [VEHICLE_ID, ""] isEqualTo "")) then {
+		[_X] call FUNC(reportVehicleStatus);
+	};
+	
+	nil;
+} count vehicles;
+
 // end mission on Server
 ["serverEnd", false, false, false] call BIS_fnc_endMission;
 

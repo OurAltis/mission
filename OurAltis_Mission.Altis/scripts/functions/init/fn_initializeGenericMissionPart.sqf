@@ -114,3 +114,7 @@ if (hasInterface) then {
 		}
 	] call CBA_fnc_waitUntilAndExecute;
 };
+
+diag_log ("Ending time: " + str diag_tickTime);
+
+nil;

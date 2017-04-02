@@ -33,7 +33,7 @@
 			["_fuel", 0, [0]],
 			["_damage", 0, [0]],
 			["_spawn", "", [""]],
-			["_vehID", -1, [0]]
+			["_vehID", "", [""]]
 		];
 
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
@@ -60,6 +60,9 @@
 					// add EH for vehicle destruction (MP-EH is needed in case the vehicle's locality changes (e.g. a player enter it))
 					_obj addMPEventHandler ["MPKilled", {
 						if(isServer) then {
+							// set the damage to 1 in case it died of critical hit
+							_this select 0 setDamage 1;
+														
 							// report destroyed vehicle to the DB immediately
 							[_this select 0] call FUNC(reportVehicleStatus);
 						};

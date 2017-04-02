@@ -15,7 +15,9 @@
  * 
  */
  
- // set preferences
+diag_log ("Starting time: " + str diag_tickTime);
+
+// set preferences
 GVAR(MarkerAccuracy) = 500;
 
 
@@ -25,8 +27,9 @@ if(isServer) then {
 	// variable init
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
-	GVAR(VehicleListVirtual) = [];	
+	GVAR(VehicleListVirtual) = [];
 	GVAR(OperationName) = "Operation Beispiel";
+	GVAR(MissionID) = 84303;
 	GVAR(targetAreaName) = "Telos";
 	GVAR(dataBase) = "a";
 	GVAR(defenderSide) = east;
@@ -46,15 +49,15 @@ if(isServer) then {
 	// Infanterie hinzufuegen
 	[
 		["Rifleman", 2, "Charkia"],
-		["Rifleman", 2, "Rainbow"],
+		["AT", 2, "Rainbow"],
 		["Medic", 1, "Charkia"],
-		["Engineer", 8, "Maxwell"],
+		["Engineer", 2, "Maxwell"],
 		["Grenadier", 5, "Charkia"],
 		["Spotter", 3, "Charkia"],
 		["Marksman", 2, "Charkia"],
 		["UAV", 3, "Charkia"],
 		["Driver", 1, "Charkia"],
-		["AA", 7, "Charkia"],
+		["AT", 8, "Charkia"],
 		["Pilot", 9, "Charkia"],
 		["SQL", 53, "Charkia"],
 		["Crew", 3, "Charkia"],
@@ -67,33 +70,34 @@ if(isServer) then {
 	
 	// Erstellt die Fahrzeuge ["CLassenname", Treibstofff�llstand, Schaden, Spawnpunkt, ID]	
 	[
-		["B_MRAP_01_F", 1, 0, "Charkia", 0],
-		["B_G_Offroad_01_armed_F", 0.5, 0.8, "Charkia", 1],
-		["B_MRAP_01_F", 1, 0, "Charkia", 2],
-		["B_MRAP_01_F", 1, 0, "Charkia", 3],
-		["B_MRAP_01_F", 1, 0, "Charkia", 4],
-		["B_MRAP_01_F", 1, 0, "Charkia", 5],
-		["B_MRAP_01_F", 1, 0, "Charkia", 555],
-		["B_MRAP_01_F", 1, 0, "Charkia", 12],
-		["B_MRAP_01_F", 1, 0, "Charkia", 44987],
-		["B_MRAP_01_F", 1, 0, "Charkia", 79],
-		["B_MRAP_01_F", 1, 0, "Charkia", 80],
-		["B_MRAP_01_F", 1, 0, "Charkia", 81],
-		["B_MRAP_01_F", 1, 0, "Charkia", 82],
-		["B_MRAP_01_F", 1, 0, "Charkia", 83],
-		["B_MRAP_01_F", 1, 0, "Charkia", 45],
-		["B_MRAP_01_F", 1, 0, "Charkia", 450],
-		["B_MRAP_01_F", 1, 0, "Charkia", 348],
-		["B_MRAP_01_F", 1, 0, "Charkia", 349],
-		["B_MRAP_01_F", 1, 0, "Charkia", 350],
-		["B_Quadbike_01_F", 0.5, 0.2, "Maxwell", 351],
-		["B_Quadbike_01_F", 0, 0.7, "Maxwell", 352],
-		["B_Quadbike_01_F", 0.3, 0.1, "Maxwell", 353],
-		["B_Quadbike_01_F", 1, 0.9, "Maxwell", 89016],
-		["B_Heli_Light_01_armed_F", 0, 0.8, "Charkia", 355],
-		["B_Heli_Light_01_armed_F", 0, 0.9, "Charkia", 356],
-		["B_Heli_Light_01_armed_F", 1, 0, "Charkia", 357],
-		["B_Heli_Light_01_armed_F", 0.2, 0, "Maxwell", 358]
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "0"],
+		["B_G_Offroad_01_armed_F", 0.5, 0.8, "Charkia", "1"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "2"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "3"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "4"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "5"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "555"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "12"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "44987"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "79"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "80"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "81"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "82"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "83"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "45"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "450"],
+		["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "348"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "349"],
+		["B_MRAP_01_F", 1, 0, "Charkia", "350"],
+		["B_Quadbike_01_F", 0.5, 0.2, "Maxwell", "351"],
+		["B_Quadbike_01_F", 0, 0.7, "Maxwell", "352"],
+		["B_Quadbike_01_F", 0.3, 0.1, "Maxwell", "353"],
+		["B_Quadbike_01_F", 1, 0.9, "Maxwell", "89016"],
+		["B_Heli_Light_01_armed_F", 0, 0.8, "Charkia", "355"],
+		["B_Heli_Light_01_armed_F", 0, 0.9, "Charkia", "356"],
+		["B_Heli_Light_01_armed_F", 1, 0, "Charkia", "357"],
+		["B_Heli_Light_01_armed_F", 0.2, 0, "Maxwell", "358"],
+		["B_Heli_Light_01_armed_F", 1, 0, "Rainbow", "12345678"]
 	] call FUNC(createVehicles);	
 };
 
