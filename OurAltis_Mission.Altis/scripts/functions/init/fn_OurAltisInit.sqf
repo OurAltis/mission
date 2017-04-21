@@ -19,6 +19,7 @@ diag_log ("Starting time: " + str diag_tickTime);
 
 // set preferences
 GVAR(MarkerAccuracy) = 500;
+GVAR(SpyInfo) = [[blufor, localize "OurA_str_enemyHasTanks"], [opfor, localize "OurA_str_enemyHasHelicopter"]];
 
 
 if(isServer) then {
