@@ -28,6 +28,7 @@ if(isServer) then {
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];
+	GVAR(Industry) = [[123, 456, 7], "Kaserne"]; // empty array if none
 	GVAR(OperationName) = "Operation Beispiel";
 	GVAR(MissionID) = 84303;
 	GVAR(targetAreaName) = "Telos";
