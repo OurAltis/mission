@@ -40,11 +40,6 @@
 			} else {
 				// enemy base -> mark roughly
 				
-				// mark exact base location
-				private _tester = createMarker [_id + "Tester", _position];
-				_tester setMarkerTypeLocal "mil_dot";
-				_tester setMarkerTextLocal _id;
-				
 				_offset = GVAR(BaseMarkerOffset) select _forEachIndex;
 				
 				// randomize position
