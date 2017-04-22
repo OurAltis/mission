@@ -40,9 +40,9 @@ if(isServer) then {
 	// initialize unique mission part
 	// erstellt ein Feldlager und eine Basis
 	[
-		[[14917, 16471], blufor, "Charkia", false, 1],
-		[[14817, 17671], blufor, "Maxwell", true, 6],
-		[[18317, 13471], east, "Rainbow", false, 6]
+		[[14917, 16471], blufor, "Charkia", false, 1, 45],
+		[[14817, 17671], blufor, "Maxwell", true, 6, 0],
+		[[18317, 13471], east, "Rainbow", false, 6, 90]
 	] call FUNC(createBases);
 	
 	// schoenes Wetter ohne Nebel tagsueber

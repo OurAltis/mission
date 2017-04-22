@@ -8,14 +8,14 @@
  * Creates and initializes the given bases
  * 
  * Parameter(s):
- * 0: Bases <Array> - format [Position<Position3D, Position2D>, baseSide<Side>, ID<String>, isCamp<Boolean>]
- * 
+ * 0: Bases <Array> - format [Position<Position3D, Position2D>, baseSide<Side>, ID<String>, isCamp<Boolean>, baseLevel<Scalar>, angle<Scalar>]
+ *
  * Return Value:
  * None <Any>
  * 
  */
  
-private _baseDir = _this call FUNC(getBaseDir);
+//private _baseDir = _this call FUNC(getBaseDir);
  
 {
 	private ["_success"];
@@ -25,7 +25,8 @@ private _baseDir = _this call FUNC(getBaseDir);
 		["_side", sideUnknown, [sideUnknown]],
 		["_id", nil, [""]],
 		["_isCamp", nil, [true]],
-		["_baseType", 0, [0]]
+		["_baseType", 0, [0]],
+		["_baseDir", 0, [0]]		
 	];
 	
 	CHECK_TRUE(_success, Invalid baseFormat!, {});	

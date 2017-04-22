@@ -113,3 +113,4 @@
  #define CLASS_CODE_VARIABLE "currentClassCode"
  #define SPAWN_BASE_VARIABLE "lastSpawnBase"
  #define VEHICLE_ID QGVAR(VehicleID)
+ #define FLAGPOLE "Flag_White_F"

@@ -26,7 +26,8 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objs = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
+private _flagpole = [_position, floor random 360, _objs, FLAGPOLE] call FUNC(objectsMapper);
 
-[_position, floor random 360, _objs] call FUNC(objectsMapper);
+_flagpole setFlagTexture ([_side] call FUNC(getFlagTexture));
 
 nil

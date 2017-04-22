@@ -18,25 +18,21 @@
  * None <Any>
  * 
  */
-
-private ["_dir", "_baseTemplate", "_objs"];
  
 private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_side", sideUnknown, [sideUnknown]],
 	["_id", nil, [""]],
 	["_baseType", 0, [0]],
-	["_baseDir", [0, 0], [[]]]
+	["_baseDir", 0, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-//+90 Degrees because of the orientation of the basetemplates (Mainentrance)
-_dir = if(_side isEqualTo west) then{(_baseDir select 0) + 90} else{(_baseDir select 1) + 90};
-_baseTemplate = "base" + str(_baseType);
+private _baseTemplate = "base" + str(_baseType);
+private _objs = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", _baseTemplate]);
+private _flagpole = [_position, _baseDir, _objs, FLAGPOLE] call FUNC(objectsMapper);
 
-_objs = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", _baseTemplate]);
-
-[_position, _dir, _objs] call FUNC(objectsMapper);
+_flagpole setFlagTexture ([_side] call FUNC(getFlagTexture));
 
 nil
