@@ -4,11 +4,16 @@
 
 	Description:
 	Converts a set of placed objects to an object array for the objects mapper function.
-	The array is stored in the clipboard.
+	The array is stored in the clipboard. Copy this function in your missionfolder (/"ProfileName"/MPMissions/"YourMission").
+	If you are in the Eden Editor name your reference Object, select all object you want to export, open the debug console and
+	paste the code line which is written in the usage section in it, rename the second parameter and click local execute.
 
 	Parameter(s):
 	_this select 0: list of objects (Array)
-	_this select 1: name of object which will be the entry point of the object mapper to calculate all koordinates (String)
+	_this select 1: name of object which will be the entry point of the object mapper to calculate all coordinates (String)
+	
+	Usage:
+	[get3DENselected "object", "obj1"] call compile preprocessFileLineNumbers "fn_objectsGrabber.sqf";
 	
 	Returns:
 	[classname, relative positiom, direction, variable name, init value, enable simulation, is simple object] (Array)
