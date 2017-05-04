@@ -130,6 +130,7 @@ class CfgFunctions
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
+			class getFlagTexture {};
 		};
 		
 		class events
