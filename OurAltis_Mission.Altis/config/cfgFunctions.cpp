@@ -147,8 +147,7 @@ class CfgFunctions
 			class initializeEventHandler {};
 			class removeEventHandler {};
 			class removeEventHandlerType {};
-			class workWithRequest {};
-			class getFlagTexture {};
+			class workWithRequest {};			
 		};
 		
 		class vehicles
