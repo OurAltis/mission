@@ -24,8 +24,8 @@ CHECK_TRUE(_success, Invalid parameters!)
 diag_log _vehPosObj;
 
 {
-	private _vehGroup = (_x getVariable [VEHICLE_TYPE, ""]) + "_" + str GVAR(defenderSide);
-	
+	private _vehGroup = _x getVariable [VEHICLE_TYPE, ""];
+	_vehGroup = if (_vehGroup find "military") then {toLower(_vehGroup + "_" + str GVAR(defenderSide))};
 	diag_log _vehGroup;
 	
 	private _vehArray = switch (_vehGroup) do {
