@@ -129,11 +129,7 @@ class CfgFunctions
 			class setMarkerAlphaByPrefix {};
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
-<<<<<<< HEAD
-			class unhideUserMapMarker {};			
-=======
 			class unhideUserMapMarker {};
->>>>>>> 744a8e23c49c12145d2c5746b52021161a985128
 			class getFlagTexture {};
 		};
 		
@@ -151,11 +147,7 @@ class CfgFunctions
 			class initializeEventHandler {};
 			class removeEventHandler {};
 			class removeEventHandlerType {};
-<<<<<<< HEAD
 			class workWithRequest {};
-=======
-			class workWithRequest {};			
->>>>>>> 744a8e23c49c12145d2c5746b52021161a985128
 		};
 		
 		class vehicles
