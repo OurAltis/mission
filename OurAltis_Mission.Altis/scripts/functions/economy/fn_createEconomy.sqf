@@ -1,22 +1,36 @@
+<<<<<<< HEAD
 #include "macros.hpp"
 /**
  * OurAltis_Mission - fn_createIndustry
+=======
+
+#include "macros.hpp"
+/**
+ * OurAltis_Mission - fn_createEconomy
+>>>>>>> 744a8e23c49c12145d2c5746b52021161a985128
  * 
  * Author: PhilipJFry
  * 
  * Description:
+<<<<<<< HEAD
  * Creates economy buildings
  * 
  * Parameter(s):
  * 0: Position <Any>
  * 1: Type <String>
  * 2: Direction <Scalar>
+=======
+ * Create the economy buildings
+ * 
+ * Parameter(s):
+>>>>>>> 744a8e23c49c12145d2c5746b52021161a985128
  * 
  * Return Value:
  * None <Any>
  * 
  */
  
+<<<<<<< HEAD
 private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_type", "", [""]],
@@ -38,3 +52,7 @@ _objsArray = nearestObjects [_position, ["Land_HelipadEmpty_F", "Land_HelipadCir
 [_objsArray] call FUNC(createAmbientVehicles);
 
 nil
+=======
+ nil
+ 
+>>>>>>> 744a8e23c49c12145d2c5746b52021161a985128
