@@ -35,6 +35,8 @@ _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 _objsArray = nearestObjects [_position, ["Land_HelipadEmpty_F", "Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
 
+diag_log _objsArray;
+
 [_objsArray] call FUNC(createAmbientVehicles);
 
 nil
