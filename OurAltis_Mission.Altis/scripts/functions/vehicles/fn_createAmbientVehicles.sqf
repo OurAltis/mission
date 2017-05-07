@@ -25,7 +25,7 @@ diag_log _vehPosObj;
 
 {
 	private _vehGroup = _x getVariable [VEHICLE_TYPE, ""];
-	_vehGroup = if (_vehGroup find "military") then {toLower(_vehGroup + "_" + str GVAR(defenderSide))};
+	_vehGroup = if ((_vehGroup find "military") > -1) then {toLower(_vehGroup + "_" + str GVAR(defenderSide))};
 	diag_log _vehGroup;
 	
 	private _vehArray = switch (_vehGroup) do {
@@ -46,7 +46,7 @@ diag_log _vehPosObj;
 	
 	private _obj = createVehicle [selectRandom _vehArray, _x, [], 0, "CAN_COLLIDE"];
 	_obj setDir (getDir _x);
-	_obj lock (if (_vehGroup find "military") then {3} else {0});
+	_obj lock (if ((_vehGroup find "military") > -1) then {3} else {0});
 	
 	nil
 } count _vehPosObj;
