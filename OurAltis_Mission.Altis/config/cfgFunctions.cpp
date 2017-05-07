@@ -163,5 +163,12 @@ class CfgFunctions
 			
 			class createHelipads {};
 		};
+		
+		class economy
+		{
+			file = FUNC_PATH(economy);
+			
+			class createEconomy {};
+		};
 	};
 };
