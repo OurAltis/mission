@@ -15,10 +15,8 @@
  * 
  */
 
-{
-	private["_success", "_objList", "_return"];
-	
-	_success = _x params [
+{	
+	private _success = _x params [
 		["_id", nil, [""]],
 		["_side", sideUnknown, [sideUnknown]],
 		["_position", nil, [[]], [2,3]],
@@ -38,8 +36,8 @@
 
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
 		
-		if(_spawn isEqualTo _id) then{
-			_objList = if(_type isKindOf "LandVehicle") then{
+		if (_spawn isEqualTo _id) then {
+			private _objList = if (_type isKindOf "LandVehicle") then {
 				nearestObjects [_position, ["Land_HelipadEmpty_F"], 80];
 			} else {
 				nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
@@ -47,8 +45,8 @@
 			
 			_objList = [_objList, 100] call FUNC(KK_arrayShuffle);
 			
-			_return = {
-				if(!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
+			private _return = {
+				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					_obj setFuel _fuel;
 					_obj setDamage _damage;
@@ -58,17 +56,19 @@
 					_obj setVariable [VEHICLE_ID, _vehID];
 					
 					// add EH for vehicle destruction (MP-EH is needed in case the vehicle's locality changes (e.g. a player enter it))
-					_obj addMPEventHandler ["MPKilled", {
-						if(isServer) then {
-							// set the damage to 1 in case it died of critical hit
-							_this select 0 setDamage 1;
-														
-							// report destroyed vehicle to the DB immediately
-							[_this select 0] call FUNC(reportVehicleStatus);
-						};
-						
-						nil;
-					}];
+					_obj addMPEventHandler [
+						"MPKilled", {
+							if (isServer) then {
+								// set the damage to 1 in case it died of critical hit
+								(_this select 0) setDamage 1;
+								
+								// report destroyed vehicle to the DB immediately
+								[_this select 0] call FUNC(reportVehicleStatus);
+							};
+							
+							nil
+						}
+					];
 					
 					_x setVariable [QGVAR(VehiclePlaced), true];
 					

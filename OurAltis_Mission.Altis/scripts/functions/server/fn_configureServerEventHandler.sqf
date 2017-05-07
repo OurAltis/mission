@@ -26,6 +26,24 @@ addMissionEventHandler [
 	}
 ];
 
+addMissionEventHandler [
+	"BuildingChanged", {
+		params ["_oldObj", "_newObj", "_isRuin"];
+		
+		if ((typeOf _oldObj) in ECONOMY_BUILDING && _isRuin) then {
+			if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
+				NOTIFICATION_LOG(Enonomy building destroyed!)
+			};
+		};
+		
+		if ((typeOf _oldObj) in RESPAWN_BUILDING && _isRuin) then {
+			if (_oldObj getVariable [IS_RESPAWN_BUILDING, false]) then {
+				NOTIFICATION_LOG(Respawn building destroyed!)
+			};
+		};
+	}
+];
+
 // handler for providing the base list on request
 [
 	EVENT_BASE_LIST_REQUEST,

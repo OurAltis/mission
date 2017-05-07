@@ -29,7 +29,6 @@ if(isServer) then {
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];
-	GVAR(Industry) = [[123, 456], "<ClassNameOfBuildingToCreate>", 45]; // empty array if none
 	GVAR(OperationName) = "Operation Beispiel";
 	GVAR(MissionID) = 84303;
 	GVAR(targetAreaName) = "Telos";
@@ -44,6 +43,12 @@ if(isServer) then {
 		[[14817, 17671], blufor, "Maxwell", true, 6, 0],
 		[[18317, 13471], east, "Rainbow", false, 6, 90]
 	] call FUNC(createBases);
+	
+	[
+		[123, 456],
+		"factory",
+		45
+	] call FUNC(createEconomy);
 	
 	// schoenes Wetter ohne Nebel tagsueber
 	[0,0,0] call FUNC(setMissionParameter);

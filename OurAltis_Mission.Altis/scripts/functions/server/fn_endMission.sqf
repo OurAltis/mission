@@ -43,7 +43,7 @@ diag_log "Transmitting vehicles...";
 // feed back the status of the remaining vehicles
 {
 	if (! (_x getVariable [VEHICLE_ID, ""] isEqualTo "")) then {
-		[_X] call FUNC(reportVehicleStatus);
+		[_x] call FUNC(reportVehicleStatus);
 	};
 	
 	nil;

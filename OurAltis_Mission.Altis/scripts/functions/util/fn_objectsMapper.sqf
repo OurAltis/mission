@@ -10,7 +10,7 @@
 	0: position of the template - <Array> [X, Y, Z]
 	1: azimuth of the template in degrees - <Number>
 	2: objects for the template - <Array>
-	3: classname of object which will be return - <String>
+	3: classname of object which will be return - <Array>
 
 	Returns:
 	Special object (Object)
@@ -19,8 +19,8 @@
 params [
 	["_pos", [], [[]]],
 	["_azi", 0, [0]],
-	["_objs", [], [[]]]
-	["_objClass", "", [""]]
+	["_objs", [], [[]]],
+	["_objClass", [], [[]]]
 ];
 
 //Make sure there are definitions in the final object array
@@ -50,6 +50,7 @@ private _multiplyMatrixFunc = {
 };
 
 private _cObjs = [];
+private _return = [];
 
 {		
 	_x params [
@@ -59,9 +60,10 @@ private _cObjs = [];
 		["_varName", "", [""]],
 		["_init", "", [""]],
 		["_simulation", true, [false]],
-		["_isSimpleObject", false, [false]]
-	];
-
+		["_isSimpleObject", false, [false]],
+		["_lockState", 1, [0]]
+	];	
+	
 	//Rotate the relative position using a rotation matrix
 	private _rotMatrix = [
 		[cos _azi, sin _azi],
@@ -87,12 +89,13 @@ private _cObjs = [];
 		};
 	};	
 	
-	private _return = if (_type isEqualTo _objClass) then {_newObj};
+	if (_type in _objClass) then {_return pushBack _newObj};
 	_cObjs pushBack _newObj;	
 	_newObj allowDamage false;
 	_newObj setDir (_azi + _azimuth);
 	_newObj setPosATL _newPos;
-		
+	_newObj lock _lockState;
+	
 	if (_init != "") then {_newObj call (compile ("this = _this; " + _init))};	
 	if (!_simulation) then {_newObj enableSimulationGlobal false};	
 	

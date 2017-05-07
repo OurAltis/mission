@@ -129,7 +129,8 @@ class CfgFunctions
 			class setMarkerAlphaByPrefix {};
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
-			class unhideUserMapMarker {};
+			class unhideUserMapMarker {};			
+			class getFlagTexture {};
 		};
 		
 		class events
@@ -147,14 +148,14 @@ class CfgFunctions
 			class removeEventHandler {};
 			class removeEventHandlerType {};
 			class workWithRequest {};
-			class getFlagTexture {};
 		};
 		
 		class vehicles
 		{
 			file = FUNC_PATH(vehicles);
 			
-			class createVehicles {}; 
+			class createVehicles {};
+			class createAmbientVehicles {};
 		};
 		
 		class dev
@@ -162,6 +163,13 @@ class CfgFunctions
 			file = FUNC_PATH(dev);
 			
 			class createHelipads {};
+		};
+		
+		class economy
+		{
+			file = FUNC_PATH(economy);
+			
+			class createEconomy {};
 		};
 	};
 };

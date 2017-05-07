@@ -113,4 +113,17 @@
  #define CLASS_CODE_VARIABLE "currentClassCode"
  #define SPAWN_BASE_VARIABLE "lastSpawnBase"
  #define VEHICLE_ID QGVAR(VehicleID)
- #define FLAGPOLE "Flag_White_F"
+ #define VEHICLE_TYPE QGVAR(VehicleType) 
+ #define FLAGPOLE "FlagPole_F"
+ #define IS_ECONOMY_BUILDING QGVAR(IsEconomyBuilding)
+ #define IS_RESPAWN_BUILDING QGVAR(IsRespawnBuilding)
+ #define ECONOMY_BUILDING ["Land_Factory_Main_F", "Land_Hangar_F", "Land_i_Barracks_V1_F"]
+ #define VEHICLE_CIVIL_PKW ["C_Van_01_fuel_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_02_unarmed_F","C_Offroad_01_F","C_Offroad_01_repair_F","C_Quadbike_01_F","C_SUV_01_F","C_Van_01_transport_F","C_Van_01_box_F"]
+ #define VEHICLE_CIVIL_LKW ["C_Truck_02_fuel_F","C_Truck_02_box_F","C_Truck_02_transport_F","C_Truck_02_covered_F"]
+ #define VEHICLE_MILITARY_LKW_WEST ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_fuel_F","B_Truck_01_medical_F","B_Truck_01_transport_F","B_Truck_01_covered_F"] 
+ #define VEHICLE_MILITARY_LKW_EAST ["O_Truck_03_device_F","O_Truck_03_ammo_F","O_Truck_03_fuel_F","O_Truck_03_medical_F","O_Truck_03_repair_F","O_Truck_03_transport_F","O_Truck_03_covered_F","O_Truck_02_Ammo_F","O_Truck_02_fuel_F","O_Truck_02_medical_F","O_Truck_02_box_F","O_Truck_02_transport_F","O_Truck_02_covered_F"]
+ #define VEHICLE_MILITARY_HELI_WEST ["B_Heli_Light_01_armed_F","B_Heli_Attack_01_F","B_Heli_Transport_01_camo_F","B_Heli_Light_01_F"]
+ #define VEHICLE_MILITARY_HELI_EAST ["O_Heli_Light_02_F","O_Heli_Light_02_v2_F","O_Heli_Light_02_unarmed_F"]
+ #define VEHICLE_MILITARY_TANK_WEST ["B_MBT_01_cannon_F","B_MBT_01_TUSK_F"]
+ #define VEHICLE_MILITARY_TANK_EAST ["O_MBT_02_cannon_F"]
+ 

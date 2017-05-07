@@ -29,10 +29,12 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-private _baseTemplate = "base" + str(_baseType);
-private _objs = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", _baseTemplate]);
-private _flagpole = [_position, _baseDir, _objs, FLAGPOLE] call FUNC(objectsMapper);
+private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", "base" + str(_baseType)]);
+_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-_flagpole setFlagTexture ([_side] call FUNC(getFlagTexture));
+{
+	_x setFlagTexture ([_side] call FUNC(getFlagTexture));
+	nil
+} count _objsArray;
 
 nil

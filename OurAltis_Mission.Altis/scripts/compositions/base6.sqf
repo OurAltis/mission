@@ -5,7 +5,7 @@
 */
 
 [
-	["Land_Medevac_house_V1_F",[0,0,0],90,"","this setVariable [""OurA_isSpawnpoint"", true];",true,false], 
+	["Land_Medevac_house_V1_F",[0,0,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true];",true,false], 
 	["Land_CampingTable_small_F",[-1.14941,0.976807,0],282.328,"t1_1","",true,false], 
 	["Land_BarGate_F",[14.2786,16.9609,0],179.037,"","",true,false], 
 	["Land_BarGate_F",[-29.8132,-32.5605,0],221.06,"","",true,false], 
@@ -181,14 +181,14 @@
 	["Item_Medikit",[-14.6433,-2.04688,0],221.313,"","",true,false], 
 	["Land_MetalBarrel_F",[-27.8523,31.6719,0],90,"","",true,false], 
 	["Land_MetalBarrel_empty_F",[-27.4949,32.5566,0],298.406,"","",true,false], 
-	["Land_Cargo_HQ_V3_F",[-28.3872,5.45288,0],180,"","this setVariable [""OurA_isSpawnpoint"", true];",true,false], 
+	["Land_Cargo_HQ_V3_F",[-28.3872,5.45288,0],180,"","this setVariable [""OurA_IsRespawnBuilding"", true];",true,false], 
 	["Land_Cargo_Patrol_V3_F",[32.929,32.7734,0],179.651,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[4.46021,31.0762,0],220,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-31.073,31.3359,0],135,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[37.5442,-32.4805,0],315,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-21.6902,-34,0],0.135973,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-32.1589,-24.7852,0],90.136,"","",true,false], 
-	["Land_Cargo_Tower_V3_F",[7.94897,-7.53711,0],180,"","this setVariable [""OurA_isSpawnpoint"", true];",true,false], 
+	["Land_Cargo_Tower_V3_F",[7.94897,-7.53711,0],180,"","this setVariable [""OurA_IsRespawnBuilding"", true];",true,false], 
 	["Item_MineDetector",[-15.5359,-1.45313,0],91.9089,"","",true,false], 
 	["Land_PressureWasher_01_F",[-1.42651,32.4609,0],181.038,"","",true,false], 
 	["Land_BagFence_Corner_F",[-36.7234,5.60742,0],0,"","",true,true], 
