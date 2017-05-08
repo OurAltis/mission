@@ -148,3 +148,14 @@
 	["Land_HelipadEmpty_F",[-26.063,23.2949,0],78.341,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,1], 
 	["Land_HelipadEmpty_F",[-26.1279,30.4189,0],91.309,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,1]
 ]
+
+[
+	49e32400# 1814004: helipadempty_f.p3d,
+	49e31600# 1814006: helipadempty_f.p3d,
+	49e30f00# 1814007: helipadempty_f.p3d,
+	49e32b00# 1814003: helipadempty_f.p3d,
+	49e31d00# 1814005: helipadempty_f.p3d
+	49e2c100# 1814000: helipadempty_f.p3d,
+	49e33900# 1814001: helipadempty_f.p3d,
+	49e33200# 1814002: helipadempty_f.p3d
+]
