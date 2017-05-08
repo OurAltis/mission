@@ -30,6 +30,11 @@ addMissionEventHandler [
 	"BuildingChanged", {
 		params ["_oldObj", "_newObj", "_isRuin"];
 		
+		if ((typeOf _newObj) isEqualTo "Land_i_Barracks_V1_dam_F" && _oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
+			_newObj setVariable [IS_ECONOMY_BUILDING, true];
+			_newObj setVariable [TYPE_OF_ECONOMY, _oldObj getVariable [TYPE_OF_ECONOMY, ""]];
+		};
+		
 		if ((typeOf _oldObj) in ECONOMY_BUILDING && _isRuin) then {
 			if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
 				NOTIFICATION_LOG(Economy building destroyed!)
