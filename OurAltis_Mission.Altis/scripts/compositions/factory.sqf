@@ -84,7 +84,7 @@
 	["Land_PlasticBarrier_01_line_x6_F",[42.4514,58.5117,0],178.872,"","",true,true,1], 
 	["Land_dp_transformer_F",[24.1975,29.7891,0],281.771,"","",true,false,1], 
 	["Land_Shed_Small_F",[-28.4861,30.8691,0],359.72,"","",true,false,1], 
-	["Land_Factory_Main_F",[7.62134,35.6172,0],281.777,"","this setVariable [""OurA_isEconomyBuilding"", true];",true,false,1], 
+	["Land_Factory_Main_F",[7.62134,35.6172,0],281.777,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""factory""];",true,false,1], 
 	["Land_Wreck_T72_hull_F",[-27.24,37.4766,0],260.895,"","",true,true,1], 
 	["Land_Coil_F",[-6.32202,54.4297,0],270.021,"","",true,false,1], 
 	["Land_Pipes_small_F",[9.28809,57.5273,0.336448],176.636,"","",true,false,1], 

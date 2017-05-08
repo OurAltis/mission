@@ -10,7 +10,7 @@
 	["Land_Wall_IndCnc_4_F",[28.3337,-37.7856,0],112.4,"","",true,false,1], 
 	["Land_Wall_IndCnc_4_F",[29.4177,4.03271,0],90.019,"","",true,false,1], 
 	["Land_Wall_IndCnc_4_F",[29.115,10.0015,0],84.1896,"","",true,false,1], 
-	["Land_Hangar_F",[0,0,0.0809999],40.113,"","this setVariable [""OurA_isEconomyBuilding"", true];",true,false,1], 
+	["Land_Hangar_F",[0,0,0.0809999],40.113,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""hangar""];",true,false,1], 
 	["Land_Wall_IndCnc_4_F",[8.01538,29.9175,0],20.0045,"","",true,false,1], 
 	["Land_Wall_IndCnc_4_F",[2.13062,30.9331,0],359.9,"","",true,false,1], 
 	["Land_Wall_IndCnc_4_F",[-40.4124,-18.7212,0],269.9,"","",true,false,1], 

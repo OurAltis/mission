@@ -33,6 +33,16 @@ addMissionEventHandler [
 		if ((typeOf _oldObj) in ECONOMY_BUILDING && _isRuin) then {
 			if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
 				NOTIFICATION_LOG(Enonomy building destroyed!)
+				
+				if ((_oldObj getVariable [TYPE_OF_ECONOMY, ""]) isEqualTo "barracks") then {
+					if (GVAR(destroyedBarracks) isEqualTo 2) then {						
+						[_oldObj] call FUNC(reportEconomyStatus);
+					} else {
+						GVAR(destroyedBarracks) = GVAR(destroyedBarracks) + 1;
+					};
+				} else {
+					[_oldObj] call FUNC(reportEconomyStatus);
+				};				
 			};
 		};
 		

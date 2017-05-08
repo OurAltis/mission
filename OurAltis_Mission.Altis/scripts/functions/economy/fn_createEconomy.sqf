@@ -26,6 +26,9 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
+
+if (_type isEqualTo "barracks") then {GVAR(destroyedBarracks) = 0};
+
 _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {

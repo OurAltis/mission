@@ -37,6 +37,7 @@ class CfgFunctions
 			class endMission {};
 			class reportDeadUnit {};
 			class reportVehicleStatus {};
+			class reportEconomyStatus {};
 			class setMissionParameter {};
 			class sideHasLivingUnits {};
 			class watchForAliveUnits {};

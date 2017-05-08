@@ -5,8 +5,8 @@
 */
 
 [
-	["Land_i_Barracks_V1_F",[-27.5142,-29.0591,0],282.064,"","this setVariable [""OurA_isEconomyBuilding"", true];",true,false,1], 
-	["Land_i_Barracks_V1_F",[12.0249,-26.7603,0],282.064,"","this setVariable [""OurA_isEconomyBuilding"", true];",true,false,1], 
+	["Land_i_Barracks_V1_F",[-27.5142,-29.0591,0],282.064,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""barracks""];",true,false,1], 
+	["Land_i_Barracks_V1_F",[12.0249,-26.7603,0],282.064,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""barracks""];",true,false,1], 
 	["Land_Medevac_house_V1_F",[-34.8149,-0.404785,0],281.067,"","",true,false,1], 
 	["Land_Obstacle_Crawl_F",[19.5249,9.56396,0],278.709,"","",true,false,1], 
 	["Land_Obstacle_Climb_F",[22.8706,18.6011,0],238.171,"","",true,false,1], 
@@ -56,7 +56,7 @@
 	["Land_HBarrierWall_corridor_F",[-4.55518,10.4722,0],90.0645,"","",true,true,1], 
 	["Land_HBarrierWall_corridor_F",[-10.7954,10.4565,0],90.0645,"","",true,true,1], 
 	["Land_GarbageContainer_closed_F",[-7.55322,-10.9849,0],352.837,"","",true,false,1], 
-	["Land_i_Barracks_V1_F",[-7.49658,-27.0864,0],282.064,"","",true,false,1], 
+	["Land_i_Barracks_V1_F",[-7.49658,-27.0864,0],282.064,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""barracks""];",true,false,1], 
 	["Land_GarbageContainer_open_F",[-28.3247,-12.3677,0],345.835,"","",true,false,1], 
 	["Land_GarbageContainer_closed_F",[11.8667,-10.4575,0],17.8592,"","",true,false,1], 
 	["Land_MapBoard_F",[13.1499,9.40771,0],75.2908,"","",true,false,1], 
