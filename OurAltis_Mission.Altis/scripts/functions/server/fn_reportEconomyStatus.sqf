@@ -34,7 +34,7 @@ private _typeOfEconomyDB = switch (_typeOfEconomyA3) do {
 CHECK_FALSE(_typeOfEconomyDB isEqualTo "", No economy defined!, {})
 
 // report status to the DB
-private _result = ["UPDATE gebiete SET " + _economy + " =" + " '0'" + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
+private _result = ["UPDATE gebiete SET " + _typeOfEconomyDB + " =" + " '0'" + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil;
