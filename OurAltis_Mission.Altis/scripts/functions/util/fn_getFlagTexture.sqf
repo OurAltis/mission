@@ -22,7 +22,7 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _return = switch (_side) do {
-	case west: {"\A3\Data_F\Flags\Flag_Altis_CO.paa"};
+	case west: {"\A3\Data_F\Flags\Flag_nato_CO.paa"};
 	case east: {"\A3\Data_F\Flags\Flag_CSAT_CO.paa"};
 	case independent: {"\A3\Data_F\Flags\Flag_FIA_CO.paa"};
 };
