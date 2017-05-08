@@ -22,16 +22,16 @@ private _success = params [
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 CHECK_TRUE(_success, Invalid parameter!, {})
 
-diag_log (_building getVariable [TYPE_OF_ECONOMY, ""]);
+private _typeOfEconomyA3 = _building getVariable [TYPE_OF_ECONOMY, ""];
 
-private _economy = switch (toLower(_building getVariable [TYPE_OF_ECONOMY, ""])) do {
+private _typeOfEconomyDB = switch (_typeOfEconomyA3) do {
 	case "factory": {"ind"};
 	case "hangar": {"han"};
 	case "barracks": {"kas"};
 	default {""};
 };
 
-CHECK_TRUE(_economy isEqualTo "", No economy defined!, {})
+CHECK_FALSE(_typeOfEconomyDB isEqualTo "", No economy defined!, {})
 
 // report status to the DB
 private _result = ["UPDATE gebiete SET " + _economy + " =" + " '0'" + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
