@@ -38,9 +38,9 @@
 		
 		if (_spawn isEqualTo _id) then {
 			private _objList = if (_type isKindOf "LandVehicle") then {
-				nearestObjects [_position, ["Land_HelipadEmpty_F"], 80];
+				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
-				nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
+				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
 			};		
 			
 			_objList = [_objList, 100] call FUNC(KK_arrayShuffle);
@@ -51,6 +51,11 @@
 					_obj setFuel _fuel;
 					_obj setDamage _damage;
 					_obj setDir (getDir _x);
+					
+					clearWeaponCargoGlobal _obj;
+					clearBackpackCargoGlobal _obj;
+					clearMagazineCargoGlobal _obj;
+					clearItemCargoGlobal _obj;
 					
 					// save the vehicle's ID
 					_obj setVariable [VEHICLE_ID, _vehID];

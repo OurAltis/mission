@@ -39,9 +39,16 @@ CHECK_TRUE(_success, Invalid parameters!)
 	
 	if ((count _vehArray) isEqualTo 0) exitWith {NOTIFICATION_LOG(No vehicle type defined!)};
 	
-	private _obj = createVehicle [selectRandom _vehArray, _x, [], 0, "CAN_COLLIDE"];
-	_obj setDir (getDir _x);
-	_obj lock (if ((_vehGroup find "military") > -1) then {3} else {0});
+	if (selectRandom [true, false]) then {
+		private _obj = createVehicle [selectRandom _vehArray, _x, [], 0, "CAN_COLLIDE"];
+		_obj setDir (getDir _x);
+		_obj lock (if ((_vehGroup find "military") > -1) then {3} else {0});
+		
+		clearWeaponCargoGlobal _obj;
+		clearBackpackCargoGlobal _obj;
+		clearMagazineCargoGlobal _obj;
+		clearItemCargoGlobal _obj;
+	};
 	
 	nil
 } count _vehPosObj;

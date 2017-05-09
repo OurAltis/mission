@@ -112,8 +112,10 @@
  #define CLASS_NAME_VARIABLE "currentClassName"
  #define CLASS_CODE_VARIABLE "currentClassCode"
  #define SPAWN_BASE_VARIABLE "lastSpawnBase"
+ #define VEHICLE_SPAWN_LAND ["Land_HelipadEmpty_F"]
+ #define VEHICLE_SPAWN_AIR ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"]
  #define VEHICLE_ID QGVAR(VehicleID)
- #define VEHICLE_TYPE QGVAR(VehicleType) 
+ #define VEHICLE_TYPE QGVAR(VehicleType)
  #define FLAGPOLE "FlagPole_F"
  #define IS_ECONOMY_BUILDING QGVAR(IsEconomyBuilding)
  #define IS_RESPAWN_BUILDING QGVAR(IsRespawnBuilding)

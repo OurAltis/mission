@@ -36,7 +36,7 @@ _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 	nil	
 } count _objsArray;
 
-_objsArray = nearestObjects [_position, ["Land_HelipadEmpty_F", "Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"], 80];
+_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR, 80];
 
 [_objsArray] call FUNC(createAmbientVehicles);
 
