@@ -41,7 +41,7 @@ _refPos = {
 } count _objects;
 
 {
-	private ["_type", "_objPos", "_dX", "_dY", "_z", "_azimuth", "_varName", "_init", "_simulation", "_outputArray"];	
+	private ["_type", "_objPos", "_dX", "_dY", "_z", "_azimuth", "_varName", "_init", "_simulation", "_outputArray", "_isSimpleObject", "_lockState"];	
 
 	_type = typeOf _x;
 	_objPos = _x get3DENAttribute "position";
@@ -53,8 +53,9 @@ _refPos = {
 	_init = (_x get3DENAttribute "init") select 0;
 	_simulation = (_x get3DENAttribute "enableSimulation") select 0;
 	_isSimpleObject = (_x get3DENAttribute "objectIsSimple") select 0;
+	_lockState = if (_x isKindOf "AllVehicles") then {(_x get3DENAttribute "lock") select 0} else {0};
 	
-	_outputArray = [_type, [_dX, _dY, _z], _azimuth, _varName, _init, _simulation, _isSimpleObject];
+	_outputArray = [_type, [_dX, _dY, _z], _azimuth, _varName, _init, _simulation, _isSimpleObject, _lockState];
 	_outputText = _outputText + _tab + (str _outputArray);
 	_outputText = if (_forEachIndex < ((count _objects) - 1)) then {_outputText + ", " + _br} else {_outputText + _br};
 

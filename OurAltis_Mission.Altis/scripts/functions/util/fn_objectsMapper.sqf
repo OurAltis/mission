@@ -61,7 +61,7 @@ private _return = [];
 		["_init", "", [""]],
 		["_simulation", true, [false]],
 		["_isSimpleObject", false, [false]],
-		["_lockState", 1, [0]]
+		["_lockState", 0, [0]]
 	];	
 	
 	//Rotate the relative position using a rotation matrix
@@ -94,7 +94,7 @@ private _return = [];
 	_newObj allowDamage false;
 	_newObj setDir (_azi + _azimuth);
 	_newObj setPosATL _newPos;
-	_newObj lock _lockState;
+	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};
 	
 	if (_init != "") then {_newObj call (compile ("this = _this; " + _init))};	
 	if (!_simulation) then {_newObj enableSimulationGlobal false};	
