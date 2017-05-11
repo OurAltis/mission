@@ -1,6 +1,6 @@
 /*
 	Grab data:
-	Mission: OurAltisBasenLayout
+	Mission: OurAltisEconomyBuildings_v2
 	World: VR
 */
 
@@ -35,9 +35,6 @@
 	["Land_BagFence_Long_F",[2.54736,-59.2979,0],276.25,"","",true,true,0], 
 	["Land_BagFence_Long_F",[1.68604,-66.1396,0],276.939,"","",true,true,0], 
 	["Target_F",[20.4946,-31.6826,0],90.0644,"","",true,false,0], 
-	["Target_F",[20.3755,-29.7139,0],90.0644,"","",true,false,0], 
-	["Target_F",[20.3735,-26.7451,0],90.0644,"","",true,false,0], 
-	["Target_F",[20.3403,-23.3408,0],90.0644,"","",true,false,0], 
 	["Land_HBarrierWall_corridor_F",[18.3052,-23.5107,0],180.064,"","",true,true,0], 
 	["Land_HBarrierWall_corridor_F",[18.3247,-29.7529,0],180.064,"","",true,true,0], 
 	["Land_HBarrierWall_corridor_F",[12.6919,-29.958,0],180.064,"","",true,true,0], 
@@ -69,7 +66,7 @@
 	["Land_BagFence_End_F",[4.60205,-23.501,0],254.712,"","",true,true,0], 
 	["Land_WoodenCrate_01_stack_x3_F",[13.6763,-33.1689,0],180.064,"","",true,false,0], 
 	["Land_WoodenCrate_01_stack_x5_F",[17.5337,-33.0752,0],180.064,"","",true,false,0], 
-	["Land_Pallet_MilBoxes_F",[-37.4473,2.09912,0],175.202,"","",true,true,0], 
+	["Land_Pallet_MilBoxes_F",[-37.447,2.09863,0],175.202,"","",true,true,0], 
 	["Land_WoodenCrate_01_F",[10.9731,-33.2783,0],180.064,"","",true,false,0], 
 	["Land_Sacks_heap_F",[-40.7163,-51.6123,0],180.064,"","",true,false,0], 
 	["Land_Sacks_heap_F",[-42.0054,-51.8311,0],88.9349,"","",true,false,0], 
@@ -158,7 +155,7 @@
 	["Land_Mil_WallBig_4m_F",[-50.7378,-55.6592,0],90.128,"","",true,false,0], 
 	["Land_Mil_WallBig_4m_F",[-50.7319,-63.6533,0],90.128,"","",true,false,0], 
 	["Land_ConcretePipe_F",[18.9282,-63.8506,0],180.064,"","",true,false,0], 
-	["Land_Maroula_F",[-3.4834,-34.6245,0],44.725,"p3","",true,false,0], 
+	["Land_Maroula_F",[-3.48315,-34.625,0],44.725,"","",true,false,0], 
 	["Land_LampHalogen_off_F",[10.9595,-70.3506,0],92.4152,"","",true,false,0], 
 	["Land_LampHarbour_F",[-30.5444,-34.8779,0],181.142,"","",true,false,0], 
 	["Land_LampHarbour_F",[-32.5347,-14.7549,0],181.142,"","",true,false,0], 
@@ -168,10 +165,10 @@
 	["Land_LampHarbour_off_F",[11.6118,-42.4834,0],43.9411,"","",true,false,0], 
 	["Land_LampHarbour_off_F",[-7.07373,-62.5654,0],4.02536,"","",true,false,0], 
 	["Land_LampHarbour_off_F",[-48.9058,-63.3447,0],137.237,"","",true,false,0], 
-	["Land_Obstacle_Saddle_F",[-36.7983,-68.4189,0.1181],25.3447,"","",true,false,0], 
-	["Land_Obstacle_Saddle_F",[-33.1948,-68.3623,0.1181],25.3447,"","",true,false,0], 
-	["Land_Obstacle_Saddle_F",[-29.7261,-68.4541,0.1181],25.3447,"","",true,false,0], 
-	["Land_Obstacle_Saddle_F",[-25.9683,-68.415,0.1181],25.3447,"","",true,false,0], 
+	["Land_Obstacle_Saddle_F",[-36.7983,-68.4189,0],25.3447,"","",true,false,0], 
+	["Land_Obstacle_Saddle_F",[-33.1948,-68.3623,0],25.3447,"","",true,false,0], 
+	["Land_Obstacle_Saddle_F",[-29.7261,-68.4541,0],25.3447,"","",true,false,0], 
+	["Land_Obstacle_Saddle_F",[-25.9683,-68.415,0],25.3447,"","",true,false,0], 
 	["FlagPole_F",[0,0,0],0,"","",true,false,0], 
 	["FlagPole_F",[-2.34326,-36.2139,0],173.871,"","",true,false,0], 
 	["FlagPole_F",[-42.3608,-70.9326,0],173.871,"","",true,false,0], 
@@ -181,5 +178,8 @@
 	["Land_HelipadEmpty_F",[-34.6772,-67.4263,0],30.04,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
 	["Land_HelipadEmpty_F",[-31.3003,-67.6572,0],208.446,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
 	["Land_HelipadEmpty_F",[-27.3535,-67.5532,0],21.54,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[-22.3315,-36.4033,0],97.299,"","this setVariable [VEHICLE_TYPE, ""civil_lkw""];",true,false,0]
+	["Land_HelipadEmpty_F",[-22.3315,-36.4033,0],97.299,"","this setVariable [VEHICLE_TYPE, ""civil_lkw""];",true,false,0], 
+	["Zombie_PopUp_Moving_90deg_F",[20.2671,-26.5044,0],90,"","",true,false,0], 
+	["TargetP_HVT2_F",[20.2573,-23.4507,0],90,"","",true,false,0], 
+	["TargetP_HVT1_F",[20.2539,-29.6636,0],90,"","",true,false,0]
 ]

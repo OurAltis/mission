@@ -30,32 +30,32 @@ addMissionEventHandler [
 	"BuildingChanged", {
 		params ["_oldObj", "_newObj", "_isRuin"];
 		
-		if ((typeOf _newObj) isEqualTo "Land_i_Barracks_V1_dam_F" && _oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
-			_newObj setVariable [IS_ECONOMY_BUILDING, true];
-			_newObj setVariable [TYPE_OF_ECONOMY, _oldObj getVariable [TYPE_OF_ECONOMY, ""]];
-		};
-		
-		if ((typeOf _oldObj) in ECONOMY_BUILDING && _isRuin) then {
-			if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
+		if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
+			if (_isRuin) then {
 				NOTIFICATION_LOG(Economy building destroyed!)
-								
-				if ((_oldObj getVariable [TYPE_OF_ECONOMY, ""]) isEqualTo "barracks") then {
-					if (GVAR(destroyedBarracks) isEqualTo 2) then {						
-						[_oldObj] call FUNC(reportEconomyStatus);
-					} else {
-						GVAR(destroyedBarracks) = GVAR(destroyedBarracks) + 1;
-					};
+				
+				_type = _oldObj getVariable [TYPE_OF_ECONOMY, ""];
+				_count = [_type] call FUNC(getEconomyVariable);
+				
+				if (_count > 1) then {
+					[_type] call FUNC(setEconomyVariable);
 				} else {
 					[_oldObj] call FUNC(reportEconomyStatus);
 				};				
+			} else {
+				_newObj setVariable [IS_ECONOMY_BUILDING, true];
+				_newObj setVariable [TYPE_OF_ECONOMY, _oldObj getVariable [TYPE_OF_ECONOMY, ""]];
 			};
-		};
+		};		
 		
-		if ((typeOf _oldObj) in RESPAWN_BUILDING && _isRuin) then {
-			if (_oldObj getVariable [IS_RESPAWN_BUILDING, false]) then {
+		
+		if (_oldObj getVariable [IS_RESPAWN_BUILDING, false]) then {
+			if (_isRuin) then {
 				NOTIFICATION_LOG(Respawn building destroyed!)
-			};
-		};
+			} else {
+				_newObj setVariable [IS_RESPAWN_BUILDING, true];
+			};			
+		};		
 	}
 ];
 

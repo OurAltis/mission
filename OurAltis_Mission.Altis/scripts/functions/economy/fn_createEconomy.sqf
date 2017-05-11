@@ -27,8 +27,6 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
 
-if (_type isEqualTo "barracks") then {GVAR(destroyedBarracks) = 0};
-
 _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {
@@ -36,7 +34,15 @@ _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 	nil	
 } count _objsArray;
 
-_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR, 80];
+_objsArray = nearestObjects [_position, ["house"], 90];
+
+private _count = {
+	_x getVariable [IS_ECONOMY_BUILDING, false];
+} count _objsArray;
+
+[_type, _count] call FUNC(initializeEconomyVariable);
+
+_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR, 90];
 
 [_objsArray] call FUNC(createAmbientVehicles);
 
