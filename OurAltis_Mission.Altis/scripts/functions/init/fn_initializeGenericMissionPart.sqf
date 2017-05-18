@@ -18,6 +18,13 @@
 [] call FUNC(initializeEventHandler);
 
 if (isServer) then {
+	// Sets up a checking framework that repeatedly checks whether there are units in the base	
+	GVAR(captureBaseHandlerID) = [
+		FUNC(watchCapturingBase),
+		0.1,
+		[GVAR(flagPolesBase)]
+	] call CBA_fnc_addPerFrameHandler;
+	
 	// indicators on client
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;

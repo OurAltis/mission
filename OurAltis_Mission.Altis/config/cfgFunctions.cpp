@@ -41,6 +41,7 @@ class CfgFunctions
 			class setMissionParameter {};
 			class sideHasLivingUnits {};
 			class watchForAliveUnits {};
+			class watchCapturingBase {};
 		};
 		
 		class database

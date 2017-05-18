@@ -30,11 +30,17 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", "base" + str(_baseType)]);
-_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+GVAR(flagPolesBase) = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {
 	_x setFlagTexture ([_side] call FUNC(getFlagTexture));
 	nil
-} count _objsArray;
+} count GVAR(flagPolesBase);
+
+GVAR(markerBase) = createMarkerLocal ["marker_base", _position];
+GVAR(markerBase) setMarkerShapeLocal "RECTANGLE";
+GVAR(markerBase) setMarkerSizeLocal [50,50];
+GVAR(markerBase) setMarkerDir _baseDir;
+GVAR(markerBase) setMarkerAlphaLocal 0;
 
 nil
