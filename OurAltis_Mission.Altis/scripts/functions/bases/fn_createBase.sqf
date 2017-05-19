@@ -37,10 +37,10 @@ GVAR(flagPolesBase) = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(ob
 	nil
 } count GVAR(flagPolesBase);
 
-GVAR(markerBase) = createMarkerLocal ["marker_base", _position];
-GVAR(markerBase) setMarkerShapeLocal "RECTANGLE";
-GVAR(markerBase) setMarkerSizeLocal [50,50];
+GVAR(markerBase) = createMarker ["marker_base", _position];
+GVAR(markerBase) setMarkerShape "RECTANGLE";
+GVAR(markerBase) setMarkerSize [50,50];
 GVAR(markerBase) setMarkerDir _baseDir;
-GVAR(markerBase) setMarkerAlphaLocal 0;
+GVAR(markerBase) setMarkerColor "ColorRed";
 
 nil
