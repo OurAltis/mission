@@ -42,7 +42,7 @@ private _count = {
 
 [_type, _count] call FUNC(initializeEconomyVariable);
 
-_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR, 90];
+_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND append VEHICLE_SPAWN_AIR, 90];
 
 [_objsArray] call FUNC(createAmbientVehicles);
 

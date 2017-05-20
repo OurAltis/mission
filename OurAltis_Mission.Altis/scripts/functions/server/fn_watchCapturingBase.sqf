@@ -22,6 +22,12 @@ private _succcess = params [
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
+diag_log _flagPoles;
+
+_flagPoles = _flagPoles select 0;
+
+diag_log _flagPoles;
+
 ("Started watching base") remoteExecCall ["hint", 0];
 
 _westUnits = west countSide (allUnits inAreaArray "marker_base");
