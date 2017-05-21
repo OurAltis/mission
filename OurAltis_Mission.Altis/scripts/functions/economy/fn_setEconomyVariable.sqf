@@ -24,8 +24,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 switch (_type) do {
 	case "factory": {GVAR(factoryBuildings) = GVAR(factoryBuildings) - 1};
 	case "barracks": {GVAR(barracksBuildings) = GVAR(barracksBuildings) - 1};
-	case "hangar": {GVAR(hangarBuildings) = GVAR(hangarBuildings) - 1};
-	default {NOTIFICATION_LOG(Economy type is not defined!)};
+	case "hangar": {GVAR(hangarBuildings) = GVAR(hangarBuildings) - 1};	
 };
 
 nil
