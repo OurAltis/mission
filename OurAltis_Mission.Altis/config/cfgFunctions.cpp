@@ -172,7 +172,7 @@ class CfgFunctions
 			file = FUNC_PATH(economy);
 			
 			class createEconomy {};
-			class initilizeEconomyVariable {};
+			class initializeEconomyVariable {};
 			class getEconomyVariable {};
 			class setEconomyVariable {};
 		};
