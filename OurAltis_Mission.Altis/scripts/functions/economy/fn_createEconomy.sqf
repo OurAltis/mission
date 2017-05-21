@@ -25,9 +25,15 @@ private _success = params [
  
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+diag_log _this;
+
 private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
 
+diag_log _objsArray;
+
 _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+
+diag_log _objsArray;
 
 {
 	_x setFlagTexture ([GVAR(defenderSide)] call FUNC(getFlagTexture));
@@ -36,13 +42,19 @@ _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 _objsArray = nearestObjects [_position, ["house"], 90];
 
+diag_log _objsArray;
+
 private _count = {
 	_x getVariable [IS_ECONOMY_BUILDING, false];
 } count _objsArray;
 
+diag_log _count;
+
 [_type, _count] call FUNC(initializeEconomyVariable);
 
-_objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND append VEHICLE_SPAWN_AIR, 90];
+_objsArray = nearestObjects [_position, ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F", "Land_HelipadEmpty_F"], 90];
+
+diag_log _objsArray;
 
 [_objsArray] call FUNC(createAmbientVehicles);
 

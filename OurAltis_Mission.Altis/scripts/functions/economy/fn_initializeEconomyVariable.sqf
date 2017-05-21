@@ -19,9 +19,11 @@
 private _success = params [
 	["_type", "", [""]],
 	["_count", -1, [0]]
-];
- 
+]; 
+
 CHECK_TRUE(_success, Invalid parameters!, {})
+
+diag_log _this;
 
 switch (_type) do {
 	case "factory": {GVAR(factoryBuildings) = _count};
