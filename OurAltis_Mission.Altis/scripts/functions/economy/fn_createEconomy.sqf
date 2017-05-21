@@ -46,4 +46,10 @@ _objsArray = nearestObjects [_position, VEHICLE_SPAWN_LAND append VEHICLE_SPAWN_
 
 [_objsArray] call FUNC(createAmbientVehicles);
 
+GVAR(markerBase) = createMarker ["marker_eco", _position];
+GVAR(markerBase) setMarkerShape "RECTANGLE";
+GVAR(markerBase) setMarkerSize [50,50];
+GVAR(markerBase) setMarkerDir _dir;
+GVAR(markerBase) setMarkerColor "ColorRed";
+
 nil
