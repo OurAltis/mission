@@ -27,6 +27,7 @@ switch (_type) do {
 	case "factory": {GVAR(factoryBuildings) = _count};
 	case "barracks": {GVAR(barracksBuildings) = _count};
 	case "hangar": {GVAR(hangarBuildings) = _count};
+	default {NOTIFICATION_LOG(No economy type defined!)};
 };
 
 nil

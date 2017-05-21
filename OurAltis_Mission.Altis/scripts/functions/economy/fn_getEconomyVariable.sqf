@@ -25,6 +25,7 @@ private _return = switch (_type) do {
 	case "factory": {GVAR(factoryBuildings)};
 	case "barracks": {GVAR(barracksBuildings)};
 	case "hangar": {GVAR(hangarBuildings)};
+	default {NOTIFICATION_LOG(No economy type defined!)};
 };
 
 _return
