@@ -24,8 +24,7 @@ GVAR(SpyInfo) = [[123,456], 2, 0]; // [position, west, east]
 
 
 if(isServer) then {
-	// only initialize on server
-	
+	// only initialize on server	
 	// variable init
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
@@ -34,8 +33,7 @@ if(isServer) then {
 	GVAR(MissionID) = 84303;
 	GVAR(targetAreaName) = "Telos";
 	GVAR(dataBase) = "a";
-	GVAR(defenderSide) = east;
-	
+	GVAR(defenderSide) = east;	
 	
 	// initialize unique mission part
 	// erstellt ein Feldlager und eine Basis
