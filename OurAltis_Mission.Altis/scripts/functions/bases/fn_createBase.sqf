@@ -38,8 +38,8 @@ GVAR(flagPolesBase) = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(ob
 } count GVAR(flagPolesBase);
 
 GVAR(markerBase) = createMarker ["marker_base", _position];
-GVAR(markerBase) setMarkerShape "RECTANGLE";
-GVAR(markerBase) setMarkerSize [50,50];
+GVAR(markerBase) setMarkerShape "ELLIPSE";
+GVAR(markerBase) setMarkerSize [20,20];
 GVAR(markerBase) setMarkerDir _baseDir;
 GVAR(markerBase) setMarkerColor "ColorRed";
 
