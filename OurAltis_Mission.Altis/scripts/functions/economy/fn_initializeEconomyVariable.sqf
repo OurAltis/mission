@@ -23,8 +23,6 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-diag_log _this;
-
 switch (_type) do {
 	case "factory": {GVAR(factoryBuildings) = _count};
 	case "barracks": {GVAR(barracksBuildings) = _count};

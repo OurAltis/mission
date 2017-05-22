@@ -5,7 +5,7 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Sets up a checking framework that repeatedly checks whether there are still alive units of the given side in the mission. If 
+ * Sets up a capturing framework that repeatedly checks whether there are still alive units in the base. 
  * 
  * Parameter(s):
  * 0: Flag Poles <Array>

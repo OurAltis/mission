@@ -24,6 +24,7 @@ class CfgFunctions
 			class markBases {};
 			class workWithBaseList {};
 			class workWithInfantryList {};
+			class deleteRadioMsg {};
 		};
 		
 		class server
@@ -42,6 +43,7 @@ class CfgFunctions
 			class sideHasLivingUnits {};
 			class watchForAliveUnits {};
 			class watchCapturingBase {};
+			class retreat {};
 		};
 		
 		class database

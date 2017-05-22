@@ -23,14 +23,14 @@ if (isServer) then {
 		FUNC(watchCapturingBase),
 		0.1,
 		[GVAR(flagPolesBase)]
-	] call CBA_fnc_addPerFrameHandler;
-	
+	] call CBA_fnc_addPerFrameHandler;		
+		
 	// indicators on client
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;
 	PGVAR(SERVER_INITIALIZED) = false;
 	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
-	
+	PGVAR(retreat) = false;	
 	
 	[] call FUNC(configureServerEventHandler);
 	[] call FUNC(calculateBaseMarkerOffset);
@@ -42,6 +42,7 @@ if (isServer) then {
 	// broadcast indicators to all clients
 	publicVariable QPGVAR(BASES_CHANGED);
 	publicVariable QPGVAR(INF_CHANGED);
+	publicVariable QPGVAR(retreat);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	
