@@ -18,7 +18,8 @@
  
 private _success = params [
 	["_position", nil, [[]], [2,3]],
-	["_mood", 0, [0]]
+	["_moodWest", 0, [0]],
+	["_moodEast", 0, [0]],
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})

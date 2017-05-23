@@ -104,10 +104,10 @@ if(isServer) then {
 		["B_Heli_Light_01_armed_F", 1, 0, "Charkia", "357"],
 		["B_Heli_Light_01_armed_F", 0.2, 0, "Maxwell", "358"],
 		["B_Heli_Light_01_armed_F", 1, 0, "Rainbow", "12345678"]
-	] call FUNC(createVehicles);	
-};
+	] call FUNC(createVehicles);
 
-GVAR(SpyInfo) call FUNC(createSpy);
+	GVAR(SpyInfo) call FUNC(createSpy);
+};
 
 [] call FUNC(initializeGenericMissionPart);
 
