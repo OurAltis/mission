@@ -29,7 +29,7 @@ if (side (group player) isEqualTo _side) then {
 			private _time = _this select 0 select 0;
 			private _side = _this select 0 select 1;
 			
-			hint format ["We prepare retreat!\n I repeat, we prepare retreat!\n %1 seconds to go!", _time - time];
+			hint format ["We prepare retreat!\n I repeat, we prepare retreat!\n %1 seconds to go!", round (_time - time)];
 		},
 		5,
 		[time + 30, _side]
