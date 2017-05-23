@@ -135,6 +135,7 @@ class CfgFunctions
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
 			class getFlagTexture {};
+			class createAddAction {};
 		};
 		
 		class events
@@ -177,6 +178,14 @@ class CfgFunctions
 			class initializeEconomyVariable {};
 			class getEconomyVariable {};
 			class setEconomyVariable {};
+		};
+		
+		class spy
+		{
+			file = FUNC_PATH(spy);
+			
+			class createSpy {};
+			class askSpy {};
 		};
 	};
 };

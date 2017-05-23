@@ -23,8 +23,6 @@ CHECK_TRUE(_succcess, Invalid parameters!, {})
 
 _flagPoles = _flagPoles select 0;
 
-("Started watching base") remoteExecCall ["hint", 0];
-
 _westUnits = west countSide (allUnits inAreaArray "marker_base");
 _eastUnits = east countSide (allUnits inAreaArray "marker_base");
 _flagPosition = flagAnimationPhase (_flagPoles select 0);

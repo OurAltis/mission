@@ -28,12 +28,12 @@ if (PGVAR(retreat)) exitWith {NOTIFICATION_LOG(Retreat in Progress!)};
 PGVAR(retreat) = true;
 publicVariable QPGVAR(retreat);
 
-[_side] remoteExecCall [QFUNC(deleteRadioMsg), 0 - _clientID];
+[_side] remoteExecCall [QFUNC(deleteRadioMsg), -2];
 
 private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 
 [
-	QFUNC(endMission),
+	{(_this select 0) call FUNC(endMission)},
 	[_winnerSide],
 	30
 ] call CBA_fnc_waitAndExecute;

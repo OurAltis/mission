@@ -107,6 +107,8 @@ if(isServer) then {
 	] call FUNC(createVehicles);	
 };
 
+GVAR(SpyInfo) call FUNC(createSpy);
+
 [] call FUNC(initializeGenericMissionPart);
 
 nil;
