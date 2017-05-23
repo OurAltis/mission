@@ -33,7 +33,11 @@ publicVariable QPGVAR(retreat);
 private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 
 [
-	{(_this select 0) call FUNC(endMission)},
+	{
+		if (!isNil QGVAR(endMission)) exitWith {NOTIFICATION_LOG(End mission is already fired!)};
+		GVAR(endMission) = 1;
+		(_this select 0) call FUNC(endMission);		
+	},
 	[_winnerSide],
 	30
 ] call CBA_fnc_waitAndExecute;
