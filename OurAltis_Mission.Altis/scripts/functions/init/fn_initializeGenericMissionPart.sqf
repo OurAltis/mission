@@ -58,11 +58,8 @@ if (isServer) then {
 		[],
 		7
 	] call CBA_fnc_waitAndExecute;
-	
-	//To Do: form a macro
-	private _missionRoot = str missionConfigFile select [0, count str missionConfigFile - 15];
-	
-	[] call compile preprocessFileLineNumbers (_missionRoot + "scripts\Engima\Civilians\Init.sqf");
+		
+	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 };
 
 if (hasInterface) then {
