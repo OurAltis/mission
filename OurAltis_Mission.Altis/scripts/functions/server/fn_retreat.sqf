@@ -33,7 +33,7 @@ publicVariable QPGVAR(retreat);
 private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 
 [
-	QFUNC(endMission),
+	{(_this select 0) call FUNC(endMission)},
 	[_winnerSide],
 	30
 ] call CBA_fnc_waitAndExecute;
