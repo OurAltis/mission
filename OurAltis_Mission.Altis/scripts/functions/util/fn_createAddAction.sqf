@@ -23,4 +23,4 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 if (!alive _object || isNull _object) exitWith {NOTIFICATION_LOG(Spy is not there!)};
  
-_object addAction ["Ask for informations!", {_this call FUNC(askSpy)}, nil, 0, false, true, "", "_target distance2D _this =< 3"];
+_object addAction ["Ask for informations!", {_this call FUNC(askSpy)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3"];

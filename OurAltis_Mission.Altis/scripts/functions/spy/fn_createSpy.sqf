@@ -24,9 +24,10 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-GVAR(spyGroup) = createGroup [civilian, true];
+GVAR(spyGroup) = createGroup [civilian, false];
 
 GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
+
 GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", _position, [], 0, "NONE"];
 
 [GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, true];
