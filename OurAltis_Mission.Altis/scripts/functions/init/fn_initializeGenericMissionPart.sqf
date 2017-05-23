@@ -59,7 +59,7 @@ if (isServer) then {
 		7
 	] call CBA_fnc_waitAndExecute;
 	
-	[] call compile preprocessFileLineNumbers ["scripts\Engima\Civilians\Init.sqf"];
+	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 };
 
 if (hasInterface) then {
