@@ -21,14 +21,9 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!)
 
-diag_log _vehPosObj;
-
 {
 	private _vehGroup = toLower(_x getVariable [VEHICLE_TYPE, ""]);
-	diag_log _vehGroup;
 	_vehGroup = if ((_vehGroup find "military") > -1) then {toLower(_vehGroup + "_" + str GVAR(defenderSide))} else {_vehGroup};
-	
-	diag_log _vehGroup;
 	
 	private _vehArray = switch (_vehGroup) do {
 		case "civil_pkw": {VEHICLE_CIVIL_PKW};
@@ -41,8 +36,6 @@ diag_log _vehPosObj;
 		case "military_heli_east": {VEHICLE_MILITARY_HELI_EAST};
 		default {[]};
 	};
-	
-	diag_log _vehArray;
 	
 	if ((count _vehArray) isEqualTo 0) exitWith {NOTIFICATION_LOG(No vehicle type defined!)};
 	
