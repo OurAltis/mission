@@ -44,6 +44,7 @@ class CfgFunctions
 			class watchForAliveUnits {};
 			class watchCapturingBase {};
 			class retreat {};
+			class reportDeadCivilian {};
 		};
 		
 		class database
