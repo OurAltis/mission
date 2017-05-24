@@ -21,6 +21,10 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid winner side!, {})
 
+if (!isNil QGVAR(endMissionTriggered)) then {NOTIFICATION_LOG(End mission is already fired!)};
+
+GVAR(endMissionTriggered) = 1;
+
 [
 	MISSION_ENDED,
 	[_winnerSide],
