@@ -24,11 +24,21 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-GVAR(spyGroup) = createGroup [civilian, false];
+GVAR(spyGroup) = createGroup [civilian, true];
 
 GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
 
-GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", _position, [], 0, "NONE"];
+GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", [0, 0, 0], [], 0, "NONE"];
+GVAR(spyUnit) moveInDriver GVAR(spyVehicle);
+GVAR(spyUnit) action ["GETOUT", GVAR(spyVehicle)];
+
+GVAR(spyUnit) addMPEventHandler [
+	"MPKilled", {
+		if (hasInterface) then {
+			(_this select 0) removeAction GVAR(spyAddAction);
+		};
+	}
+];
 
 [GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, true];
 

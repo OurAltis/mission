@@ -62,7 +62,7 @@ if (isServer) then {
 	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 };
 
-if (hasInterface) then {
+if (hasInterface) then {	
 	// TODO: use pretty image
 	"loadingBlackScreen" cutText ["Initializing Mission...", "BLACK", 0.00000001, true];
 	

@@ -17,6 +17,8 @@
 
 if (!hasInterface) exitWith {}; // server shouldn't execute this
 
+GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
+
 if (!PGVAR(retreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
 	GVAR(radioTrigger) setTriggerActivation ["Alpha", "PRESENT", false];
