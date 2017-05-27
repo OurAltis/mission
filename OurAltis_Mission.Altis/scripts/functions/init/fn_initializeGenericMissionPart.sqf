@@ -39,6 +39,10 @@ if (isServer) then {
 		PGVAR(SERVER_ERRORS) pushBack "Failed at initializing database";
 	};
 	
+	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
+	
+	[] call FUNC(createTasks);
+	
 	// broadcast indicators to all clients
 	publicVariable QPGVAR(BASES_CHANGED);
 	publicVariable QPGVAR(INF_CHANGED);
@@ -57,9 +61,7 @@ if (isServer) then {
 		},
 		[],
 		7
-	] call CBA_fnc_waitAndExecute;
-		
-	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
+	] call CBA_fnc_waitAndExecute;	
 };
 
 if (hasInterface) then {	

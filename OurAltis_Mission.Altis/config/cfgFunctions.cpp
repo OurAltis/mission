@@ -45,6 +45,7 @@ class CfgFunctions
 			class watchCapturingBase {};
 			class retreat {};
 			class reportDeadCivilian {};
+			class createTasks {};
 		};
 		
 		class database

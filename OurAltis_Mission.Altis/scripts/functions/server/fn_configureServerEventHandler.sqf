@@ -41,6 +41,8 @@ addMissionEventHandler [
 					[_type] call FUNC(setEconomyVariable);
 				} else {
 					[_oldObj] call FUNC(reportEconomyStatus);
+					["ecoAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+					["ecoDefender", "FAILED"] spawn BIS_fnc_taskSetState;
 				};				
 			} else {
 				_newObj setVariable [IS_ECONOMY_BUILDING, true];

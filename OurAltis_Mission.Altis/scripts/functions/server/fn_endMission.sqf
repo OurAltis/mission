@@ -25,6 +25,15 @@ if (!isNil QGVAR(endMissionTriggered)) then {NOTIFICATION_LOG(End mission is alr
 
 GVAR(endMissionTriggered) = 1;
 
+if (GVAR(defenderSide) isEqualTo _winnerSide) then {
+	["baseDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	["baseAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+} else {
+	["baseDefender", "FAILED"] spawn BIS_fnc_taskSetState;
+	["baseAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+};
+
+
 [
 	MISSION_ENDED,
 	[_winnerSide],

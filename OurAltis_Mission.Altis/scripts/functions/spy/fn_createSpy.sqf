@@ -18,8 +18,8 @@
  
 private _success = params [
 	["_position", nil, [[]], [2,3]],
-	["_moodWest", 0, [0]],
-	["_moodEast", 0, [0]]
+	["_side", sideUnknown, [west]],
+	["_budget", -1, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
@@ -39,6 +39,8 @@ GVAR(spyUnit) addMPEventHandler [
 		};
 	}
 ];
+
+GVAR(spyUnit) setVariable [QGVAR(info), [_side, _budget]];
 
 [GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, true];
 

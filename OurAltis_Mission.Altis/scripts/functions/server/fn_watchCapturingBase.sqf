@@ -38,7 +38,7 @@ if (_westUnits > _eastUnits) then {
 	} else {				
 		if ((flagAnimationPhase (_flagPoles select 0)) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo east) then {
-				[west] call FUNC(endMission);
+				[west] call FUNC(endMission);			
 				[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
 			};
 		} else {
@@ -51,7 +51,7 @@ if (_eastUnits > _westUnits) then {
 	if ((flagTexture (_flagPoles select 0)) isEqualTo (toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa")) then {				
 		if ((flagAnimationPhase (_flagPoles select 0)) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo west) then {
-				[east] call FUNC(endMission);
+				[east] call FUNC(endMission);				
 				[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
 			};
 		} else {
