@@ -26,8 +26,8 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
-_soundToPlay = _soundPath + "sounds\" + selectRandom GVAR(spySound) + ".ogg" ;
-
+_soundToPlay = _soundPath + "sounds\" + (selectRandom GVAR(spySound)) + ".ogg" ;
+diag_log _soundToPlay;
 playSound3D [_soundToPlay, _target, false, [], 1, 1, 0];
 
 nil
