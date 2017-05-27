@@ -18,7 +18,7 @@
  
 private _success = params [
 	["_position", nil, [[]], [2,3]],
-	["_side", sideUnknown, [west]],
+	["_side", "", [""]],
 	["_budget", -1, [0]]
 ];
 
