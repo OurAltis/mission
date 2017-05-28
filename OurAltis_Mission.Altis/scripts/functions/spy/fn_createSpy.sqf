@@ -27,6 +27,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 GVAR(spyGroup) = createGroup [civilian, true];
 
 GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
+GVAR(spyVehicle) lock 3;
 
 GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", [0, 0, 0], [], 0, "NONE"];
 GVAR(spyUnit) moveInDriver GVAR(spyVehicle);
@@ -38,6 +39,17 @@ GVAR(spyUnit) addMPEventHandler [
 		if (hasInterface) then {
 			(_this select 0) removeAction GVAR(spyAddAction);
 		};
+	}
+];
+
+GVAR(spyUnit) addEventHandler [
+	"GetInMan", {
+		if ((random 10) <= 10) then {
+			[] spawn {			
+				sleep 1.5;
+				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
+			};
+		};		
 	}
 ];
 

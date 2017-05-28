@@ -28,58 +28,41 @@ _info params [
 	["_budged", 0, [0]]
 ];
 
-private _sideSpy = if {_side isEqualTo "west"} then {west} else {east};
+private _spySide = if (_side isEqualTo "west") then {west} else {east};
 
-if (side (group _caller) isEqualTo _sideSpy) then {
-	private _infantryList = if ((GVAR(Infantry) select 0) isEqualTo _sideSpy) then {
-		(GVAR(Infantry) select 3) call FUNC(getLoadoutsForBase);
-	} else {
-		(GVAR(Infantry) select 1) call FUNC(getLoadoutsForBase);
-	};
+if (side (group _caller) isEqualTo _spySide) then {
+	[_budged] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
-	private _vehicleList = [];
-	
-	if ((GVAR(Vehicles) select 0) isEqualTo _sideSpy) then {		
-		
+	[
 		{
-			_x params ["_id", "_vehicles"];						
-			diag_log _x;
-			private _vehicleTypes = [];
-			
-			{
-				private _index = _vehicleTypes pushBackUnique [_x];
-				diag_log _vehicleTypes;
-				if (_index > -1) then {(_vehicleTypes select _index) pushBack ({_x isEqualTo ((_vehicleTypes select _index) select 0)} count _vehicles)};
-				
-				nil
-			} count _vehicles;		
-			
-			_vehicleList pushBack [_id, _vehicleTypes];
-			
-			nil
-		} count (GVAR(vehicles) select 3);	
-	} else {
+			GVAR(spyUnit) enableAI "MOVE";
+			GVAR(spyUnit) assignasdriver GVAR(spyVehicle);
+			[GVAR(spyUnit)] orderGetIn true;
+		},
+		[],
+		5
+	] call CBA_fnc_waitAndExecute;
+} else {
+	private _enemies = GVAR(spyUnit) nearEntities 10;
+	
+	if ((count _enemies) <= 2) then {
+		private _grp = createGroup _spySide;
+		[GVAR(spyUnit)] joinSilent _grp;
+		GVAR(spyUnit) addMagazines ["30Rnd_762x39_Mag_F", 4];
+		GVAR(spyUnit) addWeapon "arifle_AKM_F";
+	} else {		
 		{
-			_x params ["_id", "_vehicles"];
-			
-			private _vehicleTypes = [];			
-			
 			{
-				private _index = _vehicleTypes pushBackUnique [_x];
-				if (_index > -1) then {(_vehicleTypes select _index)  pushBack ({_x isEqualTo (_vehicleTypes select _index)} count _vehicles;)};
+				private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
+				private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg" ;
+				playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
 				
-				nil
-			} count _vehicles;			
-			
-			_vehicleList pushBack [_id, _vehicleTypes];
-			
-			nil
-		} count (GVAR(vehicles) select 1);
-	};
-	
-	diag_log _infantryList;
-	diag_log _vehicleList;
-	
-	[_infantryList, _vehicleList] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
-	//player createDiaryRecord ["Diary", ["Intel", "Enemy base is on grid <marker name='enemyBase'>161170</marker>"]]
+				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyUnit);
+			},
+			[],
+			1
+		} call CBA_fnc_waitAndExecute;
+	}
 };
+
+nil

@@ -17,11 +17,13 @@
  */
 
 private _success = params [
-	["_infantryList", [], [[]]],
-	["_vehicleList", [], [[]]]
+	["_budget", 0, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-diag_log _infantryList;
-diag_log _vehicleList;
+diag_log _this;
+
+hint "Information received"!
+
+player createDiaryRecord ["Diary", ["Intel", format ["The enemy has a budget of %1 Mio $", _budget]];
