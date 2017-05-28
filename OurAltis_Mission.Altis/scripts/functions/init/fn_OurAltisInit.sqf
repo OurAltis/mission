@@ -28,6 +28,7 @@ if(isServer) then {
 	// variable init
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
+	GVAR(Vehicles) = [];
 	GVAR(VehicleListVirtual) = [];
 	GVAR(OperationName) = "Operation Beispiel";
 	GVAR(MissionID) = 84303;

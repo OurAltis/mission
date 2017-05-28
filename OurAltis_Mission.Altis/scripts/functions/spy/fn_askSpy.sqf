@@ -30,4 +30,6 @@ _soundToPlay = _soundPath + "sounds\" + (selectRandom GVAR(spySound)) + ".ogg" ;
 diag_log _soundToPlay;
 playSound3D [_soundToPlay, _target, false, position _target, 1, 1, 0];
 
+[_caller] remoteExecCall [QFUNC(reactionSpy), 2];
+
 nil

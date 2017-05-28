@@ -14,7 +14,9 @@
  * None <Any>
  * 
  */
-
+ 
+private _vehicleListSide = [west, [], east, []];
+ 
 {	
 	private _success = _x params [
 		["_id", nil, [""]],
@@ -22,8 +24,10 @@
 		["_position", nil, [[]], [2,3]],
 		["_isCamp", nil, [true]]
 	];
-
-	CHECK_TRUE(_success, Invalid baseFormat!)
+	
+	private _vehicleListBase = [_id, []];
+	
+	CHECK_TRUE(_success, Invalid baseFormat!)	
 	
 	{
 		_success = _x params [
@@ -37,6 +41,8 @@
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
 		
 		if (_spawn isEqualTo _id) then {
+			(_vehicleListBase select 1) pushBack _type;
+			
 			private _objList = if (_type isKindOf "LandVehicle") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
@@ -87,7 +93,16 @@
 		nil
 	} count _this;
 	
+	if (_side isEqualTo (_vehicleListSide select 0)) then {
+		(_vehicleListSide select 1) pushBack _vehicleListBase;
+	} else {
+		(_vehicleListSide select 3) pushBack _vehicleListBase;
+	};	
+	
 	nil
 } count GVAR(BaseList);
+
+GVAR(Vehicles) = +_vehicleListSide;
+diag_log GVAR(Vehicles);
 
 nil

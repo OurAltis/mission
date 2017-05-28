@@ -188,6 +188,8 @@ class CfgFunctions
 			
 			class createSpy {};
 			class askSpy {};
+			class reactionSpy {};
+			class createSpyInfo {};
 		};
 	};
 };
