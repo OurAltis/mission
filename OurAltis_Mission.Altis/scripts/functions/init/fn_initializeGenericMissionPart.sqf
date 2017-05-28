@@ -17,6 +17,8 @@
 
 [] call FUNC(initializeEventHandler);
 
+GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
+
 if (isServer) then {
 	// Sets up a checking framework that repeatedly checks whether there are units in the base	
 	GVAR(captureBaseHandlerID) = [
