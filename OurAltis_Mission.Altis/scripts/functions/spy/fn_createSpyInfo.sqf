@@ -1,3 +1,4 @@
+#include "macros.hpp"
 /**
  * OurAltis_Mission - fn_createSpyInfo
  * 
