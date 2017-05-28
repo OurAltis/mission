@@ -43,12 +43,13 @@ if (side (group _caller) isEqualTo _sideSpy) then {
 		
 		{
 			_x params ["_id", "_vehicles"];						
-			
+			diag_log _x;
 			private _vehicleTypes = [];
 			
 			{
 				private _index = _vehicleTypes pushBackUnique [_x];
-				if (_index > -1) then {(_vehicleTypes select _index)  pushBack ({_x isEqualTo (_vehicleTypes select _index)} count _vehicles;)};
+				diag_log _vehicleTypes;
+				if (_index > -1) then {(_vehicleTypes select _index) pushBack ({_x isEqualTo ((_vehicleTypes select _index) select 0)} count _vehicles)};
 				
 				nil
 			} count _vehicles;		

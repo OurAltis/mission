@@ -31,7 +31,7 @@ GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
 GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", [0, 0, 0], [], 0, "NONE"];
 GVAR(spyUnit) moveInDriver GVAR(spyVehicle);
 moveOut GVAR(spyUnit);
-GVAR(spyUnit) disableAI "MOVE":
+GVAR(spyUnit) disableAI "MOVE";
 
 GVAR(spyUnit) addMPEventHandler [
 	"MPKilled", {
