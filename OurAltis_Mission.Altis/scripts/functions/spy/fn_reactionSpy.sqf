@@ -25,13 +25,13 @@ private _info = GVAR(spyUnit) getVariable [QGVAR(info), []];
 
 _info params [
 	["_side", "", [""]],
-	["_budged", 0, [0]]
+	["_budget", 0, [0]]
 ];
 
 private _spySide = if (_side isEqualTo "west") then {west} else {east};
 
 if (side (group _caller) isEqualTo _spySide) then {
-	[_budged] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
+	[_budget] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
 	[
 		{

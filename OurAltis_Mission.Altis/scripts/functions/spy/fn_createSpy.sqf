@@ -45,6 +45,7 @@ GVAR(spyUnit) addMPEventHandler [
 GVAR(spyUnit) addEventHandler [
 	"GetInMan", {
 		if ((random 10) <= 10) then {
+			diag_log "spy get in car";
 			[] spawn {			
 				sleep 1.5;
 				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
