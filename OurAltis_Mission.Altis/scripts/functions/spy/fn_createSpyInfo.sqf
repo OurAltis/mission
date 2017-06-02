@@ -24,8 +24,8 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 diag_log _this;
 
-hint "Information received";
+hint "Information received!";
 
-player createDiaryRecord ["Diary", ["Intel", format ["The enemy has a budget of %1 Mio $", _budget]];
+player createDiaryRecord ["Diary", ["Intel", format ["The enemy has a budget of %1 Mio $", _budget]]];
 
 nil
