@@ -44,6 +44,14 @@ if (side (group _caller) isEqualTo _spySide) then {
 	] call CBA_fnc_waitAndExecute;
 } else {
 	private _enemies = GVAR(spyUnit) nearEntities  ["Man", 10];
+	if (GVAR(spyUnit) in _enemies) then {_enemies deleteAt (_enemies find GVAR(spyUnit))};
+	_enemies apply {
+		if (side (group _x) isEqualTo _spySide) then {0};
+	};
+	
+	diag_log _enemies;
+	
+	_enemies = _enemies - [0];
 	diag_log _enemies;
 	if ((count _enemies) <= 2) then {
 		diag_log "take weapon";
@@ -52,12 +60,13 @@ if (side (group _caller) isEqualTo _spySide) then {
 		GVAR(spyUnit) enableAI "MOVE";
 		GVAR(spyUnit) addMagazines ["30Rnd_762x39_Mag_F", 4];
 		GVAR(spyUnit) addWeapon "arifle_AKM_F";		
-	} else {		
+	} else {
+		diag_log "explode";
 		{
 			{
 				diag_log "explode";
 				private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
-				private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg" ;			
+				private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
 				playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
 				
 				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyUnit);
