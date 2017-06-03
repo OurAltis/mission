@@ -46,12 +46,15 @@ GVAR(spyUnit) addMPEventHandler [
 	{
 		GVAR(spyUnit) addEventHandler [
 			"GetInMan", {
-				if ((random 10) <= 2) then {
-					diag_log "spy get in car";
-					[] spawn {			
-						sleep 1.5;
-						"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
-					};
+				if ((random 10) <= 2) then {					
+					[
+						{
+							"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
+							nil
+						},
+						[],
+						1.5
+					] call CBA_fnc_waitAndExecute;					
 				};		
 			}
 		];

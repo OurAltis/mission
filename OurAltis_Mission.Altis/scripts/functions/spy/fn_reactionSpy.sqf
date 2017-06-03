@@ -54,28 +54,24 @@ if (side (group _caller) isEqualTo _spySide) then {
 	_enemies = _enemies - [0];
 	diag_log _enemies;
 	if ((count _enemies) <= 2) then {
-		diag_log "take weapon";
 		private _grp = createGroup _spySide;
 		[GVAR(spyUnit)] joinSilent _grp;
 		GVAR(spyUnit) enableAI "MOVE";
 		GVAR(spyUnit) addMagazines ["30Rnd_762x39_Mag_F", 4];
 		GVAR(spyUnit) addWeapon "arifle_AKM_F";		
 	} else {
-		diag_log "explode";
-		{
-			{
-				diag_log "explode";
-				//private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
-				//private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
-				//playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
-				
-				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
-				
+		private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
+		private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
+		playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
+		
+		[
+			{							
+				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);				
 				nil
 			},
 			[],
-			1
-		} call CBA_fnc_waitAndExecute;
+			1.5
+		] call CBA_fnc_waitAndExecute;
 	};
 };
 

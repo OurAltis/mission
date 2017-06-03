@@ -15,7 +15,7 @@
  * 
  */
  
-private _vehicleListSide = [west, [], east, []];
+private _baseVehicleList = [west, [], east, []];
  
 {	
 	private _success = _x params [
@@ -25,9 +25,11 @@ private _vehicleListSide = [west, [], east, []];
 		["_isCamp", nil, [true]]
 	];
 	
-	private _vehicleListBase = [_id, []];
-	
 	CHECK_TRUE(_success, Invalid baseFormat!)	
+	
+	private _sideVehicleList = [_id, []];
+	private _vehicleType = [];
+	private _vehicleCount = [];
 	
 	{
 		_success = _x params [
@@ -41,8 +43,21 @@ private _vehicleListSide = [west, [], east, []];
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
 		
 		if (_spawn isEqualTo _id) then {
-			private _return = (_vehicleListBase select 1) pushBackUnique _type;
-			if (_return isEqualTo -1) then {};
+			private _return = _vehicleType pushBackUnique _type;
+			
+			if (_return isEqualTo -1) then {
+				private _index = _vehicleType find _type;
+				
+				if (count _vehicleCount >= (_index + 1)) then {
+					if (isNil {_vehicleCount select _index}) then {
+						_vehicleCount set [_index, 1];
+					} else {
+						_vehicleCount set [_index, (_vehicleCount select _index) + 1];
+					};					
+				} else {
+					_vehicleCount set [_index, 1];
+				};				
+			};
 			
 			private _objList = if (_type isKindOf "LandVehicle") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
@@ -94,16 +109,20 @@ private _vehicleListSide = [west, [], east, []];
 		nil
 	} count _this;
 	
-	if (_side isEqualTo (_vehicleListSide select 0)) then {
-		(_vehicleListSide select 1) pushBack _vehicleListBase;
+	{
+		(_sideVehicleList select 1) pushBack [_x, _vehicleCount select _forEachIndex];
+	} forEach _vehicleType;
+	
+	if (_side isEqualTo (_baseVehicleList select 0)) then {
+		(_baseVehicleList select 1) pushBack _sideVehicleList;
 	} else {
-		(_vehicleListSide select 3) pushBack _vehicleListBase;
+		(_baseVehicleList select 3) pushBack _sideVehicleList;
 	};	
 	
 	nil
 } count GVAR(BaseList);
 
-GVAR(Vehicles) = +_vehicleListSide;
+GVAR(Vehicles) = +_baseVehicleList;
 diag_log GVAR(Vehicles);
 
 nil
