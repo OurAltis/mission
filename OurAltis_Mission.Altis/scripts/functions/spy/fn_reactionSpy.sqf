@@ -65,11 +65,13 @@ if (side (group _caller) isEqualTo _spySide) then {
 		{
 			{
 				diag_log "explode";
-				private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
-				private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
-				playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
+				//private _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
+				//private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
+				//playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
 				
 				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyUnit);
+				
+				nil
 			},
 			[],
 			1
