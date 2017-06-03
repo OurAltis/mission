@@ -42,7 +42,7 @@ private _vehicleListSide = [west, [], east, []];
 		
 		if (_spawn isEqualTo _id) then {
 			private _return = (_vehicleListBase select 1) pushBackUnique _type;
-			if (_return isEqualTo -1) then {}
+			if (_return isEqualTo -1) then {};
 			
 			private _objList = if (_type isKindOf "LandVehicle") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
