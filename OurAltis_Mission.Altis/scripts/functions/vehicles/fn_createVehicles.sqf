@@ -41,7 +41,8 @@ private _vehicleListSide = [west, [], east, []];
 		CHECK_TRUE(_success, Invalid vehicleFormat!)
 		
 		if (_spawn isEqualTo _id) then {
-			(_vehicleListBase select 1) pushBack _type;
+			private _return = (_vehicleListBase select 1) pushBackUnique _type;
+			if (_return isEqualTo -1) then {}
 			
 			private _objList = if (_type isKindOf "LandVehicle") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];

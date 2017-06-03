@@ -69,7 +69,7 @@ if (side (group _caller) isEqualTo _spySide) then {
 				//private _soundToPlay = _soundPath + "sounds\" + "gameOver" + ".ogg";			
 				//playSound3D [_soundToPlay, GVAR(spyUnit), false, position GVAR(spyUnit), 1, 1, 0];
 				
-				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyUnit);
+				"Bo_GBU12_LGB" createVehicle getPos GVAR(spyVehicle);
 				
 				nil
 			},
