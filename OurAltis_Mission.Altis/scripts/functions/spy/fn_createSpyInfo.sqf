@@ -61,10 +61,11 @@ private _info = "Fuhrpark" + _endl + _separateLong;
 	nil
 } count (_vehicleList select (_index + 1));
 
-private _infantryListNew = (_infantryList select 0) append (_infantryList select 0);
+private _infantryListNew = (_infantryList select 0) append (_infantryList select 1);
 diag_log _infantryListNew;
 
 _index = _infantryListNew find _side;
+diag_log _index;
 
 _info = _info + _endl + "Truppenstaerke" + _endl + _separateLong;
 
