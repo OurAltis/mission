@@ -27,7 +27,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 diag_log _this;
 
 private _side = if (side (group player) isEqualTo west) then {east} else {west};
-private _index = _vehicleList find _side;
+private _indexVehicleList = _vehicleList find _side;
 
 private _endl = "<br/>";
 private _tab = "    ";
@@ -36,6 +36,8 @@ private _separateShort = "========================<br/>";
 
 private _infantryListNew = _infantryList select 0;
 _infantryListNew append (_infantryList select 1);
+private _indexInfantryList = _infantryListNew find _side;
+
 diag_log _infantryListNew;
 private _info = "";
 
@@ -82,17 +84,17 @@ private _info = "";
 		};
 		
 		nil
-	} count (_infantryListNew select (_index + 1));
+	} count (_infantryListNew select (_indexInfantryList + 1));
 	
 	_info = _info + _endl;
 	
 	nil
-} count (_vehicleList select (_index + 1));
+} count (_vehicleList select (_indexVehicleList + 1));
 
 hint "Information received!";
 
 private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
 
-player createDiaryRecord ["Diary", ["Intel", (format ["The enemy leader General %1 decreed about a budget of %2 Mio $", _general, _budget]) + _endl + _endl + _info]];
+player createDiaryRecord ["Diary", ["Intel", (format ["The enemy leader General %1 decreeds about a budget of %2 Mio $", _general, _budget]) + _endl + _endl + _info]];
 
 nil

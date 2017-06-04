@@ -59,6 +59,9 @@ if (isServer) then {
 			// indicate that the server framework is ready
 			publicVariable QPGVAR(SERVER_INITIALIZED);
 			
+			private _result = ["UPDATE status SET game = 1 ORDER BY runde DESC LIMIT 1"] call FUNC(transferSQLRequestToDatabase);
+			CHECK_DB_RESULT(_result)
+			
 			nil;
 		},
 		[],
