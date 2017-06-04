@@ -31,7 +31,7 @@ _info params [
 private _spySide = if (_side isEqualTo "west") then {west} else {east};
 
 if (side (group _caller) isEqualTo _spySide) then {
-	[_budget] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
+	[_budget, GVAR(Vehicles), GVAR(Infantry)] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
 	[
 		{
@@ -45,14 +45,15 @@ if (side (group _caller) isEqualTo _spySide) then {
 } else {
 	private _enemies = GVAR(spyUnit) nearEntities  ["Man", 10];
 	if (GVAR(spyUnit) in _enemies) then {_enemies deleteAt (_enemies find GVAR(spyUnit))};
-	_enemies apply {
-		if (side (group _x) isEqualTo _spySide) then {0};
-	};
 	
+	{
+		if !(side (group _x) isEqualTo _spySide) then {_enemies set [_forEachIndex, objNull]};
+	} forEach _enemies;	
 	diag_log _enemies;
 	
-	_enemies = _enemies - [0];
+	_enemies = _enemies - [objNull];
 	diag_log _enemies;
+	
 	if ((count _enemies) <= 2) then {
 		private _grp = createGroup _spySide;
 		[GVAR(spyUnit)] joinSilent _grp;

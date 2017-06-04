@@ -23,7 +23,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	private _positionDefender = [0, 0, 0];
 	diag_log _positionDefender;
 	{
-		_x params ["_id", "_side", "_posiiton", "_isCamp"];		
+		_x params ["_id", "_side", "_position", "_isCamp"];		
 		
 		if (!_isCamp) then {
 			_positionDefender = _position;
@@ -36,8 +36,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 	
-	[GVAR(defenderSide), "baseDefender", ["Soldier! Get ready to defend the our base. The enemy sending forces to take " + GVAR(targetAreaName) + "!", "Defend our base!", ""], [_positionDefender select 0, _positionDefender select 1, 0], "Created", 10, false, "defend", false] call BIS_fnc_taskCreate;
-	[_attackerSide, "baseAttacker", ["Soldier! Get ready to attack the enemy base. We take " + GVAR(targetAreaName) + " or die!", "Attack the enemy base!", ""], [_positionDefender select 0, _positionDefender select 1, 0], "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
+	[GVAR(defenderSide), "baseDefender", ["Soldier! Get ready to defend the our base. The enemy sending forces to take " + GVAR(targetAreaName) + "!", "Defend our base!", ""], _positionDefender, "Created", 10, false, "defend", false] call BIS_fnc_taskCreate;
+	[_attackerSide, "baseAttacker", ["Soldier! Get ready to attack the enemy base. We take " + GVAR(targetAreaName) + " or die!", "Attack the enemy base!", ""], _positionDefender, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
 	
 	if (!isNil QGVAR(spyUnit)) then {
 		[GVAR(defenderSide), ["spyDefender", "baseDefender"], ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;

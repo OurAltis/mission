@@ -57,6 +57,8 @@ private _baseVehicleList = [west, [], east, []];
 				} else {
 					_vehicleCount set [_index, 1];
 				};				
+			} else {
+				_vehicleCount set [_return, 1];
 			};
 			
 			private _objList = if (_type isKindOf "LandVehicle") then {
