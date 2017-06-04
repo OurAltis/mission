@@ -82,10 +82,9 @@ _info = _info + _endl + "Truppenstaerke" + _endl + _separateLong;
 		_x params [
 			["_objectType", "", [""]],
 			["_amount", 0, [0]]
-		];
+		];		
 		
-		private _vehicleName = getText (configFile >> "CfgVehicles" >> _objectType >> "displayName");
-		_info = _info + _tab + str(_amount) + " x " + _vehicleName + _endl; 
+		_info = _info + _tab + str(_amount) + " x " + _objectType + _endl; 
 		
 		nil
 	} count _objects;	
