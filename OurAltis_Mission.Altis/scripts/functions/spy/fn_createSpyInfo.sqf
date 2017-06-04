@@ -84,7 +84,7 @@ private _info = "";
 		nil
 	} count (_infantryListNew select (_index + 1));
 	
-	_info = _info + _endl
+	_info = _info + _endl;
 	
 	nil
 } count (_vehicleList select (_index + 1));
