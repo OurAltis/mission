@@ -17,7 +17,7 @@
 
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 
-private _result = ["UPDATE status SET game = '1' ORDER BY runde DESC LIMIT 1"] call FUNC(transferSQLRequestToDatabase);
+private _result = ["UPDATE status SET game = 1 ORDER BY runde DESC LIMIT 1"] call FUNC(transferSQLRequestToDatabase);
 CHECK_DB_RESULT(_result)
 
 nil
