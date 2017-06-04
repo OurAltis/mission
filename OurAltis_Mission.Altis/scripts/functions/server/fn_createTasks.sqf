@@ -40,13 +40,13 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	[_attackerSide, "baseAttacker", ["Soldier! Get ready to attack the enemy base. We take " + GVAR(targetAreaName) + " or die!", "Attack the enemy base!", ""], _positionDefender, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
 	
 	if (!isNil QGVAR(spyUnit)) then {
-		[GVAR(defenderSide), ["spyDefender", "baseDefender"], ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
-		[_attackerSide, ["spyAttacker", "baseAttacker"], ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
+		[GVAR(defenderSide), "spyDefender", ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
+		[_attackerSide, "spyAttacker", ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
 	}; 
 
 	if (!isNil QGVAR(markerEco)) then {
-		[GVAR(defenderSide), ["ecoDefender", "baseDefender"], ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
-		[_attackerSide, ["ecoAttacker", "baseAttacker"], ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "attack", false] call BIS_fnc_taskCreate;
+		[GVAR(defenderSide), "ecoDefender", ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
+		[_attackerSide, "ecoAttacker", ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "attack", false] call BIS_fnc_taskCreate;
 	};
 };
 
