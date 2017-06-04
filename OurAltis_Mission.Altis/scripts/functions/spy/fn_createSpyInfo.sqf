@@ -61,7 +61,10 @@ private _info = "Fuhrpark" + _endl + _separateLong;
 	nil
 } count (_vehicleList select (_index + 1));
 
-_index = _infantryList find _side;
+private _infantryListNew = (_infantryList select 0) append (_infantryList select 0);
+diag_log _infantryListNew;
+
+_index = _infantryListNew find _side;
 
 _info = _info + _endl + "Truppenstaerke" + _endl + _separateLong;
 
@@ -88,7 +91,7 @@ _info = _info + _endl + "Truppenstaerke" + _endl + _separateLong;
 	_info = _info + _endl;
 	
 	nil
-} count (_infantryList select (_index + 1));
+} count (_infantryListNew select (_index + 1));
 
 hint "Information received!";
 
