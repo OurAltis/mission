@@ -21,7 +21,9 @@ diag_log ("Starting time: " + str diag_tickTime);
 GVAR(MarkerAccuracy) = 500;
 //GVAR(SpyInfo) = [[blufor, localize "OurA_str_enemyHasTanks"], [opfor, localize "OurA_str_enemyHasHelicopter"]];
 GVAR(SpyInfo) = [[123,456], "west", 20030000]; // [position, side, budget]
-
+GVAR(Resist) = "ost";
+GVAR(NATO) = "Mario";
+GVAR(CSAT) = "Luigi";
 
 if(isServer) then {
 	// only initialize on server	
