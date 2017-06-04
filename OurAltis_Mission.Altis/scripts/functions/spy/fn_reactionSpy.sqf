@@ -31,7 +31,7 @@ _info params [
 private _spySide = if (_side isEqualTo "west") then {west} else {east};
 
 if (side (group _caller) isEqualTo _spySide) then {
-	[_budget, GVAR(Vehicles), GVAR(Infantry)] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
+	[_budget, GVAR(Vehicles), GVAR(spyInfantryList)] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
 	[
 		{

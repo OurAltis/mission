@@ -24,6 +24,7 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+GVAR(spyInfantryList) = GVAR(Infantry);
 GVAR(spyGroup) = createGroup [civilian, true];
 
 GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];

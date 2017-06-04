@@ -34,15 +34,19 @@ private _tab = "    ";
 private _separateLong = "==================================================<br/><br/>";
 private _separateShort = "========================<br/>";
 
-private _info = "Fuhrpark" + _endl + _separateLong;
+private _infantryListNew = _infantryList select 0;
+_infantryListNew append (_infantryList select 1);
+diag_log _infantryListNew;
+private _info = "";
 
 {
 	_x params [
-		["_location", "MissingNo", [""]],
-		["_objects", [], [[]]] 
+		["_locationVehicle", "MissingNo", [""]],
+		["_objectsVehicle", [], [[]]] 
 	];		
-	
-	_info = _info + _tab + format ["<font color='#00ff00'>%1</font>", _location] + _endl + _tab + _separateShort;
+		
+	//_info = _info + _tab + format ["<font color='#00ff00'>%1</font>", _location] + _endl + _tab + _separateShort;
+	_info = _info + format ["<font color='#00ff00'>%1</font>", _locationVehicle] + _endl + _separateLong + _tab + "Fuhrpark" + _endl + _tab + _separateShort;
 	
 	{
 		_x params [
@@ -54,48 +58,41 @@ private _info = "Fuhrpark" + _endl + _separateLong;
 		_info = _info + _tab + str(_amount) + " x " + _vehicleName + _endl; 
 		
 		nil
-	} count _objects;	
+	} count _objectsVehicle;
 	
-	_info = _info + _endl;
+	_info = _info + _endl + _tab + "Truppenstaerke" + _endl + _tab + _separateShort;
+	
+	{
+		_x params [
+			["_locationInfantry", "MissingNo", [""]],
+			["_objectsInfantry", [], [[]]] 
+		];
+		
+		if (_locationInfantry isEqualTo _locationVehicle) then {
+			{
+				_x params [
+					["_objectType", "", [""]],
+					["_amount", 0, [0]]
+				];				
+				
+				_info = _info + _tab + str(_amount) + " x " + _objectType + _endl;
+				
+				nil
+			} count _objectsInfantry;
+		};
+		
+		nil
+	} count (_infantryListNew select (_index + 1));
+	
+	_info = _info + _endl
 	
 	nil
 } count (_vehicleList select (_index + 1));
 
-private _infantryListNew = _infantryList select 0;
-_infantryListNew append (_infantryList select 1);
-diag_log _infantryListNew;
-
-_index = _infantryListNew find _side;
-diag_log _index;
-
-_info = _info + _endl + "Truppenstaerke" + _endl + _separateLong;
-
-{
-	_x params [
-		["_location", "MissingNo", [""]],
-		["_objects", [], [[]]] 
-	];		
-	
-	_info = _info + _tab + format ["<font color='#00ff00'>%1</font>", _location] + _endl + _tab + _separateShort;
-	
-	{
-		_x params [
-			["_objectType", "", [""]],
-			["_amount", 0, [0]]
-		];		
-		
-		_info = _info + _tab + str(_amount) + " x " + _objectType + _endl; 
-		
-		nil
-	} count _objects;	
-	
-	_info = _info + _endl;
-	
-	nil
-} count (_infantryListNew select (_index + 1));
-
 hint "Information received!";
 
-player createDiaryRecord ["Diary", ["Intel", (format ["The enemy has a budget of %1 Mio $", _budget]) + _endl + _endl + _info]];
+private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
+
+player createDiaryRecord ["Diary", ["Intel", (format ["The enemy leader General %1 decreed about a budget of %2 Mio $", _general, _budget]) + _endl + _endl + _info]];
 
 nil
