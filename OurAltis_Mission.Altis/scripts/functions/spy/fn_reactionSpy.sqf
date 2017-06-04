@@ -35,6 +35,7 @@ if (side (group _caller) isEqualTo _spySide) then {
 	
 	[
 		{
+			GVAR(spyVehicle) lock 3;
 			GVAR(spyUnit) enableAI "MOVE";
 			GVAR(spyUnit) assignasdriver GVAR(spyVehicle);
 			[GVAR(spyUnit)] orderGetIn true;
@@ -74,6 +75,14 @@ if (side (group _caller) isEqualTo _spySide) then {
 			1.5
 		] call CBA_fnc_waitAndExecute;
 	};
+};
+
+if (side (group _caller) isEqualTo GVAR(defenderSide)) then {
+	["spyDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	["spyAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+} else {
+	["spyDefender", "FAILED"] spawn BIS_fnc_taskSetState;
+	["spyAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 };
 
 nil

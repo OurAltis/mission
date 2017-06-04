@@ -27,7 +27,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 GVAR(spyGroup) = createGroup [civilian, true];
 
 GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
-GVAR(spyVehicle) lock 3;
+GVAR(spyVehicle) lock 2;
 
 GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", [0, 0, 0], [], 0, "NONE"];
 GVAR(spyUnit) moveInDriver GVAR(spyVehicle);

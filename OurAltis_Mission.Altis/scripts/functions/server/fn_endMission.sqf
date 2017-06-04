@@ -25,14 +25,20 @@ if (!isNil QGVAR(endMissionTriggered)) exitWith {NOTIFICATION_LOG(End mission is
 
 GVAR(endMissionTriggered) = 1;
 
-if (GVAR(defenderSide) isEqualTo _winnerSide) then {
-	["baseDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-	["baseAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+if (GVAR(defenderSide) isEqualTo sideUnknown) then {
+	private _loserSide = if (_winnerSide isEqualTo west) then {east} else {west};
+	
+	["base" + str(_winnerSide), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	["base" + str(_loserSide), "FAILED"] spawn BIS_fnc_taskSetState;
 } else {
-	["baseDefender", "FAILED"] spawn BIS_fnc_taskSetState;
-	["baseAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	if (GVAR(defenderSide) isEqualTo _winnerSide) then {
+		["baseDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+		["baseAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+	} else {
+		["baseDefender", "FAILED"] spawn BIS_fnc_taskSetState;
+		["baseAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	};
 };
-
 
 [
 	MISSION_ENDED,
