@@ -68,6 +68,12 @@ with uiNamespace do {
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
 		
+		// workaround for createed player unit because they don't get the tasks
+		private _tasks = [_oldPlayer] call BIS_fnc_tasksUnit; 
+		
+		{
+			[_x, false] call BIS_fnc_setTaskLocal;
+		} count _tasks;
 		
 		// create blackscreen
 		"respawnBlackScreen" cutText ["", "BLACK", 0.0001, true];
