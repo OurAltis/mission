@@ -49,7 +49,7 @@
 				_marker setMarkerShapeLocal "ELLIPSE";
 				_marker setMarkerSizeLocal [GVAR(MarkerAccuracy), GVAR(MarkerAccuracy)];
 				_marker setMarkerColorLocal "ColorRed";
-				_marker setMarkerAlphaLocal 0.5;
+				_marker setMarkerAlphaLocal 0;
 			};
 		} forEach _baseList;
 	},

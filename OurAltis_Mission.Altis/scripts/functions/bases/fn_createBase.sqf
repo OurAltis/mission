@@ -42,5 +42,6 @@ GVAR(markerBase) setMarkerShape "ELLIPSE";
 GVAR(markerBase) setMarkerSize [20,20];
 GVAR(markerBase) setMarkerDir _baseDir;
 GVAR(markerBase) setMarkerColor "ColorRed";
+GVAR(markerBase) setMarkerAlpha 0;
 
 nil

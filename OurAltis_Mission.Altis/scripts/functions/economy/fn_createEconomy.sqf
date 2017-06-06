@@ -51,6 +51,7 @@ GVAR(markerEco) setMarkerShape "RECTANGLE";
 GVAR(markerEco) setMarkerSize [50,50];
 GVAR(markerEco) setMarkerDir _dir;
 GVAR(markerEco) setMarkerColor "ColorRed";
+GVAR(markerEco) setMarkerAlpha 0;
 
 GVAR(economy) = _type;
 
