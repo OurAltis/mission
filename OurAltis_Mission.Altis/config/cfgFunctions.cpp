@@ -192,5 +192,12 @@ class CfgFunctions
 			class reactionSpy {};
 			class createSpyInfo {};
 		};
+		
+		class resistance
+		{
+			file = FUNC_PATH(resistance)
+			
+			class createResistance {};
+		};
 	};
 };

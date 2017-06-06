@@ -110,6 +110,7 @@ if(isServer) then {
 	] call FUNC(createVehicles);	
 	
 	GVAR(SpyInfo) call FUNC(createSpy);
+	GVAR(Resist) call FUNC(createResistance);
 };
 
 [] call FUNC(initializeGenericMissionPart);
