@@ -195,7 +195,7 @@ class CfgFunctions
 		
 		class resistance
 		{
-			file = FUNC_PATH(resistance)
+			file = FUNC_PATH(resistance);
 			
 			class createResistance {};
 		};
