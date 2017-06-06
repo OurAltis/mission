@@ -47,7 +47,7 @@ private _positionBase = {
 		_marker setMarkerColor "ColorRed";		
 		_marker setMarkerDir (_positionBase getDir _position);
 		
-		private _group = [getMarkerPos "_marker", independent, selectRandom _groupArray] call BIS_fnc_spawnGroup;
+		private _group = [getMarkerPos _marker, independent, selectRandom _groupArray] call BIS_fnc_spawnGroup;
 		
 		[_group, _marker] call CBA_fnc_taskSearchArea;
 	};
