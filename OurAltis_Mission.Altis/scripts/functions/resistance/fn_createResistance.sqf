@@ -16,7 +16,7 @@
  */ 
  
 private _success = params [
-	["_sideString", "", [""]
+	["_sideString", "", [""]]
 ];
  
 CHECK_TRUE(_success, Invalid parameters!, {})
