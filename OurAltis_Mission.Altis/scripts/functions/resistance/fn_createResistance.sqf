@@ -34,16 +34,17 @@ if (_isFriendly) then {
 };
 
 diag_log _isFriendly;
+diag_log GVAR(BaseList);
 
 private _positionBase = {
-	_x params [_id, _side, _position, _isCamp];
+	_x params ["_id", "_side", "_position", "_isCamp"];
 	if (!_isCamp) exitWith {_position};
 } count GVAR(BaseList);
 
 diag_log _positionBase;
 
 {
-	_x params [_id, _side, _position, _isCamp];
+	_x params ["_id", "_side", "_position", "_isCamp"];
 	
 	if (_isCamp) then {
 		private _mPos = [((_position select 0) + (_positionBase select 0)) / 2, ((_position select 1) + (_positionBase select 1)) / 2];
