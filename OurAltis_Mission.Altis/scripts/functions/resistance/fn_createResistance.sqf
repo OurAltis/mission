@@ -81,15 +81,18 @@ GVAR(resistanceUnit) = [];
 		for "_i" from 1 to 4 do {		 
 			private _group = [getMarkerPos _marker, independent, [selectRandom _groupUnitsArray, selectRandom _groupUnitsArray]] call BIS_fnc_spawnGroup;
 			diag_log _group;
+			diag_log (units _group);				
 			
 			{
 				GVAR(resistanceUnit) pushBack _x;
+				diag_log GVAR(resistanceUnit);
 				
 				_x addEventHandler [
 					"Killed", {
 						params ["_unit", "_killer"];					
+						diag_log _this;
 						
-						if (({!alive _x} count GVAR(resistanceUnit)) isEqualTo 0) then {
+						if (({alive _x} count GVAR(resistanceUnit)) isEqualTo 0) then {
 							[] call FUNC(reportDeadResistance);
 							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 						} else {
