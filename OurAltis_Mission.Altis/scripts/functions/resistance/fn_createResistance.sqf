@@ -95,7 +95,7 @@ GVAR(resistanceUnit) = [];
 						} else {
 							[side (group _killer)] call FUNC(reportDeadCivilian);
 						};
-					};
+					}
 				];
 			} count (units _group);
 			
