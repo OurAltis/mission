@@ -53,11 +53,11 @@ diag_log _positionBase;
 		
 		private _marker = createMarker ["marker_resistance_" + str(_forEachIndex), _mPos];
 		_marker setMarkerShape "RECTANGLE";
-		_marker setMarkerSize [200, (_positionBase distance2D _position) - 300];
+		_marker setMarkerSize [100, ((_positionBase distance2D _position) / 2) - 300];
 		_marker setMarkerColor "ColorRed";		
 		_marker setMarkerDir (_positionBase getDir _position);
 		
-		private _group = [getMarkerPos _marker, independent, selectRandom _groupArray] call BIS_fnc_spawnGroup;
+		private _group = [getMarkerPos _marker, independent, (configFile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> selectRandom _groupArray)] call BIS_fnc_spawnGroup;
 		diag_log _group;
 		
 		[_group, _marker] call CBA_fnc_taskSearchArea;
