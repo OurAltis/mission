@@ -19,22 +19,7 @@
 if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	[GVAR(BaseList) select 0 select 1, "base" + str(GVAR(BaseList) select 0 select 1), ["Eliminate all enemy forces!", "Eliminate all Enemies!", ""], GVAR(BaseList) select 1 select 2, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
 	[GVAR(BaseList) select 1 select 1, "base" + str(GVAR(BaseList) select 1 select 1), ["Eliminate all enemy forces!", "Eliminate all Enemies!", ""], GVAR(BaseList) select 0 select 2, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;	
-} else {
-	/*
-	private _positionDefender = [0, 0, 0];
-	diag_log _positionDefender;
-	{
-		_x params ["_id", "_side", "_position", "_isCamp"];		
-		
-		if (!_isCamp) then {
-			_positionDefender = _position;
-		};					
-		
-		nil
-	} count GVAR(BaseList);
-	
-	diag_log _positionDefender;
-	*/
+} else {	
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 	
 	[GVAR(defenderSide), "baseDefender", ["Soldier! Get ready to defend the our base. The enemy sending forces to take " + GVAR(targetAreaName) + "!", "Defend our base!", ""], GVAR(markerBase), "Created", 10, false, "defend", false] call BIS_fnc_taskCreate;
@@ -48,6 +33,11 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	if (!isNil QGVAR(markerEco)) then {
 		[GVAR(defenderSide), "ecoDefender", ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
 		[_attackerSide, "ecoAttacker", ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "attack", false] call BIS_fnc_taskCreate;
+	};
+	
+	if !(GVAR(Resist) isEqualTo "") then {
+		private _side = if (GVAR(Resist) isEqualTo "west") then {east} else {west};
+		[_side, "resistance", ["Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!", "Defeat the resistance!", ""], objNull, "Created", 5, false, "search", false] call BIS_fnc_taskCreate;		
 	};
 };
 

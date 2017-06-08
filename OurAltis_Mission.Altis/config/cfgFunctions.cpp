@@ -47,6 +47,7 @@ class CfgFunctions
 			class reportDeadCivilian {};
 			class createTasks {};
 			class reportServerStatus {};
+			class reportDeadResistance {};
 		};
 		
 		class database
