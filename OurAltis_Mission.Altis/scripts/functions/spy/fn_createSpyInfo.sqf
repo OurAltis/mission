@@ -34,8 +34,8 @@ private _tab = "    ";
 private _separateLong = "==================================================<br/><br/>";
 private _separateShort = "========================<br/>";
 
-private _infantryListNew = _infantryList select 0;
-_infantryListNew append (_infantryList select 1);
+private _infantryListNew = if ((_infantryList select 0) isEqualTo objNull) then {[]} else {_infantryList select 0};
+_infantryListNew append (if ((_infantryList select 1) isEqualTo objNull) then {[]} else {_infantryList select 1});
 private _indexInfantryList = _infantryListNew find _side;
 
 diag_log _infantryListNew;
