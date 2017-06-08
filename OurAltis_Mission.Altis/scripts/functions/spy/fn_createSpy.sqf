@@ -27,13 +27,23 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 GVAR(spyInfantryList) = GVAR(Infantry);
 GVAR(spyGroup) = createGroup [civilian, true];
 
-GVAR(spyVehicle) = createVehicle ["C_Van_01_fuel_F", _position, [], 0, "NONE"];
+GVAR(spyVehicle) = createVehicle [selectRandom VEHICLE_CIVIL_PKW, _position, [], 0, "NONE"];
 GVAR(spyVehicle) lock 2;
+GVAR(spyVehicle) setDir (random 360);
 
-GVAR(spyUnit) = GVAR(spyGroup) createUnit ["C_man_polo_1_F_asia", [0, 0, 0], [], 0, "NONE"];
+private _civTypes = [];
+
+{
+	if (_x isKindOf "C_man_1" && (_x find "_Driver_") isEqualTo -1 && (_x find "_VR_") isEqualTo -1) then {
+		_civTypes pushBack _x;
+	};
+	nil
+} count ((configFile >> "CfgVehicles") call BIS_fnc_getCfgSubClasses);
+
+GVAR(spyUnit) = GVAR(spyGroup) createUnit [selectRandom _civTypes, [0, 0, 0], [], 0, "NONE"];
 GVAR(spyUnit) moveInDriver GVAR(spyVehicle);
 moveOut GVAR(spyUnit);
-GVAR(spyUnit) disableAI "MOVE";
+GVAR(spyUnit) disableAI "PATH";
 
 GVAR(spyUnit) addMPEventHandler [
 	"MPKilled", {

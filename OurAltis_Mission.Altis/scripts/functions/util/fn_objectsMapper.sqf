@@ -78,11 +78,11 @@ private _return = [];
 	private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
 	
 	private _newObj = if (_isSimpleObject) then {
-		createSimpleObject [_type, _newPos]
+		createSimpleObject [_type, _newPos];
 	} else {
 		if (_type isKindOf "Man") then {
 			private _group = createGroup civilian;
-			_group createUnit [_type, _newPos, [], 0, "NONE"]
+			_group createUnit [_type, _newPos, [], 0, "NONE"];
 		} else {
 			//_type createVehicle _newPos
 			createVehicle [_type, [0,0,0], [], 0, "CAN_COLLIDE"];

@@ -36,7 +36,7 @@ if (side (group _caller) isEqualTo _spySide) then {
 	[
 		{
 			GVAR(spyVehicle) lock 3;
-			GVAR(spyUnit) enableAI "MOVE";
+			GVAR(spyUnit) enableAI "PATH";
 			GVAR(spyUnit) assignasdriver GVAR(spyVehicle);
 			[GVAR(spyUnit)] orderGetIn true;
 		},
@@ -58,7 +58,7 @@ if (side (group _caller) isEqualTo _spySide) then {
 	if ((count _enemies) <= 2) then {
 		private _grp = createGroup _spySide;
 		[GVAR(spyUnit)] joinSilent _grp;
-		GVAR(spyUnit) enableAI "MOVE";
+		GVAR(spyUnit) enableAI "PATH";
 		GVAR(spyUnit) addMagazines ["30Rnd_762x39_Mag_F", 4];
 		GVAR(spyUnit) addWeapon "arifle_AKM_F";		
 	} else {
