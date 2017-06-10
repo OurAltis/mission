@@ -24,7 +24,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _groupUnitsArray = [];
 
 {
-	if (_x isKindOf "I_C_Soldier_base_F" && (_x find "_unarmed_") isEqualTo -1) then {
+	if (_x isKindOf "I_C_Soldier_base_F" && (_x find "_unarmed_") isEqualTo -1 && (_x find "I_C_Soldier_base_F") isEqualTo -1) then {
 		_groupUnitsArray pushBack _x;
 	};
 	nil

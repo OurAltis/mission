@@ -100,7 +100,7 @@ if !(GVAR(Resist) isEqualTo "") then {
 			if (alive _x) then {
 				private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _x >> "displayName");
 			
-				private _marker createMarkerLocal ["resistanceUnit_" + str(_forEachIndex), position _x];
+				private _marker = createMarkerLocal ["resistanceUnit_" + str(_forEachIndex), position _x];
 				_marker setMarkerShapeLocal "ELLIPSE";
 				_marker setMarkerTypeLocal "n_inf";
 				
