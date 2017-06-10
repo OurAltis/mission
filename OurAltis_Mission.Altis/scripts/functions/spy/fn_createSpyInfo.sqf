@@ -104,7 +104,7 @@ if !(GVAR(Resist) isEqualTo "") then {
 				_marker setMarkerShapeLocal "ELLIPSE";
 				_marker setMarkerTypeLocal "n_inf";
 				
-				_info = _info + _tab + "<marker name='resistanceUnit_ + str(_forEachIndex)'>_vehicleName</marker>" + _endl;
+				_info = _info + _tab + format["<marker name='%1'>%2</marker>", "resistanceUnit_" + str(_forEachIndex), _vehicleName] + _endl;
 			};	
 		} forEach _resistanceUnits;
 	} else {
