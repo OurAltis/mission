@@ -31,8 +31,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	}; 
 
 	if (!isNil QGVAR(markerEco)) then {
-		[GVAR(defenderSide), "ecoDefender", ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
-		[_attackerSide, "ecoAttacker", ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "markerEco", "Created", 5, false, "attack", false] call BIS_fnc_taskCreate;
+		[GVAR(defenderSide), "ecoDefender", ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "marker_eco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
+		[_attackerSide, "ecoAttacker", ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "marker_eco", "Created", 5, false, "attack", false] call BIS_fnc_taskCreate;
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {
