@@ -62,8 +62,6 @@ _campID = selectRandom _camps;
 
 diag_log _positionBase;
 
-GVAR(resistanceUnit) = [];
-
 {
 	_x params ["_id", "_side", "_position", "_isCamp"];
 	
@@ -84,15 +82,15 @@ GVAR(resistanceUnit) = [];
 			diag_log (units _group);				
 			
 			{
-				GVAR(resistanceUnit) pushBack _x;
-				diag_log GVAR(resistanceUnit);
+				GVAR(resistanceUnits) pushBack _x;
+				diag_log GVAR(resistanceUnits);
 				
 				_x addEventHandler [
 					"Killed", {
 						params ["_unit", "_killer"];					
 						diag_log _this;
 						
-						if (({alive _x} count GVAR(resistanceUnit)) isEqualTo 0) then {
+						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {
 							[] call FUNC(reportDeadResistance);
 							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 						} else {
@@ -100,6 +98,8 @@ GVAR(resistanceUnit) = [];
 						};
 					}
 				];
+				
+				nil
 			} count (units _group);
 			
 			[_group, _marker] call CBA_fnc_taskSearchArea;

@@ -19,7 +19,8 @@
 private _success = params [
 	["_budget", 0, [0]],
 	["_vehicleList", [], [[]]],
-	["_infantryList", [], [[]]]
+	["_infantryList", [], [[]]],
+	["_resistanceUnits", [], [[]]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
@@ -90,6 +91,26 @@ private _info = "";
 	
 	nil
 } count (_vehicleList select (_indexVehicleList + 1));
+
+if !(GVAR(Resist) isEqualTo "") then {
+	_info = _info + _endl + "Widerstand" + _endl + _separateLong + _tab + "Last known position" + _endl + _tab + _separateShort;
+	
+	if (({alive _x} count _resistanceUnits) > 0) then {		
+		{
+			if (alive _x) then {
+				private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _x >> "displayName");
+			
+				private _marker createMarkerLocal ["resistanceUnit_" + str(_forEachIndex), position _x];
+				_marker setMarkerShapeLocal "ELLIPSE";
+				_marker setMarkerTypeLocal "n_inf";
+				
+				_info = _info + _tab + "<marker name='resistanceUnit_ + str(_forEachIndex)'>_vehicleName</marker>" + _endl;
+			};	
+		} forEach _resistanceUnits;
+	} else {
+		_info = _info + _tab + "They are all dead!" + _endl;
+	};
+};
 
 hint "Information received!";
 

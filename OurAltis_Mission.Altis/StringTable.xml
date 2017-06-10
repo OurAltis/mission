@@ -88,4 +88,28 @@
 			</Key>
 		</Container>
 	</Package>
+	<Package name ="Spy">
+		<Container name="Info">
+			<Key ID="OurA_str_spyVehicles">
+				<English>Vehicle Fleet</English>
+				<German>Fuhrpark</German>
+				<Original>Vehicle Fleet</Original>
+			</Key>
+			<Key ID="OurA_str_spyUnits">
+				<English>Troop Strength</English>
+				<German>Truppenstaerke</German>
+				<Original>Troop Strength</Original>
+			</Key>
+			<Key ID="OurA_str_spyResistance">
+				<English>Resistance</English>
+				<German>Widerstand</German>
+				<Original>Resistance</Original>
+			</Key>
+			<Key ID="OurA_str_spyMoney">
+				<English>The enemy leader General %1 decreeds about a budget of %2 Mio $</English>
+				<German>Der feindliche Anfuehrer, General %1, verfuegt ueber ein Budget von %2 Mio $</German>
+				<Original>The enemy leader General %1 decreeds about a budget of %2 Mio $</Original>
+			</Key>
+		</Container>
+	</Package>
 </Project>

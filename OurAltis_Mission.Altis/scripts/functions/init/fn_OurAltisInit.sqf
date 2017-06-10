@@ -24,6 +24,7 @@ GVAR(SpyInfo) = [[123,456], "west", 20030000]; // [position, side, budget]
 GVAR(Resist) = "ost";
 GVAR(NATO) = "Mario";
 GVAR(CSAT) = "Luigi";
+GVAR(resistanceUnits) = [];
 
 if(isServer) then {
 	// only initialize on server	
