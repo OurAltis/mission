@@ -75,6 +75,7 @@ diag_log _positionBase;
 		_marker setMarkerSize [150, ((_positionBase distance2D _position) / 2) - 300];
 		_marker setMarkerColor "ColorRed";		
 		_marker setMarkerDir (_positionBase getDir _position);
+		_marker setMarkerAlpha 0;
 		
 		for "_i" from 1 to 4 do {		 
 			private _group = [getMarkerPos _marker, independent, [selectRandom _groupUnitsArray, selectRandom _groupUnitsArray]] call BIS_fnc_spawnGroup;
@@ -91,10 +92,10 @@ diag_log _positionBase;
 						diag_log _this;
 						
 						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {
-							[] call FUNC(reportDeadResistance);
+							[] call FUNC(reportDefeatResistance);
 							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 						} else {
-							[side (group _killer)] call FUNC(reportDeadCivilian);
+							[side (group _killer), VALUE_RESIST] call FUNC(reportDeadCivilian);
 						};
 					}
 				];

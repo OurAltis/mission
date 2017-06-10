@@ -1,3 +1,4 @@
+#include "macros.hpp"
 /* 
  * This file contains config parameters and a function call to start the civilian script.
  * The parameters in this file may be edited by the mission developer.
@@ -20,22 +21,11 @@ _parameters = [
 	["ON_UNIT_SPAWNED_CALLBACK", {
 			(_this select 0) addEventHandler [
 				"Killed", {
-					params ["_unit", "_killer"];
-					
-					if (side (group _killer) isEqualTo west) then {
-						diag_log "West killed civilian!";
-						[west] call OurA_fnc_reportDeadCivilian;
-						
-					};
-					
-					if (side (group _killer) isEqualTo east) then {
-						diag_log "East killed civilian!";
-						[east] call OurA_fnc_reportDeadCivilian;
-					};
+					params ["_unit", "_killer"];					
+					[side (group _killer), VALUE_CIV] call FUNC(reportDeadCivilian);					
 				}
 			];
-		}
-		
+		}		
 	],
 	["ON_UNIT_REMOVE_CALLBACK", { true }],
 	["DEBUG", false]

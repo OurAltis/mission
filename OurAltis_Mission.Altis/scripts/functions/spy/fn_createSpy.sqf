@@ -48,7 +48,7 @@ GVAR(spyUnit) disableAI "PATH";
 GVAR(spyUnit) addMPEventHandler [
 	"MPKilled", {
 		if (local (_this select 0)) then {
-			[side (group (_this select 1))] call FUNC(reportDeadCivilian);
+			[side (group (_this select 1)), VALUE_CIV] call FUNC(reportDeadCivilian);
 		};
 		
 		if (hasInterface) then {
