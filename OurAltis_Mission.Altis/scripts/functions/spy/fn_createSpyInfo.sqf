@@ -101,7 +101,7 @@ if !(GVAR(Resist) isEqualTo "") then {
 				private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _x >> "displayName");
 			
 				private _marker = createMarkerLocal ["resistanceUnit_" + str(_forEachIndex), position _x];
-				_marker setMarkerShapeLocal "ELLIPSE";
+				_marker setMarkerShapeLocal "ICON";
 				_marker setMarkerTypeLocal "n_inf";
 				
 				_info = _info + _tab + format["<marker name='%1'>%2</marker>", "resistanceUnit_" + str(_forEachIndex), _vehicleName] + _endl;
