@@ -133,7 +133,7 @@
 		</Container>
 	</Package>
 	<Package name="Tasks">
-		<Container name="Base">
+		<Container name="Text">
 			<Key ID="OurA_str_BaseBorderDescription">
 				<English>Eliminate all enemy forces!</English>
 				<German>Schlagen sie die Feindkräfte in die Flucht!</German>
@@ -163,9 +163,7 @@
 				<English>Capture the enemy base!</English>
 				<German>Einnahme der feindlichen Basis!</German>
 				<Original>Capture the enemy base!</Original>
-			</Key>
-		</Container>
-		<Container name="Spy">
+			</Key>		
 			<Key ID="OurA_str_SpyDescription">
 				<English>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will usefull find him and get the Intel!</English>
 				<German>Soldat, die Aufklärung ist in kontakt mit einer Person die sich selbst 'Der Duke' nennt. Er sagt, er habe Informationen über die feindliche Truppenstärke in %1 und mehr! Wenn sie glauben das diese Infos hilfreich sein könnten treffen sie den Spion.</German>
@@ -175,9 +173,7 @@
 				<English>Meet the Spy!</English>
 				<German>Treffe den Spion!</German>
 				<Original>Meet the Spy!</Original>
-			</Key>
-		</Container>
-		<Container name="Economy">
+			</Key>		
 			<Key ID="OurA_str_EcoDefDescription">
 				<English>We have a %1 in %2. Protect it. Eventually the enemy will try to destroy it to affect our economy!</English>
 				<German>Wir haben eine %1 in %2. Schützen Sie sie! Eventuell versucht der Feind die Gebäude zu zerstören um unserer Wirtschaft zu Schaden!</German>
@@ -197,9 +193,7 @@
 				<English>Destroy the %1!</English>
 				<German>Zerstören sie die %1!</German>
 				<Original>Destroy the %1!</Original>
-			</Key>
-		</Container>
-		<Container name="Resistance">
+			</Key>		
 			<Key ID="OurA_str_ResistanceDescription">
 				<English>Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!</English>
 				<German>Soldat, Hawkeye hat uns eine Widerstandsgruppe in dem Gebiet gemeldet! Seien Sie vorsichtig ansonsten kämpfen Sie an zwei Fronten. Dies wäre eine gute Gelegenheit den Widerstand zu zerschlagen. Ihre Entscheidung!</German>
