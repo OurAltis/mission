@@ -16,7 +16,7 @@ _parameters = [
 	["MAX_GROUPS_COUNT", 100],
 	["MIN_SPAWN_DISTANCE", 50],
 	["MAX_SPAWN_DISTANCE", 500],
-	["BLACKLIST_MARKERS", []],
+	["BLACKLIST_MARKERS", GVAR(markerNoCiv)],
 	["HIDE_BLACKLIST_MARKERS", false],
 	["ON_UNIT_SPAWNED_CALLBACK", {
 			(_this select 0) addEventHandler [

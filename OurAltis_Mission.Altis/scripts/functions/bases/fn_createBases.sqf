@@ -14,9 +14,9 @@
  * None <Any>
  * 
  */
- 
-//private _baseDir = _this call FUNC(getBaseDir);
- 
+
+GVAR(markerNoCiv) = [];
+
 {
 	private ["_success"];
 	

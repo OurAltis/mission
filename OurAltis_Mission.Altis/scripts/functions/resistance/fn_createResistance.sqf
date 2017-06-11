@@ -38,9 +38,6 @@ if (!_isFriendly) then {
 	resistance setFriend [west, 0];
 };
 
-diag_log _isFriendly;
-diag_log GVAR(BaseList);
-
 private _positionBase = {
 	_x params ["_id", "_side", "_position", "_isCamp"];
 	if (!_isCamp) exitWith {_position};
@@ -65,8 +62,6 @@ diag_log _positionBase;
 	if (_id isEqualTo _campID) then {		
 		private _mPos = [((_position select 0) + (_positionBase select 0)) / 2, ((_position select 1) + (_positionBase select 1)) / 2];
 		
-		diag_log _mPos;
-		
 		private _marker = createMarker ["marker_resistance_" + str(_forEachIndex), _mPos];
 		_marker setMarkerShape "RECTANGLE";
 		_marker setMarkerSize [150, ((_positionBase distance2D _position) / 2) - 300];
@@ -75,9 +70,7 @@ diag_log _positionBase;
 		_marker setMarkerAlpha 0;
 		
 		for "_i" from 1 to 4 do {		 
-			private _group = [getMarkerPos _marker, independent, [selectRandom _groupUnitsArray, selectRandom _groupUnitsArray]] call BIS_fnc_spawnGroup;
-			diag_log _group;
-			diag_log (units _group);				
+			private _group = [getMarkerPos _marker, independent, [selectRandom _groupUnitsArray, selectRandom _groupUnitsArray]] call BIS_fnc_spawnGroup;			
 			
 			{
 				GVAR(resistanceUnits) pushBack _x;
@@ -85,8 +78,7 @@ diag_log _positionBase;
 				
 				_x addEventHandler [
 					"Killed", {
-						params ["_unit", "_killer"];					
-						diag_log _this;
+						params ["_unit", "_killer"];
 						
 						if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {

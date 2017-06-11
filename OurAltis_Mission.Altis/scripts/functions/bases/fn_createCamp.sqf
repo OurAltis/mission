@@ -33,4 +33,13 @@ _objsArray = [_position, floor random 360, _objsArray, [FLAGPOLE]] call FUNC(obj
 	nil
 } count _objsArray;
 
+private _marker = createMarker ["marker_noCiv_" + _id, _position];
+_marker setMarkerShape "RECTANGLE";
+_marker setMarkerSize [45,40];
+_marker setMarkerDir _baseDir;
+_marker setMarkerColor "ColorRed";
+_marker setMarkerAlpha 0;
+
+GVAR(markerNoCiv) pushBack _marker;
+
 nil
