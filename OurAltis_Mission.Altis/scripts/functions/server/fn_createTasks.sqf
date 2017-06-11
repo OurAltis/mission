@@ -52,7 +52,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 	
 	[
-		^GVAR(defenderSide),
+		GVAR(defenderSide),
 		"baseDefender",
 		[
 			format [localize "OurA_str_BaseDefDescription", GVAR(targetAreaName)],
