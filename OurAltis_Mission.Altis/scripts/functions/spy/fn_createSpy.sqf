@@ -48,6 +48,7 @@ GVAR(spyUnit) disableAI "PATH";
 GVAR(spyUnit) addMPEventHandler [
 	"MPKilled", {
 		if (local (_this select 0)) then {
+			if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 			[side (group (_this select 1)), VALUE_CIV] call FUNC(reportDeadCivilian);
 		};
 		

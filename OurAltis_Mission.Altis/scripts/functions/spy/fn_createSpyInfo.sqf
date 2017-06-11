@@ -24,7 +24,6 @@ private _success = params [
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
-
 diag_log _this;
 
 private _side = if (side (group player) isEqualTo west) then {east} else {west};
@@ -48,8 +47,7 @@ private _info = "";
 		["_objectsVehicle", [], [[]]] 
 	];		
 		
-	//_info = _info + _tab + format ["<font color='#00ff00'>%1</font>", _location] + _endl + _tab + _separateShort;
-	_info = _info + format ["<font color='#00ff00'>%1</font>", _locationVehicle] + _endl + _separateLong + _tab + "Fuhrpark" + _endl + _tab + _separateShort;
+	_info = _info + format ["<font color='#00ff00'>%1</font>", _locationVehicle] + _endl + _separateLong + _tab + localize "OurA_str_Fleet" + _endl + _tab + _separateShort;
 	
 	{
 		_x params [
@@ -63,7 +61,7 @@ private _info = "";
 		nil
 	} count _objectsVehicle;
 	
-	_info = _info + _endl + _tab + "Truppenstaerke" + _endl + _tab + _separateShort;
+	_info = _info + _endl + _tab + localize "OurA_str_Troop" + _endl + _tab + _separateShort;
 	
 	{
 		_x params [
@@ -93,7 +91,7 @@ private _info = "";
 } count (_vehicleList select (_indexVehicleList + 1));
 
 if !(GVAR(Resist) isEqualTo "") then {
-	_info = _info + _endl + "Widerstand" + _endl + _separateLong + _tab + "Last known position" + _endl + _tab + _separateShort;
+	_info = _info + _endl + localize "OurA_str_Resistance" + _endl + _separateLong + _tab + localize "OurA_str_Position" + _endl + _tab + _separateShort;
 	
 	if (({alive _x} count _resistanceUnits) > 0) then {		
 		{
@@ -108,14 +106,14 @@ if !(GVAR(Resist) isEqualTo "") then {
 			};	
 		} forEach _resistanceUnits;
 	} else {
-		_info = _info + _tab + "They are all dead!" + _endl;
+		_info = _info + _tab + localize "OurA_str_AllDead" + _endl;
 	};
 };
 
-hint "Information received!";
+hint (localize "OurA_str_Received");
 
 private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
 
-player createDiaryRecord ["Diary", ["Intel", (format ["The enemy leader General %1 decreeds about a budget of %2 Mio $", _general, _budget]) + _endl + _endl + _info]];
+player createDiaryRecord ["Diary", ["Intel", (format [localize "OurA_str_Money", _general, _budget]) + _endl + _endl + _info]];
 
 nil

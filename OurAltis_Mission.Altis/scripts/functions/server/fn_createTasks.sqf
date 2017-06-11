@@ -17,27 +17,158 @@
  
 //ToDo localize text
 if (GVAR(defenderSide) isEqualTo sideUnknown) then {
-	[GVAR(BaseList) select 0 select 1, "base" + str(GVAR(BaseList) select 0 select 1), ["Eliminate all enemy forces!", "Eliminate all Enemies!", ""], GVAR(BaseList) select 1 select 2, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
-	[GVAR(BaseList) select 1 select 1, "base" + str(GVAR(BaseList) select 1 select 1), ["Eliminate all enemy forces!", "Eliminate all Enemies!", ""], GVAR(BaseList) select 0 select 2, "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;	
+	[
+		GVAR(BaseList) select 0 select 1,
+		"base" + str(GVAR(BaseList) select 0 select 1),
+		[
+			localize "OurA_str_BaseBorderDescription",
+			localize "OurA_str_BaseBorderTitle",
+			""
+		],
+		GVAR(BaseList) select 1 select 2,
+		"Created",
+		10,
+		false,
+		"attack",
+		false
+	] call BIS_fnc_taskCreate;
+	
+	[
+		GVAR(BaseList) select 1 select 1,
+		"base" + str(GVAR(BaseList) select 1 select 1),
+		[
+			localize "OurA_str_BaseBorderDescription",
+			localize "OurA_str_BaseBorderTitle",
+			""
+		],
+		GVAR(BaseList) select 0 select 2,
+		"Created",
+		10,
+		false,
+		"attack",
+		false
+	] call BIS_fnc_taskCreate;	
 } else {	
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 	
-	[GVAR(defenderSide), "baseDefender", ["Soldier! Get ready to defend the our base. The enemy sending forces to take " + GVAR(targetAreaName) + "!", "Defend our base!", ""], GVAR(markerBase), "Created", 10, false, "defend", false] call BIS_fnc_taskCreate;
-	[_attackerSide, "baseAttacker", ["Soldier! Get ready to attack the enemy base. We take " + GVAR(targetAreaName) + " or die!", "Attack the enemy base!", ""], GVAR(markerBase), "Created", 10, false, "attack", false] call BIS_fnc_taskCreate;
+	[
+		^GVAR(defenderSide),
+		"baseDefender",
+		[
+			format [localize "OurA_str_BaseDefDescription", GVAR(targetAreaName)],
+			localize "OurA_str_BaseDefTitle",
+			""
+		],
+		GVAR(markerBase),
+		"Created",
+		10,
+		false,
+		"defend",
+		false
+	] call BIS_fnc_taskCreate;
+	
+	[
+		_attackerSide,
+		"baseAttacker",
+		[
+			format [localize "OurA_str_BaseAttDescription",	GVAR(targetAreaName)],
+			localize "OurA_str_BaseAttTitle",
+			""
+		],
+		GVAR(markerBase),
+		"Created",
+		10,
+		false,
+		"attack",
+		false
+	] call BIS_fnc_taskCreate;
 	
 	if (!isNil QGVAR(spyUnit)) then {
-		[GVAR(defenderSide), "spyDefender", ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
-		[_attackerSide, "spyAttacker", ["Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in " + GVAR(targetAreaName) + " and more! If you think it will usefull find him and get the intel!", "Meet the spy!", "markerSpy"], GVAR(markerSpy), "Created", 5, false, "meet", false] call BIS_fnc_taskCreate;
+		[
+			GVAR(defenderSide),
+			"spyDefender",
+			[
+				format [localize "OurA_str_SpyDescription", GVAR(targetAreaName)],
+				localize "OurA_str_SpyTitle",
+				""
+			],
+			GVAR(markerSpy),
+			"Created",
+			5,
+			false,
+			"meet",
+			false
+		] call BIS_fnc_taskCreate;
+		
+		[
+			_attackerSide,
+			"spyAttacker",
+			[
+				format [localize "OurA_str_SpyDescription", GVAR(targetAreaName)],
+				localize "OurA_str_SpyTitle",
+				""
+			],
+			GVAR(markerSpy),
+			"Created",
+			5,
+			false,
+			"meet",
+			false
+		] call BIS_fnc_taskCreate;
 	}; 
 
 	if (!isNil QGVAR(markerEco)) then {
-		[GVAR(defenderSide), "ecoDefender", ["We have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! Protect it! Eventually the enemy will try to destroy it!", "Defend the " + GVAR(economy) + "!", ""], "marker_eco", "Created", 5, false, "defend", false] call BIS_fnc_taskCreate;
-		[_attackerSide, "ecoAttacker", ["The enemy have a " + GVAR(economy) + " in " + GVAR(targetAreaName) + "! If you are forced to retreat destroy it to damage enemy enonomy!", "Destroy the " + GVAR(economy) + "!", ""], "marker_eco", "Created", 5, false, "destroy", false] call BIS_fnc_taskCreate;
+		[
+			GVAR(defenderSide),
+			"ecoDefender",
+			[
+				format [localize "OurA_str_EcoDefDescription", GVAR(economy), GVAR(targetAreaName)],
+				format [localize "OurA_str_EcoDefTitle", GVAR(economy)],
+				""
+			],
+			"marker_eco",
+			"Created",
+			5,
+			false,
+			"defend",
+			false
+		] call BIS_fnc_taskCreate;
+		
+		[
+			_attackerSide,
+			"ecoAttacker", 
+			[
+				format [localize "OurA_str_EcoAttDescription", GVAR(economy), GVAR(targetAreaName)],
+				format [localize "OurA_str_EcoAttTitle", GVAR(economy)],
+				""
+			],
+			"marker_eco",
+			"Created",
+			5,
+			false,
+			"destroy",
+			false
+		] call BIS_fnc_taskCreate;
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {
 		private _side = if (GVAR(Resist) isEqualTo "west") then {east} else {west};
-		[_side, "resistance", ["Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!", "Defeat the resistance!", ""], objNull, "Created", 5, false, "search", false] call BIS_fnc_taskCreate;		
+		
+		[
+			_side,
+			"resistance",
+			[
+				localize "OurA_str_ResistanceDescription",
+				localize "OurA_str_ResistanceTitle",
+				""
+			],
+			objNull,
+			"Created",
+			5,
+			false,
+			"search",
+			false
+		] call BIS_fnc_taskCreate;		
 	};
 };
 

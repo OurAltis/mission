@@ -30,11 +30,8 @@ private _groupUnitsArray = [];
 	nil
 } count ((configFile >> "CfgVehicles") call BIS_fnc_getCfgSubClasses);
 
-diag_log _groupArray;
 private _side = if (_sideString isEqualTo "west") then {west} else {east};
 private _isFriendly = [resistance, _side] call BIS_fnc_sideIsFriendly;
-
-diag_log _isFriendly;
 
 if (!_isFriendly) then {
 	resistance setFriend [_side, 1];
@@ -91,6 +88,7 @@ diag_log _positionBase;
 						params ["_unit", "_killer"];					
 						diag_log _this;
 						
+						if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {
 							[] call FUNC(reportDefeatResistance);
 							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;

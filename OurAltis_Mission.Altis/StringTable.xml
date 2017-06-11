@@ -88,27 +88,127 @@
 			</Key>
 		</Container>
 	</Package>
-	<Package name ="Spy">
+	<Package name="Spy">
 		<Container name="Info">
-			<Key ID="OurA_str_spyVehicles">
+			<Key ID="OurA_str_Action">
+				<English>Ask for information!</English>
+				<German>Frage nach Informationen!</German>
+				<Original>Ask for information!</Original>
+			</Key>
+			<Key ID="OurA_str_Received">
+				<English>Information received!</English>
+				<German>Informationen erhalten!</German>
+				<Original>Information received!</Original>
+			</Key>
+			<Key ID="OurA_str_Money">
+				<English>The enemy leader General %1 decreeds about a budget of %2 Mio $.</English>
+				<German>Der feindliche Anführer, General %1, verfügt über ein Budget von %2 Mio $.</German>
+				<Original>The enemy leader General %1 decreeds about a budget of %2 Mio $.</Original>
+			</Key>
+			<Key ID="OurA_str_Fleet">
 				<English>Vehicle Fleet</English>
 				<German>Fuhrpark</German>
 				<Original>Vehicle Fleet</Original>
 			</Key>
-			<Key ID="OurA_str_spyUnits">
+			<Key ID="OurA_str_Troop">
 				<English>Troop Strength</English>
-				<German>Truppenstaerke</German>
+				<German>Truppenstärke</German>
 				<Original>Troop Strength</Original>
 			</Key>
-			<Key ID="OurA_str_spyResistance">
+			<Key ID="OurA_str_Position">
+				<English>Last known position</English>
+				<German>Letzte bekannte Position</German>
+				<Original>Last known position</Original>			
+			</Key>
+			<Key ID="OurA_str_Resistance">
 				<English>Resistance</English>
 				<German>Widerstand</German>
 				<Original>Resistance</Original>
 			</Key>
-			<Key ID="OurA_str_spyMoney">
-				<English>The enemy leader General %1 decreeds about a budget of %2 Mio $</English>
-				<German>Der feindliche Anfuehrer, General %1, verfuegt ueber ein Budget von %2 Mio $</German>
-				<Original>The enemy leader General %1 decreeds about a budget of %2 Mio $</Original>
+			<Key ID="OurA_str_AllDead">
+				<English>They are all dead!</English>
+				<German>Alle Widerstandseinheiten wurden getötet!</German>
+				<Original>They are all dead!</Original>
+			</Key>					
+		</Container>
+	</Package>
+	<Package name="Tasks">
+		<Container name="Base">
+			<Key ID="OurA_str_BaseBorderDescription">
+				<English>Eliminate all enemy forces!</English>
+				<German>Schlagen sie die Feindkräfte in die Flucht!</German>
+				<Original>Eliminate all enemy forces!</Original>
+			</Key>
+			<Key ID="OurA_str_BaseBorderTitle">
+				<English>Elimination</English>
+				<German>Eliminierung</German>
+				<Original>Elimination</Original>
+			</Key>
+			<Key ID="OurA_str_BaseDefDescription">
+				<English>Soldier, get ready to defend our base. The enemy sending forces to take %1!</English>
+				<German>Soldat, bereiten Sie sich auf einen Angriff vor! Der Feind hat Truppen entsandt um %1 zu erobern!</German>
+				<Original>Soldier, get ready to defend our base. The enemy sending forces to take %1!</Original>
+			</Key>
+			<Key ID="OurA_str_BaseDefTitle">
+				<English>Defend our base!</English>
+				<German>Verteidigt unsere Basis!</German>
+				<Original>Defend our base!</Original>
+			</Key>
+			<Key ID="OurA_str_BaseAttDescription">
+				<English>Soldier, get ready to attack the enemy base. We take %1 or die!</English>
+				<German>Soldat, bereiten Sie sich vor die feindliche Basis anzugreifen! Wir nehmen %1 oder sterben bei dem Versuch!</German>
+				<Original>Soldier, get ready to attack the enemy base. We take %1 or die!</Original>
+			</Key>
+			<Key ID="OurA_str_BaseAttTitle">
+				<English>Capture the enemy base!</English>
+				<German>Einnahme der feindlichen Basis!</German>
+				<Original>Capture the enemy base!</Original>
+			</Key>
+		</Container>
+		<Container name="Spy">
+			<Key ID="OurA_str_SpyDescription">
+				<English>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will usefull find him and get the Intel!</English>
+				<German>Soldat, die Aufklärung ist in kontakt mit einer Person die sich selbst 'Der Duke' nennt. Er sagt, er habe Informationen über die feindliche Truppenstärke in %1 und mehr! Wenn sie glauben das diese Infos hilfreich sein könnten treffen sie den Spion.</German>
+				<Original>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will usefull find him and get the Intel!</Original>
+			</Key>
+			<Key ID="OurA_str_SpyTitle">
+				<English>Meet the Spy!</English>
+				<German>Treffe den Spion!</German>
+				<Original>Meet the Spy!</Original>
+			</Key>
+		</Container>
+		<Container name="Economy">
+			<Key ID="OurA_str_EcoDefDescription">
+				<English>We have a %1 in %2. Protect it. Eventually the enemy will try to destroy it to affect our economy!</English>
+				<German>Wir haben eine %1 in %2. Schützen Sie sie! Eventuell versucht der Feind die Gebäude zu zerstören um unserer Wirtschaft zu Schaden!</German>
+				<Original>We have a %1 in %2. Protect it. Eventually the enemy will try to destroy it to affect our economy!</Original>
+			</Key>
+			<Key ID="OurA_str_EcoDefTitle">
+				<English>Defend the %1!</English>
+				<German>Verteidigt die %1!</German>
+				<Original>Defend the %1!</Original>
+			</Key>
+			<Key ID="OurA_str_EcoAttDescription">
+				<English>The enemy have a %1 in %2. If you are forced to retreat destroy it to affect enemy enonomy!</English>
+				<German>Der Feind hat in %2 eine %1. Wenn Sie gezwungen sind sich zurückzuziehen zerstören Sie die Gebäude um der Wirtschaft des Feindes zu Schaden!</German>
+				<Original>The enemy have a %1 in %2! If you are forced to retreat destroy it to affect enemy enonomy!</Original>
+			</Key>
+			<Key ID="OurA_str_EcoAttTitle">
+				<English>Destroy the %1!</English>
+				<German>Zerstören sie die %1!</German>
+				<Original>Destroy the %1!</Original>
+			</Key>
+		</Container>
+		<Container name="Resistance">
+			<Key ID="OurA_str_ResistanceDescription">
+				<English>Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!</English>
+				<German>Soldat, Hawkeye hat uns eine Widerstandsgruppe in dem Gebiet gemeldet! Seien Sie vorsichtig ansonsten kämpfen Sie an zwei Fronten. Dies wäre eine gute Gelegenheit den Widerstand zu zerschlagen. Ihre Entscheidung!</German>
+				<Original>Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!</Original>
+			</Key>
+			<Key ID="OurA_str_ResistanceTitle">
+				<English>Defeat the resistance!</English>
+				<German>Zerschmettern Sie den Widerstand!</German>
+				<Original>Defeat the resistance!</Original>
 			</Key>
 		</Container>
 	</Package>
