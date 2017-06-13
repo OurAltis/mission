@@ -20,6 +20,10 @@
 GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
 
 if (isServer) then {
+	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
+		[] call FUNC(createBorderWar);		
+	};
+	
 	// Sets up a checking framework that repeatedly checks whether there are units in the base	
 	GVAR(captureBaseHandlerID) = [
 		FUNC(watchCapturingBase),

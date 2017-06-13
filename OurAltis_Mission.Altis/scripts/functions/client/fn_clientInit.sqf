@@ -24,8 +24,15 @@ if (!PGVAR(retreat)) then {
 	1 setRadioMsg "Retreat";
 };
 
-[] call FUNC(markBases);
+if (!isNil QGVAR(markerBorderWar)) then {
+	[
+		FUNC(showUnitsOutsideMarker),
+		1,
+		[GVAR(markerBorderWar)]
+	] call CBA_fnc_addPerFrameHandler;
+};
 
+[] call FUNC(markBases);
 [] call FUNC(compileLoadouts);
 
 // set up client EHs

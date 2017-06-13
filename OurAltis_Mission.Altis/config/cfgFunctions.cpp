@@ -25,6 +25,7 @@ class CfgFunctions
 			class workWithBaseList {};
 			class workWithInfantryList {};
 			class deleteRadioMsg {};
+			class showUnitsOutsideMarker {};
 		};
 		
 		class server
@@ -48,6 +49,8 @@ class CfgFunctions
 			class createTasks {};
 			class reportServerStatus {};
 			class reportDefeatResistance {};
+			class createBorderWar {};
+			class shrinkMarker {};
 		};
 		
 		class database
