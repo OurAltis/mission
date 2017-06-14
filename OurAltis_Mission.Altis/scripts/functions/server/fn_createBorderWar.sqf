@@ -18,7 +18,7 @@
 private _position0 = (GVAR(BaseList) select 0) select 2;
 private _position1 = (GVAR(BaseList) select 1) select 2;
 
-private _mPos = [((_position0 select 0) + (_position1 select 0)) / 2, ((_position0 select 1) + (_position1 select 1)) / 2]
+private _mPos = [((_position0 select 0) + (_position1 select 0)) / 2, ((_position0 select 1) + (_position1 select 1)) / 2];
 private _dist = _position0 distance2D _position1;
 private _r = (_dist + (_dist * 0.1)) / 2;
 private _deltaR = _r * 0.1;
