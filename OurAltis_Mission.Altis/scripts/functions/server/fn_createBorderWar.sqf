@@ -23,16 +23,11 @@ private _dist = _position0 distance2D _position1;
 private _r = (_dist + (_dist * 0.1)) / 2;
 private _deltaR = _r * 0.1;
 
-GVAR(markerBorderWar) = [
-	"borderWar",
-	_mPos,
-	"ELLIPSE",
-	[_r, _r],
-	"GLOBAL",
-	"PERSIST",
-	"Border",
-	"ColorOrange"	
-] call CBA_fnc_createMarker;
+GVAR(markerBorderWar) = createMarker ["borderWar", _mPos];
+GVAR(markerBorderWar) setMarkerShape "ELLIPSE";
+GVAR(markerBorderWar) setMarkerSize [_r, _r];
+GVAR(markerBorderWar) setMarkerBrush "Border";
+GVAR(markerBorderWar) setMarkerColor "ColorOrange";
 
 publicVariable QGVAR(markerBorderWar);
 

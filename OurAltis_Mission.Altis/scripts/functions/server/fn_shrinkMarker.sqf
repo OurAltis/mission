@@ -29,7 +29,7 @@ _args params [
 
 diag_log _args;
 
-private _mSize = (markerSize _marker) - _deltaR;
+private _mSize = ((getMarkerSize _marker) select 0) - _deltaR;
 _marker setMarkerSize [_mSize, _mSize];
 
 nil
