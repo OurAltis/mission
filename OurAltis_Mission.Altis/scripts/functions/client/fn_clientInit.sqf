@@ -21,7 +21,7 @@ if (!PGVAR(retreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
 	GVAR(radioTrigger) setTriggerActivation ["Alpha", "PRESENT", false];
 	GVAR(radioTrigger) setTriggerStatements ["this", "[side group player, clientOwner] remoteExecCall ['OurA_fnc_retreat', 2]", ""];
-	1 setRadioMsg "Retreat";
+	1 setRadioMsg (localize "OurA_str_Retreat");
 };
 
 if (!isNil QGVAR(markerBorderWar)) then {

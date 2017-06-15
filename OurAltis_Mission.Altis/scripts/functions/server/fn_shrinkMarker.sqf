@@ -17,19 +17,20 @@
  */
 
 _this params [
-	["_args", [], [[]]]
+	["_args", [], [[]]],
+	["_handle", -1, [0]]
 ];
-
-diag_log _this;
 
 _args params [
 	["_marker", "", [""]],
 	["_deltaR", 0, [0]]
 ];
 
-diag_log _args;
-
 private _mSize = ((getMarkerSize _marker) select 0) - _deltaR;
 _marker setMarkerSize [_mSize, _mSize];
+
+if (_mSize <= 0) then {
+	[_handle] call CBA_fnc_removePerFrameHandler;
+};
 
 nil

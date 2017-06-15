@@ -49,13 +49,14 @@ GVAR(spyUnit) addMPEventHandler [
 	"MPKilled", {
 		params ["_unit", "_killer"];
 		
-		if (local _unit) then {
+		if (isServer) then {
 			if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 			[side (group _killer), VALUE_CIV] call FUNC(reportDeadCivilian);
 		};
 		
 		if (hasInterface) then {
-			[_unit] removeAction GVAR(spyAddAction);			
+			[_unit] removeAction GVAR(spyAddAction);
+			systemChat (localize "OurA_str_DeadCiv");
 		};
 	}
 ];

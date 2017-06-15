@@ -26,8 +26,9 @@ private _deltaR = _r * 0.1;
 GVAR(markerBorderWar) = createMarker ["borderWar", _mPos];
 GVAR(markerBorderWar) setMarkerShape "ELLIPSE";
 GVAR(markerBorderWar) setMarkerSize [_r, _r];
-GVAR(markerBorderWar) setMarkerBrush "Border";
+GVAR(markerBorderWar) setMarkerBrush "SolidBorder";
 GVAR(markerBorderWar) setMarkerColor "ColorOrange";
+GVAR(markerBorderWar) setMarkerAlpha 0.5;
 
 publicVariable QGVAR(markerBorderWar);
 

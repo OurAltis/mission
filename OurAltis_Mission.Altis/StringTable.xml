@@ -206,4 +206,27 @@
 			</Key>
 		</Container>
 	</Package>
+	<Package name="Civilian">
+		<Container name="Hint">
+			<Key ID="OurA_str_DeadCiv">
+				<English>A civilian was killed!</English>
+				<German>Ein Zivilist wurde getötet!</German>
+				<Original>A civilian was killed!</Original>
+			</Key>
+		</Container>
+	</Package>
+	<Package name="Retreat">
+		<Container name="Menue">
+			<Key ID="OurA_str_Retreat">
+				<English>Retreat!</English>
+				<German>Rückzug!</German>
+				<Original>Retreat!</Original>
+			</Key>
+			<Key ID="OurA_str_RetreatHint">
+				<English>We prepare retreat!\n I repeat, we prepare retreat!\n %1 seconds to go!</English>
+				<German>Wir bereiten den Rückzug vor!\n Ich wiederhole, wir bereiten den Rückzug vor!\n Noch %1 Sekunden!</German>
+				<Original>We prepare retreat!\n I repeat, we prepare retreat!\n %1 seconds to go!</Original>
+			</Key>
+		</Container>
+	</Package>
 </Project>

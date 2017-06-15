@@ -30,7 +30,7 @@ if (side (group player) isEqualTo _side) then {
 			private _side = _this select 0 select 1;
 			
 			if (round (_time - time) >= 0) then {
-				hint format ["We prepare retreat!\n I repeat, we prepare retreat!\n %1 seconds to go!", round (_time - time)];
+				hint format [localize "OurA_str_RetreatHint", round (_time - time)];
 			} else {[GVAR(retreatHandlerID)] call CBA_fnc_removePerFrameHandler};
 			
 			nil
