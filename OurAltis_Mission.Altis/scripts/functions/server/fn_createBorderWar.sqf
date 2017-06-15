@@ -32,7 +32,7 @@ GVAR(markerBorderWar) = [
 	"PERSIST",
 	"Border",
 	"ColorOrange"	
-] CBA_fnc_createMarker;
+] call CBA_fnc_createMarker;
 
 publicVariable QGVAR(markerBorderWar);
 
