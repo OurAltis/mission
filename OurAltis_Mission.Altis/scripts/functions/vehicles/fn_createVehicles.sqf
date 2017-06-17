@@ -76,7 +76,11 @@ private _baseVehicleList = [west, [], east, []];
 					_obj setDamage _damage;
 					_obj setDir (getDir _x);
 					
+					_obj allowDammage false;
+					
 					_obj setPosATL (getPos _x vectorAdd [0,0,0.2]);
+					
+					_obj enableSimulationGlobal false;
 					
 					clearWeaponCargoGlobal _obj;
 					clearBackpackCargoGlobal _obj;
