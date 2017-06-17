@@ -54,6 +54,30 @@ with uiNamespace do {
 		private _position = _this select 1;
 		private _baseName = _this select 2;
 		
+		// search for nearby spawn-buildings
+		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];
+		private _spawnBuildings = [];
+		
+		{
+			if (_x getVariable [SPAWN_BUILDING_INDICATOR, false]) then {
+				_spawnBuildings pushBack _x;
+			};
+			
+			nil;
+		} count _potentialSpawnBuildings;
+		
+		diag_log ("Spawn buildings" + str _spawnBuildings);
+		
+		if (count _spawnBuildings > 0) then {
+			private _building = selectRandom _spawnBuildings;
+			
+			if(count (_building getVariable [SPAWN_BUILDING_POSITIONS, []]) > 0) then {
+				_position = _building buildingPos selectRandom (_building getVariable SPAWN_BUILDING_POSITIONS);
+			} else {
+				_position = _building buildingPos 0;
+			};
+		};
+		
 		// create unit by calling the stored creation code with the respective information
 		_newPlayer = [_roleData select 0, _position, _baseName] call (_roleData select 1);
 		

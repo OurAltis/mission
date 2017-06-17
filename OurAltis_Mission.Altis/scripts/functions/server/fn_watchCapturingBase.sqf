@@ -38,6 +38,7 @@ if (_westUnits > _eastUnits) then {
 	} else {				
 		if ((flagAnimationPhase (_flagPoles select 0)) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo east) then {
+				diag_log "ending mission because of base capturing - west";
 				[west] call FUNC(endMission);			
 				[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
 			};
@@ -48,10 +49,11 @@ if (_westUnits > _eastUnits) then {
 };
 
 if (_eastUnits > _westUnits) then {
-	if ((flagTexture (_flagPoles select 0)) isEqualTo (toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa")) then {				
+	if ((flagTexture (_flagPoles select 0)) isEqualTo (toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa")) then {
 		if ((flagAnimationPhase (_flagPoles select 0)) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo west) then {
-				[east] call FUNC(endMission);				
+				diag_log "ending mission because of base capturing - east";
+				[east] call FUNC(endMission);
 				[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
 			};
 		} else {

@@ -130,4 +130,6 @@
  #define VEHICLE_MILITARY_TANK_EAST ["O_MBT_02_cannon_F"]
  #define VALUE_CIV 50
  #define VALUE_RESIST 20
+ #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
+ #define SPAWN_BUILDING_POSITIONS "OurA.RespawnBuilding.Positions"
  

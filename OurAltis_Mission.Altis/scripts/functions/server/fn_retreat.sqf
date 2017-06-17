@@ -33,7 +33,8 @@ publicVariable QPGVAR(retreat);
 private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 
 [
-	{		
+	{
+		diag_log "Ending mission because of reatreat";
 		(_this select 0) call FUNC(endMission);
 	},
 	[_winnerSide],

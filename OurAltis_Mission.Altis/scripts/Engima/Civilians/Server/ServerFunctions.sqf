@@ -448,4 +448,3 @@ ENGIMA_CIVILIANS_StartCivilians = {
 		sleep 3;
 	};
 };
-

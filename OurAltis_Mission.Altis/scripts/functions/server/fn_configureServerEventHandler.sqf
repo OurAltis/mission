@@ -169,6 +169,8 @@ addMissionEventHandler [
 		
 		_allSides = _remainingSides - [objNull];
 		
+		diag_log "Ending mission because all player are dead";
+		
 		if (count _allSides == 1) then {
 			// There are only players of one side left -> end mission in their favour
 			[_remainingSides select 0] call FUNC(endMission);
