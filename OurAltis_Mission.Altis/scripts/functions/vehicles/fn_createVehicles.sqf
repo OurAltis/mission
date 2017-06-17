@@ -25,7 +25,7 @@ private _baseVehicleList = [west, [], east, []];
 		["_isCamp", nil, [true]]
 	];
 	
-	CHECK_TRUE(_success, Invalid baseFormat!)	
+	CHECK_TRUE(_success, Invalid vehicleFormat!)	
 	
 	private _sideVehicleList = [_id, []];
 	private _vehicleType = [];
