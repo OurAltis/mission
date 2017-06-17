@@ -10,7 +10,7 @@
 	0: position of the template - <Array> [X, Y, Z]
 	1: azimuth of the template in degrees - <Number>
 	2: objects for the template - <Array>
-	3: classname of object which will be return - <Array>
+	3: classname of object which will be returned - <Array>
 
 	Returns:
 	Special object (Object)
