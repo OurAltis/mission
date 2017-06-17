@@ -92,7 +92,15 @@ diag_log "Transmitting vehicles...";
 	nil;
 } count vehicles;
 
-// end mission on Server
-["serverEnd", false, false, false] call BIS_fnc_endMission;
+{
+	{
+		// end mission on Server
+		["serverEnd", false, false, false] call BIS_fnc_endMission;
+	
+		nil;
+	},
+	[],
+	5
+} call CBA_fnc_waitAndExecute;
 
 nil;
