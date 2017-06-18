@@ -28,8 +28,14 @@ private _id = _vehicle getVariable [VEHICLE_ID, nil];
 
 CHECK_FALSE(isNil "_id", No vehicle ID given!, {})
 
-// report status to the DB
-private _result = ["UPDATE armeen SET bestand = '" + str _damage + "', tank = '" + str _fuel + "' WHERE id = '" + _id + "'"] call FUNC(transferSQLRequestToDataBase);
+private _result = if (alive _vehicle) then {
+	// report status to the DB if vehicle is alive
+	["UPDATE armeen SET bestand = '" + str _damage + "', tank = '" + str _fuel + "' WHERE id = '" + _id + "'"] call FUNC(transferSQLRequestToDataBase);	
+} else {
+	// report status to the DB if vehicle is destroyed
+	["UPDATE armeen SET bestand = '0' WHERE id = '" + _id + "'"] call FUNC(transferSQLRequestToDataBase);
+};
+
 CHECK_DB_RESULT(_result)
 
 nil;
