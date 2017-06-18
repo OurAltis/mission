@@ -14,110 +14,75 @@
  * None <Any>
  * 
  */
- 
-diag_log ("Starting time: " + str diag_tickTime);
+
 
 // set preferences
 GVAR(MarkerAccuracy) = 500;
-//GVAR(SpyInfo) = [[blufor, localize "OurA_str_enemyHasTanks"], [opfor, localize "OurA_str_enemyHasHelicopter"]];
-GVAR(SpyInfo) = [[123,456], "west", 20030000]; // [position, side, budget]
-GVAR(Resist) = "ost";
-GVAR(NATO) = "Mario";
-GVAR(CSAT) = "Luigi";
+GVAR(SpyInfo) = [[15376,16017], "ost", 20.0];
+GVAR(Resist) = "";
+GVAR(NATO) = "Smith";
+GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
 
 if(isServer) then {
-	// only initialize on server	
-	// variable init
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
-	GVAR(Vehicles) = [];
 	GVAR(VehicleListVirtual) = [];
-	GVAR(OperationName) = "Operation Beispiel";
-	GVAR(MissionID) = 84303;
-	GVAR(targetAreaName) = "Telos";
+	GVAR(OperationName) = "Graceful Bird";
+	GVAR(MissionID) = 11483;
+	GVAR(targetAreaName) = "Aeroport";
 	GVAR(dataBase) = "a";
-	GVAR(defenderSide) = east;	
-	
-	// initialize unique mission part
-	// erstellt ein Feldlager und eine Basis
+	GVAR(defenderSide) = east;
 	[
-		[[14917, 16471], blufor, "Charkia", false, 1, 45],
-		[[14817, 17671], blufor, "Maxwell", true, 6, 0],
-		[[18317, 13471], east, "Rainbow", false, 6, 90]
+		[[13462.875,15969.920], east, "Aeroport", false, 1, -17.492],
+		[[16372.000,19664.000], blufor, "AgiaTriada", true, 4, 241.375]
 	] call FUNC(createBases);
 	
-	[
-		[123, 456],
-		"factory",
-		45
-	] call FUNC(createEconomy);
+	[] call FUNC(createEconomy);
 	
-	// schoenes Wetter ohne Nebel tagsueber
 	[0,0,0] call FUNC(setMissionParameter);
 	
-	// Infanterie hinzufuegen
 	[
-		["Rifleman", 2, "Charkia"],
-		["AT", 2, "Rainbow"],
-		["Medic", 1, "Charkia"],
-		["Engineer", 2, "Maxwell"],
-		["Grenadier", 5, "Charkia"],
-		["Spotter", 3, "Charkia"],
-		["Marksman", 2, "Charkia"],
-		["UAV", 3, "Charkia"],
-		["Driver", 1, "Charkia"],
-		["AT", 8, "Charkia"],
-		["Pilot", 9, "Charkia"],
-		["SQL", 53, "Charkia"],
-		["Crew", 3, "Charkia"],
-		["MG", 4, "Charkia"],
-		["MGAssistant", 1, "Charkia"]
+		["Rifleman", 9, "Aeroport", "Aeroport"],
+		["MG", 5, "Aeroport", "Aeroport"],
+		["MGAssistant", 3, "Aeroport", "Aeroport"],
+		["AT", 1, "Aeroport", "Aeroport"],
+		["AA", 1, "Aeroport", "Aeroport"],
+		["Medic", 1, "Aeroport", "Aeroport"],
+		["Marksman", 1, "Aeroport", "Aeroport"],
+		["UAV", 3, "Aeroport", "Aeroport"],
+		["Crew", 11, "Aeroport", "Aeroport"],
+		["Driver", 7, "AgiaTriada", "Aeroport"],
+		["Crew", 11, "AgiaTriada", "Aeroport"],
+		["Pilot", 6, "AgiaTriada", "Aeroport"]
 	] call FUNC(configureInfantry);
-	
-	// Erstellt sichtbare und unsichtbare Helipads in den Basen um den Fahrzeugspawn zu testen 
-	// [3, 1] call FUNC(createHelipads);
 	
 	[
 		{
-			// Erstellt die Fahrzeuge ["CLassenname", Treibstofff�llstand, Schaden, Spawnpunkt, ID]	
 			[
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "0"],
-				["B_G_Offroad_01_armed_F", 0.5, 0.8, "Charkia", "1"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "2"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "3"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "4"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "5"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "555"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "12"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "44987"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "79"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "80"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "81"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "82"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "83"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "45"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "450"],
-				["B_G_Offroad_01_armed_F", 1, 0, "Charkia", "348"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "349"],
-				["B_MRAP_01_F", 1, 0, "Charkia", "350"],
-				["B_Quadbike_01_F", 0.5, 0.2, "Maxwell", "351"],
-				["B_Quadbike_01_F", 0, 0.7, "Maxwell", "352"],
-				["B_Quadbike_01_F", 0.3, 0.1, "Maxwell", "353"],
-				["B_Quadbike_01_F", 1, 0.9, "Maxwell", "89016"],
-				["B_Heli_Light_01_armed_F", 0, 0.8, "Charkia", "355"],
-				["B_Heli_Light_01_armed_F", 0, 0.9, "Charkia", "356"],
-				["B_Heli_Light_01_armed_F", 1, 0, "Charkia", "357"],
-				["B_Heli_Light_01_armed_F", 0.2, 0, "Maxwell", "358"],
-				["B_Heli_Light_01_armed_F", 1, 0, "Rainbow", "12345678"]
+				["O_MBT_02_cannon_F", 0.16, 0.59, "Aeroport", "35990"],
+				["O_APC_Tracked_02_AA_F", 0.4, 0.16, "Aeroport", "73912"],
+				["O_APC_Wheeled_02_rcws_F", 0.95, 0.46, "Aeroport", "49916"],
+				["O_APC_Wheeled_02_rcws_F", 0.79, 0.5, "Aeroport", "20434"],
+				["B_Heli_Transport_01_F", 0.95, 0.09, "AgiaTriada", "29550"],
+				["B_Heli_Attack_01_F", 0.96, 0.47, "AgiaTriada", "77607"],
+				["B_MBT_01_cannon_F", 0.1, 0.51, "AgiaTriada", "36982"],
+				["B_T_APC_Tracked_01_AA_F", 0.81, 0.43, "AgiaTriada", "33705"],
+				["B_APC_Wheeled_01_cannon_F", 0.71, "[[""HitBody"",""HitEngine"",""HitFuel"",""HitHull"",""HitLFWheel"",""HitLBWheel"",""HitLMWheel"",""HitLF2Wheel"",""HitRFWheel"",""HitRBWheel"",""HitRMWheel"",""HitRF2Wheel"",""HitRGlass"",""HitLGlass"",""HitGlass1"",""HitGlass2"",""HitGlass3"",""HitGlass4"",""HitGlass5"",""HitGlass6"","""","""","""","""","""","""",""HitTurret"",""HitGun"",""HitTurret"",""HitGun""],[""karoserie"",""motor"",""palivo"",""palivo"",""wheel_1_1_steering"",""wheel_1_4_steering"",""wheel_1_3_steering"",""wheel_1_2_steering"",""wheel_2_1_steering"",""wheel_2_4_steering"",""wheel_2_3_steering"",""wheel_2_2_steering"","""","""","""","""","""","""","""","""",""light_l"",""light_l"","""",""light_r"",""light_r"","""",""vez"",""zbran"",""vezvelitele"",""zbranvelitele""],[0.641732,0.641732,0.641732,0.641732,0.775591,0.641732,0.665354,0.748031,1,0.775591,1,1,0.641732,0.641732,0.641732,0.641732,0.641732,0.641732,0.641732,0.641732,1,1,0.641732,1,1,0.641732,0.641732,0.641732,0.641732,0.641732]]", "AgiaTriada", "73424"],
+				["B_APC_Wheeled_01_cannon_F", 0.16, 0.17, "AgiaTriada", "57771"],
+				["B_MRAP_01_F", 0.07, 0.14, "AgiaTriada", "60473"],
+				["B_MRAP_01_hmg_F", 0.8, 0.49, "AgiaTriada", "52374"],
+				["B_MRAP_01_hmg_F", 0.5, 0.16, "AgiaTriada", "82232"],
+				["B_Truck_01_covered_F", 0.16, 0.33, "AgiaTriada", "99870"],
+				["B_Truck_01_covered_F", 0.23, 0.1, "AgiaTriada", "87821"]
 			] call FUNC(createVehicles);
 		},
 		[],
 		0.5
 	] call CBA_fnc_waitAndExecute;
 	
-	GVAR(SpyInfo) call FUNC(createSpy);
-	GVAR(Resist) call FUNC(createResistance);
+	 GVAR(SpyInfo) call FUNC(createSpy);
+	 GVAR(Resist) call FUNC(createResistance);
 };
 
 [] call FUNC(initializeGenericMissionPart);

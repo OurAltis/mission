@@ -5,7 +5,10 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Creates the Vehicles at Bases
+ * Creates the Vehicles at Bases. Note that the specified damage can either be a number ranging from 0 to 1 which will the´n be applied via setDamage. 
+ * The alternative is to provide the array returned by getAllHitPointsDamage or the String representation of that array obtained via the str command. 
+ * If this approach is chosen then the damage for the different HitPoints are transferred to the vehicle.
+ * Note: There is n check that the given array actually suits the given vehicle!
  * 
  * Parameter(s):
  * 0: Vehicles <Array> - format [Type<Classname>, Fuel Level<Number>, Damage Level<Number>, Spawn<BaseID>, ID<Number>]
@@ -21,11 +24,10 @@ private _baseVehicleList = [west, [], east, []];
 	private _success = _x params [
 		["_id", nil, [""]],
 		["_side", sideUnknown, [sideUnknown]],
-		["_position", nil, [[]], [2,3]],
-		["_isCamp", nil, [true]]
+		["_position", nil, [[]], [2,3]]
 	];
 	
-	CHECK_TRUE(_success, Invalid vehicleFormat!)	
+	CHECK_TRUE(_success, Invalid vehicleFormat!)
 	
 	private _sideVehicleList = [_id, []];
 	private _vehicleType = [];
@@ -35,7 +37,7 @@ private _baseVehicleList = [west, [], east, []];
 		_success = _x params [
 			["_type", "", [""]],
 			["_fuel", 0, [0]],
-			["_damage", 0, [0]],
+			["_damage", 0, [0,"",[]]],
 			["_spawn", "", [""]],
 			["_vehID", "", [""]]
 		];
@@ -73,8 +75,24 @@ private _baseVehicleList = [west, [], east, []];
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					_obj setFuel _fuel;
-					_obj setDamage _damage;
 					_obj setDir (getDir _x);
+					
+					// apply damage
+					if (typeName _damage isEqualTo typeName 0) then {
+						_obj setDamage _damage;
+					} else {
+						if (typeName _damage isEqualTo typeName "") then {
+							// convert string into array
+							_damage = parseSimpleArray _damage;
+						};
+						
+						// apply damage to each part
+						for "_i" from 0 to (count (_damage select 0) - 1) do {
+							_obj setHitPointDamage [_damage select 0 select _i, _damage select 2 select _i];
+						};
+					};
+					
+					_obj setPosATL (getPos _x vectorAdd [0,0,0.2]);
 					
 					clearWeaponCargoGlobal _obj;
 					clearBackpackCargoGlobal _obj;

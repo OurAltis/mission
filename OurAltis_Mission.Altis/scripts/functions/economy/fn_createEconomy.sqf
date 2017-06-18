@@ -17,6 +17,8 @@
  * 
  */ 
 
+if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit again
+
 private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_type", "", [""]],

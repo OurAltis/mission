@@ -2,7 +2,7 @@
 #include "config\cfgRespawnTemplates.cpp"
 #include "macros.hpp"
 
-author = "Raven";
+author = "OurAltis-Team";
 onLoadName = "OurAltis_Mission";
 
 respawn = "BASE";

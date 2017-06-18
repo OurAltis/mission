@@ -37,8 +37,10 @@ private _internalClassName = [_className] call FUNC(getInternalClassName);
 // store meta data on the unit
 _newPlayerUnit setVariable [CLASS_NAME_VARIABLE, _internalClassName];
 
-private _classCode = [_internalClassName, side group player] call FUNC(getClassCode);
-_newPlayerUnit setVariable [CLASS_CODE_VARIABLE, _classCode, true];
+if (!(_internalClassName in ["Driver", "Crew", "Pilot"])) then {
+	private _classCode = [_internalClassName, side group player] call FUNC(getClassCode);
+	_newPlayerUnit setVariable [CLASS_CODE_VARIABLE, _classCode, true];
+};
 
 _newPlayerUnit setVariable [SPAWN_BASE_VARIABLE, _spawnBase, true];
 

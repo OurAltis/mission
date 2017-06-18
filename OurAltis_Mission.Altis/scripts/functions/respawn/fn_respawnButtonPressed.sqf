@@ -66,15 +66,18 @@ with uiNamespace do {
 			nil;
 		} count _potentialSpawnBuildings;
 		
-		diag_log ("Spawn buildings" + str _spawnBuildings);
-		
 		if (count _spawnBuildings > 0) then {
 			private _building = selectRandom _spawnBuildings;
 			
+			private _prevPos = _position;
 			if(count (_building getVariable [SPAWN_BUILDING_POSITIONS, []]) > 0) then {
 				_position = _building buildingPos selectRandom (_building getVariable SPAWN_BUILDING_POSITIONS);
 			} else {
 				_position = _building buildingPos 0;
+			};
+			// failsave if buildingPos faisl at finding the respective position
+			if(_position isEqualTo [0,0,0]) then {
+				_position = _prevPos;
 			};
 		};
 		
@@ -91,6 +94,9 @@ with uiNamespace do {
 		
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
+		diag_log ("Dead group: " + str RGVAR(DeadGroup));
+		
+		// TODO: DeadGroup may not exist anymore
 		
 		// workaround for created player unit because they don't get the tasks
 		private _tasks = [_oldPlayer] call BIS_fnc_tasksUnit; 
