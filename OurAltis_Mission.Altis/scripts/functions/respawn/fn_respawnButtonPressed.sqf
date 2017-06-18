@@ -92,8 +92,9 @@ with uiNamespace do {
 		
 		selectPlayer _newPlayer;
 		
+		[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
-		[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
+		//[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
 		
 		// workaround for created player unit because they don't get the tasks
 		private _tasks = [_oldPlayer] call BIS_fnc_tasksUnit; 
