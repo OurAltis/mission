@@ -132,4 +132,5 @@
  #define VALUE_RESIST 20
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
  #define SPAWN_BUILDING_POSITIONS "OurA.RespawnBuilding.Positions"
+ #define SPAWN_BUILDING_TYPES [["Land_Cargo_House_V1_F","Land_Cargo_HQ_V3_F","Land_Medevac_house_V1_F","Land_Cargo_Tower_V3_F"], [[],[],[],[9,18]]]
  

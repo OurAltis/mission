@@ -149,7 +149,7 @@
 	["Land_Cargo_Patrol_V3_F",[4.46021,31.0767,0],220,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-31.073,31.3364,0],135,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[37.5442,-32.48,0],315,"","",true,false], 
-	["Land_Cargo_Patrol_V3_F",[8.29395,-7.521,0],179.651,"","this setVariable [""OurA_IsRespawnBuilding"", true,true];",true,false], 
+	["Land_Cargo_Patrol_V3_F",[8.29395,-7.521,0],179.651,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-21.6902,-33.9995,0],0.136002,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-32.1589,-24.7847,0],90.136,"","",true,false], 
 	["Item_MineDetector",[-15.5359,-1.45264,0],91.9089,"","",true,false], 

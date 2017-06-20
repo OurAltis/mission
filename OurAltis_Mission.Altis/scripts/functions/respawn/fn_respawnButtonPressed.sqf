@@ -70,13 +70,44 @@ with uiNamespace do {
 			private _building = selectRandom _spawnBuildings;
 			
 			private _prevPos = _position;
-			if(count (_building getVariable [SPAWN_BUILDING_POSITIONS, []]) > 0) then {
-				_position = _building buildingPos selectRandom (_building getVariable SPAWN_BUILDING_POSITIONS);
+			
+			SPAWN_BUILDING_TYPES params [
+				["_types", [],[[]]],
+				["_minMaxArray", [], [[]]]
+			];
+			
+			private _buildingType = typeOf _building;
+			
+			if ((_buildingType find "ruins") > -1) then {
+				private _stringArray = (typeOf _building) splitString "_";
+				_stringArray resize [(count _stringArray) - 2];
+				_stringArray pushBack "F";
+				_buildingType = _stringArray joinString "_";				
+			};
+			
+			private _possiblePositionsInBuilding = [];
+			
+			if (_buildingType in _types) then {					
+				private _minMaxHight = _minMaxArray select (_types find _buildingType);
+				
+				if (count _minMaxValues > 0) then {					
+					{
+						if ((_x select 2) > (_minMaxValues select 0) && (_x select 2) < (_minMaxValues select 1)) then {
+							_possiblePositionsInBuilding pushBack _x;
+						};
+						
+						nil
+					} count (_building buildingPos -1);
+				} else {
+					_possiblePositionsInBuilding = _building buildingPos -1;
+				};
+				
+				_position = selectRandom _possiblePositionsInBuilding;
 			} else {
 				_position = _building buildingPos 0;
 			};
-			// failsave if buildingPos faisl at finding the respective position
-			if(_position isEqualTo [0,0,0]) then {
+			// failsave if buildingPos fails at finding the respective position
+			if (_position isEqualTo [0, 0, 0]) then {
 				_position = _prevPos;
 			};
 		};

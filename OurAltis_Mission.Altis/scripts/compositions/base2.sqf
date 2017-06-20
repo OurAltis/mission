@@ -150,7 +150,7 @@
 	["Land_Cargo_Patrol_V3_F",[-30.9084,31.4302,0],135,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[37.7087,-32.3862,0],315,"","",true,false], 
 	["Land_Cargo_Patrol_V3_F",[-28.5725,-30.7612,0],42.2942,"","",true,false], 
-	["Land_Cargo_Patrol_V3_F",[8.45898,-7.42676,0],179.651,"","this setVariable [""OurA_IsRespawnBuilding"", true,true];",true,false], 
+	["Land_Cargo_Patrol_V3_F",[8.45898,-7.42676,0],179.651,"","",true,false], 
 	["Item_MineDetector",[-15.3713,-1.35889,0],91.9089,"","",true,false], 
 	["Land_PressureWasher_01_F",[-1.26196,32.5552,0],181.038,"","",true,false], 
 	["Land_BagFence_Corner_F",[-36.5588,5.70166,0],0,"","",true,true], 

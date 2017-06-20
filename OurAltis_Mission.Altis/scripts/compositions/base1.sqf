@@ -144,7 +144,7 @@
 	["Land_Cargo_House_V1_F",[0,0,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false], 
 	["Land_Cargo_House_V1_F",[-26.0881,-28.0781,0],222.052,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false], 
 	["Land_Cargo_HQ_V3_F",[-28.2231,5.54688,0],180,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false], 
-	["Land_Cargo_Patrol_V3_F",[8.45898,-7.42773,0],179.651,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false], 
+	["Land_Cargo_Patrol_V3_F",[8.45898,-7.42773,0],179.651,"","",true,false], 
 	["Item_MineDetector",[-15.3716,-1.35938,0],91.9089,"","",true,false], 
 	["Land_PressureWasher_01_F",[3.31006,32.1523,0],204.567,"","",true,false], 
 	["Land_BagFence_Corner_F",[-36.5591,5.70117,0],0,"","",true,true], 
