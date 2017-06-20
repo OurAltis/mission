@@ -20,7 +20,11 @@ for "_i" from 1 to 2 do {_this addItemToVest "SmokeShell";};
 for "_i" from 1 to 6 do {_this addItemToVest "30Rnd_65x39_caseless_green";};
 _this addItemToVest "SmokeShellGreen";
 _this addBackpack "B_TacticalPack_ocamo";
-for "_i" from 1 to 2 do {_this addItemToBackpack "ToolKit";};
+_this addItemToBackpack "ToolKit";
+_this addItemToBackpack "SatchelCharge_Remote_Mag";
+for "_i" from 1 to 2 do {_this addItemToBackpack "DemoCharge_Remote_Mag";};
+_this addItemToBackpack "APERSTripMine_Wire_Mag";
+for "_i" from 1 to 2 do {_this addItemToBackpack "APERSMine_Range_Mag";};
 _this addHeadgear "H_HelmetO_ocamo";
 
 comment "Add weapons";

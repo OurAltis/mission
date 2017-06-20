@@ -19,9 +19,8 @@ for "_i" from 1 to 2 do {_this addItemToUniform "Chemlight_green";};
 _this addVest "V_BandollierB_rgr";
 _this addItemToVest "B_IR_Grenade";
 _this addItemToVest "SmokeShellGreen";
-for "_i" from 1 to 3 do {_this addItemToUniform "30Rnd_45ACP_Mag_SMG_01";};
 _this addVest "V_Chestrig_rgr";
-for "_i" from 1 to 6 do {_this addItemToVest "30Rnd_45ACP_Mag_SMG_01";};
+for "_i" from 1 to 9 do {_this addItemToVest "30Rnd_45ACP_Mag_SMG_01";};
 _this addHeadgear "H_Cap_tan_specops_US";
 
 comment "Add weapons";

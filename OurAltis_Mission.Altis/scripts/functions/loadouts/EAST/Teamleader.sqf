@@ -21,11 +21,11 @@ for "_i" from 1 to 6 do {_this addItemToVest "30Rnd_65x39_caseless_green";};
 for "_i" from 1 to 2 do {_this addItemToVest "HandGrenade";};
 for "_i" from 1 to 2 do {_this addItemToVest "SmokeShellRed";};
 for "_i" from 1 to 2 do {_this addItemToVest "SmokeShellGreen";};
-for "_i" from 1 to 2 do {_this addItemToVest "SmokeShell";};
-_this addItemToVest "SmokeShellBlue";
-_this addItemToVest "O_IR_Grenade";
-_this addItemToVest "SmokeShellYellow";
 _this addBackpack "B_AssaultPack_ocamo";
+_this addItemToBackpack "SmokeShellBlue";
+for "_i" from 1 to 2 do {_this addItemToBackpack "SmokeShell";};
+_this addItemToBackpack "O_IR_Grenade";
+_this addItemToBackpack "SmokeShellYellow";
 _this addItemToBackpack "ACRE_PRC117F_ID_1";
 _this addHeadgear "H_HelmetLeaderO_ocamo";
 
