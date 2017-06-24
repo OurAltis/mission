@@ -57,7 +57,7 @@ with uiNamespace do {
 		// search for nearby spawn-buildings
 		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];
 		private _spawnBuildings = [];
-		
+		diag_log _potentialSpawnBuildings;
 		diag_log _position;
 		
 		{
@@ -96,9 +96,9 @@ with uiNamespace do {
 			if (_buildingType in _types) then {					
 				private _minMaxHight = _minMaxArray select (_types find _buildingType);
 				diag_log _minMaxHight;	
-				if (count _minMaxValues > 0) then {					
+				if (count _minMaxHight > 0) then {					
 					{
-						if ((_x select 2) > (_minMaxValues select 0) && (_x select 2) < (_minMaxValues select 1)) then {
+						if ((_x select 2) > (_minMaxHight select 0) && (_x select 2) < (_minMaxHight select 1)) then {
 							_possiblePositionsInBuilding pushBack _x;
 							diag_log _possiblePositionsInBuilding;	
 						};
