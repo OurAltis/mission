@@ -58,6 +58,8 @@ with uiNamespace do {
 		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];
 		private _spawnBuildings = [];
 		
+		diag_log _position;
+		
 		{
 			if (_x getVariable [SPAWN_BUILDING_INDICATOR, false]) then {
 				_spawnBuildings pushBack _x;
@@ -66,49 +68,58 @@ with uiNamespace do {
 			nil;
 		} count _potentialSpawnBuildings;
 		
+		diag_log _spawnBuildings;
+		
 		if (count _spawnBuildings > 0) then {
 			private _building = selectRandom _spawnBuildings;
-			
+			diag_log _building;
 			private _prevPos = _position;
-			
+			diag_log _prevPos;
 			SPAWN_BUILDING_TYPES params [
 				["_types", [],[[]]],
 				["_minMaxArray", [], [[]]]
 			];
 			
 			private _buildingType = typeOf _building;
-			
+			diag_log _buildingType;
 			if ((_buildingType find "ruins") > -1) then {
 				private _stringArray = (typeOf _building) splitString "_";
+				diag_log _stringArray;
 				_stringArray resize [(count _stringArray) - 2];
 				_stringArray pushBack "F";
-				_buildingType = _stringArray joinString "_";				
+				_buildingType = _stringArray joinString "_";
+				diag_log _buildingType;				
 			};
 			
 			private _possiblePositionsInBuilding = [];
 			
 			if (_buildingType in _types) then {					
 				private _minMaxHight = _minMaxArray select (_types find _buildingType);
-				
+				diag_log _minMaxHight;	
 				if (count _minMaxValues > 0) then {					
 					{
 						if ((_x select 2) > (_minMaxValues select 0) && (_x select 2) < (_minMaxValues select 1)) then {
 							_possiblePositionsInBuilding pushBack _x;
+							diag_log _possiblePositionsInBuilding;	
 						};
 						
 						nil
 					} count (_building buildingPos -1);
 				} else {
 					_possiblePositionsInBuilding = _building buildingPos -1;
+					diag_log _possiblePositionsInBuilding;
 				};
 				
 				_position = selectRandom _possiblePositionsInBuilding;
+				diag_log _position;
 			} else {
 				_position = _building buildingPos 0;
+				diag_log _position;
 			};
 			// failsave if buildingPos fails at finding the respective position
 			if (_position isEqualTo [0, 0, 0]) then {
 				_position = _prevPos;
+				diag_log _position;
 			};
 		};
 		
