@@ -22,7 +22,7 @@
 	["Item_FirstAidKit",[-14.7444,-1.41943,0],154.237,"","",true,false,0], 
 	["Item_FirstAidKit",[-15.0569,-1.33545,0],67.4887,"","",true,false,0], 
 	["Item_FirstAidKit",[-14.6174,-1.6499,0],25.2458,"","",true,false,0], 
-	["Flag_White_F",[-22.6213,1.94824,0],90,"","",true,false,0], 
+	["FlagPole_F",[-22.6213,1.94824,0],90,"","",true,false,0], 
 	["FlexibleTank_01_forest_F",[35.365,33.147,0],37.201,"","",true,false,0], 
 	["FlexibleTank_01_forest_F",[36.4431,33.1626,0],90,"","",true,false,0], 
 	["FlexibleTank_01_forest_F",[37.0662,33.3149,0],223.137,"","",true,false,0], 
