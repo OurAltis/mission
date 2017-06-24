@@ -229,4 +229,13 @@
 			</Key>
 		</Container>
 	</Package>
+	<Package name="MobileCamp">
+		<Container name="Action">
+			<Key ID="OurA_str_buildCamp">
+				<English>Build the Camp!</English>
+				<German>Baue ein Camp!</German>
+				<Original>Build the Camp!</Original>
+			</Key>
+		</Container>
+	</Package>
 </Project>

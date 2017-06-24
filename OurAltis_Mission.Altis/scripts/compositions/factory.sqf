@@ -138,13 +138,13 @@
 	["Land_Wall_IndCnc_4_F",[-48.9595,-60.8843,0],270.14,"","",true,false,0], 
 	["Land_Wall_IndCnc_4_F",[-48.9595,-66.8921,0],270.14,"","",true,false,0], 
 	["FlagPole_F",[0,0,0],0,"","",true,false,0], 
-	["Land_HelipadEmpty_F",[8.55762,-64.8662,0],0.0209796,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[12.5679,-65.7915,0],0.0209796,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[16.5835,-65.3433,0],170.534,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[20.3877,-65.5352,0],345.985,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[-6.55713,-66.7134,0],275.373,"","this setVariable [VEHICLE_TYPE, ""civil_lkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[-30.6963,-22.8257,0],186.94,"","this setVariable [VEHICLE_TYPE, ""civil_lkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[13.8745,-3.39941,0],0.0209796,"","this setVariable [VEHICLE_TYPE, ""civil_pkw""];",true,false,0], 
-	["Land_HelipadEmpty_F",[-20.5063,1.06738,0],168.341,"","this setVariable [VEHICLE_TYPE, ""military_tank""];",true,false,0], 
-	["Land_HelipadEmpty_F",[-13.3823,1.13232,0],181.309,"","this setVariable [VEHICLE_TYPE, ""military_tank""];",true,false,0]
+	["Land_HelipadEmpty_F",[8.55762,-64.8662,0],0.0209796,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[12.5679,-65.7915,0],0.0209796,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[16.5835,-65.3433,0],170.534,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[20.3877,-65.5352,0],345.985,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[-6.55713,-66.7134,0],275.373,"","this setVariable [""OurA_VehicleType"", ""civil_lkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[-30.6963,-22.8257,0],186.94,"","this setVariable [""OurA_VehicleType"", ""civil_lkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[13.8745,-3.39941,0],0.0209796,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0], 
+	["Land_HelipadEmpty_F",[-20.5063,1.06738,0],168.341,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,0], 
+	["Land_HelipadEmpty_F",[-13.3823,1.13232,0],181.309,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,0]
 ]
