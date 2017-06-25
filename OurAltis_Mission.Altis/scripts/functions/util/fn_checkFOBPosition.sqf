@@ -24,7 +24,7 @@ private _success = params [
 ];
 
 if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]])) <= 2400) then {
-	private _nearCars = (position _target) nearEntities [typeOf (VEHICLE_MOBILE_CAMP select 1), 10];
+	private _nearCars = (position _target) nearEntities [(VEHICLE_MOBILE_CAMP select 1), 10];
 	_nearCars deleteAt 0;
 	private _centerTarget = boundingCenter _target;
 
