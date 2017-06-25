@@ -40,7 +40,9 @@ if (_westUnits > _eastUnits) then {
 	} else {				
 		if ((flagAnimationPhase _flagPoles) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo east) then {
-				//[west] call FUNC(endMission);				
+				private _string = _markerFOB splitString "_";
+				["FOBDefender" + (_string select 2), "FAILED"] spawn BIS_fnc_taskSetState;
+				["FOBAttacker" + (_string select 2), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 				[_handlerID] call CBA_fnc_removePerFrameHandler;
 				if !((GVAR(isFlagCaptured) select _index) isEqualTo west) then {GVAR(isFlagCaptured) set [_index, west]};
 			};
@@ -55,7 +57,9 @@ if (_eastUnits > _westUnits) then {
 	if ((flagTexture _flagPoles) isEqualTo (toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa")) then {
 		if ((flagAnimationPhase _flagPoles) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo west) then {
-				//[east] call FUNC(endMission);
+				private _string = _markerFOB splitString "_";
+				["FOBDefender" + (_string select 2), "FAILED"] spawn BIS_fnc_taskSetState;
+				["FOBAttacker" + (_string select 2), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 				[_handlerID] call CBA_fnc_removePerFrameHandler;
 				if !((GVAR(isFlagCaptured) select _index) isEqualTo east) then {GVAR(isFlagCaptured) set [_index, east]};
 			};
