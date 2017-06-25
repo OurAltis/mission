@@ -28,7 +28,8 @@ if (_object isKindOf "Man") then {
 };
 
 if (_object isKindOf "Car") then {
-	GVAR(mobileCampAddAction) = _object addAction [localize "OurA_str_buildCamp", {_this call FUNC(createFOB)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this"];
+	private _actionID = _object addAction [localize "OurA_str_buildCamp", {_this call FUNC(checkFOBPosition)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this"];
+	_object setVariable [QGVAR(FOBAddAtion), _actionID];
 };
 
 nil

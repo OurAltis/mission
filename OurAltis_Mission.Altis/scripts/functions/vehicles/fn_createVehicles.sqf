@@ -75,11 +75,10 @@ private _baseVehicleList = [west, [], east, []];
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					
-					if (_type in VEHICLE_MOBILE_CAMP) then {
-						_obj setVariable ["BIS_enableRandomization", false];
-						_obj setObjectTextureGlobal [0, "a3\soft_f_gamma\van_01\data\van_01_ext_co.paa"];
-						
-						[_obj] remoteExecCall [QFUNC(createAddAction), -2, QGVAR(mobileCampActionJip)];
+					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+						_obj setVariable [QGVAR(spawnPosition), _x, true];
+						_obj setVariable [QGVAR(JIPID), str(_x), true];						
+						[_obj] remoteExecCall [QFUNC(createAddAction), -2, str(_x)];
 					};
 					
 					_obj setFuel _fuel;
@@ -114,8 +113,8 @@ private _baseVehicleList = [west, [], east, []];
 					_obj addMPEventHandler [
 						"MPKilled", {
 							if (isServer) then {
-								if (typeOf (_this select 0) in VEHICLE_MOBILE_CAMP) then {
-									[] remoteExecCall ["", QGVAR(mobileCampActionJip)];
+								if (typeOf (_this select 0) isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+									[] remoteExecCall ["", (_this select 0) getVariable [QGVAR(JIPID, "")]];
 								};
 								// set the damage to 1 in case it died of critical hit
 								(_this select 0) setDamage 1;
@@ -123,13 +122,13 @@ private _baseVehicleList = [west, [], east, []];
 								// report destroyed vehicle to the DB immediately
 								[_this select 0] call FUNC(reportVehicleStatus);
 							};
-							/*
+							
 							if (hasInterface) then {
-								if (typeOf (_this select 0) in VEHICLE_MOBILE_CAMP) then {
-									(_this select 0) removeAction GVAR(mobileCampAddAction);
+								if (typeOf (_this select 0) isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+									(_this select 0) removeAction (_object getVariable [QGVAR(FOBAddAtion), -1];
 								};
 							};
-							*/
+							
 							nil
 						}
 					];

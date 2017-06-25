@@ -13,6 +13,7 @@ class CfgFunctions
 			class createCamp {};
 			class getBaseSide {};
 			class getBaseDir {};
+			class createFOB {};
 		};
 		
 		class client
@@ -44,6 +45,8 @@ class CfgFunctions
 			class sideHasLivingUnits {};
 			class watchForAliveUnits {};
 			class watchCapturingBase {};
+			class watchCapturingFOB {};
+			class watchFlagpoleStatus {};
 			class retreat {};
 			class reportDeadCivilian {};
 			class createTasks {};
@@ -143,6 +146,7 @@ class CfgFunctions
 			class unhideUserMapMarker {};
 			class getFlagTexture {};
 			class createAddAction {};
+			class checkFOBPosition {};
 		};
 		
 		class events

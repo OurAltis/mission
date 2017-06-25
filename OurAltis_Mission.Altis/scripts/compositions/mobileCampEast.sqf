@@ -49,9 +49,9 @@
 	["Land_CampingChair_V2_F",[-7.00781,-1.73584,0],282.508,"","",true,false,0], 
 	["Land_CampingChair_V2_F",[-4.70215,-0.67334,0],55.0167,"","",true,false,0], 
 	["Land_CampingChair_V1_F",[-6.72461,-3.22852,0],201.065,"","",true,false,0], 
-	["O_HMG_01_high_F",[12.2739,-7.18018,0],137.69,"","",true,false,0], 
-	["O_HMG_01_high_F",[-12.6201,-6.70996,0],223.929,"","",true,false,0], 
-	["O_HMG_01_high_F",[-12.2261,6.56982,0],316.419,"","",true,false,0], 
-	["O_HMG_01_high_F",[12.4458,6.44482,0],50.744,"","",true,false,0], 
-	["O_Mortar_01_F",[6.52783,-0.226074,0],88.865,"","",true,false,0]
+	["O_HMG_01_high_F",[12.2739,-7.18018,0],137.69,"","this enableWeaponDisassembly false;",true,false,0], 
+	["O_HMG_01_high_F",[-12.6201,-6.70996,0],223.929,"","this enableWeaponDisassembly false;",true,false,0], 
+	["O_HMG_01_high_F",[-12.2261,6.56982,0],316.419,"","this enableWeaponDisassembly false;",true,false,0], 
+	["O_HMG_01_high_F",[12.4458,6.44482,0],50.744,"","this enableWeaponDisassembly false;",true,false,0], 
+	["O_Mortar_01_F",[6.52783,-0.226074,0],88.865,"","this enableWeaponDisassembly false;",true,false,0]
 ]

@@ -20,23 +20,33 @@
 GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
 
 if (isServer) then {
+	
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		[] call FUNC(createBorderWar);		
+	} else {	
+		// Sets up a checking framework that repeatedly checks whether there are units in the base	
+		GVAR(isFlagCaptured) = [GVAR(defenderSide)];
+		
+		GVAR(captureBaseHandlerID) = [
+			FUNC(watchCapturingBase),
+			0.1,
+			[GVAR(flagPolesBase), 0]
+		] call CBA_fnc_addPerFrameHandler;		
+		
+		GVAR(flagpoleStatusHandlerID) = [
+			FUNC(watchFlagpoleStatus),
+			0.1,
+			[if (GVAR(defenderSide) isEqualTo west) then {east} else {west}]
+		] call CBA_fnc_addPerFrameHandler;
 	};
 	
-	// Sets up a checking framework that repeatedly checks whether there are units in the base	
-	GVAR(captureBaseHandlerID) = [
-		FUNC(watchCapturingBase),
-		0.1,
-		[GVAR(flagPolesBase)]
-	] call CBA_fnc_addPerFrameHandler;		
-		
 	// indicators on client
 	PGVAR(BASES_CHANGED) = true;
 	PGVAR(INF_CHANGED) = true;
 	PGVAR(SERVER_INITIALIZED) = false;
 	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
-	PGVAR(retreat) = false;	
+	PGVAR(retreat) = false;
+	PGVAR(countFOB) = [0, 0];
 	
 	[] call FUNC(configureServerEventHandler);
 	[] call FUNC(calculateBaseMarkerOffset);
@@ -53,6 +63,7 @@ if (isServer) then {
 	publicVariable QPGVAR(BASES_CHANGED);
 	publicVariable QPGVAR(INF_CHANGED);
 	publicVariable QPGVAR(retreat);
+	publicVariable QPGVAR(countFOB);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	

@@ -1,6 +1,6 @@
 #include "macros.hpp"
 /**
- * OurAltis_Mission - fn_watchCapturingBase
+ * OurAltis_Mission - fn_watchCapturingFOB
  * 
  * Author: PhilipJFry
  * 
@@ -21,6 +21,7 @@ private _succcess = params [
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
+private _handlerID = _array select 1;
 private _args = _array select 0;
 private _objects = _args select 0;
 private	_flagpoles = _objects select 0;
@@ -41,7 +42,7 @@ if (_westUnits > _eastUnits) then {
 		if ((flagAnimationPhase _flagPoles) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo east) then {
 				//[west] call FUNC(endMission);				
-				//[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
+				[_handlerID] call CBA_fnc_removePerFrameHandler;
 				if !((GVAR(isFlagCaptured) select _index) isEqualTo west) then {GVAR(isFlagCaptured) set [_index, west]};
 			};
 		} else {
@@ -56,7 +57,7 @@ if (_eastUnits > _westUnits) then {
 		if ((flagAnimationPhase _flagPoles) isEqualTo 1) then {
 			if (GVAR(defenderSide) isEqualTo west) then {
 				//[east] call FUNC(endMission);
-				//[GVAR(captureBaseHandlerID)] call CBA_fnc_removePerFrameHandler;
+				[_handlerID] call CBA_fnc_removePerFrameHandler;
 				if !((GVAR(isFlagCaptured) select _index) isEqualTo east) then {GVAR(isFlagCaptured) set [_index, east]};
 			};
 		} else {
