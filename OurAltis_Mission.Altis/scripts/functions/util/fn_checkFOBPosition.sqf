@@ -34,7 +34,7 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	_marker setMarkerDirLocal (getDir _target);
 	_marker setMarkerAlpha 0;
 
-	private = _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
+	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
 
 	if (count _carsInMarker > 1) exitWith {hint "There are to many cars in the construction area!"};
 	if (count _carsInMarker isEqualTo 0) exitWith {hint "You need the other car to build the FOB!"};

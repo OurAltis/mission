@@ -34,7 +34,6 @@ if (_westUnits > _eastUnits) then {
 	if (((flagTexture _flagPoles) isEqualTo (toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa")) then {				
 		if ((flagAnimationPhase _flagPoles) isEqualTo 0) then {
 			[_flagPoles, "A3\Data_F\Flags\Flag_nato_CO.paa"] remoteExecCall ["setFlagTexture", 0];
-			  ;
 		} else {
 			[_flagPoles, (_flagPosition - 0.002)] remoteExecCall ["setFlagAnimationPhase", 0];
 		};
