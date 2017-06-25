@@ -76,9 +76,9 @@ private _baseVehicleList = [west, [], east, []];
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
-						_obj setVariable [QGVAR(spawnPosition), _x, true];
-						_obj setVariable [QGVAR(JIPID), str(_x), true];						
-						[_obj] remoteExecCall [QFUNC(createAddAction), -2, str(_x)];
+						_obj setVariable [QGVAR(spawnPosition), position _x, true];
+						_obj setVariable [QGVAR(JIPID), str(position _x), true];						
+						[_obj] remoteExecCall [QFUNC(createAddAction), -2, str(position _x)];
 					};
 					
 					_obj setFuel _fuel;
