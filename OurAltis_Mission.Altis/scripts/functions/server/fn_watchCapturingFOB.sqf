@@ -16,13 +16,12 @@
  */
 
 private _succcess = params [
-	["_array", [], [[]]]
+	["_args", [], [[]]],
+	["_handlerID", -1, [0]]
 ];
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
-private _handlerID = _array select 1;
-private _args = _array select 0;
 private _objects = _args select 0;
 private	_flagpoles = _objects select 0;
 private _index = _args select 1;

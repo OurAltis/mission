@@ -16,13 +16,11 @@
  */
 
 private _succcess = params [
-	["_array", [], [[]]]
+	["_args", [], [[]]],
+	["_handlerID", -1, [0]]
 ];
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
-
-private _args = _array select 0;
-private _handlerID = _array select 1;
 
 private _side = _args select 0;
 private _countSide = {_x isEqualTo _side} count GVAR(isFlagCaptured);
