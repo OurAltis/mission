@@ -25,8 +25,9 @@ CHECK_TRUE(_succcess, Invalid parameters!, {})
 private _objects = _args select 0;
 private	_flagpoles = _objects select 0;
 private _index = _args select 1;
-private _westUnits = west countSide (allUnits inAreaArray "marker_base");
-private _eastUnits = east countSide (allUnits inAreaArray "marker_base");
+private _markerFOB = _args select 2;
+private _westUnits = west countSide (allUnits inAreaArray _markerFOB);
+private _eastUnits = east countSide (allUnits inAreaArray _markerFOB);
 private _flagPosition = flagAnimationPhase _flagPoles;
 
 if (_westUnits > _eastUnits) then {				

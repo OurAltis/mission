@@ -26,7 +26,7 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\mobileCamp%1.sqf", _side]);
-_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+_objsArray = [_position, 0, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {
 	_x setFlagTexture ([_side] call FUNC(getFlagTexture));
@@ -78,7 +78,7 @@ if !(GVAR(defenderSide) isEqualTo sideUnknown) then {
 		private _handlerID = [
 			FUNC(watchCapturingFOB),
 			0.1,
-			[_objsArray, count GVAR(isFlagCaptured)]
+			[_objsArray, count GVAR(isFlagCaptured), "marker_FOB_" + str(_side) + str(_id)]
 		] call CBA_fnc_addPerFrameHandler;
 		
 		GVAR(isFlagCaptured) pushBack GVAR(defenderSide);
