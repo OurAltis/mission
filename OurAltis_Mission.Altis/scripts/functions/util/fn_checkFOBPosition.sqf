@@ -25,17 +25,19 @@ private _success = params [
 
 if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]])) <= 2400) then {
 	private _nearCars = (position _target) nearEntities [(VEHICLE_MOBILE_CAMP select 1), 10];
+	diag_log _nearCars;
 	_nearCars deleteAt 0;
+	diag_log _nearCars;
 	private _centerTarget = boundingCenter _target;
 
 	private _marker = createMarkerLocal ["tempMarker_FOB", _target modelToWorld [_centerTarget select 0, (_centerTarget select 1) - 8]];
 	_marker setMarkerShapeLocal "RECTANGLE";
 	_marker setMarkerSizeLocal [1, 1];
 	_marker setMarkerDirLocal (getDir _target);
-	_marker setMarkerAlpha 0;
+	_marker setMarkerAlphaLocal 1;
 
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
-
+	diag_log _carsInMarker;
 	if (count _carsInMarker > 1) exitWith {hint "There are to many cars in the construction area!"};
 	if (count _carsInMarker isEqualTo 0) exitWith {hint "You need the other car to build the FOB!"};
 
