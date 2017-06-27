@@ -229,13 +229,28 @@
 			</Key>
 		</Container>
 	</Package>
-	<Package name="MobileCamp">
+	<Package name="MobileFOB">
 		<Container name="Action">
 			<Key ID="OurA_str_buildCamp">
-				<English>Build the Camp!</English>
-				<German>Baue ein Camp!</German>
-				<Original>Build the Camp!</Original>
+				<English>Build a Forward Operating Base!</English>
+				<German>Baue eine vorgeschobene Operationsbasis</German>
+				<Original>Build a Forward Operating Base</Original>
 			</Key>
-		</Container>
+			<Key ID="OurA_str_noCar">
+				<English>You need both cars to build the FOB!</English>
+				<German>Du brauchst beide Autos um das FOB zubauen!</German>
+				<Original>You need both cars to build the FOB!</Original>
+			</Key>
+			<Key ID="OurA_str_manyCars">
+				<English>There are to many cars in the construction area!</English>
+				<German>Es sind zuviele Autos in der Bauzone!</German>
+				<Original>There are to many cars in the construction area!</Original>
+			</Key>
+			<Key ID="OurA_str_noCrew">
+				<English>All people have to leave the cars!</English>
+				<German>Alle Insassen müssen die Autos verlassen!</German>
+				<Original>All people have to leave the cars!</Original>
+			</Key>
+		</Container>		
 	</Package>
 </Project>

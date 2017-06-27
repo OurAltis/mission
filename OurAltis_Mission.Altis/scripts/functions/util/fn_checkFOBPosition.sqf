@@ -34,12 +34,14 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	_marker setMarkerAlphaLocal 0;
 
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
-	if (count _carsInMarker > 1) exitWith {hint "There are to many cars in the construction area!"};
-	if (count _carsInMarker isEqualTo 0) exitWith {hint "You need the other car to build the FOB!"};
-
+	if (count _carsInMarker > 1) exitWith {hint "OurA_str_manyCars"};
+	if (count _carsInMarker isEqualTo 0) exitWith {hint "OurA_str_noCar"};
+	if (count crew (_carsInMarker select 0) != 0 && count crew _target != 0) exitWith {hint "OurA_str_noCrew"};
+	
+	
 	private _dirVectorCar1 = vectorDir _target;
 	_dirVectorCar1 set [2, 0];
-	private _dirVectorCar2 = vectorDir (_nearCars select 0);
+	private _dirVectorCar2 = vectorDir (_carsInMarker select 0);
 	_dirVectorCar2 set [2, 0];
 	private _tolerance = 10;	
 
@@ -55,7 +57,9 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		[getPosATL _target, side group _caller, _countFOB + 1] remoteExecCall [QFUNC(createFOB), 2];
 
 		if ((_countFOB + 1) isEqualTo 2) then {
-			[_target, _actionID] remoteExecCall ["removeAction",  side group _caller];			
+			[_target, _actionID] remoteExecCall ["removeAction",  side group _caller];
+			_target lock 2;
+			(_carsInMarker select 0) lock 2;
 			[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];
 		};
 	} else {
