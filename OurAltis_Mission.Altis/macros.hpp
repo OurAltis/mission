@@ -134,4 +134,6 @@
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
  #define SPAWN_BUILDING_POSITIONS "OurA.RespawnBuilding.Positions"
  #define SPAWN_BUILDING_TYPES [["Land_Cargo_House_V1_F","Land_Cargo_HQ_V3_F","Land_Medevac_house_V1_F","Land_Cargo_Tower_V3_F"], [[],[],[],[9,18]]]
+ #define ALPHABET_NATO ["Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"]
+ #define ALPHABET_RUSSIAN ["Anna", "Boris", "Vasily", "Gregory", "Dmitri", "Yelena", "Zhenya", "Zinaida", "Ivan", "Konstantin", "Leonid", "Mikhail", "Nikolai", "Olga", "Pavel", "Roman", "Semyon", "Tatyana", "Ulyana", "Fyodor", "Khariton", "Tsaplya", "Chelovek", "Shura", "Shchuka", "Yery", "Echo", "Yuri", "Yakov"]
  

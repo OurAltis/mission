@@ -251,6 +251,26 @@
 				<German>Alle Insassen müssen die Autos verlassen!</German>
 				<Original>All people have to leave the cars!</Original>
 			</Key>
+			<Key ID="OurA_str_FOBDefDescription">
+				<English>Soldier, we have established FOB %1. The enemy will come to take it! Let them taste our bullets!</English>
+				<German>Soldat, wir haben FOB %1 errichtet. Der Feind wird kommen um es einzunehmen! Last sie unsere Kugeln schmecken!</German>
+				<Original>Soldier, we have established a FOB %1. The enemy will come to take it! Let them taste our bullets!</Original>
+			</Key>
+			<Key ID="OurA_str_FOBDefTitle">
+				<English>Defend FOB %1!</English>
+				<German>Verteidigt FOB %1!</German>
+				<Original>Defend FOB %1!</Original>
+			</Key>
+			<Key ID="OurA_str_FOBAttDescription">
+				<English>Soldier, the enemy has established FOB %1. We must take it if we want to get the control of these area!</English>
+				<German>Soldat, der Feind hat das FOB %1 errichtet! Wir müssen es einnehmen um die Kontrolle über dieses Gebiet zu erhalten!</German>
+				<Original>Soldier, the enemy has established FOB %1. We must take it if we want to get the control of these area!</Original>
+			</Key>
+			<Key ID="OurA_str_FOBAttTitle">
+				<English>Capture FOB %1!</English>
+				<German>Einnahme des FOB %1!</German>
+				<Original>Capture FOB %1!</Original>
+			</Key>	
 		</Container>		
 	</Package>
 </Project>
