@@ -44,7 +44,7 @@ private _nameFOB = if (count (GVAR(nameFOB) select _index) > 0) then {
 
 private _marker = createMarker ["marker_FOB_" + _nameFOB, position (_objsArray select 0)];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [5,5];
+_marker setMarkerSize [7,7];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 
