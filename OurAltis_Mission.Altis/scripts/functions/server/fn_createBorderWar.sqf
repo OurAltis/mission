@@ -34,6 +34,6 @@ publicVariable QGVAR(markerBorderWar);
 
 [
 	FUNC(shrinkMarker),
-	60,
+	300,
 	[GVAR(markerBorderWar), _deltaR]
 ] call CBA_fnc_addPerFrameHandler;
