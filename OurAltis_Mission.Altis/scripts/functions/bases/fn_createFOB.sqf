@@ -48,7 +48,7 @@ _marker setMarkerSize [7,7];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 
-if !(GVAR(defenderSide) isEqualTo sideUnknown) then {
+if !(GVAR(defenderSide) isEqualTo sideUnknown && _side isEqualTo GVAR(defenderSide)) then {
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 		
 	[
@@ -82,16 +82,14 @@ if !(GVAR(defenderSide) isEqualTo sideUnknown) then {
 		"attack",
 		false
 	] call BIS_fnc_taskCreate;
-	
-	if (_side isEqualTo GVAR(defenderSide)) then {
-		private _handlerID = [
-			FUNC(watchCapturingFOB),
-			0.1,
-			[_objsArray, count GVAR(isFlagCaptured), "marker_FOB_" + _nameFOB]
-		] call CBA_fnc_addPerFrameHandler;
 		
-		GVAR(isFlagCaptured) pushBack GVAR(defenderSide);
-	};
+	private _handlerID = [
+		FUNC(watchCapturingFOB),
+		0.1,
+		[_objsArray, count GVAR(isFlagCaptured), "marker_FOB_" + _nameFOB]
+	] call CBA_fnc_addPerFrameHandler;
+	
+	GVAR(isFlagCaptured) pushBack GVAR(defenderSide);	
 };
 
 nil
