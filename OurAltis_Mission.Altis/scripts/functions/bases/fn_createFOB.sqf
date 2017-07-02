@@ -17,14 +17,14 @@
  */
 
 private _success = params [
-	["_position", [2,3], [[]]],
+	["_object", objNull, [objNull]],
 	["_side", sideUnknown, [west]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\mobileCamp%1.sqf", _side]);
-_objsArray = [_position, 0, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+_objsArray = [position _object, getDir _object, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {
 	_x setFlagTexture ([_side] call FUNC(getFlagTexture));
