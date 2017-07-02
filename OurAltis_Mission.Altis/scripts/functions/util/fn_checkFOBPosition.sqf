@@ -55,7 +55,8 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		diag_log PGVAR(countFOB);
 		diag_log _countFOB;
 		
-		PGVAR(countFOB) set [_arrayPos, _countFOB + 1, true];
+		PGVAR(countFOB) set [_arrayPos, _countFOB + 1];
+		publicVariable QPGVAR(countFOB);
 		diag_log PGVAR(countFOB);
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 
