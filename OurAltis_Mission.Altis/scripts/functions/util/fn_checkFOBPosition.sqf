@@ -34,9 +34,9 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	_marker setMarkerAlphaLocal 0;
 
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
-	if (count _carsInMarker > 1) exitWith {hint "OurA_str_manyCars"};
-	if (count _carsInMarker isEqualTo 0) exitWith {hint "OurA_str_noCar"};
-	if (count crew (_carsInMarker select 0) != 0 && count crew _target != 0) exitWith {hint "OurA_str_noCrew"};
+	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_manyCars"};
+	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_noCar"};
+	if (count crew (_carsInMarker select 0) != 0 && count crew _target != 0) exitWith {hint localize "OurA_str_noCrew"};
 	
 	
 	private _dirVectorCar1 = vectorDir _target;
