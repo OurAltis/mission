@@ -63,8 +63,8 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 		
 		[_target, _actionID] remoteExecCall ["removeAction",  side group _caller];
-		_target lock 3;
-		(_carsInMarker select 0) lock 3;
+		[_target, 3] remoteExecCall ["lock", _target];
+		[(_carsInMarker select 0), 3] remoteExecCall ["lock", (_carsInMarker select 0)];
 		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];		
 	} else {
 		hint "You have to park the car with the platform behind the car with the container in same direction!";	
