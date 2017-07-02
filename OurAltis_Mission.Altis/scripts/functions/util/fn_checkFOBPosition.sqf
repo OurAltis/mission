@@ -54,7 +54,7 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		_countFOB = PGVAR(countFOB) select _arrayPos;
 		
 		PGVAR(countFOB) set [_arrayPos, _countFOB + 1, true];
-		[getPosATL _target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
+		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 
 		if ((_countFOB + 1) isEqualTo 2) then {
 			[_target, _actionID] remoteExecCall ["removeAction",  side group _caller];
