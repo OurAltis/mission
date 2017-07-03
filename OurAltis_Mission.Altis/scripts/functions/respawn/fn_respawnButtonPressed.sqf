@@ -150,7 +150,7 @@ with uiNamespace do {
 		private _currentTask = [_oldPlayer] call BIS_fnc_taskCurrent;
 		
 		if !(_currentTask isEqualTo "") then {
-			_currentTask setTaskState "Assigned";
+			[_currentTask, false] call BIS_fnc_taskSetCurrent;
 		};
 		
 		// create blackscreen
