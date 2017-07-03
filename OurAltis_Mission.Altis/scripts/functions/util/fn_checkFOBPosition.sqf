@@ -62,10 +62,8 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		diag_log PGVAR(countFOB);
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 		
-		[_target, _actionID] remoteExecCall ["removeAction", -2];
-		[_target, 3] remoteExecCall ["lock", 0];
-		[(_carsInMarker select 0), 3] remoteExecCall ["lock", 0];
-		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];		
+		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];
+		[_target, _actionID] remoteExecCall ["removeAction", -2];			
 	} else {
 		hint localize "OurA_str_FOBWrongPosition";	
 	};

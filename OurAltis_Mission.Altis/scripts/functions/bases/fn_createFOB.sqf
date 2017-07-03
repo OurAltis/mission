@@ -49,7 +49,7 @@ _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 _marker setMarkerDir (getDir _object);
 
-if !(GVAR(defenderSide) isEqualTo sideUnknown && _side isEqualTo GVAR(defenderSide)) then {
+if (GVAR(defenderSide) != sideUnknown && _side isEqualTo GVAR(defenderSide)) then {
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 		
 	[
