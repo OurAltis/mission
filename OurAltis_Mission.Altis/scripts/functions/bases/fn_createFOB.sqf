@@ -43,10 +43,11 @@ private _nameFOB = if (count (GVAR(nameFOB) select _index) > 0) then {
 (GVAR(nameFOB) select _index) pushBack _nameFOB;
 
 private _marker = createMarker ["marker_FOB_" + _nameFOB, position (_objsArray select 0)];
-_marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [7,7];
+_marker setMarkerShape "RECTANGLE";
+_marker setMarkerSize [13,8];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
+_marker setMarkerDir (getDir _object);
 
 if !(GVAR(defenderSide) isEqualTo sideUnknown && _side isEqualTo GVAR(defenderSide)) then {
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};

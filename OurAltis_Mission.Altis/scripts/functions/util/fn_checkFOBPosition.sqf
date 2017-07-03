@@ -44,7 +44,7 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_manyCars"};
 	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_noCar"};
 	if (count crew (_carsInMarker select 0) != 0 || count crew _target != 0) exitWith {hint localize "OurA_str_noCrew"};
-	if (_countFOB isEqualTo 2) exitWith {hint "You can only build two FOB's"};	
+	if (_countFOB isEqualTo 2) exitWith {hint localize "OurA_str_maxFOBBuild"};	
 	
 	private _dirVectorCar1 = vectorDir _target;
 	_dirVectorCar1 set [2, 0];
@@ -55,22 +55,22 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	private _angle = acos((_dirVectorCar1 vectorDotProduct _dirVectorCar2) / ((vectorMagnitude _dirVectorCar1) * (vectorMagnitude _dirVectorCar2)));
 
 	if (_angle <= _tolerance) then {
-		hint "Building FOB";		
+		hint localize "OurA_str_FOBIsBuild";		
 		
 		PGVAR(countFOB) set [_arrayPos, _countFOB + 1];
 		publicVariable QPGVAR(countFOB);
 		diag_log PGVAR(countFOB);
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 		
-		[_target, _actionID] remoteExecCall ["removeAction",  side group _caller];
+		[_target, _actionID] remoteExecCall ["removeAction", -2];
 		[_target, 3] remoteExecCall ["lock", 0];
 		[(_carsInMarker select 0), 3] remoteExecCall ["lock", 0];
 		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];		
 	} else {
-		hint "You have to park the car with the platform behind the car with the container in same direction!";	
+		hint localize "OurA_str_FOBWrongPosition";	
 	};
 	
 	deleteMarkerLocal "tempMarker_FOB";
-} else {hint "You are to far away from the base!"};
+} else {hint localize "OurA_str_FOBFar"};
 
 nil

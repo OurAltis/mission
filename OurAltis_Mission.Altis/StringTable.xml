@@ -231,7 +231,7 @@
 	</Package>
 	<Package name="MobileFOB">
 		<Container name="Action">
-			<Key ID="OurA_str_buildCamp">
+			<Key ID="OurA_str_buildFOB">
 				<English>Build a Forward Operating Base!</English>
 				<German>Baue eine vorgeschobene Operationsbasis</German>
 				<Original>Build a Forward Operating Base</Original>
@@ -270,7 +270,27 @@
 				<English>Capture FOB %1!</English>
 				<German>Einnahme des FOB %1!</German>
 				<Original>Capture FOB %1!</Original>
-			</Key>	
+			</Key>
+			<Key ID="OurA_str_FOBIsBuild">
+				<English>Building FOB</English>
+				<German>FOB wird gebaut</German>
+				<Original>Building FOB</Original>
+			</Key>
+			<Key ID="OurA_str_maxFOBBuild">
+				<English>Every faction can only build two FOBs!</English>
+				<German>Jede Fraktion kann nur zwei FOBs bauen!</German>
+				<Original>Every faction can only build two FOBs!</Original>
+			</Key>
+			<Key ID="OurA_str_FOBWrongPosition">
+				<English>You have to park the car with the platform behind the car with the container in same direction!</English>
+				<German>Du musst das Fahrzeug mit der Pritsche hinter dem Fahrzeug mit dem Kontainer, in die selbe Richtung parkern!</German>
+				<Original>You have to park the car with the platform behind the car with the container in same direction!</Original>
+			</Key>
+			<Key ID="OurA_str_FOBFar">
+				<English>You are to far away from the base! The maximum distance is 2500 meters!</English>
+				<German>Du bist zu weit von der Base entfernt! Die maximale Distanz beträgt 2500 Meter!</German>
+				<Original>You are to far away from the base! The maximum distance is 2500 meters!</Original>
+			</Key>			
 		</Container>		
 	</Package>
 </Project>
