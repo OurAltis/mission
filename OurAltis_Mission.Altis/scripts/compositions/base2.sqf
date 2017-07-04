@@ -178,7 +178,7 @@
 	["Land_BagFence_Short_F",[-34.4651,-1.31006,0],183.122,"","",true,true,0], 
 	["Land_BagFence_Short_F",[-35.4827,11.2192,0],183.122,"","",true,true,0], 
 	["Land_BagFence_Short_F",[-34.4045,11.1411,0],183.122,"","",true,true,0], 
-	["I_supplyCrate_F",[-15.344,-2.47217,0],154.237,"","clearWeaponCargoGlobal this; clearMagazineCargoGlobal this; clearItemCargoGlobal this; clearBackpackCargoGlobal this;",true,false,0], 
+	["I_supplyCrate_F",[-15.344,-2.47217,0],154.237,"","clearWeaponCargoGlobal this; clearMagazineCargoGlobal this; clearItemCargoGlobal this; clearBackpackCargoGlobal this; this addBackpackCargoGlobal ['I_AT_01_weapon_F', 4]; this addBackpackCargoGlobal ['I_AA_01_weapon_F', 4]; this addBackpackCargoGlobal ['I_HMG_01_support_F', 8];",true,false,0], 
 	["Land_Tyres_F",[-31.4202,-24.0171,0],90,"","",true,false,0], 
 	["Item_ToolKit",[-15.6741,-1.88037,0],154.237,"","",true,false,0], 
 	["Item_ToolKit",[-15.2268,-2.07178,0],154.237,"","",true,false,0], 
