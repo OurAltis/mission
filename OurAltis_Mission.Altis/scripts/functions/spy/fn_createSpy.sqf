@@ -50,13 +50,14 @@ GVAR(spyUnit) addMPEventHandler [
 		params ["_unit", "_killer"];
 		
 		if (isServer) then {
-			[] remoteExecCall ["", QGVAR(createSpyActionJip)];
+			//[] remoteExecCall ["", QGVAR(createSpyActionJip)];
 			if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 			[side (group _killer), VALUE_CIV] call FUNC(reportDeadCivilian);
 		};
 		
 		if (hasInterface) then {
-			_unit removeAction GVAR(spyAddAction);
+			//_unit removeAction GVAR(spyAddAction);
+			_unit removeAction (_unit getVariable [QGVAR(askSpyAction), -1];
 			systemChat (localize "OurA_str_CivIsKilled");
 		};
 	}
@@ -87,8 +88,7 @@ GVAR(spyUnit) addMPEventHandler [
 
 GVAR(spyUnit) setVariable [QGVAR(info), [_side, _budget]];
 
-[GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, QGVAR(createSpyActionJip)];
-
+//[GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, QGVAR(createSpyActionJip)];
 
 GVAR(markerSpy) = createMarker ["marker_spy", _position];
 GVAR(markerSpy) setMarkerShape "ELLIPSE";

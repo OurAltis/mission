@@ -29,7 +29,7 @@ _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
 _soundToPlay = _soundPath + "sounds\" + (selectRandom GVAR(spySound)) + ".ogg" ;
 playSound3D [_soundToPlay, _target, false, position _target, 1, 1, 0];
 
-[] remoteExecCall ["", QGVAR(createSpyActionJip)];
+//[] remoteExecCall ["", QGVAR(createSpyActionJip)];
 [_target, _actionID] remoteExecCall ["removeAction", -2];
 [_caller] remoteExecCall [QFUNC(reactionSpy), 2];
 

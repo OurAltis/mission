@@ -15,6 +15,31 @@
  * 
  */
 
+addMissionEventHandler [
+	"PlayerConnected", {		
+		params ["_id", "_uid", "_name", "_jip", "_owner"];
+			
+		if (_name isEqualTo "__SERVER__") exitWith {NOTIFICATION_LOG(EventHanndler PlayerConnected: Server is filterd)};
+		
+		[
+			ADD_ACTION, 
+			[
+				_id,
+				GVAR(spyUnit),
+				QGVAR(askSpyAction),
+				"OurA_str_SpyGetInfo",
+				{_this call FUNC(askSpy)},
+				nil,
+				0,
+				false,
+				true,
+				"",
+				"(_target distance2D _this) <= 3"
+			]
+		] remoteExecCall [QFUNC(fireEvent), _id];
+	}
+];
+ 
 // add EH for disconnects
 addMissionEventHandler [
 	"HandleDisconnect",

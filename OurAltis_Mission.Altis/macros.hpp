@@ -72,9 +72,7 @@
 	 #define LOG(msg) diag_log (QUOTE(msg) + " " + SCRIPT_REFERENCE);
 	 #define LOG_VAR(var) diag_log (str var + " " + SCRIPT_REFERENCE);
 	 #define FORMAT_LOG(msg, var) diag_log (parseText(FORMAT(msg, var) + " - " + SCRIPT_REFERENCE));
- #endif
- 
- 
+ #endif 
  
  // define event IDs
  #define EVENT_PREFIX OurAltis.Event
@@ -101,6 +99,7 @@
  
  #define MISSION_ENDED QUOTE(EVENT_PREFIX.missionEnded)
  
+ #define ADD_ACTION QUOTE(EVENT_PREFIX.addAction)
  
  // define constants
  #define BASES_CHANGED baseListChangedOnServer
