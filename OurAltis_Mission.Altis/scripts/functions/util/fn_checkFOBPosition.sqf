@@ -41,10 +41,10 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	diag_log _countFOB;
 	
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
-	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_manyCars"};
-	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_noCar"};
-	if (count crew (_carsInMarker select 0) != 0 || count crew _target != 0) exitWith {hint localize "OurA_str_noCrew"};
-	if (_countFOB isEqualTo 2) exitWith {hint localize "OurA_str_maxFOBBuild"};	
+	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_FOBToManyCarsInRange"};
+	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_FOBCarNotInRange"};
+	if (count crew (_carsInMarker select 0) != 0 || count crew _target != 0) exitWith {hint localize "OurA_str_FOBCrewInsideCars"};
+	if (_countFOB isEqualTo 2) exitWith {hint localize "OurA_str_FOBMaxBuild"};	
 	
 	private _dirVectorCar1 = vectorDir _target;
 	_dirVectorCar1 set [2, 0];
@@ -65,10 +65,10 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];
 		[_target, _actionID] remoteExecCall ["removeAction", -2];			
 	} else {
-		hint localize "OurA_str_FOBWrongPosition";	
+		hint localize "OurA_str_FOBCarPositionWrong";	
 	};
 	
 	deleteMarkerLocal "tempMarker_FOB";
-} else {hint localize "OurA_str_FOBFar"};
+} else {hint localize "OurA_str_FOBToFarAway"};
 
 nil

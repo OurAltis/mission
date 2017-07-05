@@ -78,11 +78,11 @@ if (side (group _caller) isEqualTo _spySide) then {
 };
 
 if (side (group _caller) isEqualTo GVAR(defenderSide)) then {
-	["spyDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-	["spyAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+	["spyDefender", "SUCCEEDED"] call BIS_fnc_taskSetState;
+	["spyAttacker", "FAILED"] call BIS_fnc_taskSetState;
 } else {
-	["spyDefender", "FAILED"] spawn BIS_fnc_taskSetState;
-	["spyAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+	["spyDefender", "FAILED"] call BIS_fnc_taskSetState;
+	["spyAttacker", "SUCCEEDED"] call BIS_fnc_taskSetState;
 };
 
 nil

@@ -57,7 +57,7 @@ GVAR(spyUnit) addMPEventHandler [
 		
 		if (hasInterface) then {
 			_unit removeAction GVAR(spyAddAction);
-			systemChat (localize "OurA_str_DeadCiv");
+			systemChat (localize "OurA_str_CivIsKilled");
 		};
 	}
 ];

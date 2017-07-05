@@ -28,22 +28,22 @@ GVAR(endMissionTriggered) = 1;
 if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	private _loserSide = if (_winnerSide isEqualTo west) then {east} else {west};
 	
-	["base" + str(_winnerSide), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-	["base" + str(_loserSide), "FAILED"] spawn BIS_fnc_taskSetState;
+	["base" + str(_winnerSide), "SUCCEEDED"] call BIS_fnc_taskSetState;
+	["base" + str(_loserSide), "FAILED"] call BIS_fnc_taskSetState;
 } else {
 	if (GVAR(defenderSide) isEqualTo _winnerSide) then {
-		["baseDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-		["baseAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+		["baseDefender", "SUCCEEDED"] call BIS_fnc_taskSetState;
+		["baseAttacker", "FAILED"] call BIS_fnc_taskSetState;
 	} else {
-		["baseDefender", "FAILED"] spawn BIS_fnc_taskSetState;
-		["baseAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+		["baseDefender", "FAILED"] call BIS_fnc_taskSetState;
+		["baseAttacker", "SUCCEEDED"] call BIS_fnc_taskSetState;
 	};
 	
 	if (["spyDefender"] call BIS_fnc_taskExists) then {
 		if !(["spyDefender"] call BIS_fnc_taskCompleted) then {
 			if !(["spyAttacker"] call BIS_fnc_taskCompleted) then {
-				["spyDefender", "FAILED"] spawn BIS_fnc_taskSetState;
-				["spyAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+				["spyDefender", "FAILED"] call BIS_fnc_taskSetState;
+				["spyAttacker", "FAILED"] call BIS_fnc_taskSetState;
 			};
 		};
 	};
@@ -51,8 +51,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	if (["ecoDefender"] call BIS_fnc_taskExists) then {
 		if !(["ecoDefender"] call BIS_fnc_taskCompleted) then {
 			if !(["ecoAttacker"] call BIS_fnc_taskCompleted) then {
-				["ecoDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-				["ecoAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+				["ecoDefender", "SUCCEEDED"] call BIS_fnc_taskSetState;
+				["ecoAttacker", "FAILED"] call BIS_fnc_taskSetState;
 			};
 		};
 	};
@@ -60,7 +60,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 
 if (["resistance"] call BIS_fnc_taskExists) then {
 	if !(["resistance"] call BIS_fnc_taskCompleted) then {
-		["resistance", "FAILED"] spawn BIS_fnc_taskSetState;
+		["resistance", "FAILED"] call BIS_fnc_taskSetState;
 	};
 };
 

@@ -110,7 +110,7 @@ if !(GVAR(Resist) isEqualTo "") then {
 	};
 };
 
-hint (localize "OurA_str_Received");
+hint (localize "OurA_str_SpyInfoReceived");
 
 private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
 

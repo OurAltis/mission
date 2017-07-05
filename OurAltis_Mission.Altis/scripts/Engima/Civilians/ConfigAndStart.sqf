@@ -29,7 +29,7 @@ _parameters = [
 					};
 					
 					if (hasInterface) then {
-						systemChat (localize "OurA_str_DeadCiv");
+						systemChat (localize "OurA_str_CivIsKilled");
 					};
 				}
 			];
