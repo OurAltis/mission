@@ -66,6 +66,7 @@ if (isServer) then {
 	publicVariable QPGVAR(countFOB);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
+	[] call FUNC(reportServerStatus);
 	
 	// give the server some time to really start the mission in order to prevent it from doing stupid stuff on its own
 	[
@@ -73,7 +74,6 @@ if (isServer) then {
 			PGVAR(SERVER_INITIALIZED) = true;
 			// indicate that the server framework is ready
 			publicVariable QPGVAR(SERVER_INITIALIZED);			
-			[] call FUNC(reportServerStatus);
 			
 			nil;
 		},
