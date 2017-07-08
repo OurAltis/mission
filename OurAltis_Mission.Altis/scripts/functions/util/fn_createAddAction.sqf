@@ -25,6 +25,7 @@ if (!alive _object || isNull _object) exitWith {NOTIFICATION_LOG(Object is not t
 
 if (_object isKindOf "Man") then {
 	GVAR(spyAddAction) = _object addAction [localize "OurA_str_SpyGetInfo", {_this call FUNC(askSpy)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3"];
+	_object setVariable [QGVAR(askSpyAction), GVAR(spyAddAction)];
 };
 
 if (_object isKindOf "Car") then {

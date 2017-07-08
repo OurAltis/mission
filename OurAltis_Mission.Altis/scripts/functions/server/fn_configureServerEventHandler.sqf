@@ -183,6 +183,9 @@ addMissionEventHandler [
 		
 		CHECK_TRUE(_success, Invalid parameters!, {})
 		
+		diag_log "ALL_PLAYER_DEAD";
+		diag_log _this;
+		
 		private _remainingSides = [blufor, opfor, independent];
 		_remainingSides = _remainingSides - [_side];
 		

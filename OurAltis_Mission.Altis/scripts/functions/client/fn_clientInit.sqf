@@ -60,6 +60,7 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	}
 ] call FUNC(addEventHandler);
 
+/*
 [
 	ADD_ACTION,
 	{
@@ -87,5 +88,5 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		nil;
 	}	
 ] call FUNC(addEventHandler);
-
+*/
 nil;
