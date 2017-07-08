@@ -57,7 +57,7 @@ GVAR(spyUnit) addMPEventHandler [
 		
 		if (hasInterface) then {
 			//_unit removeAction GVAR(spyAddAction);
-			_unit removeAction (_unit getVariable [QGVAR(askSpyAction), -1];
+			_unit removeAction (_unit getVariable [QGVAR(askSpyAction), -1]);
 			systemChat (localize "OurA_str_CivIsKilled");
 		};
 	}
