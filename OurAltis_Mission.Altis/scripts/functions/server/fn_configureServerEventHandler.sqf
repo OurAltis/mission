@@ -14,7 +14,7 @@
  * None <Any>
  * 
  */
-
+/*
 addMissionEventHandler [
 	"PlayerConnected", {		
 		params ["_id", "_uid", "_name", "_jip", "_owner"];
@@ -39,7 +39,7 @@ addMissionEventHandler [
 		] remoteExecCall [QFUNC(fireEvent), _id];
 	}
 ];
- 
+*/
 // add EH for disconnects
 addMissionEventHandler [
 	"HandleDisconnect",
