@@ -83,7 +83,7 @@ diag_log _positionBase;
 						if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {
 							[] call FUNC(reportDefeatResistance);
-							["resistance", "SUCCEEDED"] call BIS_fnc_taskSetState;
+							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 						} else {
 							[side (group _killer), VALUE_RESIST] call FUNC(reportDeadCivilian);
 						};
