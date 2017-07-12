@@ -60,33 +60,4 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	}
 ] call FUNC(addEventHandler);
 
-/*
-[
-	ADD_ACTION,
-	{
-		private _success = params [
-			["_clientID", 0, [0]],
-			["_object", objNull, [objNull]],
-			["_actionVar", "", [""]],
-			["_title", "", [""]],
-			["_script", {}, [{}]],
-			["_arguments", nil, []],
-			["_priority", 1.5, [0]],
-			["_showWindow", true, [true]],
-			["_hideOnUse", true, [true]],
-			["_shortcut", "", [""]],
-			["_condition", "true", [""]]
-		];
-		
-		CHECK_TRUE(_success, Invalid winner side!, {})
-		
-		if (!alive _object || isNull _object) exitWith {NOTIFICATION_LOG(Object is dead or do not exist!)};
-		
-		private _actionID = _object addAction [localize _title, _script, _arguments, _priority, _showWindow, _hideOnUse, _shortcut, _condition];
-		_object setVariable [_actionVar, _actionID];
-		
-		nil;
-	}	
-] call FUNC(addEventHandler);
-*/
 nil;

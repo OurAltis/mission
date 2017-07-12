@@ -38,6 +38,7 @@ private _baseVehicleList = [west, [], east, []];
 			["_type", "", [""]],
 			["_fuel", 0, [0]],
 			["_damage", 0, [0,"",[]]],
+			["_ammo", 0, [0, "", []]],
 			["_spawn", "", [""]],
 			["_vehID", "", [""]]
 		];
@@ -96,6 +97,22 @@ private _baseVehicleList = [west, [], east, []];
 						// apply damage to each part
 						for "_i" from 0 to (count (_damage select 0) - 1) do {
 							_obj setHitPointDamage [_damage select 0 select _i, _damage select 2 select _i];
+						};
+					};
+					
+					// apply ammo
+					if (_ammo isEqualType "") then {
+						{
+							_x params ["_ammoType", "_turret"];
+							_obj removeMagazinesTurret [_ammoType, _turret];
+							nil
+						} count (magazinesAllTurrets _obj);
+						
+						_ammo = parseSimpleArray _ammo;					
+						
+						// apply ammo to each turret
+						for "_i" from 0 to (count (_ammo - 1) do {							
+							_obj addMagazineTurret [(_ammo select _i) select 0, (_ammo select _i) select 1, (_ammo select _i) select 2];
 						};
 					};
 					
