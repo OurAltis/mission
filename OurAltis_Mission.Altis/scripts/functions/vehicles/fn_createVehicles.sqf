@@ -38,7 +38,7 @@ private _baseVehicleList = [west, [], east, []];
 			["_type", "", [""]],
 			["_fuel", 0, [0]],
 			["_damage", 0, [0,"",[]]],
-			["_ammo", 0, [0, "", []]],
+			["_ammo", [], [[]]],
 			["_spawn", "", [""]],
 			["_vehID", "", [""]]
 		];
@@ -101,17 +101,15 @@ private _baseVehicleList = [west, [], east, []];
 					};
 					
 					// apply ammo
-					if (_ammo isEqualType "") then {
+					if !((count _ammo) isEqualType 0) then {
 						{
 							_x params ["_ammoType", "_turret"];
 							_obj removeMagazinesTurret [_ammoType, _turret];
 							nil
-						} count (magazinesAllTurrets _obj);
-						
-						_ammo = parseSimpleArray _ammo;					
+						} count (magazinesAllTurrets _obj);								
 						
 						// apply ammo to each turret
-						for "_i" from 0 to (count (_ammo - 1) do {							
+						for "_i" from 0 to ((count _ammo) - 1) do {							
 							_obj addMagazineTurret [(_ammo select _i) select 0, (_ammo select _i) select 1, (_ammo select _i) select 2];
 						};
 					};
