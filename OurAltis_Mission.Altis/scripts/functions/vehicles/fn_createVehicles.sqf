@@ -101,7 +101,7 @@ private _baseVehicleList = [west, [], east, []];
 					};
 					
 					// apply ammo
-					if !((count _ammo) isEqualType 0) then {
+					if !((count _ammo) isEqualTo 0) then {
 						{
 							_x params ["_ammoType", "_turret"];
 							_obj removeMagazinesTurret [_ammoType, _turret];
