@@ -85,7 +85,7 @@ with uiNamespace do {
 			if ((_buildingType find "ruins") > -1) then {
 				private _stringArray = (typeOf _building) splitString "_";
 				diag_log _stringArray;
-				_stringArray resize [(count _stringArray) - 2];
+				_stringArray resize (count _stringArray - 2);
 				_stringArray pushBack "F";
 				_buildingType = _stringArray joinString "_";
 				diag_log _buildingType;				
