@@ -140,7 +140,7 @@ private _baseVehicleList = [west, [], east, []];
 							
 							if (hasInterface) then {
 								if (typeOf (_this select 0) isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
-									(_this select 0) removeAction (_object getVariable [QGVAR(FOBAddAtion), -1]);
+									(_this select 0) removeAction ((_this select 0) getVariable [QGVAR(FOBAddAtion), -1]);
 								};
 							};
 							
