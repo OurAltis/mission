@@ -33,9 +33,10 @@ private _flagTextureEast = toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa";
 
 if (_westUnits > _eastUnits) then {				
 	if (_flagPosition isEqualTo 1) then {
-		if ((flagTexture _flagpoles) isEqualTo _flagTextureEast) then {
-			[_flagPoles, _flagTextureWest] remoteExecCall ["setFlagTexture", 0];
-			if ((GVAR(isFlagCaptured) select _index) isEqualTo east) then {GVAR(isFlagCaptured) set [_index, west]};
+		if ((flagTexture _flagpoles) isEqualTo _flagTextureWest) then {
+			if ((GVAR(isFlagCaptured) select _index) isEqualTo east) then {GVAR(isFlagCaptured) set [_index, west]};					
+		} else {
+			[_flagPoles, (_flagPosition - 0.002)] remoteExecCall ["setFlagAnimationPhase", 0];
 		};				
 	} else {
 		if (_flagPosition isEqualTo 0) then {
@@ -55,10 +56,11 @@ if (_westUnits > _eastUnits) then {
 
 if (_eastUnits > _westUnits) then {
 	if (_flagPosition isEqualTo 1) then {
-		if ((flagTexture _flagpoles) isEqualTo _flagTextureWest) then {
-			[_flagPoles, _flagTextureEast] remoteExecCall ["setFlagTexture", 0];
+		if ((flagTexture _flagpoles) isEqualTo _flagTextureEast) then {			
 			if ((GVAR(isFlagCaptured) select _index) isEqualTo west) then {GVAR(isFlagCaptured) set [_index, east]};
-		};				
+		} else {
+			[_flagPoles, (_flagPosition - 0.002)] remoteExecCall ["setFlagAnimationPhase", 0];
+		};			
 	} else {
 		if (_flagPosition isEqualTo 0) then {
 			if ((flagTexture _flagpoles) isEqualTo _flagTextureWest) then {
