@@ -60,4 +60,6 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	}
 ] call FUNC(addEventHandler);
 
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+
 nil;

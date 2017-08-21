@@ -121,6 +121,8 @@ private _baseVehicleList = [west, [], east, []];
 					clearMagazineCargoGlobal _obj;
 					clearItemCargoGlobal _obj;
 					
+					_obj disableTIEquipment true;
+					
 					// save the vehicle's ID
 					_obj setVariable [VEHICLE_ID, _vehID];
 					

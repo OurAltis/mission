@@ -58,6 +58,7 @@ if (isServer) then {
 	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 	
 	[] call FUNC(createTasks);
+	["Initialize"] call BIS_fnc_dynamicGroups;
 	
 	// broadcast indicators to all clients
 	publicVariable QPGVAR(BASES_CHANGED);
