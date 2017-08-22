@@ -14,9 +14,9 @@
 * None <ANY>
 */
 
-FUNC(getSide) = compile preprocessFileLineNumbers "scripts\slmd\getSide.sqf";
-FUNC(slowCode) = compile preprocessFileLineNumbers "scripts\slmd\slowCode.sqf";
-FUNC(realTimeCode) = compile preprocessFileLineNumbers "scripts\slmd\realTimeCode.sqf";
+FUNC(getSide) = compile preprocessFileLineNumbers "scripts\slmd\fn_getSide.sqf";
+FUNC(slowCode) = compile preprocessFileLineNumbers "scripts\slmd\fn_slowCode.sqf";
+FUNC(realTimeCode) = compile preprocessFileLineNumbers "scripts\slmd\fn_realTimeCode.sqf";
 
 GVAR(relevantUnits) = [];
 GVAR(kRain) = 0;
