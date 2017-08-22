@@ -62,4 +62,6 @@ if (!isNil QGVAR(markerBorderWar)) then {
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
+[] call compile preprocessFileLineNumbers "scripts\slmd\initClient.sqf";
+
 nil;
