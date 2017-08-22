@@ -19,6 +19,6 @@ params [
 ];
 
 GVAR(side) = side group _unit;
-[GVAR(side), false] call BIS_fnc_sideColor
+[GVAR(side), false] call BIS_fnc_sideColor;
 
 nil
