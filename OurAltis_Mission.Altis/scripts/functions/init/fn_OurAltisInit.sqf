@@ -40,7 +40,7 @@ if(isServer) then {
 	
 	[] call FUNC(createEconomy);
 	
-	[0,0,0] call FUNC(setMissionParameter);
+	[0, 05, 15] call FUNC(setMissionParameter);
 	
 	[
 		["Rifleman", 9, "Aeroport", "Aeroport"],

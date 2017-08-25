@@ -31,6 +31,7 @@ comment "Add items";
 _this linkItem "ItemMap";
 _this linkItem "ItemCompass";
 _this linkItem "ItemWatch";
+_this linkItem "ItemGPS";
 _this linkItem "ItemRadioAcreFlagged";
 _this linkItem "NVGoggles";
 _this linkItem "B_UavTerminal";
