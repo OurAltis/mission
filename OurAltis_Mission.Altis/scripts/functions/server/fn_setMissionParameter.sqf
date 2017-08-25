@@ -40,7 +40,7 @@ _weather = switch (_weather) do {
 if ((_weather select 2) isEqualTo 0) then {
 	300 setOvercast 0;
 } else {
-	300 setOverCast (random [0,10,5]);
+	300 setOvercast 0.55;
 };
 
 forceWeatherChange;
@@ -48,13 +48,13 @@ forceWeatherChange;
 if ((_weather select 1) isEqualTo 0) then {
 	0 setFog 0;
 } else {
-	0 setFog (random [0,10,5]);
+	0 setFog (random [0, 1, 0.5]);
 };
 
 if ((_weather select 0) isEqualTo 0) then {
 	0 setRain 0;
 } else {
-	0 setRain (random [0,10,5]);
+	0 setRain (random [0, 1, 0.5]);
 };
 
 nil
