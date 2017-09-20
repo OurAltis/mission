@@ -19,7 +19,7 @@
 
 GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
 
-if (isServer) then {
+if (isServer) then {	
 	GVAR(nameFOB) = [[], []];
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		[] call FUNC(createBorderWar);		
@@ -55,6 +55,8 @@ if (isServer) then {
 		PGVAR(SERVER_ERRORS) pushBack "Failed at initializing database";
 	};
 	
+	[] call FUNC(createDBEntryStatistic);
+	
 	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
 	
 	[] call FUNC(createTasks);
@@ -68,6 +70,12 @@ if (isServer) then {
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);
+	
+	GVAR(timelimitHandlerID) = [
+		FUNC(watchTimelimit),
+		1,
+		[]
+	] call CBA_fnc_addPerFrameHandler;
 	
 	// give the server some time to really start the mission in order to prevent it from doing stupid stuff on its own
 	[
@@ -86,7 +94,7 @@ if (isServer) then {
 if (hasInterface) then {	
 	// TODO: use pretty image
 	"loadingBlackScreen" cutText ["Initializing Mission...", "BLACK", 0.00000001, true];
-	
+		
 	[
 		{
 			// wait until the map is loaded

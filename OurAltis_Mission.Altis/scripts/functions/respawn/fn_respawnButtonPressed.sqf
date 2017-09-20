@@ -132,15 +132,17 @@ with uiNamespace do {
 		// switch the player to the new unit and kill old unit if necessary
 		_oldPlayer = player;
 		
-		private _group = group _oldPlayer;
+		//private _group = group _oldPlayer;
 		selectPlayer _newPlayer;
 		
+		/*
 		if (leader _oldPlayer isEqualTo _oldPlayer) then {
 			["SwitchLeader", [_group, _newPlayer]] call BIS_fnc_dynamicGroups;
 		};	
 		
-		["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;
-		//[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
+		*/
+		//["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;
+		[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		//[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
 		
@@ -164,7 +166,7 @@ with uiNamespace do {
 		
 		// remove the ammo from the player's weapon in order to prevent accidental shooting
 		player setAmmo [currentWeapon player, 0];
-		
+				
 		// close the respawn dialog
 		[] call FUNC(hideRespawnMenu);
 		

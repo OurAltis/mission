@@ -54,6 +54,9 @@ class CfgFunctions
 			class reportDefeatResistance {};
 			class createBorderWar {};
 			class shrinkMarker {};
+			class reportPlayerStatistic {};
+			class createDBEntryStatistic {};
+			class watchTimelimit {};
 		};
 		
 		class database

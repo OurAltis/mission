@@ -65,6 +65,12 @@ if (["resistance"] call BIS_fnc_taskExists) then {
 };
 
 [
+	SEND_STATISTIC,
+	[],
+	true
+] call FUNC(fireGlobalClientEvent);
+
+[
 	MISSION_ENDED,
 	[_winnerSide],
 	true

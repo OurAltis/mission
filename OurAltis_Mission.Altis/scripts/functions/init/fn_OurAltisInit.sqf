@@ -25,6 +25,7 @@ GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
 
 if(isServer) then {
+	GVAR(timeLimit) = 3600;
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];

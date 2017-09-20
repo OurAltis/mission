@@ -19,6 +19,12 @@
 addMissionEventHandler [
 	"HandleDisconnect",
 	{
+		[
+			SEND_STATISTIC,
+			[],
+			_this select 1
+		] call FUNC(fireClientEvent);
+		
 		// kill player's unit in order for the 'Killed' EH to get executed
 		_this select 0 setDamage 1;
 		
