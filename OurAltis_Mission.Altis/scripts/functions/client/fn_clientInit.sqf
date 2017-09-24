@@ -83,7 +83,7 @@ if (!isNil QGVAR(markerBorderWar)) then {
 			_parameter pushBack (player getVariable [QGVAR(rocketCount), 0]);
 		} else {_parameter pushBack 0};	
 			
-		[_paramter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];			
+		[_parameter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];			
 		
 		nil;
 	}
