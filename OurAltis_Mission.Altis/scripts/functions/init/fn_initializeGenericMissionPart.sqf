@@ -49,7 +49,6 @@ if (isServer) then {
 	PGVAR(countFOB) = [0, 0];
 	
 	[] call FUNC(configureServerEventHandler);
-	[] call FUNC(calculateBaseMarkerOffset);
 	
 	if (!([] call FUNC(initializeDataBase))) then {
 		PGVAR(SERVER_ERRORS) pushBack "Failed at initializing database";

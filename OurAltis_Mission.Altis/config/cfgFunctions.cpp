@@ -32,7 +32,6 @@ class CfgFunctions
 		{
 			file = FUNC_PATH(server);
 			
-			class calculateBaseMarkerOffset {};
 			class checkRespawn {};
 			class configureInfantry {};			
 			class configureServerEventHandler {};
