@@ -22,7 +22,6 @@ class CfgFunctions
 			
 			class clientInit {postInit = 1;};
 			class doWithServerPermission {};
-			class markBases {};
 			class workWithBaseList {};
 			class workWithInfantryList {};
 			class deleteRadioMsg {};

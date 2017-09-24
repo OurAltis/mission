@@ -32,7 +32,6 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	] call CBA_fnc_addPerFrameHandler;
 };
 
-[] call FUNC(markBases);
 [] call FUNC(compileLoadouts);
 
 // set up client EHs
