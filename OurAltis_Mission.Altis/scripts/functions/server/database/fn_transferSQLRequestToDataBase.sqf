@@ -21,6 +21,7 @@ private _success = params [
 
 diag_log ("_this is nil: " + str (isNil "_this"));
 diag_log("_this  statement type: " + typeName _this);
+diag_log("_this: " + str _this);
 diag_log ("Using SQL: " + str _sqlStatement);
 diag_log ("Success: " + str _success);
 
