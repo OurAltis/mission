@@ -6,7 +6,7 @@ class CfgRespawnTemplates
 	{
 		onPlayerKilled = QFUNC(handlePlayerDeath);
 		
-		respawnDelay = 30;
+		respawnDelay = 10;
 		
 		respawnOnStart = -1;
 	};

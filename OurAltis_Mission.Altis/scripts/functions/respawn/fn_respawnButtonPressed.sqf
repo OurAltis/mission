@@ -93,14 +93,14 @@ with uiNamespace do {
 			
 			private _possiblePositionsInBuilding = [];
 			
-			if (_buildingType in _types) then {					
-				private _minMaxHight = _minMaxArray select (_types find _buildingType);
-				diag_log _minMaxHight;	
-				if (count _minMaxHight > 0) then {					
+			if (_buildingType in _types) then {
+				private _minMaxHeight = _minMaxArray select (_types find _buildingType);
+				diag_log _minMaxHeight;	
+				if (count _minMaxHeight > 0) then {				
 					{
-						if ((_x select 2) > (_minMaxHight select 0) && (_x select 2) < (_minMaxHight select 1)) then {
+						if ((_x select 2) > (_minMaxHeight select 0) && (_x select 2) < (_minMaxHeight select 1)) then {
 							_possiblePositionsInBuilding pushBack _x;
-							diag_log _possiblePositionsInBuilding;	
+							diag_log _possiblePositionsInBuilding;
 						};
 						
 						nil
@@ -122,6 +122,7 @@ with uiNamespace do {
 				diag_log _position;
 			};
 		};
+		
 		
 		// create unit by calling the stored creation code with the respective information
 		_newPlayer = [_roleData select 0, _position, _baseName] call (_roleData select 1);
