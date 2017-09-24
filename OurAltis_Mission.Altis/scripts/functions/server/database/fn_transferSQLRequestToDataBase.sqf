@@ -22,6 +22,7 @@ private _success = params [
 diag_log ("SQL statement is nil: " + str (isNil "_sqlStatement"));
 diag_log("SQL statement type: " + typeName _sqlStatement);
 diag_log ("Using SQL: " + str _sqlStatement);
+diag_log ("Success: " + str _success);
 
 CHECK_TRUE(isServer, Function can only be executed on the server!, {""})
 CHECK_TRUE(_success, Can only process sql-statements wrapped in a String!, {""})
@@ -29,5 +30,3 @@ CHECK_TRUE(DB_INITIALIZED, Database is not yet initialized!, {""})
 
 // execute SQL and return the status returned by the extension
 DATABASE_EXT callExtension ("0:SQL:" + _sqlStatement);
-
-nil;
