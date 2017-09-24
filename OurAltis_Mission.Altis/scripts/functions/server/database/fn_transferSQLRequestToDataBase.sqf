@@ -19,8 +19,8 @@ private _success = params [
 	["_sqlStatement", "", [""]]
 ];
 
-diag_log ("SQL statement is nil: " + str (isNil "_sqlStatement"));
-diag_log("SQL statement type: " + typeName _sqlStatement);
+diag_log ("_this is nil: " + str (isNil "_this"));
+diag_log("_this  statement type: " + typeName _this);
 diag_log ("Using SQL: " + str _sqlStatement);
 diag_log ("Success: " + str _success);
 
