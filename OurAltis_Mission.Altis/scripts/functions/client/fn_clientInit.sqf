@@ -17,6 +17,10 @@
 
 if (!hasInterface) exitWith {}; // server shouldn't execute this
 
+GVAR(shotCount) = 0;
+GVAR(grenadeCount) = 0;
+GVAR(rocketCount) = 0;
+
 if (!PGVAR(retreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
 	GVAR(radioTrigger) setTriggerActivation ["Alpha", "PRESENT", false];
@@ -68,20 +72,8 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		
 		CHECK_TRUE(_success, Invalid winner side!, {})
 		
-		private _parameter = [name player, side group player];
-		
-		if ((player getVariable [QGVAR(shotCount), 0]) > 0) then {
-			_parameter pushBack (player getVariable [QGVAR(shotCount), 0]);
-		} else {_parameter pushBack 0};
-		
-		if ((player getVariable [QGVAR(grenadeCount), 0]) > 0) then {
-			_parameter pushBack (player getVariable [QGVAR(grenadeCount), 0]);
-		} else {_parameter pushBack 0};		
-		
-		if ((player getVariable [QGVAR(rocketCount), 0]) > 0) then {
-			_parameter pushBack (player getVariable [QGVAR(rocketCount), 0]);
-		} else {_parameter pushBack 0};	
-			
+		private _parameter = [name player, side group player, GVAR(shotCount), GVAR(grenadeCount), GVAR(rocketCount)];
+				
 		[_parameter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];			
 		
 		nil;
@@ -95,14 +87,14 @@ if (!isNil QGVAR(markerBorderWar)) then {
 player addEventHandler [
 	"Fired", {
 		if ((_this select 1) isEqualTo "Throw") then {
-			player setVariable [QGVAR(grenadeCount), (player getVariable [QGVAR(grenadeCount), 0]) + 1];
+			GVAR(grenadeCount) =  GVAR(grenadeCount) + 1;
 		} else {
 			if ((_this select 1) isEqualTo (primaryWeapon player) || (_this select 1) isEqualTo (handgunWeapon player)) then {
-				player setVariable [QGVAR(shotCount), (player getVariable [QGVAR(shotCount), 0]) + 1];
+				GVAR(shotCount) =  GVAR(shotCount) + 1;
 			};
 			
 			if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
-				player setVariable [QGVAR(rocketCount), (player getVariable [QGVAR(rocketCount), 0]) + 1];
+				GVAR(rocketCount) =  GVAR(rocketCount) + 1;
 			};					
 		};		
 	}
