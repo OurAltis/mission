@@ -34,6 +34,7 @@ if(isServer) then {
 	GVAR(targetAreaName) = "Aeroport";
 	GVAR(dataBase) = "a";
 	GVAR(defenderSide) = east;
+	
 	[
 		[[13462.875,15969.920], east, "Aeroport", false, 1, -17.492],
 		[[16372.000,19664.000], blufor, "AgiaTriada", true, 4, 241.375]
