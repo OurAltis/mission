@@ -19,6 +19,7 @@
 addMissionEventHandler [
 	"PlayerDisconnected",
 	{
+		diag_log "PlayerDisconnected";
 		[
 			SEND_STATISTIC,
 			[],
@@ -32,6 +33,7 @@ addMissionEventHandler [
 addMissionEventHandler [
 	"HandleDisconnect",
 	{
+		diag_log "PlayerDisconnected";
 		[
 			SEND_STATISTIC,
 			[],

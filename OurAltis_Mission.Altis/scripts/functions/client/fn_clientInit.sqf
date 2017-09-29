@@ -70,11 +70,13 @@ if (!isNil QGVAR(markerBorderWar)) then {
 			["_clientID", 0, [0]]
 		];
 		
-		CHECK_TRUE(_success, Invalid winner side!, {})
+		CHECK_TRUE(_success, Invalid client ID!, {})
 		
 		private _parameter = [name player, side group player, GVAR(shotCount), GVAR(grenadeCount), GVAR(rocketCount)];
-				
-		[_parameter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];			
+		
+		diag_log ("Statistic: " + str(_parameter));
+		
+		[_parameter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];		
 		
 		nil;
 	}
@@ -96,7 +98,11 @@ player addEventHandler [
 			if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
 				GVAR(rocketCount) =  GVAR(rocketCount) + 1;
 			};					
-		};		
+		};
+		
+		diag_log ("Grenade: " + str(GVAR(grenadeCount)));
+		diag_log ("Shot: " + str(GVAR(shotCount)));
+		diag_log ("Rocket: " + str(GVAR(rocketCount)));
 	}
 ];
 
