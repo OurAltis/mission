@@ -94,7 +94,7 @@ diag_log ("player is nil: " + str(isNil "player"));
 		(player isEqualTo "OBJECT")
 	},
 	{
-		diag_log "Fired Eventhandler added!"
+		diag_log "Fired Eventhandler added!";
 		player addEventHandler [
 			"Fired", {
 				if ((_this select 1) isEqualTo "Throw") then {
