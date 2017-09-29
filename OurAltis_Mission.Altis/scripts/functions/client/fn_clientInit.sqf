@@ -91,9 +91,10 @@ diag_log ("player is nil: " + str(isNil "player"));
 [
 	{
 		// wait until player is defined
-		!(isNil "player")
+		(player isEqualTo "OBJECT")
 	},
 	{
+		diag_log "Fired Eventhandler added!"
 		player addEventHandler [
 			"Fired", {
 				if ((_this select 1) isEqualTo "Throw") then {
