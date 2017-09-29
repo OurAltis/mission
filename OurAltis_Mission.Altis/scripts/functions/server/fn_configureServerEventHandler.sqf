@@ -18,13 +18,13 @@
 // add EH for disconnects
 addMissionEventHandler [
 	"PlayerDisconnected",
-	{
+	{		
 		diag_log "PlayerDisconnected";
 		[
 			SEND_STATISTIC,
 			[],
 			_this select 4
-		] call FUNC(fireClientEvent);	
+		] call FUNC(fireClientEvent);
 		
 		nil;
 	}

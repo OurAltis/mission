@@ -21,6 +21,8 @@ GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome"
 
 if (isServer) then {	
 	GVAR(nameFOB) = [[], []];
+	GVAR(playerHasSendStatistic) = [];
+	
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		[] call FUNC(createBorderWar);		
 	} else {	
