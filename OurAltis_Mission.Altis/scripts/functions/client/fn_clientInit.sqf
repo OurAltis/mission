@@ -86,24 +86,35 @@ if (!isNil QGVAR(markerBorderWar)) then {
 
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
 
-player addEventHandler [
-	"Fired", {
-		if ((_this select 1) isEqualTo "Throw") then {
-			GVAR(grenadeCount) =  GVAR(grenadeCount) + 1;
-		} else {
-			if ((_this select 1) isEqualTo (primaryWeapon player) || (_this select 1) isEqualTo (handgunWeapon player)) then {
-				GVAR(shotCount) =  GVAR(shotCount) + 1;
-			};
-			
-			if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
-				GVAR(rocketCount) =  GVAR(rocketCount) + 1;
-			};					
-		};
-		
-		diag_log ("Grenade: " + str(GVAR(grenadeCount)));
-		diag_log ("Shot: " + str(GVAR(shotCount)));
-		diag_log ("Rocket: " + str(GVAR(rocketCount)));
+diag_log ("player is nil: " + str(isNil "player"));
+
+[
+	{
+		// wait until player is defined
+		!(isNil "player")
+	},
+	{
+		player addEventHandler [
+			"Fired", {
+				if ((_this select 1) isEqualTo "Throw") then {
+					GVAR(grenadeCount) =  GVAR(grenadeCount) + 1;
+				} else {
+					if ((_this select 1) isEqualTo (primaryWeapon player) || (_this select 1) isEqualTo (handgunWeapon player)) then {
+						GVAR(shotCount) =  GVAR(shotCount) + 1;
+					};
+					
+					if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
+						GVAR(rocketCount) =  GVAR(rocketCount) + 1;
+					};					
+				};
+				
+				diag_log ("Grenade: " + str(GVAR(grenadeCount)));
+				diag_log ("Shot: " + str(GVAR(shotCount)));
+				diag_log ("Rocket: " + str(GVAR(rocketCount)));
+			}
+		];
 	}
-];
+] call CBA_fnc_waitUntilAndExecute;
+
 
 nil;
