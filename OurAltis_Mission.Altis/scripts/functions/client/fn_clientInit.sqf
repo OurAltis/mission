@@ -105,7 +105,7 @@ if (!isNil QGVAR(markerBorderWar)) then {
 				};				
 			}
 		];
-	}
+	},
 	[],
 	1
 ] call CBA_fnc_waitAndExecute;
