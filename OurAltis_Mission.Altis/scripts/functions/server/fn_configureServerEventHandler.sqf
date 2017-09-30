@@ -15,16 +15,32 @@
  * 
  */
 
+// add EH for connects
+addMissionEventHandler [
+	"PlayerConnected",
+	{		
+		diag_log ("PlayerConnected: " + (_this select 2));
+		GVAR(connectedPlayer) pushBack (_this select 2);
+		
+		nil;
+	}
+];
+
 // add EH for disconnects
 addMissionEventHandler [
 	"PlayerDisconnected",
 	{		
-		diag_log "PlayerDisconnected";
-		[
-			SEND_STATISTIC,
-			[],
-			_this select 4
-		] call FUNC(fireClientEvent);
+		diag_log ("PlayerDisconnected: " + (_this select 2));
+		
+		if ((_this select 2) in GVAR(connectedPlayer)) then {
+			[
+				SEND_STATISTIC,
+				[],
+				_this select 4
+			] call FUNC(fireClientEvent);
+			
+			GVAR(connectedPlayer) = GVAR(connectedPlayer) - [_this select 2];
+		};
 		
 		nil;
 	}

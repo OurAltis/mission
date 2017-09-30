@@ -86,15 +86,10 @@ if (!isNil QGVAR(markerBorderWar)) then {
 
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
 
-diag_log ("player is nil: " + str(isNil "player"));
-
 [
 	{
-		// wait until player is defined
-		(player isEqualTo "OBJECT")
-	},
-	{
 		diag_log "Fired Eventhandler added!";
+		diag_log ("player is nil: " + str(isNil "player"));
 		player addEventHandler [
 			"Fired", {
 				if ((_this select 1) isEqualTo "Throw") then {
@@ -107,15 +102,12 @@ diag_log ("player is nil: " + str(isNil "player"));
 					if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
 						GVAR(rocketCount) =  GVAR(rocketCount) + 1;
 					};					
-				};
-				
-				diag_log ("Grenade: " + str(GVAR(grenadeCount)));
-				diag_log ("Shot: " + str(GVAR(shotCount)));
-				diag_log ("Rocket: " + str(GVAR(rocketCount)));
+				};				
 			}
 		];
 	}
-] call CBA_fnc_waitUntilAndExecute;
-
+	[],
+	1
+] call CBA_fnc_waitAndExecute;
 
 nil;
