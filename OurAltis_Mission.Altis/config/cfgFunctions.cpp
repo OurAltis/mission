@@ -22,10 +22,11 @@ class CfgFunctions
 			
 			class clientInit {postInit = 1;};
 			class doWithServerPermission {};
-			class workWithBaseList {};
-			class workWithInfantryList {};
 			class deleteRadioMsg {};
 			class showUnitsOutsideMarker {};
+			class synchronizeBaseList {};
+			class workWithBaseList {};
+			class workWithInfantryList {};
 		};
 		
 		class server

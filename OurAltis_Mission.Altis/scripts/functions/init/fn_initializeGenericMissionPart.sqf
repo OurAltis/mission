@@ -106,8 +106,8 @@ if (hasInterface) then {
 		{
 			// initialize the respawn system
 			[] call FUNC(respawnInit);
-			[] call FUNC(updateRespawnData);
 			
+			// initialize the map-position system
 			[] call FUNC(mapPositionsInit);
 			
 			// disable "faggot-button"
@@ -135,7 +135,9 @@ if (hasInterface) then {
 				] call FUNC(fireEvent);
 			};
 			
-			// wait for the server to initialize the framework
+			[] call FUNC(synchronizeBaseList);
+			
+			// wait for the server to initialize the framework and for the local baseList to get synchronnized
 			[
 				{
 					!isNil QPGVAR(SERVER_INITIALIZED) && PGVAR(SERVER_INITIALIZED)
@@ -146,6 +148,9 @@ if (hasInterface) then {
 						// Display error messages to the user
 						[] call FUNC(displayServerErrorMessages);
 					} else {
+						// configure teh respawn data
+						[] call FUNC(updateRespawnData);
+						
 						"loadingBlackScreen" cutFadeOut 0.1;
 						[] call FUNC(showRespawnMenu);
 					};
