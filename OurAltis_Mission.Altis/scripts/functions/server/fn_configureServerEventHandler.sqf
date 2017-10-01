@@ -15,33 +15,7 @@
  * 
  */
 
-// add EH for connects
-addMissionEventHandler [
-	"PlayerConnected",
-	{
-		CHECK_FALSE((_this select 2) isEqualTo "__SERVER__", Server is no player!, {})
-		
-		diag_log ("PlayerConnected: " + (_this select 2));
-		GVAR(connectedPlayer) pushBack (_this select 2);
-		diag_log GVAR(connectedPlayer);
-		nil;
-	}
-];
-
 // add EH for disconnects
-addMissionEventHandler [
-	"PlayerDisconnected",
-	{
-		CHECK_FALSE((_this select 2) isEqualTo "__SERVER__", Server is no player!, {})
-		
-		diag_log ("PlayerDisconnected: " + (_this select 2));		
-		
-		GVAR(connectedPlayer) = GVAR(connectedPlayer) - [(_this select 2)];
-		
-		nil;
-	}
-];
-
 addMissionEventHandler [
 	"HandleDisconnect",
 	{		
