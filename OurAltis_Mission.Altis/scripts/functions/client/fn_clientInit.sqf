@@ -86,23 +86,23 @@ if (!isNil QGVAR(markerBorderWar)) then {
 
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
 
-diag_log (isNil {player});
+diag_log ("Player is nil: " + str(isNil {player}));
 
 [
 	{
 		diag_log "Fired Eventhandler added!";
-		diag_log ("player is nil: " + str(isNil "player"));
+		
 		player addEventHandler [
 			"Fired", {
 				if ((_this select 1) isEqualTo "Throw") then {
-					GVAR(grenadeCount) =  GVAR(grenadeCount) + 1;
+					GVAR(grenadeCount) = GVAR(grenadeCount) + 1;
 				} else {
 					if ((_this select 1) isEqualTo (primaryWeapon player) || (_this select 1) isEqualTo (handgunWeapon player)) then {
-						GVAR(shotCount) =  GVAR(shotCount) + 1;
+						GVAR(shotCount) = GVAR(shotCount) + 1;
 					};
 					
 					if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
-						GVAR(rocketCount) =  GVAR(rocketCount) + 1;
+						GVAR(rocketCount) = GVAR(rocketCount) + 1;
 					};					
 				};				
 			}

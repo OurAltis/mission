@@ -57,4 +57,6 @@ if ((_weather select 0) isEqualTo 0) then {
 	0 setRain (random [0, 1, 0.5]);
 };
 
+GVAR(weather) = _weather;
+
 nil
