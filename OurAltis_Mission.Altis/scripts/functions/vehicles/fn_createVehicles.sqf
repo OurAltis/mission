@@ -125,15 +125,13 @@ private _baseVehicleList = [west, [], east, []];
 					
 					// save the vehicle's ID
 					_obj setVariable [VEHICLE_ID, _vehID];
-					_obj setVariable [QGVAR(fuelConsumption), 0];
+					_obj setVariable [QGVAR(fuelInfo), fuel _obj];
 					
-					_obj addEventHandler [
-						"Fuel", {
-							params ["_vehicle", "_fuelState"];
-
-							
-						}
-					];
+					[
+						FUNC(calculateFuelConsumption),
+						1,
+						[_obj]
+					] call CBA_fnc_addPerFrameHandler;
 					
 					// add EH for vehicle destruction (MP-EH is needed in case the vehicle's locality changes (e.g. a player enter it))
 					_obj addMPEventHandler [
@@ -146,7 +144,7 @@ private _baseVehicleList = [west, [], east, []];
 								(_this select 0) setDamage 1;
 								
 								// report destroyed vehicle to the DB immediately
-								[_this select 0] call FUNC(reportVehicleStatus);
+								[_this select 0] call FUNC(reportVehicleStatus);							
 							};
 							
 							if (hasInterface) then {

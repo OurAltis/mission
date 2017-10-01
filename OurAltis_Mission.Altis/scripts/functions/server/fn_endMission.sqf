@@ -98,6 +98,8 @@ diag_log "Transmitting vehicles...";
 	nil;
 } count vehicles;
 
+[GVAR(fuelConsumption)] call FUNC(reportVehicleStatistic);
+
 [
 	{
 		// end mission on Server

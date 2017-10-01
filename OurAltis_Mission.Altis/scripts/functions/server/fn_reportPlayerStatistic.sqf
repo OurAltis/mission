@@ -23,7 +23,7 @@ CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 CHECK_TRUE(_success, Invalid parameter!, {})
 
 // report status to the DB
-private _result = ["UPDATE statistik SET spieler_stats = CONCAT(spieler_stats,'" + str(_parameter) + ",') WHERE mission_id = '" + str(GVAR(MissionID)) + "'"] call FUNC(transferSQLRequestToDataBase);
+private _result = ["UPDATE statistik SET treibstoff = '" + str(GVAR(fuelConsumption)) + "' WHERE mission_id = '" + str(GVAR(MissionID)) + "'"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil;

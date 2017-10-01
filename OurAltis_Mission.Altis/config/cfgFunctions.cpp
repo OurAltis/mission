@@ -56,6 +56,7 @@ class CfgFunctions
 			class reportPlayerStatistic {};
 			class createDBEntryStatistic {};
 			class watchTimelimit {};
+			class reportVehicleStatistic {};
 		};
 		
 		class database
@@ -174,6 +175,7 @@ class CfgFunctions
 			
 			class createVehicles {};
 			class createAmbientVehicles {};
+			class calculateFuelConsumption {};
 		};
 		
 		class dev
