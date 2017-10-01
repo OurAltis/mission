@@ -72,7 +72,9 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		
 		CHECK_TRUE(_success, Invalid client ID!, {})
 		
-		private _parameter = [name player, side group player, GVAR(shotCount), GVAR(grenadeCount), GVAR(rocketCount)];
+		private _side = if ((side group player) isEqualTo east) then {"ost"} else {"west"};
+		
+		private _parameter = [name player, _side, GVAR(shotCount), GVAR(grenadeCount), GVAR(rocketCount)];
 		
 		diag_log ("Statistic: " + str(_parameter));
 		
@@ -87,7 +89,8 @@ if (!isNil QGVAR(markerBorderWar)) then {
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
 
 diag_log ("Player is nil: " + str(isNil {player}));
-
+diag_log ("Player: " + str(player));
+/*
 [
 	{
 		diag_log "Fired Eventhandler added!";
@@ -111,5 +114,6 @@ diag_log ("Player is nil: " + str(isNil {player}));
 	[],
 	10
 ] call CBA_fnc_waitAndExecute;
+*/
 
 nil;

@@ -134,7 +134,23 @@ with uiNamespace do {
 		_oldPlayer = player;
 		
 		//private _group = group _oldPlayer;
-		selectPlayer _newPlayer;
+		selectPlayer _newPlayer;		
+		
+		_newPlayer addEventHandler [
+			"Fired", {
+				if ((_this select 1) isEqualTo "Throw") then {
+					GVAR(grenadeCount) = GVAR(grenadeCount) + 1;
+				} else {
+					if ((_this select 1) isEqualTo (primaryWeapon player) || (_this select 1) isEqualTo (handgunWeapon player)) then {
+						GVAR(shotCount) = GVAR(shotCount) + 1;
+					};
+					
+					if ((_this select 1) isEqualTo (secondaryWeapon player)) then {
+						GVAR(rocketCount) = GVAR(rocketCount) + 1;
+					};					
+				};				
+			}
+		];
 		
 		/*
 		if (leader _oldPlayer isEqualTo _oldPlayer) then {
