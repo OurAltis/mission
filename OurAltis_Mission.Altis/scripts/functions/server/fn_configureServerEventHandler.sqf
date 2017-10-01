@@ -36,11 +36,7 @@ addMissionEventHandler [
 		
 		diag_log ("PlayerDisconnected: " + (_this select 2));		
 		
-		[
-			SEND_STATISTIC,
-			[],
-			_this select 4
-		] call FUNC(fireClientEvent);
+		GVAR(connectedPlayer) = GVAR(connectedPlayer) - [(_this select 2)];
 		
 		nil;
 	}

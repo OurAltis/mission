@@ -24,7 +24,7 @@ CHECK_TRUE(_success, Invalid parameter!, {})
 CHECK_TRUE((_parameter select 0) in GVAR(connectedPlayer), (_parameter select 0) has already sent statistic!, {})
 
 diag_log GVAR(connectedPlayer);
-GVAR(connectedPlayer) = GVAR(connectedPlayer) - [_parameter select 2];
+GVAR(connectedPlayer) = GVAR(connectedPlayer) - [_parameter select 0];
 diag_log GVAR(connectedPlayer);
 
 // report status to the DB

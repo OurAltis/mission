@@ -24,6 +24,8 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid mission parameters!, {})
 
+GVAR(weather) = _weather;
+
 private _date = date;
 _date set [3, _hour];
 _date set [4, _minute];
@@ -56,7 +58,5 @@ if ((_weather select 0) isEqualTo 0) then {
 } else {
 	0 setRain (random [0, 1, 0.5]);
 };
-
-GVAR(weather) = _weather;
 
 nil
