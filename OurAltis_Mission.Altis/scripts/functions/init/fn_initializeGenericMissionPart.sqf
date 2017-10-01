@@ -20,7 +20,8 @@
 GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
 
 if (isServer) then {
-	GVAR(fuelConsumption) = 0;
+	// [west, ost]
+	GVAR(fuelConsumption) = [0, 0];
 	GVAR(nameFOB) = [[], []];
 	
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {

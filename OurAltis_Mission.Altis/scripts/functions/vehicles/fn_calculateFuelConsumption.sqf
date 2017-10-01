@@ -33,9 +33,16 @@ private _currentFuelLevel = fuel _vehicle;
  
 if !(_currentFuelLevel isEqualTo _lastFuelLevel) then {
 	private _fuelCapacity = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "fuelCapacity");
+	private _vehicleSideID = getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "side");
+	private _vehicleSide = [_vehicleSideID] call BIS_fnc_sideType;
 	
 	if (_currentFuelLevel < _lastFuelLevel) then {
-		GVAR(fuelConsumption) = GVAR(fuelConsumption) + ((_lastFuelLevel - _currentFuelLevel) * _fuelCapacity);
+		if (_vehicleSide isEqualTo west) then {
+			GVAR(fuelConsumption) set [0, (GVAR(fuelConsumption) select 0) + ((_lastFuelLevel - _currentFuelLevel) * _fuelCapacity)];
+		} else {
+			GVAR(fuelConsumption) set [1, (GVAR(fuelConsumption) select 1) + ((_lastFuelLevel - _currentFuelLevel) * _fuelCapacity)];
+		};
+		
 		_vehicle setVariable [QGVAR(fuelInfo), _currentFuelLevel];	
 	};
 };

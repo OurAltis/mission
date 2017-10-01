@@ -86,6 +86,8 @@ switch(_winnerSide) do {
 
 // report status to the DB
 ["UPDATE missionen SET sieger='" + _dataBaseWinner + "' WHERE mission_id='" + str GVAR(MissionID) + "'"] call FUNC(transferSQLRequestToDataBase);
+// report status to the DB statistic
+["UPDATE statistik SET sieger='" + _dataBaseWinner + "' WHERE mission_id='" + str GVAR(MissionID) + "'"] call FUNC(transferSQLRequestToDataBase);
 
 diag_log "Transmitting vehicles...";
 
@@ -98,7 +100,7 @@ diag_log "Transmitting vehicles...";
 	nil;
 } count vehicles;
 
-[GVAR(fuelConsumption)] call FUNC(reportVehicleStatistic);
+[] call FUNC(reportVehicleStatistic);
 
 [
 	{
