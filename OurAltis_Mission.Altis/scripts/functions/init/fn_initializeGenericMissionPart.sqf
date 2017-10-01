@@ -140,7 +140,7 @@ if (hasInterface) then {
 			// wait for the server to initialize the framework and for the local baseList to get synchronnized
 			[
 				{
-					!isNil QPGVAR(SERVER_INITIALIZED) && PGVAR(SERVER_INITIALIZED)
+					!isNil QPGVAR(SERVER_INITIALIZED) && {PGVAR(SERVER_INITIALIZED) && !PGVAR(BASES_CHANGED)}
 				},
 				{
 					// Check for error messages
