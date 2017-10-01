@@ -125,10 +125,13 @@ private _baseVehicleList = [west, [], east, []];
 					
 					// save the vehicle's ID
 					_obj setVariable [VEHICLE_ID, _vehID];
+					_obj setVariable [QGVAR(fuelConsumption), 0];
 					
 					_obj addEventHandler [
 						"Fuel", {
-							params ["_vehicle", "_fuelState"];							
+							params ["_vehicle", "_fuelState"];
+
+							
 						}
 					];
 					

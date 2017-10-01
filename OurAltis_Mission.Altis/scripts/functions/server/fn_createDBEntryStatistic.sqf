@@ -24,7 +24,7 @@ diag_log _parameter;
 
 private _result = ["SELECT mission_id FROM statistik WHERE mission_id = '" + str(OurA_missionID) + "'"] call OurA_fnc_transferSQLRequestToDataBase;
 
-if !(_result find str(OurA_missionID)) then {
+if ((_result find str(OurA_missionID)) < 0) then {
 	_result = ["INSERT INTO statistik (runde, mission_id, operation, partei, gebiet, start, sieger, zeit_soll, zeit_ist, sitemission, ger_verloren, inf_verloren, spieler_stats, treibstoff, wetter) VALUES (" + _parameter + ")"] call FUNC(transferSQLRequestToDataBase);
 	CHECK_DB_RESULT(_result)
 };
