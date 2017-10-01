@@ -26,6 +26,7 @@ GVAR(resistanceUnits) = [];
 
 if(isServer) then {
 	GVAR(timeLimit) = 3600;
+	GVAR(round) = 1;
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];
