@@ -86,6 +86,8 @@ if (!isNil QGVAR(markerBorderWar)) then {
 
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
 
+diag_log (isNil {player});
+
 [
 	{
 		diag_log "Fired Eventhandler added!";
@@ -107,7 +109,7 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		];
 	},
 	[],
-	1
+	10
 ] call CBA_fnc_waitAndExecute;
 
 nil;

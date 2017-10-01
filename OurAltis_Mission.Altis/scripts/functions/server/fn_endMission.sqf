@@ -101,7 +101,7 @@ diag_log "Transmitting vehicles...";
 [
 	{
 		// end mission on Server
-		["serverEnd", false, false, false] call BIS_fnc_endMission;
+		//["serverEnd", false, false, false] call BIS_fnc_endMission;
 	
 		nil
 	},
