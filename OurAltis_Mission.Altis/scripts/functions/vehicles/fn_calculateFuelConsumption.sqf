@@ -22,7 +22,7 @@ private _succcess = params [
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
-diag_log ("Parameter: " + str(_this))
+diag_log ("Parameter: " + str(_this));
 
 _args params ["_vehicle"];
 
