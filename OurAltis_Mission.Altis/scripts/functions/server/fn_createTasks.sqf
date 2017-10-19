@@ -115,6 +115,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"meet",
 			false
 		] call BIS_fnc_taskCreate;
+		
+		GVAR(taskState) set [0, 1];
 	}; 
 
 	if (!isNil QGVAR(markerEco)) then {
@@ -149,6 +151,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"destroy",
 			false
 		] call BIS_fnc_taskCreate;
+		
+		GVAR(taskState) set [1, str(GVAR(defenderSide))];
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {
@@ -168,7 +172,9 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			false,
 			"search",
 			false
-		] call BIS_fnc_taskCreate;		
+		] call BIS_fnc_taskCreate;
+
+		GVAR(taskState) set [2, 1];
 	};
 };
 

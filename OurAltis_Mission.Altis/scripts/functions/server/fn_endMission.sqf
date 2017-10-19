@@ -52,7 +52,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		if !(["ecoDefender"] call BIS_fnc_taskCompleted) then {
 			if !(["ecoAttacker"] call BIS_fnc_taskCompleted) then {
 				["ecoDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-				["ecoAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+				["ecoAttacker", "FAILED"] spawn BIS_fnc_taskSetState;				
 			};
 		};
 	};
@@ -63,6 +63,8 @@ if (["resistance"] call BIS_fnc_taskExists) then {
 		["resistance", "FAILED"] spawn BIS_fnc_taskSetState;
 	};
 };
+
+[GVAR(taskState)] call FUNC(reportStatusSideMissions);
 
 [
 	SEND_STATISTIC,

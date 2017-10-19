@@ -84,6 +84,7 @@ diag_log _positionBase;
 						if (({alive _x} count GVAR(resistanceUnits)) isEqualTo 0) then {
 							[] call FUNC(reportDefeatResistance);
 							["resistance", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+							GVAR(taskState) set [2, if (GVAR(resist) isEqualTo "west") then {"ost"} else {"west"}];
 						} else {
 							[side (group _killer), VALUE_RESIST] call FUNC(reportDeadCivilian);
 						};

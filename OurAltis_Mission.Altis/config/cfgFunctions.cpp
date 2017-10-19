@@ -57,6 +57,7 @@ class CfgFunctions
 			class createDBEntryStatistic {};
 			class watchTimelimit {};
 			class reportVehicleStatistic {};
+			class reportStatusSideMissions {};
 		};
 		
 		class database

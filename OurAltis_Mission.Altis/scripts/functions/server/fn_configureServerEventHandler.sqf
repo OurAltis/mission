@@ -43,6 +43,7 @@ addMissionEventHandler [
 					[_oldObj] call FUNC(reportEconomyStatus);
 					["ecoAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 					["ecoDefender", "FAILED"] spawn BIS_fnc_taskSetState;
+					GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"}];
 				};				
 			} else {
 				_newObj setVariable [IS_ECONOMY_BUILDING, true];
