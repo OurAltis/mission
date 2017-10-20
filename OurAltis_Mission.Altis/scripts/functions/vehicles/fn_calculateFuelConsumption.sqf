@@ -5,10 +5,11 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Calculates fuel consuption of givin vehicle.
+ * Calculates fuel consuption of given vehicle.
  * 
  * Parameter(s):
- * None <Any>
+ * 0: Array containing the respective vehicle <Array>
+ * 1: The ID of the corresponding perframe-Handler <Number>
  * 
  * Return Value:
  * None <Any>
