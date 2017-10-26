@@ -152,7 +152,18 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			false
 		] call BIS_fnc_taskCreate;
 		
-		GVAR(taskState) set [1, str(GVAR(defenderSide))];
+		if (GVAR(economy) isEqualTo "barracks") then {
+			GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+		};
+		
+		if (GVAR(economy) isEqualTo "factory") then {
+			GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+		};
+		
+		if (GVAR(economy) isEqualTo "hangar") then {
+			GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+		};
+		
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {
@@ -174,7 +185,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			false
 		] call BIS_fnc_taskCreate;
 
-		GVAR(taskState) set [2, 1];
+		GVAR(taskState) set [4, 1];
 	};
 };
 
