@@ -103,6 +103,7 @@ diag_log "Transmitting vehicles...";
 } count vehicles;
 
 [] call FUNC(reportVehicleStatistic);
+[] call FUNC(reportMissionDuration);
 
 [
 	{

@@ -35,6 +35,7 @@ private _result = if (alive _vehicle) then {
 } else {
 	// report status to the DB if vehicle is destroyed
 	["UPDATE armeen SET bestand = '0' WHERE id = '" + _id + "'"] call FUNC(transferSQLRequestToDataBase);
+	["UPDATE armeen SET bestand = '0' WHERE id = '" + _id + "'"] call FUNC(transferSQLRequestToDataBase);	
 };
 
 CHECK_DB_RESULT(_result)

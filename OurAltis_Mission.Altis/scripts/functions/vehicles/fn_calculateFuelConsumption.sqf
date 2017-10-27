@@ -23,8 +23,6 @@ private _succcess = params [
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
-diag_log ("Parameter: " + str(_this));
-
 _args params ["_vehicle"];
 
 if (!alive _vehicle) exitWith {[_handlerID] call CBA_fnc_removePerFrameHandler};

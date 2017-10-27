@@ -144,7 +144,8 @@ private _baseVehicleList = [west, [], east, []];
 								(_this select 0) setDamage 1;
 								
 								// report destroyed vehicle to the DB immediately
-								[_this select 0] call FUNC(reportVehicleStatus);							
+								[_this select 0] call FUNC(reportVehicleStatus);
+								[_this select 0] call FUNC(reportDestroyedVehicleStatistic);
 							};
 							
 							if (hasInterface) then {

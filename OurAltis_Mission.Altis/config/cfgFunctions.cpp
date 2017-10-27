@@ -58,6 +58,8 @@ class CfgFunctions
 			class watchTimelimit {};
 			class reportVehicleStatistic {};
 			class reportStatusSideMissions {};
+			class reportMissionDuration {};
+			class reportDestroyedVehicleStatistic {};
 		};
 		
 		class database
