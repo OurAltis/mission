@@ -24,7 +24,7 @@ CHECK_TRUE(_success, Invalid parameter!, {})
 
 private _damage = getAllHitPointsDamage _vehicle;
 private _fuel = floor ((fuel _vehicle) * 100);
-private _id = _vehicle getVariable [VEHICLE_ID, nil];
+private _id = (_vehicle getVariable [VEHICLE_ID, nil]) select [3];
 private _ammo = magazinesAllTurrets _vehicle;
 
 CHECK_FALSE(isNil "_id", No vehicle ID given!, {})
