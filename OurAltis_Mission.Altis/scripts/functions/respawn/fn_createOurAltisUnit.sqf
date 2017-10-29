@@ -57,6 +57,13 @@ _newPlayerUnit addMPEventHandler [
 		if(_classCode >= 0) then {
 			// fire event that the respectiev unit has died
 			[UNIT_DIED, [clientOwner, _classCode, _base]] call FUNC(fireEvent);
+			
+			//count dead units for each side
+			if (side (group (_this select 0)) isEqualTo west) then {
+				GVAR(deadUnits) set [0, (GVAR(deadUnits) select 0) + 1];
+			} else {
+				GVAR(deadUnits) set [1, (GVAR(deadUnits) select 0) + 1];
+			};
 		};
 		
 		nil;

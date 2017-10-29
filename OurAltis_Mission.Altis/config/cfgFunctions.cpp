@@ -60,6 +60,7 @@ class CfgFunctions
 			class reportStatusSideMissions {};
 			class reportMissionDuration {};
 			class reportDestroyedVehicleStatistic {};
+			class reportDeadUnitStatistic {};
 		};
 		
 		class database
