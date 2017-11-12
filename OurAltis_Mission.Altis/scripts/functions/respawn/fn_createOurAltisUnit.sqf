@@ -56,7 +56,11 @@ _newPlayerUnit addMPEventHandler [
 		
 		if(_classCode >= 0) then {
 			// fire event that the respectiev unit has died
-			[UNIT_DIED, [clientOwner, _classCode, _base]] call FUNC(fireEvent);
+			[UNIT_DIED, [clientOwner, _classCode, _base]] call FUNC(fireEvent);			
+			
+			// dynamic groups
+			(_this select 0) setVariable [QGVAR(group), group (_this select 0)];
+			(_this select 0) setVariable [QGVAR(leader), leader (_this select 0)];			
 			
 			//count dead units for each side
 			if (side (group (_this select 0)) isEqualTo west) then {

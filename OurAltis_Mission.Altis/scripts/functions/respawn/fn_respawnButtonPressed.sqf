@@ -152,14 +152,19 @@ with uiNamespace do {
 			}
 		];
 		
-		/*
-		if (leader _oldPlayer isEqualTo _oldPlayer) then {
-			["SwitchLeader", [_group, _newPlayer]] call BIS_fnc_dynamicGroups;
+		private _group = _oldPlayer getVariable [QGVAR(group), grpNull];
+		private _leader = _oldPlayer getVariable [QGVAR(leader), objNull];
+		
+		if !(_group isEqualTo grpNull) then {
+			["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;			
 		};	
 		
-		*/
+		if (_leader isEqualTo _oldPlayer) then {
+			["SwitchLeader", [_group, _newPlayer]] call BIS_fnc_dynamicGroups;	
+		};
+		
 		//["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;
-		[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
+		//[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		//[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
 		
