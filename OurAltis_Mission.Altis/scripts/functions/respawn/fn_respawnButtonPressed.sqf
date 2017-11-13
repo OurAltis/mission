@@ -153,7 +153,9 @@ with uiNamespace do {
 		];
 		
 		private _group = _oldPlayer getVariable [QGVAR(group), grpNull];
+		diag_log _group;
 		private _leader = _oldPlayer getVariable [QGVAR(leader), objNull];
+		diag_log _leader;
 		
 		if !(_group isEqualTo grpNull) then {
 			["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;			

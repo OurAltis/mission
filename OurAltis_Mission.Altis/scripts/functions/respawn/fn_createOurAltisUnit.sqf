@@ -60,7 +60,10 @@ _newPlayerUnit addMPEventHandler [
 			
 			// dynamic groups
 			(_this select 0) setVariable [QGVAR(group), group (_this select 0)];
-			(_this select 0) setVariable [QGVAR(leader), leader (_this select 0)];			
+			diag_log (group (_this select 0));
+			
+			(_this select 0) setVariable [QGVAR(leader), leader (_this select 0)];	
+			diag_log (leader (_this select 0));
 			
 			//count dead units for each side
 			if (side (group (_this select 0)) isEqualTo west) then {
