@@ -20,7 +20,6 @@ CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 private _attacker = if (GVAR(defenderSide) isEqualTo east) then {"west"} else {"ost"};
 private _time = str(date select 3) + ":" + str(date select 4);
 private _parameter = "'" + str(GVAR(round)) + "','" + str(GVAR(MissionID)) + "','" + GVAR(OperationName) + "','" + _attacker + "','" + GVAR(targetAreaName) + "','" + _time + "','','" + str(GVAR(timeLimit)) + "','','','','','','','" + str(GVAR(weather)) + "'";
-diag_log _parameter;
 
 private _result = ["SELECT mission_id FROM statistik WHERE mission_id = '" + str(OurA_missionID) + "'"] call OurA_fnc_transferSQLRequestToDataBase;
 

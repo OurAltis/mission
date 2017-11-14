@@ -61,6 +61,7 @@ class CfgFunctions
 			class reportMissionDuration {};
 			class reportDestroyedVehicleStatistic {};
 			class reportDeadUnitStatistic {};
+			class reportIncident {};
 		};
 		
 		class database

@@ -21,11 +21,12 @@ _parameters = [
 	["ON_UNIT_SPAWNED_CALLBACK", {
 			(_this select 0) addMPEventHandler [
 				"MPKilled", {
-					params ["_unit", "_killer"];
+					params ["_unit", "_killer", "_instigator"];
 					
 					if (isServer) then {
 						if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Civilian unit not counted!)};
 						[side (group _killer), VALUE_CIV] call FUNC(reportDeadCivilian);
+						["col", _instigator, _killer] call FUNC(reportIncident);
 					};
 					
 					if (hasInterface) then {
