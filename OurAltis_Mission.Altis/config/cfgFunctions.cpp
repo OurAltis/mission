@@ -27,6 +27,7 @@ class CfgFunctions
 			class synchronizeBaseList {};
 			class workWithBaseList {};
 			class workWithInfantryList {};
+			class addTeamSwitchDisplayEH {};
 		};
 		
 		class server

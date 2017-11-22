@@ -8,7 +8,8 @@
  * Creates db entry with a incident
  * 
  * Parameter(s):
- * None <Any>
+ * 0: Incident <String>
+ * 1:
  * 
  * Return Value:
  * None <Any>
@@ -17,8 +18,8 @@
  
 private _success = params [	
 	["_sortOfIncident", "", [""]],
-	["_person", objNull, [objNull]],
-	["_weapon", objNull, [objNull]]
+	["_person", "", [objNull, ""]],
+	["_weapon", "", [objNull, ""]]
 ];
 
 private _side = if (_sortOfIncident isEqualTo "ecoDes") then {
