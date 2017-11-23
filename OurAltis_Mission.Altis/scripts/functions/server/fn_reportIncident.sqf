@@ -40,7 +40,11 @@ private _bau = switch (GVAR(economy)) do {
 	case "hangar": {"han"};
 };
 
-_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _side + "','" + GVAR(targetAreaName) + "','" + _sortOfIncident + "','" + _bau + "','" + str(_person) + "','" + str(_weapon) + "')"] call FUNC(transferSQLRequestToDataBase);
+if (_weapon isEqualType objNull) then {
+	_weapon = name _weapon;
+};
+
+_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _side + "','" + GVAR(targetAreaName) + "','" + _sortOfIncident + "','" + _bau + "','" + (name _person) + "','" + _weapon + "')"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil;

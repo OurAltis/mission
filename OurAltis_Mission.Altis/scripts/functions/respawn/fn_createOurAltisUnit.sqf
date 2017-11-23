@@ -48,11 +48,8 @@ _newPlayerUnit addMPEventHandler [
 	"MPKilled",
 	{	
 		if(!isServer) exitWith {
-			//for tests with group manager
-			diag_log "UnitKilled";
-			diag_log (group (_this select 0));
-			(_this select 0) setVariable [QGVAR(group), group (_this select 0)];
-			diag_log (leader (_this select 0));
+			// save group and leader status			
+			(_this select 0) setVariable [QGVAR(group), group (_this select 0)];			
 			(_this select 0) setVariable [QGVAR(leader), if (leader (_this select 0) isEqualTo (_this select 0)) then {true} else {false}];
 		}; // execute only on server
 		

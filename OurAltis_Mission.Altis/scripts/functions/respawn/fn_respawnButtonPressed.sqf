@@ -153,27 +153,11 @@ with uiNamespace do {
 		];
 				
 		private _group = _oldPlayer getVariable [QGVAR(group), grpNull];
-		diag_log "respawnButtonPressed";
-		diag_log _group;
 		private _leader = _oldPlayer getVariable [QGVAR(leader), false];
-		diag_log "respawnButtonPressed";
-		diag_log _leader;
-		
-		[_group, _leader, _newPlayer, _oldPlayer] remoteExecCall [QFUNC(switchGroupAndLeader), 2];
-		
-		/*
-		if !(_group isEqualTo grpNull) then {
-			["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;			
-		};	
-		
-		if (_leader) then {
-			["SwitchLeader", [_group, _newPlayer]] call BIS_fnc_dynamicGroups;
-		};
-		*/
-		
-		//[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
+				
+		[_group, _leader,  _newPlayer, _oldPlayer] remoteExecCall [QFUNC(switchGroupAndLeader), 2];
+				
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
-		//[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group
 		
 		// workaround for created player unit because they don't get the tasks
 		private _tasks = [_oldPlayer] call BIS_fnc_tasksUnit; 
