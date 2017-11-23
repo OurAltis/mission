@@ -14,6 +14,7 @@ class CfgFunctions
 			class getBaseSide {};
 			class getBaseDir {};
 			class createFOB {};
+			class adjustBuildingsToMap {};
 		};
 		
 		class client

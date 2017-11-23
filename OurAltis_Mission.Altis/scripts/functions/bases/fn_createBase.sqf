@@ -30,6 +30,11 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", "base" + str(_baseType)]);
+
+if (worldName isEqualTo "Tanoa") then {
+	_objsArray = [_objsArray] call FUNC(adjustBuildingsToMap);
+};
+
 GVAR(flagPolesBase) = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
 {

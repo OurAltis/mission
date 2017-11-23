@@ -56,8 +56,6 @@
 	["Land_HBarrier_Big_F",[-18.2058,-36.8398,0],0.135727,"","",true,true,0], 
 	["Land_HBarrier_Big_F",[31.0461,35.3691,0],180,"","",true,true,0], 
 	["Land_HBarrier_Big_F",[-5.49097,35.1191,0],180,"","",true,true,0], 
-	["Land_HBarrier_1_F",[19.9895,20.209,0],90,"","",true,false,0], 
-	["Land_HBarrier_1_F",[8.27466,20.1094,0],90,"","",true,false,0], 
 	["Land_HelipadCircle_F",[30.3665,19.0078,0],0,"","",true,false,0], 
 	["Land_HelipadCircle_F",[-5.17065,21.498,0],58.8293,"","",true,false,0], 
 	["Land_HelipadCircle_F",[-22.4558,21.9863,0],56.3511,"","",true,false,0], 
