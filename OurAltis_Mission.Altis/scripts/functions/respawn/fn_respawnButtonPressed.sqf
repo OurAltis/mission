@@ -151,12 +151,17 @@ with uiNamespace do {
 				};				
 			}
 		];
-		
+				
 		private _group = _oldPlayer getVariable [QGVAR(group), grpNull];
+		diag_log "respawnButtonPressed";
 		diag_log _group;
 		private _leader = _oldPlayer getVariable [QGVAR(leader), false];
+		diag_log "respawnButtonPressed";
 		diag_log _leader;
 		
+		[_group, _leader] remoteExecCall [QFUNC(switchGroupAndLeader), 2];
+		
+		/*
 		if !(_group isEqualTo grpNull) then {
 			["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;			
 		};	
@@ -164,8 +169,8 @@ with uiNamespace do {
 		if (_leader) then {
 			["SwitchLeader", [_group, _newPlayer]] call BIS_fnc_dynamicGroups;
 		};
+		*/
 		
-		//["RemoveGroupMember", [_group, _oldPlayer]] call BIS_fnc_dynamicGroups;
 		//[_oldPlayer] joinSilent grpNull; // remove dead unit from player's group
 		_oldPlayer setDamage 1; // Make sure that the old player unit is dead
 		//[_oldPlayer] joinSilent RGVAR(DeadGroup); // remove dead unit from player's group

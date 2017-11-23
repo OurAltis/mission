@@ -63,6 +63,7 @@ class CfgFunctions
 			class reportDestroyedVehicleStatistic {};
 			class reportDeadUnitStatistic {};
 			class reportIncident {};
+			class switchGroupAndLeader {};
 		};
 		
 		class database

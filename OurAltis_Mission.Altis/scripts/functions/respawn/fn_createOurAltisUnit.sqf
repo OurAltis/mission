@@ -49,6 +49,7 @@ _newPlayerUnit addMPEventHandler [
 	{	
 		if(!isServer) exitWith {
 			//for tests with group manager
+			diag_log "UnitKilled";
 			diag_log (group (_this select 0));
 			diag_log (leader (_this select 0));
 		}; // execute only on server
