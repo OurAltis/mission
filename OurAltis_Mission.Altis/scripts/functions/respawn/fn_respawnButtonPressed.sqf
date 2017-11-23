@@ -159,7 +159,7 @@ with uiNamespace do {
 		diag_log "respawnButtonPressed";
 		diag_log _leader;
 		
-		[_group, _leader] remoteExecCall [QFUNC(switchGroupAndLeader), 2];
+		[_group, _leader, _newPlayer, _oldPlayer] remoteExecCall [QFUNC(switchGroupAndLeader), 2];
 		
 		/*
 		if !(_group isEqualTo grpNull) then {

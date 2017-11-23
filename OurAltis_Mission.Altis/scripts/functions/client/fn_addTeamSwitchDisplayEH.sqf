@@ -32,8 +32,12 @@ GVAR(teamSwitchDEH) = (findDisplay 46) displayAddEventHandler[
 							},
 							{
 								if (alive player) then {
-									player setVariable [QGVAR(group), group player];
-									player setVariable [QGVAR(leader), if (leader player isEqualTo player) then {true} else {false}];
+									//player setVariable [QGVAR(group), group player];
+									diag_log "Menu Closed";
+									diag_log (group player);
+									//player setVariable [QGVAR(leader), if (leader player isEqualTo player) then {true} else {false}];
+									diag_log "Menu Closed";
+									diag_log (leader player);
 								};
 								
 								GVAR(TSButtonPressed) = false;
