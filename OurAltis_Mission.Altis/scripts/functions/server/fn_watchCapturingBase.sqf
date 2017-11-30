@@ -25,8 +25,8 @@ CHECK_TRUE(_succcess, Invalid parameters!, {})
 private _objects = _args select 0;
 private	_flagpoles = _objects select 0;
 private _index = _args select 1;
-private _westUnits = {(side group _x) isEqualTo west && (vehicle _x) isEqualTo _x} count (allUnits inAreaArray "marker_base");
-private _eastUnits = {(side group _x) isEqualTo east && (vehicle _x) isEqualTo _x} count (allUnits inAreaArray "marker_base");
+private _westUnits = {(side group _x) isEqualTo west && (vehicle _x) isEqualTo _x} count (allUnits inAreaArray GVAR(markerBase));
+private _eastUnits = {(side group _x) isEqualTo east && (vehicle _x) isEqualTo _x} count (allUnits inAreaArray GVAR(markerBase));
 private _flagPosition = flagAnimationPhase _flagPoles;
 private _flagTextureWest = toLower "A3\Data_F\Flags\Flag_nato_CO.paa";
 private _flagTextureEast = toLower "A3\Data_F\Flags\Flag_CSAT_CO.paa";

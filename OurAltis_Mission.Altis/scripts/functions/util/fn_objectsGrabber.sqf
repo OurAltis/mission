@@ -24,6 +24,8 @@ params [
 	["_refObj", "", [""]]
 ];
 
+diag_log _this;
+
 private ["_br", "_tab", "_outputText", "_refPos"];
 
 _br = toString [13, 10];
@@ -37,25 +39,32 @@ _outputText = _outputText + "[" + _br;
 
 _refPos = {
 	private _name = (_x get3DENAttribute "name") select 0;
+	diag_log _name;
 	if (_name isEqualTo _refObj) exitWith {_x get3DENAttribute "position"};
 } count _objects;
 
-{
-	private ["_type", "_objPos", "_dX", "_dY", "_z", "_azimuth", "_varName", "_init", "_simulation", "_outputArray", "_isSimpleObject", "_lockState"];	
+{	
+	private ["_type", "_objPos", "_dX", "_dY", "_z", "_azimuth", "_varName", "_init", "_simulation", "_outputArray", "_isSimpleObject", "_lockState", "_size", "_isRectangle"];	
 
-	_type = typeOf _x;
-	_objPos = _x get3DENAttribute "position";
+	_type = typeOf _x;	
+	_objPos = _x get3DENAttribute "position";	
 	_dX = ((_objPos select 0) select 0) - ((_refPos select 0) select 0);
 	_dY = ((_objPos select 0) select 1) - ((_refPos select 0) select 1);
-	_z = if (abs ((_objPos select 0) select 2) < 0.01) then {0} else {(_objPos select 0) select 2};
-	_azimuth = if (((_x get3DENAttribute "rotation") select 0) select 2 < 0.01) then {0} else {((_x get3DENAttribute "rotation") select 0) select 2};
+	_z = if (abs ((_objPos select 0) select 2) < 0.01) then {0} else {(_objPos select 0) select 2};	
+	_azimuth = if ((_type find "EmptyDetector") > -1) then {
+		if (((_x get3DENAttribute "rotation") select 0) < 0.01) then {0} else {(_x get3DENAttribute "rotation") select 0};
+	} else {
+		if (((_x get3DENAttribute "rotation") select 0) select 2 < 0.01) then {0} else {((_x get3DENAttribute "rotation") select 0) select 2};
+	};
 	_varName = if (((_x get3DENAttribute "name") select 0) isEqualTo _refObj) then {""} else {(_x get3DENAttribute "name") select 0};
 	_init = (_x get3DENAttribute "init") select 0;
-	_simulation = (_x get3DENAttribute "enableSimulation") select 0;
-	_isSimpleObject = (_x get3DENAttribute "objectIsSimple") select 0;
+	_simulation = if ((_type find "EmptyDetector") > -1) then {false} else {(_x get3DENAttribute "enableSimulation") select 0};	
+	_isSimpleObject = if ((_type find "EmptyDetector") > -1) then {false} else {(_x get3DENAttribute "objectIsSimple") select 0};
 	_lockState = if (_x isKindOf "AllVehicles") then {(_x get3DENAttribute "lock") select 0} else {0};
+	_size = if ((_type find "EmptyDetector") > -1) then {(_x get3DENAttribute "size3") select 0} else {[]};
+	_isRectangle = if ((_type find "EmptyDetector") > -1) then {(_x get3DENAttribute "IsRectangle") select 0} else {false};
 	
-	_outputArray = [_type, [_dX, _dY, _z], _azimuth, _varName, _init, _simulation, _isSimpleObject, _lockState];
+	_outputArray = [_type, [_dX, _dY, _z], _azimuth, _varName, _init, _simulation, _isSimpleObject, _lockState, _size, _isRectangle];
 	_outputText = _outputText + _tab + (str _outputArray);
 	_outputText = if (_forEachIndex < ((count _objects) - 1)) then {_outputText + ", " + _br} else {_outputText + _br};
 

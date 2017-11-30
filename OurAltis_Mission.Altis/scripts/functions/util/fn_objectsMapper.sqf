@@ -13,7 +13,7 @@
 	3: classname of object which will be returned - <Array>
 
 	Returns:
-	Special object (Object)
+	Special objects (Array) (last element is always the marker)
 */
 
 params [
@@ -25,13 +25,6 @@ params [
 
 //Make sure there are definitions in the final object array
 if ((count _objs) == 0) exitWith {debugLog "Log: [OurA_fnc_objectMapper] No elements in the object composition array!"; []};
-
-_terrainObjects = nearestTerrainObjects [_pos, [], 60, false, true];
-
-{
-	hideObjectGlobal _x;	
-	nil
-} count _terrainObjects; 
 
 private _posX = _pos select 0;
 private _posY = _pos select 1;
@@ -49,6 +42,58 @@ private _multiplyMatrixFunc = {
 	_result
 };
 
+//Rotate the relative position using a rotation matrix
+private _rotMatrix = [
+	[cos _azi, sin _azi],
+	[-(sin _azi), cos _azi]
+];
+
+private _marker = "";
+
+{
+	_x params [
+		["_type", "", [""]],
+		["_relPos", [], [[]]],
+		["_azimuth", 0, [0]],
+		["_varName", "", [""]],
+		["_init", "", [""]],
+		["_size", [], [false, []]],
+		["_isSimpleObject", false, [false]],
+		["_lockState", 0, [0]],
+		["_size", [], [[]]],
+		["_isRectangle", false, [true]]
+	];	
+	
+	if ((_type find "EmptyDetector") > -1) then {		
+		if ((_varName find "FOB") > -1) then {
+			private _count = {
+				_x find (_varName select (_varName find "FOB"))
+			} count allMapMarkers;
+			
+			_varName = (_varName select (_varName find "FOB")) + (if (_count isEqualTo 0) then {"1"} else {str(_count + 1)}); 
+		};
+		
+		private _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
+		
+		_marker = createMarker [_varName , [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1)]];
+		_marker setMarkerShape (if (_isRectangle) then {"RECTANGLE"} else {"ELLIPSE"});
+		_marker setMarkerSize [_size select 0, _size select 1];
+		_marker setMarkerDir (_azi + _azimuth);
+		_marker setMarkerColor "ColorRed";
+		
+		_terrainObjects = nearestTerrainObjects [[_posX + (_newRelPos select 0), _posY + (_newRelPos select 1)], [], if ((_size select 0) >= (_size select 1)) then {_size select 0} else {_size select 1}, false, true];
+
+		{
+			if (_x inArea _marker) then {hideObjectGlobal _x};
+			nil
+		} count _terrainObjects;		
+
+		_objs resize ((count _objs) - 1);		
+	};
+	
+	nil
+} count _objs;
+
 private _cObjs = [];
 private _return = [];
 
@@ -61,13 +106,9 @@ private _return = [];
 		["_init", "", [""]],
 		["_simulation", true, [false]],
 		["_isSimpleObject", false, [false]],
-		["_lockState", 0, [0]]
-	];	
-	
-	//Rotate the relative position using a rotation matrix
-	private _rotMatrix = [
-		[cos _azi, sin _azi],
-		[-(sin _azi), cos _azi]
+		["_lockState", 0, [0]],
+		["_size", [], [[]]],
+		["_isRectangle", false, [true]]
 	];
 	
 	private _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
@@ -105,5 +146,7 @@ private _return = [];
 {
 	_x allowDamage true;
 } count _cObjs;
+
+_return pushBack _marker;
 
 _return

@@ -33,7 +33,7 @@ GVAR(markerNoCiv) = [];
 	
 	if(_isCamp) then {
 		// create a camp
-		[_position, _side, _id] call FUNC(createCamp);
+		[_position, _side, _id, _baseDir] call FUNC(createCamp);
 	} else {
 		// create a base
 		[_position, _side, _id, _baseType, _baseDir] call FUNC(createBase);

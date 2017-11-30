@@ -154,7 +154,7 @@ class CfgFunctions
 			class showPauseMenu {};
 			class unhideMarkerByPrefix {};
 			class unhideUserMapMarker {};
-			class getFlagTexture {};
+			class setFlagTexture {};
 			class createAddAction {};
 			class checkFOBPosition {};
 		};

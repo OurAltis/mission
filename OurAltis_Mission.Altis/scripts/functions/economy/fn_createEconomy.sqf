@@ -31,10 +31,7 @@ private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\co
 
 _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-{
-	_x setFlagTexture ([GVAR(defenderSide)] call FUNC(getFlagTexture));
-	nil	
-} count _objsArray;
+[GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture));
 
 _objsArray = nearestObjects [_position, ["house"], 90];
 
