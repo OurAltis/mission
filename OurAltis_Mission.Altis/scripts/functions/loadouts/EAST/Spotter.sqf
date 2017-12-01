@@ -30,6 +30,6 @@ comment "Add items";
 _this linkItem "ItemMap";
 _this linkItem "ItemCompass";
 _this linkItem "ItemWatch";
-_this linkItem "TFAR_fadak";
+_this linkItem "tf_fadak";
 _this linkItem "NVGoggles";
 _this linkItem "ItemGPS";

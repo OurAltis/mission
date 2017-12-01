@@ -29,7 +29,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
 _objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-[_side, _objsArray] call FUNC(setFlagTexture));
+[_side, _objsArray] call FUNC(setFlagTexture);
 
 private _marker = _objsArray select ((count _objsArray) - 1);
 private _size = getMarkerSize _marker;

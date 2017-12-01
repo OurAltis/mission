@@ -84,6 +84,7 @@ class CfgFunctions
 			};
 			
 			class initializeGenericMissionPart {};
+			class configureTFAR {};
 		};
 		
 		class loadouts {
@@ -183,13 +184,6 @@ class CfgFunctions
 			class createVehicles {};
 			class createAmbientVehicles {};
 			class calculateFuelConsumption {};
-		};
-		
-		class dev
-		{
-			file = FUNC_PATH(dev);
-			
-			class createHelipads {};
 		};
 		
 		class economy

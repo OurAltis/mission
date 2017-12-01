@@ -19,6 +19,10 @@
 
 GVAR(spySound) = ["wasting", "ugly", "talkToMe", "suck", "sob", "rip", "getSome", "gameOver", "difference", "bubblegum", "birthControle", "beYou"];
 
+#ifdef TFAR
+	[] call FUNC(configureTFAR);
+#endif
+
 if (isServer) then {
 	// [west, ost]
 	GVAR(fuelConsumption) = [0, 0];
@@ -29,7 +33,7 @@ if (isServer) then {
 	GVAR(nameFOB) = [[], []];
 	
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
-		[] call FUNC(createBorderWar);		
+		[] call FUNC(createBorderWar);
 	} else {	
 		// Sets up a checking framework that repeatedly checks whether there are units in the base	
 		GVAR(isFlagCaptured) = [GVAR(defenderSide)];
@@ -148,6 +152,8 @@ if (hasInterface) then {
 					!isNil QPGVAR(SERVER_INITIALIZED) && {PGVAR(SERVER_INITIALIZED) && !PGVAR(BASES_CHANGED)}
 				},
 				{
+					hint "Starting...";
+					
 					// Check for error messages
 					if(count PGVAR(SERVER_ERRORS) != 0) then {
 						// Display error messages to the user
@@ -166,7 +172,5 @@ if (hasInterface) then {
 		}
 	] call CBA_fnc_waitUntilAndExecute;
 };
-
-diag_log ("Ending time: " + str diag_tickTime);
 
 nil;

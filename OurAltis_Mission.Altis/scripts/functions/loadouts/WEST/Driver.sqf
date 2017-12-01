@@ -31,5 +31,5 @@ comment "Add items";
 _this linkItem "ItemMap";
 _this linkItem "ItemCompass";
 _this linkItem "ItemWatch";
-_this linkItem "TFAR_anprc152";
+_this linkItem "tf_anprc152";
 _this linkItem "ItemGPS";

@@ -37,7 +37,7 @@ if (worldName isEqualTo "Tanoa") then {
 
 _objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-GVAR(flagPolesBase) = [GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture));
+GVAR(flagPolesBase) = [GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture);
 
 private _marker = _objsArray select ((count _objsArray) - 1);
 private _size = getMarkerSize _marker;

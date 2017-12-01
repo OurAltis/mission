@@ -1,3 +1,4 @@
+#include "config\settings.hpp"
 /*
  * Defines all necessary macros used within the mission
  */
@@ -9,8 +10,6 @@
  #define VERSION MAJOR.MINOR.BUILD
  #define QVERSION QUOTE(VERSION)
  
- // indicate that developer mode is on
- #define DEBUG true
  #define SHOW_ONSCREEN_NOTIFICATIONS true
  
  
@@ -50,7 +49,6 @@
  	#define FUNCTIONS_RECOMPILE
  	#define DEBUG_LOG(msg)
  	#define DEBUG_EXEC(code)
- 	#define DEBUG false
  #endif
  
  // Logging

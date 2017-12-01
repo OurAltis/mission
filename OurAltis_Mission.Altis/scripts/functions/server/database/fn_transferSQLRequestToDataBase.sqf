@@ -19,11 +19,14 @@ private _success = params [
 	["_sqlStatement", "", [""]]
 ];
 
-diag_log ("Using SQL: " + str _sqlStatement);
-
-CHECK_TRUE(isServer, Function can only be executed on the server!, {""})
-CHECK_TRUE(_success, Can only process sql-statements wrapped in a String!, {""})
-CHECK_TRUE(DB_INITIALIZED, Database is not yet initialized!, {""})
-
-// execute SQL and return the status returned by the extension
-DATABASE_EXT callExtension ("0:SQL:" + _sqlStatement);
+#ifdef DISABLE_DATABASE
+	// log the SQL instead of executing it
+	diag_log (QUOTE(OurAltis VERSION [Pseudo-Database]: ) + _sqlStatement);
+#else
+	CHECK_TRUE(isServer, Function can only be executed on the server!, {""})
+	CHECK_TRUE(_success, Can only process sql-statements wrapped in a String!, {""})
+	CHECK_TRUE(DB_INITIALIZED, Database is not yet initialized!, {""})
+	
+	// execute SQL and return the status returned by the extension
+	DATABASE_EXT callExtension ("0:SQL:" + _sqlStatement);
+#endif
