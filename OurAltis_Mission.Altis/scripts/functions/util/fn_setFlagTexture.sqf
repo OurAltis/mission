@@ -5,7 +5,7 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Set flag textur for givin side
+ * Set flag textur for given side
  * 
  * Parameter(s):
  * 0: Side <Side>
