@@ -8,7 +8,7 @@
  * Creates economy buildings
  * 
  * Parameter(s):
- * 0: Position <Any>
+ * 0: Position <Array>
  * 1: Type <String>
  * 2: Direction <Scalar>
  * 
@@ -30,6 +30,10 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
 
 _objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+
+// remove last entry which is a marker and not an object
+deleteMarker (_objsArray deleteAt (count _objsArray - 1));
+
 
 [GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture);
 

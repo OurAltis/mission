@@ -29,14 +29,14 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
 _objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-[_side, _objsArray] call FUNC(setFlagTexture);
-
-private _marker = _objsArray select ((count _objsArray) - 1);
+private _marker = _objsArray deleteAt ((count _objsArray) - 1);
 private _size = getMarkerSize _marker;
 private _markerDir = markerDir _marker;
 _position = getMarkerPos _marker;
 
 deleteMarker _marker;
+
+[_side, _objsArray] call FUNC(setFlagTexture);
 
 _marker = createMarker ["marker_noCiv_" + _id, _position];
 _marker setMarkerShape "RECTANGLE";
