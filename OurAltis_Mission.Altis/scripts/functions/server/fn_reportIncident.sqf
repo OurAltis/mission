@@ -16,9 +16,6 @@
  * 
  */
 
-diag_log "Incident";
-diag_log _this; 
-
 private _success = params [	
 	["_sortOfIncident", "", [""]],
 	["_person", "", [objNull, ""]],

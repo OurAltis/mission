@@ -15,8 +15,6 @@
  * 
  */
 
-diag_log ("Showing server errors: " + str PGVAR(SERVER_ERRORS));
-
 for "_i" from 0 to count PGVAR(SERVER_ERRORS) do {
 	if(_i == count PGVAR(SERVER_ERRORS)) exitWith {
 		[

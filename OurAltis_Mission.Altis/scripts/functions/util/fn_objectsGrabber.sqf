@@ -24,8 +24,6 @@ params [
 	["_refObj", "", [""]]
 ];
 
-diag_log _this;
-
 private ["_br", "_tab", "_outputText", "_refPos"];
 
 _br = toString [13, 10];
@@ -39,7 +37,7 @@ _outputText = _outputText + "[" + _br;
 
 _refPos = {
 	private _name = (_x get3DENAttribute "name") select 0;
-	diag_log _name;
+	
 	if (_name isEqualTo _refObj) exitWith {_x get3DENAttribute "position"};
 } count _objects;
 

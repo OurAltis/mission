@@ -171,9 +171,6 @@ addMissionEventHandler [
 		
 		CHECK_TRUE(_success, Invalid parameters!, {})
 		
-		diag_log "ALL_PLAYER_DEAD";
-		diag_log _this;
-		
 		private _remainingSides = [blufor, opfor, independent];
 		_remainingSides = _remainingSides - [_side];
 		
@@ -184,8 +181,6 @@ addMissionEventHandler [
 		} forEach _remainingSides;
 		
 		_allSides = _remainingSides - [objNull];
-		
-		diag_log "Ending mission because all player are dead";
 		
 		if (count _allSides == 1) then {
 			// There are only players of one side left -> end mission in their favour

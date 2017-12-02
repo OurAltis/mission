@@ -36,10 +36,6 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	private _arrayPos = if (side (group _caller) isEqualTo west) then{0} else {1};
 	private _countFOB = PGVAR(countFOB) select _arrayPos;
 	
-	diag_log _arrayPos;
-	diag_log PGVAR(countFOB);
-	diag_log _countFOB;
-	
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
 	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_FOBToManyCarsInRange"};
 	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_FOBCarNotInRange"};
@@ -59,7 +55,7 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		
 		PGVAR(countFOB) set [_arrayPos, _countFOB + 1];
 		publicVariable QPGVAR(countFOB);
-		diag_log PGVAR(countFOB);
+		
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
 		
 		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];

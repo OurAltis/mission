@@ -24,7 +24,6 @@ private _success = params [
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
-diag_log _this;
 
 private _side = if (side (group player) isEqualTo west) then {east} else {west};
 private _indexVehicleList = _vehicleList find _side;
@@ -38,7 +37,6 @@ private _infantryListNew = if ((_infantryList select 0) isEqualTo objNull) then 
 _infantryListNew append (if ((_infantryList select 1) isEqualTo objNull) then {[]} else {_infantryList select 1});
 private _indexInfantryList = _infantryListNew find _side;
 
-diag_log _infantryListNew;
 private _info = "";
 
 {

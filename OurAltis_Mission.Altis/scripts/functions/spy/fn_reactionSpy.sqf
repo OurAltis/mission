@@ -50,10 +50,8 @@ if (side (group _caller) isEqualTo _spySide) then {
 	{
 		if !(side (group _x) isEqualTo _spySide) then {_enemies set [_forEachIndex, objNull]};
 	} forEach _enemies;	
-	diag_log _enemies;
 	
 	_enemies = _enemies - [objNull];
-	diag_log _enemies;
 	
 	if ((count _enemies) <= 2) then {
 		private _grp = createGroup _spySide;

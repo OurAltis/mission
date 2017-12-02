@@ -91,8 +91,6 @@ switch(_winnerSide) do {
 // report status to the DB statistic
 ["UPDATE statistik SET sieger='" + _dataBaseWinner + "' WHERE mission_id='" + str GVAR(MissionID) + "'"] call FUNC(transferSQLRequestToDataBase);
 
-diag_log "Transmitting vehicles...";
-
 // feed back the status of the remaining vehicles
 {
 	if (! (_x getVariable [VEHICLE_ID, ""] isEqualTo "")) then {

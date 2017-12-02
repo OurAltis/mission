@@ -5,7 +5,7 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Creates the Vehicles at Bases. Note that the specified damage can either be a number ranging from 0 to 1 which will the´n be applied via setDamage. 
+ * Creates the Vehicles at Bases. Note that the specified damage can either be a number ranging from 0 to 1 which will theï¿½n be applied via setDamage. 
  * The alternative is to provide the array returned by getAllHitPointsDamage or the String representation of that array obtained via the str command. 
  * If this approach is chosen then the damage for the different HitPoints are transferred to the vehicle.
  * Note: There is n check that the given array actually suits the given vehicle!
@@ -184,6 +184,5 @@ private _baseVehicleList = [west, [], east, []];
 } count GVAR(BaseList);
 
 GVAR(Vehicles) = +_baseVehicleList;
-diag_log GVAR(Vehicles);
 
 nil

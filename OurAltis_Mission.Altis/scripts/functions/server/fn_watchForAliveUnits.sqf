@@ -15,15 +15,11 @@
  * 
  */
 
-diag_log "Starting to watch units";
-
 private _succcess = params [
 	["_side", sideUnknown, [sideUnknown]]
 ];
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
-
-diag_log ("Watched side: " + str _side);
 
 ("Started watching side" +  str _side) remoteExecCall ["hint", 0];
 
