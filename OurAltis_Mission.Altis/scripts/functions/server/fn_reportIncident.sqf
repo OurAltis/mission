@@ -44,7 +44,12 @@ if (_weapon isEqualType objNull) then {
 	_weapon = name _weapon;
 };
 
-_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _side + "','" + GVAR(targetAreaName) + "','" + _sortOfIncident + "','" + _bau + "','" + (name _person) + "','" + _weapon + "')"] call FUNC(transferSQLRequestToDataBase);
+private _name = "";
+if (typeName _person isEqualTo typeName objNull) then {
+	_name = name _person;
+};
+
+_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _side + "','" + GVAR(targetAreaName) + "','" + _sortOfIncident + "','" + _bau + "','" + _name + "','" + _weapon + "')"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil;

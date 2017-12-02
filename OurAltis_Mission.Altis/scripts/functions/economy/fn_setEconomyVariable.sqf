@@ -5,7 +5,7 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Set economy variable
+ * Decreases the counter for the respective economy type by one
  * 
  * Parameter(s):
  * 0: Type <String>

@@ -87,8 +87,6 @@ if (isServer) then {
 		[]
 	] call CBA_fnc_addPerFrameHandler;
 	
-	diag_log ("servertime: " + str(servertime));
-	
 	// give the server some time to really start the mission in order to prevent it from doing stupid stuff on its own
 	[
 		{

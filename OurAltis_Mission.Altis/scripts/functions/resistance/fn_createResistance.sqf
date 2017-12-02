@@ -54,8 +54,6 @@ private _campID = "";
 	
 _campID = selectRandom _camps;
 
-diag_log _positionBase;
-
 {
 	_x params ["_id", "_side", "_position", "_isCamp"];
 	
@@ -74,8 +72,6 @@ diag_log _positionBase;
 			
 			{
 				GVAR(resistanceUnits) pushBack _x;
-				diag_log GVAR(resistanceUnits);
-				
 				_x addEventHandler [
 					"Killed", {
 						params ["_unit", "_killer"];

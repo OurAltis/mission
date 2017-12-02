@@ -76,8 +76,6 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		
 		private _parameter = [name player, _side, GVAR(shotCount), GVAR(grenadeCount), GVAR(rocketCount)];
 		
-		diag_log ("Statistic: " + str(_parameter));
-		
 		[_parameter] remoteExecCall [QFUNC(reportPlayerStatistic), 2, false];		
 		
 		nil;
