@@ -35,7 +35,7 @@ private _side = if (_sortOfIncident isEqualTo "ecoDes") then {
 };
 
 private _bau = switch (GVAR(economy)) do {
-	case "factory": {"far"};
+	case "factory": {"ind"};
 	case "barracks": {"kas"};
 	case "hangar": {"han"};
 };
