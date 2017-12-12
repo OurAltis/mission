@@ -8,24 +8,23 @@
  * Return economy variable
  * 
  * Parameter(s):
- * 0: Type <String>
+ * 0: Index DB <Scalar>
  * 
  * Return Value:
  * Actual count <Scalar>
  * 
  */ 
-
-private _success = params [
-	["_type", "", [""]]
-];
  
+private _success = params [
+	["_index", 0, [0]]
+];
+
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-private _return = switch (_type) do {
-	case "factory": {GVAR(factoryBuildings)};
-	case "barracks": {GVAR(barracksBuildings)};
-	case "hangar": {GVAR(hangarBuildings)};
-	default {NOTIFICATION_LOG(No economy type defined!)};
-};
+private _count = {	
+	_x params ["_type", "_buildingCount", "_indexDB"];
+	
+	if (_index isEqualTo _indexDB) exitWith {_buildingCount};
+} count GVAR(economy);
 
-_return
+_count

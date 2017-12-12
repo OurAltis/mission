@@ -212,5 +212,5 @@
 	["Land_WoodenCrate_01_stack_x3_F",[-8.26025,27.0542,0],90,"","",true,false,0,[],false], 
 	["ArrowDesk_R_F",[-6.6665,-6.61963,-0.149375],0,"","",true,false,0,[],false], 
 	["Land_Cargo_House_V3_F",[22.8401,-2.19775,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[25.5879,-2.78076,0],0,"centerBase3","",false,false,0,[41,37,0],true]
+	["EmptyDetectorAreaR50",[25.5879,-2.78076,0],0,"centerBase3","",false,false,0,[45,45,0],true]
 ]

@@ -78,7 +78,7 @@ private _baseVehicleList = [west, [], east, []];
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						_obj setVariable [QGVAR(spawnPosition), position _x, true];
-						_obj setVariable [QGVAR(JIPID), str(position _x), true];						
+						_obj setVariable [QGVAR(JIPID), str(position _x), true];					
 						[_obj] remoteExecCall [QFUNC(createAddAction), -2, str(position _x)];
 					};
 					

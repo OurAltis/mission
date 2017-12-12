@@ -147,5 +147,5 @@
 	["Land_HelipadEmpty_F",[13.8748,-3.39893,0],0.0209796,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0,[],false], 
 	["Land_HelipadEmpty_F",[-20.5061,1.06787,0],168.341,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,0,[],false], 
 	["Land_HelipadEmpty_F",[-13.3821,1.13281,0],181.309,"","this setVariable [""OurA_VehicleType"", ""military_tank""];",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[-13.1611,-30.9551,0],0,"centerFactory","",false,false,0,[38,40,-1],true]
+	["EmptyDetectorAreaR50",[-13.1611,-30.9551,0],0,"centerFactory","",false,false,0,[45,45,-1],true]
 ]

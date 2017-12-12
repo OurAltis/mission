@@ -225,5 +225,5 @@
 	["Land_WoodenCrate_01_stack_x3_F",[-8.36426,27.3303,0],90,"","",true,false,0,[],false], 
 	["Land_Medevac_house_V1_F",[22.9001,-1.82788,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false,0,[],false], 
 	["Land_CampingTable_small_F",[21.751,-0.85083,0],282.328,"","",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[26.0801,-2.46582,0],0,"centerBase6","",false,false,0,[41,38,0],true]
+	["EmptyDetectorAreaR50",[26.0801,-2.46582,0],0,"centerBase6","",false,false,0,[45,45,0],true]
 ]

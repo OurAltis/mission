@@ -8,7 +8,7 @@
  * Decreases the counter for the respective economy type by one
  * 
  * Parameter(s):
- * 0: Type <String>
+ * 0: Index DB <Scalar>
  * 
  * Return Value:
  * None <Any>
@@ -16,16 +16,17 @@
  */ 
 
 private _success = params [
-	["_type", "", [""]]
+	["_index", 0, [0]]
 ];
- 
+
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-switch (_type) do {
-	case "factory": {GVAR(factoryBuildings) = GVAR(factoryBuildings) - 1};
-	case "barracks": {GVAR(barracksBuildings) = GVAR(barracksBuildings) - 1};
-	case "hangar": {GVAR(hangarBuildings) = GVAR(hangarBuildings) - 1};
-	default {NOTIFICATION_LOG(No economy type defined!)};
-};
+{
+	_x params ["_type", "_buildingCount", "_indexDB"];
+	
+	if (_index isEqualTo _indexDB) then {_x set [1, _buildingCount - 1]};
+	
+	nil
+} count GVAR(economy);
 
 nil

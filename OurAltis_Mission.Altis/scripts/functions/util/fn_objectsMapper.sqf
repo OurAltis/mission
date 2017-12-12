@@ -67,10 +67,18 @@ private _marker = "";
 	if ((_type find "EmptyDetector") > -1) then {		
 		if ((_varName find "FOB") > -1) then {
 			private _count = {
-				_x find (_varName select (_varName find "FOB"))
+				diag_log _varName;
+				private _index = _varName find "FOB";
+				diag_log _index;
+				private _string = _varName select [_index];
+				diag_log _string;
+				
+				if ((_x find _string) > -1) then {true} else {false};
 			} count allMapMarkers;
 			
-			_varName = (_varName select (_varName find "FOB")) + (if (_count isEqualTo 0) then {"1"} else {str(_count + 1)}); 
+			diag_log _count;
+			
+			_varName = (_varName select [_varName find "FOB"]) + (if (_count isEqualTo 0) then {"1"} else {str(_count + 1)}); 
 		};
 		
 		private _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;

@@ -56,6 +56,7 @@ with uiNamespace do {
 		
 		// search for nearby spawn-buildings
 		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];
+		diag_log _potentialSpawnBuildings;
 		private _spawnBuildings = [];
 		
 		{
@@ -65,6 +66,8 @@ with uiNamespace do {
 			
 			nil;
 		} count _potentialSpawnBuildings;
+		
+		diag_log _spawnBuildings;
 		
 		if (count _spawnBuildings > 0) then {
 			private _building = selectRandom _spawnBuildings;
@@ -105,7 +108,11 @@ with uiNamespace do {
 				
 				_position = selectRandom _possiblePositionsInBuilding;
 			} else {
-				_position = _building buildingPos 0;
+				if (_building getVariable [QGVAR(isFOB), false]) then {
+					_position = [getPos _building select 0, getPos _building select 1, 0];
+				} else {
+					_position = _building buildingPos 0;
+				};
 			};
 			// failsave if buildingPos fails at finding the respective position
 			if (_position isEqualTo [0, 0, 0]) then {

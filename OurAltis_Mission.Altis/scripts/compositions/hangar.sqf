@@ -103,5 +103,5 @@
 	["Land_CncBarrier_stripes_F",[5.27881,-8.25049,0],0,"","",true,false,0,[],false], 
 	["Land_TentHangar_V1_F",[-24.4663,-19.1616,0],306.296,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""hangar""];",true,false,0,[],false], 
 	["Land_TentHangar_V1_F",[-2.09375,-35.4463,0],306.296,"","this setVariable [""OurA_IsEconomyBuilding"", true]; this setVariable [""OurA_TypeOfEconomy"", ""hangar""];",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[-19.2288,-27.0508,0],0,"centerHangar","",false,false,0,[43,37,-1],true]
+	["EmptyDetectorAreaR50",[-19.2288,-27.0508,0],0,"centerHangar","",false,false,0,[45,45,-1],true]
 ]

@@ -16,25 +16,14 @@
  */
 
 private _success = params [
-	["_building", objNull, [objNull]]
+	["_indexDB", -1, [0]]
 ];
 
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 CHECK_TRUE(_success, Invalid parameter!, {})
 
-private _typeOfEconomyA3 = _building getVariable [TYPE_OF_ECONOMY, ""];
-
-private _typeOfEconomyDB = switch (_typeOfEconomyA3) do {
-	case "factory": {"ind"};
-	case "hangar": {"han"};
-	case "barracks": {"kas"};
-	default {""};
-};
-
-CHECK_FALSE(_typeOfEconomyDB isEqualTo "", No economy defined!, {})
-
 // report status to the DB
-private _result = ["UPDATE gebiete SET " + _typeOfEconomyDB + " =" + " '0'" + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
+private _result = ["UPDATE gebiete SET supply" + str(_indexDB) + "_typ =" + " '0'" + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil;

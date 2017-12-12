@@ -48,12 +48,11 @@
 	["Land_CampingChair_V2_F",[-7.07275,-4.19287,0],31.6819,"","",true,false,0,[],false], 
 	["Land_CampingChair_V2_F",[-7.82666,-5.13721,0],282.508,"","",true,false,0,[],false], 
 	["Land_CampingChair_V2_F",[-5.521,-4.07471,0],55.0167,"","",true,false,0,[],false], 
-	["Land_CampingChair_V1_F",[-7.54346,-6.62988,0],201.065,"","",true,false,0,[],false], 
-	["C_Van_01_box_F",[0,0,0],0,"","",true,false,1,[],false], 
+	["Land_CampingChair_V1_F",[-7.54346,-6.62988,0],201.065,"","",true,false,0,[],false],
 	["O_Mortar_01_F",[5.70898,-3.62793,0],88.865,"","",true,false,0,[],false], 
 	["O_HMG_01_high_F",[11.4551,-10.5815,0],137.69,"","",true,false,0,[],false], 
 	["O_HMG_01_high_F",[11.627,3.04346,0],50.744,"","",true,false,0,[],false], 
 	["O_HMG_01_high_F",[-13.0449,3.16846,0],316.419,"","",true,false,0,[],false], 
 	["O_HMG_01_high_F",[-13.439,-10.1113,0],223.929,"","",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[-0.837891,-3.43262,0],0,"centerFOBEast","",false,false,0,[15,10,-1],true]
+	["EmptyDetectorAreaR50",[-0.837891,-3.43262,0],0,"centerFOBEast","",false,false,0,[18,14,-1],true]
 ]

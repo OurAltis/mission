@@ -26,8 +26,6 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\mobileCamp%1.sqf", _side]);
 _objsArray = [position _object, getDir _object, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-_x setFlagTexture ([_side, _objsArray] call FUNC(setFlagTexture));
-
 private _index = if (_side isEqualTo west) then {0} else {1}; 
 
 private _nameFOB = if (count (GVAR(nameFOB) select _index) > 0) then {
@@ -39,7 +37,7 @@ private _nameFOB = if (count (GVAR(nameFOB) select _index) > 0) then {
 
 (GVAR(nameFOB) select _index) pushBack _nameFOB;
 
-private _marker = _objsArray select ((count _objsArray) - 1);
+private _marker = _objsArray deleteAt ((count _objsArray) - 1);
 private _size = getMarkerSize _marker;
 private _markerDir = markerDir _marker;
 private _position = getMarkerPos _marker;
@@ -52,6 +50,8 @@ _marker setMarkerSize _size;
 _marker setMarkerColor "ColorRed";
 _marker setMarkerDir _markerDir;
 _marker setMarkerAlpha 0;
+
+[_side, _objsArray] call FUNC(setFlagTexture);
 
 if (GVAR(defenderSide) != sideUnknown && _side isEqualTo GVAR(defenderSide)) then {
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};

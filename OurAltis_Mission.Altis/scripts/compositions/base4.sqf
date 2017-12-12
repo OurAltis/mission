@@ -199,5 +199,5 @@
 	["Land_WaterTank_F",[-8.52979,10.4268,0],22.757,"","",true,false,0,[],false], 
 	["Land_WoodenCrate_01_stack_x3_F",[-8.37744,27.2646,0],90,"","",true,false,0,[],false], 
 	["Land_BarGate_F",[37.1655,18.3115,0],179.037,"","",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[25.4529,-2.31885,0],0,"centerBase4","",false,false,0,[41,37,0],true]
+	["EmptyDetectorAreaR50",[25.4529,-2.31885,0],0,"centerBase4","",false,false,0,[45,45,0],true]
 ]

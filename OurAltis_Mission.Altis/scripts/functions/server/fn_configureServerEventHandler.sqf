@@ -30,36 +30,42 @@ addMissionEventHandler [
 	"BuildingChanged", {
 		params ["_oldObj", "_newObj", "_isRuin"];
 		
-		if (_oldObj getVariable [IS_ECONOMY_BUILDING, false]) then {
+		private _isEco = _oldObj getVariable [IS_ECONOMY_BUILDING, false];
+		
+		if (_isEco) then {
 			if (_isRuin) then {
 				NOTIFICATION_LOG(Economy building destroyed!)
 				
-				_type = _oldObj getVariable [TYPE_OF_ECONOMY, ""];
-				_count = [_type] call FUNC(getEconomyVariable);
+				private _indexDB = _oldObj getVariable [QGVAR(indexDB), 0];
+				private _type = _oldObj getVariable [TYPE_OF_ECONOMY, ""];
+				private _count = [_indexDB] call FUNC(getEconomyVariable);
 				
 				if (_count > 1) then {
-					[_type] call FUNC(setEconomyVariable);
-				} else {
-					[_oldObj] call FUNC(reportEconomyStatus);
-					["ecoDes", "", ""] call FUNC(reportIncident);
-					["ecoAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-					["ecoDefender", "FAILED"] spawn BIS_fnc_taskSetState;					
+					[_indexDB] call FUNC(setEconomyVariable);					
+				} else {					
+					[_indexDB] call FUNC(reportEconomyStatus);
+					["ecoDes", _type, objNull] call FUNC(reportIncident);
+					["ecoAttacker_" + str(_indexDB), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+					["ecoDefender_" + str(_indexDB), "FAILED"] spawn BIS_fnc_taskSetState;					
 					
-					if (GVAR(economy) isEqualTo "barracks") then {
-						GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"}];
+					private _sideDB = if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"};
+					
+					if (_type isEqualTo "barracks") then {
+						GVAR(taskState) set [1, _sideDB];
 					};
 					
-					if (GVAR(economy) isEqualTo "factory") then {
-						GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"}];
+					if (_type isEqualTo "factory") then {
+						GVAR(taskState) set [2, _sideDB];
 					};
 					
-					if (GVAR(economy) isEqualTo "hangar") then {
-						GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"}];
+					if (_type isEqualTo "hangar") then {
+						GVAR(taskState) set [3, _sideDB];
 					};					
 				};				
 			} else {
-				_newObj setVariable [IS_ECONOMY_BUILDING, true];
+				_newObj setVariable [IS_ECONOMY_BUILDING, _oldObj getVariable [IS_ECONOMY_BUILDING, false]];
 				_newObj setVariable [TYPE_OF_ECONOMY, _oldObj getVariable [TYPE_OF_ECONOMY, ""]];
+				_newObj setVariable [QGVAR(indexDB), _oldObj getVariable [QGVAR(indexDB), 0]];
 			};
 		};		
 		

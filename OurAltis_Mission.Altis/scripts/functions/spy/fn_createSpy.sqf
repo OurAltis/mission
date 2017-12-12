@@ -50,7 +50,6 @@ GVAR(spyUnit) addMPEventHandler [
 		params ["_unit", "_killer"];
 		
 		if (isServer) then {
-			//[] remoteExecCall ["", QGVAR(createSpyActionJip)];
 			if (side (group _killer) isEqualTo resistance || side (group _killer) isEqualTo civilian) exitWith {NOTIFICATION_LOG(Resistance unit not counted!)};
 			[side (group _killer), VALUE_CIV] call FUNC(reportDeadCivilian);
 		};

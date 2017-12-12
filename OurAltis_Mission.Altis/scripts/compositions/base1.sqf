@@ -186,5 +186,5 @@
 	["Land_Cargo20_military_green_F",[-7.76685,-25.106,0],97.658,"","",true,true,0,[],false], 
 	["Land_Cargo_House_V3_F",[22.7332,-2.06689,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false,0,[],false], 
 	["Land_Cargo_House_V3_F",[-3.35498,-30.145,0],222.052,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[25.1001,-2.93457,0],0,"centerBase1","",false,false,0,[40.056,36,0],true]
+	["EmptyDetectorAreaR50",[25.1001,-2.93457,0],0,"centerBase1","",false,false,0,[45,45,0],true]
 ]

@@ -8,26 +8,23 @@
  * Initialize economy variable
  * 
  * Parameter(s):
- * 0: Type <String>
- * 1: Count <Scalar>
+ * 0: Eco Type <String>
+ * 1: Building Count <Scalar>
+ * 2: Index DB <Scalar>
  * 
  * Return Value:
- * None <Any>
+ * Index <Scalar>
  * 
  */ 
 
 private _success = params [
-	["_type", "", [""]],
-	["_count", -1, [0]]
+	["_ecoType", "", [""]],
+	["_buildingCount", -1, [0]],
+	["_indexDB", 0, [0]]
 ]; 
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-switch (_type) do {
-	case "factory": {GVAR(factoryBuildings) = _count};
-	case "barracks": {GVAR(barracksBuildings) = _count};
-	case "hangar": {GVAR(hangarBuildings) = _count};
-	default {NOTIFICATION_LOG(No economy type defined!)};
-};
+private _index = if (isNil QGVAR(economy)) then {GVAR(economy) = [[_ecoType, _buildingCount, _indexDB]]; 0} else {GVAR(economy) pushBack [_ecoType, _buildingCount, _indexDB]; 1};
 
-nil
+_index

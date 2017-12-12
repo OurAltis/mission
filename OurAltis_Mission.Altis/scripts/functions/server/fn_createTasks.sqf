@@ -119,51 +119,56 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		GVAR(taskState) set [0, 1];
 	}; 
 
-	if (!isNil QGVAR(markerEco)) then {
-		[
-			GVAR(defenderSide),
-			"ecoDefender",
+	if (!isNil QGVAR(economy)) then {
+		{
+			_x params ["_type", "_buildingCount", "_indexDB"];
+			
 			[
-				format [localize "OurA_str_EcoDefDescription", GVAR(economy), GVAR(targetAreaName)],
-				format [localize "OurA_str_EcoDefTitle", GVAR(economy)],
-				""
-			],
-			"marker_eco",
-			"Created",
-			5,
-			false,
-			"defend",
-			false
-		] call BIS_fnc_taskCreate;
-		
-		[
-			_attackerSide,
-			"ecoAttacker", 
+				GVAR(defenderSide),
+				"ecoDefender_" + str(_indexDB),
+				[
+					format [localize "OurA_str_EcoDefDescription", _type, GVAR(targetAreaName)],
+					format [localize "OurA_str_EcoDefTitle", _type],
+					""
+				],
+				"marker_eco_" + str(_indexDB),
+				"Created",
+				5,
+				false,
+				"defend",
+				false
+			] call BIS_fnc_taskCreate;
+			
 			[
-				format [localize "OurA_str_EcoAttDescription", GVAR(economy), GVAR(targetAreaName)],
-				format [localize "OurA_str_EcoAttTitle", GVAR(economy)],
-				""
-			],
-			"marker_eco",
-			"Created",
-			5,
-			false,
-			"destroy",
-			false
-		] call BIS_fnc_taskCreate;
-		
-		if (GVAR(economy) isEqualTo "barracks") then {
-			GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-		};
-		
-		if (GVAR(economy) isEqualTo "factory") then {
-			GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-		};
-		
-		if (GVAR(economy) isEqualTo "hangar") then {
-			GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-		};
-		
+				_attackerSide,
+				"ecoAttacker_" + str(_indexDB), 
+				[
+					format [localize "OurA_str_EcoAttDescription", _type, GVAR(targetAreaName)],
+					format [localize "OurA_str_EcoAttTitle", _type],
+					""
+				],
+				"marker_eco_"  + str(_indexDB),
+				"Created",
+				5,
+				false,
+				"destroy",
+				false
+			] call BIS_fnc_taskCreate;
+			
+			if (_type isEqualTo "barracks") then {
+				GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+			};
+			
+			if (_type isEqualTo "factory") then {
+				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+			};
+			
+			if (_type isEqualTo "hangar") then {
+				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+			};
+			
+			nil
+		} count GVAR(economy);
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {

@@ -181,5 +181,5 @@
 	["Zombie_PopUp_Moving_90deg_F",[20.2673,-26.5049,0],90,"","",true,false,0,[],false], 
 	["TargetP_HVT2_F",[20.2576,-23.4512,0],90,"","",true,false,0,[],false], 
 	["TargetP_HVT1_F",[20.2542,-29.6641,0],90,"","",true,false,0,[],false], 
-	["EmptyDetectorAreaR50",[-13.9238,-32.8501,0],0,"centerBarracks","",false,false,0,[40,41,-1],true]
+	["EmptyDetectorAreaR50",[-13.9238,-32.8501,0],0,"centerBarracks","",false,false,0,[45,45,-1],true]
 ]

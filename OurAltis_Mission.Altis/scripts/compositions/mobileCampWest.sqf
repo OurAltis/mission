@@ -53,7 +53,6 @@
 	["B_HMG_01_high_F",[11.4551,-10.582,0],137.69,"","",true,false,0,[],false], 
 	["B_HMG_01_high_F",[-13.0449,3.16797,0],316.419,"","",true,false,0,[],false], 
 	["B_HMG_01_high_F",[-13.439,-10.1118,0],223.929,"","",true,false,0,[],false], 
-	["B_Mortar_01_F",[5.70898,-3.62793,0],88.865,"","",true,false,0,[],false], 
-	["C_Van_01_box_F",[0,0,0],0,"","",true,false,1,[],false], 
-	["EmptyDetectorAreaR50",[-0.837891,-3.43408,0],0,"centerFOBWest","",false,false,0,[15,10,-1],true]
+	["B_Mortar_01_F",[5.70898,-3.62793,0],88.865,"","",true,false,0,[],false],
+	["EmptyDetectorAreaR50",[-0.837891,-3.43408,0],0,"centerFOBWest","",false,false,0,[18,14,-1],true]
 ]
