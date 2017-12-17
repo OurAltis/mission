@@ -138,6 +138,11 @@
 				<German>Du bist zu weit von der Base entfernt! Die maximale Distanz beträgt 2500 Meter!</German>
 				<Original>You are to far away from the base! The maximum distance is 2500 meters!</Original>
 			</Key>
+			<Key ID="OurA_str_FOBCargoEmpty">
+				<English>The second truck has no cargo left!</English>
+				<German>Der zweite LKW hat kein Material geladen!</German>
+				<Original>The second truck has no cargo left!</Original>
+			</Key>
 		</Container>
 	</Package>
 	<Package name="Actions">
@@ -284,7 +289,7 @@
 				<English>Capture FOB %1!</English>
 				<German>Einnahme des FOB %1!</German>
 				<Original>Capture FOB %1!</Original>
-			</Key>
+			</Key>			
 		</Container>
 	</Package>	
 </Project>
