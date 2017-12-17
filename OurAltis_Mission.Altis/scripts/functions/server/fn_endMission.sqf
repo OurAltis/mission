@@ -39,6 +39,34 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		["baseAttacker", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
 	};
 	
+	if ((PGVAR(countFOB) select 0) > 0) then {
+		{
+			if (["FOBDefender" + _x] call BIS_fnc_taskExists) then {
+				if !(["FOBDefender" + _x] call BIS_fnc_taskCompleted) then {
+					if !(["FOBAttacker" + _x] call BIS_fnc_taskCompleted) then {
+						["FOBDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+						["FOBAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+					};
+				};
+			};
+			nil			
+		} count (GVAR(nameFOB) select 0);
+	};
+	
+	if ((PGVAR(countFOB) select 1) > 0) then {
+		{
+			if (["FOBDefender" + _x] call BIS_fnc_taskExists) then {
+				if !(["FOBDefender" + _x] call BIS_fnc_taskCompleted) then {
+					if !(["FOBAttacker" + _x] call BIS_fnc_taskCompleted) then {
+						["FOBDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+						["FOBAttacker", "FAILED"] spawn BIS_fnc_taskSetState;
+					};
+				};
+			};
+			nil			
+		} count (GVAR(nameFOB) select 1);
+	};
+	
 	if (["spyDefender"] call BIS_fnc_taskExists) then {
 		if !(["spyDefender"] call BIS_fnc_taskCompleted) then {
 			if !(["spyAttacker"] call BIS_fnc_taskCompleted) then {
@@ -48,14 +76,22 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		};
 	};
 	
-	if (["ecoDefender"] call BIS_fnc_taskExists) then {
-		if !(["ecoDefender"] call BIS_fnc_taskCompleted) then {
-			if !(["ecoAttacker"] call BIS_fnc_taskCompleted) then {
-				["ecoDefender", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-				["ecoAttacker", "FAILED"] spawn BIS_fnc_taskSetState;				
+	if (!isNil QGVAR(economy)) then {
+		{
+			_x params ["_ecoType", "_buildingCount", "_indexDB"];
+			
+			if (["ecoDefender_" + str(_indexDB)] call BIS_fnc_taskExists) then {
+				if !(["ecoDefender_" + str(_indexDB)] call BIS_fnc_taskCompleted) then {
+					if !(["ecoAttacker_" + str(_indexDB)] call BIS_fnc_taskCompleted) then {
+						["ecoDefender_" + str(_indexDB), "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+						["ecoAttacker_" + str(_indexDB), "FAILED"] spawn BIS_fnc_taskSetState;				
+					};
+				};
 			};
-		};
-	};
+			
+			nil
+		} count GVAR(economy);
+	}	
 };
 
 if (["resistance"] call BIS_fnc_taskExists) then {
