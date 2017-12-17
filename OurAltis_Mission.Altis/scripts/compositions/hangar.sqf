@@ -93,7 +93,7 @@
 	["Land_HelipadEmpty_F",[-28.6401,-43.6646,0],49.269,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0,[],false], 
 	["Land_HelipadEmpty_F",[-24.8501,-46.6968,0],232.071,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0,[],false], 
 	["Land_HelipadEmpty_F",[-43.5112,-57.2656,0],81.586,"","this setVariable [""OurA_VehicleType"", ""civil_lkw""];",true,false,0,[],false], 
-	["Land_HelipadEmpty_F",[-2.37939,-27.5483,0],306.296,"","this setVariable [""OurA_VehicleType"", ""pkw""];",true,false,0,[],false], 
+	["Land_HelipadEmpty_F",[-2.37939,-27.5483,0],306.296,"","this setVariable [""OurA_VehicleType"", ""civil_pkw""];",true,false,0,[],false], 
 	["Land_HelipadEmpty_F",[-24.478,-18.4438,0],297.701,"","this setVariable [""OurA_VehicleType"", ""military_heli""];",true,false,0,[],false], 
 	["Land_Mil_ConcreteWall_F",[12.979,6.64258,0],0,"","",true,false,0,[],false], 
 	["Land_CncBarrier_stripes_F",[9.9126,4.44287,0],270,"","",true,false,0,[],false], 

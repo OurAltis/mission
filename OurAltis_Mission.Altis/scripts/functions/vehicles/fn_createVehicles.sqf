@@ -77,9 +77,20 @@ private _baseVehicleList = [west, [], east, []];
 					_obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+						private _jipID = str(position _x);
+						
 						_obj setVariable [QGVAR(spawnPosition), position _x, true];
-						_obj setVariable [QGVAR(JIPID), str(position _x), true];					
-						[_obj] remoteExecCall [QFUNC(createAddAction), -2, str(position _x)];
+						_obj setVariable [QGVAR(JIPID), _jipID, true];
+						[_obj] remoteExecCall [QFUNC(createAddAction), -2, _jipID];
+						
+						private _FOBCargo = [] call compile preprocessFileLineNumbers "scripts\compositions\cargoFOB1.sqf";
+						
+						[_obj, _FOBCargo] call FUNC(cargoVehicle);
+					};
+					
+					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 1)) then {
+						private _FOBCargo = [] call compile preprocessFileLineNumbers "scripts\compositions\cargoFOB2.sqf";
+						[_obj, _FOBCargo] call FUNC(cargoVehicle);
 					};
 					
 					_obj setFuel _fuel;

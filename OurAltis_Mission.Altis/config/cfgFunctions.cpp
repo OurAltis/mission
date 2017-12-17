@@ -184,6 +184,7 @@ class CfgFunctions
 			class createVehicles {};
 			class createAmbientVehicles {};
 			class calculateFuelConsumption {};
+			class cargoVehicle {};
 		};
 		
 		class economy

@@ -22,11 +22,9 @@ private _succcess = params [
 
 CHECK_TRUE(_succcess, Invalid parameters!, {})
 
-/*
-if (servertime > (GVAR(timelimit) * 60)) then {
+if (CBA_missionTime > (GVAR(timelimit) * 60)) then {
 	[GVAR(defenderSide)] call FUNC(endMission);
 	[_handlerID] call CBA_fnc_removePerFrameHandler;
 };
-*/
 
-nil;
+nil

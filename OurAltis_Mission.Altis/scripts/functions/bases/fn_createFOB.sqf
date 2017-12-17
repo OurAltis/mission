@@ -2,7 +2,7 @@
 /**
  * OurAltis_Mission - fn_createFOB
  * 
- * Author: Raven
+ * Author: PhilipJFry
  * 
  * Description:
  * Creates a FOB out of two spezial vehicles

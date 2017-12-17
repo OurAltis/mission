@@ -39,8 +39,12 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 	private _carsInMarker = _nearCars inAreaArray "tempMarker_FOB";
 	if (count _carsInMarker > 1) exitWith {hint localize "OurA_str_FOBToManyCarsInRange"};
 	if (count _carsInMarker isEqualTo 0) exitWith {hint localize "OurA_str_FOBCarNotInRange"};
-	if (count crew (_carsInMarker select 0) != 0 || count crew _target != 0) exitWith {hint localize "OurA_str_FOBCrewInsideCars"};
-	if (_countFOB isEqualTo 2) exitWith {hint localize "OurA_str_FOBMaxBuild"};	
+	
+	private _car = _carsInMarker select 0;
+	
+	if (count crew _car != 0 || count crew _target != 0) exitWith {hint localize "OurA_str_FOBCrewInsideCars"};
+	if (_countFOB isEqualTo 2) exitWith {hint localize "OurA_str_FOBMaxBuild"};
+	if (_car getVariable [QGVAR(isUsed), false]) exitWith {hint "Loading space is empty!"};
 	
 	private _dirVectorCar1 = vectorDir _target;
 	_dirVectorCar1 set [2, 0];
@@ -57,6 +61,19 @@ if ((_target distance2D (_target getVariable [QGVAR(spawnPosition), [0, 0, 0]]))
 		publicVariable QPGVAR(countFOB);
 		
 		[_target, side group _caller] remoteExecCall [QFUNC(createFOB), 2];
+		
+		_car setVariable [QGVAR(isUsed), true];
+		_target setVariable [QGVAR(isUsed), true];
+		
+		{
+			deleteVehicle _x;
+			nil
+		} count (attachedObjects _target);
+		
+		{
+			deleteVehicle _x;
+			nil
+		} count (attachedObjects _car);
 		
 		[] remoteExecCall ["", (_target getVariable [QGVAR(JIPID), ""])];
 		[_target, _actionID] remoteExecCall ["removeAction", -2];			
