@@ -29,7 +29,7 @@ if (_object isKindOf "Man") then {
 };
 
 if (_object isKindOf "Car" && (_object getVariable [QGVAR(FOBAddAtion), -1]) isEqualTo -1) then {
-	private _actionID = _object addAction [localize "OurA_str_FOBBuild", {_this call FUNC(checkFOBPosition)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this"];
+	private _actionID = _object addAction [localize "OurA_str_FOBBuild", {_this call FUNC(checkFOBPosition)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this && !(_target getVariable ['OurA_isUsed', false])"];
 	_object setVariable [QGVAR(FOBAddAtion), _actionID];
 };
 
