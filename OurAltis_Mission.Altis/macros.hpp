@@ -125,7 +125,7 @@
  #define VEHICLE_MILITARY_HELI_EAST ["O_Heli_Light_02_F","O_Heli_Light_02_v2_F","O_Heli_Light_02_unarmed_F"]
  #define VEHICLE_MILITARY_TANK_WEST ["B_MBT_01_cannon_F","B_MBT_01_TUSK_F"]
  #define VEHICLE_MILITARY_TANK_EAST ["O_MBT_02_cannon_F"]
- #define VEHICLE_MOBILE_CAMP ["C_Van_01_box_white_F", "C_Van_01_transport_white_F"]
+ #define VEHICLE_MOBILE_CAMP ["C_Truck_02_covered_F", "C_Truck_02_transport_F"]
  #define VALUE_CIV 50
  #define VALUE_RESIST 20
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
