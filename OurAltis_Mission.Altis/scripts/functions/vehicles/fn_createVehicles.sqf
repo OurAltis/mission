@@ -86,11 +86,19 @@ private _baseVehicleList = [west, [], east, []];
 						private _FOBCargo = [] call compile preprocessFileLineNumbers "scripts\compositions\cargoFOB1.sqf";
 						
 						[_obj, _FOBCargo] call FUNC(cargoVehicle);
+						
+						for "_i" from 1 to 13 do {
+							_obj lockCargo [_i, true];
+						};
 					};
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 1)) then {
 						private _FOBCargo = [] call compile preprocessFileLineNumbers "scripts\compositions\cargoFOB2.sqf";
 						[_obj, _FOBCargo] call FUNC(cargoVehicle);
+						
+						for "_i" from 1 to 15 do {
+							_obj lockCargo [_i, true];
+						};
 					};
 					
 					_obj setFuel _fuel;

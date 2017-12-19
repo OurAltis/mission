@@ -5,7 +5,7 @@
 */
 
 [
-	["Land_FoodSacks_01_cargo_brown_F",[0.0209961,0.387695,-0.3], 355],
-	["Land_FoodSacks_01_cargo_brown_F",[0.0112305,-1.17627,-0.3], 0],
-	["Land_FoodSacks_01_cargo_brown_F",[0.0239258,-2.6792,-0.3], 2]
+	["Land_FoodSacks_01_cargo_brown_F",[0.0581055,0.419922,-0.3],0],
+	["Land_FoodSacks_01_cargo_brown_F",[0.0834961,-1.01904,-0.3],358],
+	["Land_FoodSacks_01_cargo_brown_F",[0.0664063,-2.48047,-0.3],2]
 ]
