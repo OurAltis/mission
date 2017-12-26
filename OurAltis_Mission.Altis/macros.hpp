@@ -11,9 +11,7 @@
  #define QVERSION QUOTE(VERSION)
  
  #define SHOW_ONSCREEN_NOTIFICATIONS true
- 
- #define DEBUG
- 
+  
  #define TAG OurA
  
  #define GVAR(var) TAG##_##var
