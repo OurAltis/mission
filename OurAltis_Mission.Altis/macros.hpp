@@ -12,6 +12,7 @@
  
  #define SHOW_ONSCREEN_NOTIFICATIONS true
  
+ #define DEBUG
  
  #define TAG OurA
  
@@ -126,6 +127,9 @@
  #define VEHICLE_MILITARY_TANK_WEST ["B_MBT_01_cannon_F","B_MBT_01_TUSK_F"]
  #define VEHICLE_MILITARY_TANK_EAST ["O_MBT_02_cannon_F"]
  #define VEHICLE_MOBILE_CAMP ["C_Truck_02_covered_F", "C_Truck_02_transport_F"]
+ #define VEHICLE_BOAT_SMALL ["B_Boat_Transport_01_F", "O_Boat_Transport_01_F"]
+ #define VEHICLE_BOAT_BIG ["B_Boat_Armed_01_minigun_F", "O_Boat_Armed_01_hmg_F"]
+ #define VEHICLE_BOAT_TRANSPORT ["B_Truck_01_transport_F", "O_Truck_03_transport_F"]
  #define VALUE_CIV 50
  #define VALUE_RESIST 20
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
