@@ -179,7 +179,8 @@ addMissionEventHandler [
 		
 		diag_log ("This: " + str(_this));
 		
-		private _remainingSides = [blufor, opfor, independent];
+		//private _remainingSides = [blufor, opfor, independent];
+		private _remainingSides = [blufor, opfor];
 		_remainingSides = _remainingSides - [_side];
 		diag_log ("Sides remain: " + str(_remainingSides));
 		{
@@ -188,9 +189,9 @@ addMissionEventHandler [
 			};
 		} forEach _remainingSides;
 		
-		diag_log ("Sides: " + str(_allSides));
+		diag_log ("Sides: " + str(_remainingSides));
 		
-		_allSides = _remainingSides - [objNull];
+		private _allSides = _remainingSides - [objNull];
 		
 		diag_log ("Sides: " + str(_allSides));
 		

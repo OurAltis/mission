@@ -15,6 +15,8 @@
  * 
  */
 
+diag_log ("SHLV THIS: " + str(_this));
+ 
 private _success = params[
 	["_side", sideUnknown, [sideUnknown]]
 ];
@@ -34,6 +36,7 @@ private _hasAliveUnits = false;
 	nil;
 } count GVAR(InfantryList);
 
+diag_log ("SHLV livingUnits: " + str(_hasAliveUnits));
 
 if(!_hasAliveUnits) then {
 	// check units on field
@@ -45,5 +48,7 @@ if(!_hasAliveUnits) then {
 		nil;
 	} count allUnits;
 };
+
+diag_log ("SHLV livingUnits: " + str(_hasAliveUnits));
 
 _hasAliveUnits;
