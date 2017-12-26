@@ -44,7 +44,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 		};
 		
 		if(_classCode > 0) then {
-			["UPDATE armeen SET rueckzug = '" + _ordered + "' WHERE code = '" + _classCode 
+			["UPDATE armeen SET rueckzug = '" + _ordered + "' WHERE code = '" + str _classCode 
 				+ "' && einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = ''"] call FUNC(transferSQLRequestToDataBase);
 		};
 			
