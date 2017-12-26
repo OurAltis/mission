@@ -177,21 +177,29 @@ addMissionEventHandler [
 		
 		CHECK_TRUE(_success, Invalid parameters!, {})
 		
+		diag_log ("This: " + str(_this));
+		
 		private _remainingSides = [blufor, opfor, independent];
 		_remainingSides = _remainingSides - [_side];
-		
+		diag_log ("Sides remain: " + str(_remainingSides));
 		{
 			if (!([_x] call FUNC(sideHasLivingUnits))) then {
 				_remainingSides set [_forEachIndex, objNull];
 			};
 		} forEach _remainingSides;
 		
+		diag_log ("Sides: " + str(_allSides));
+		
 		_allSides = _remainingSides - [objNull];
 		
+		diag_log ("Sides: " + str(_allSides));
+		
 		if (count _allSides == 1) then {
-			// There are only players of one side left -> end mission in their favour
+			diag_log "allSides = 1";
+			// There are only players of one side left -> end mission in their favour			
 			[_remainingSides select 0] call FUNC(endMission);
 		} else {
+			diag_log "allSides = 0";
 			if(count _allSides == 0) then {
 				// no one is left alive -> defender has won
 				[GVAR(defenderSide)] call FUNC(endMission);
