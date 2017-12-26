@@ -23,6 +23,7 @@ GVAR(Resist) = "";
 GVAR(NATO) = "Smith";
 GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
+GVAR(canRetreat) = [east];
 
 if(isServer) then {
 	GVAR(timeLimit) = 3600;

@@ -47,7 +47,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 			["UPDATE armeen SET rueckzug = '" + _ordered + "' WHERE code = '" + str _classCode 
 				+ "' && einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' LIMIT 1"] call FUNC(transferSQLRequestToDataBase);
 		};
-			
+		
 		// retreat occopied vehcicle as well
 		private _vehicle = vehicle _x;
 		
@@ -62,6 +62,6 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 // retreat all un-spaned units
 private _sideName = if(_side isEqualTo west) then {"west"} else {"ost"};
-["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' && partei = " + _sideName] call FUNC(transferSQLRequestToDataBase);
+["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' && partei = '" + _sideName + "'"] call FUNC(transferSQLRequestToDataBase);
 
 nil
