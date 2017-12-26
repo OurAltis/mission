@@ -31,7 +31,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 		
 		private _ordered = "";
 		
-		if (_unitPos select 2 > RETREAT_HEIGHT) then {
+		if ((_unitPos select 2) > RETREAT_HEIGHT) then {
 			_ordered = "ordered";
 		} else {
 			private _nearestBase = [getPos _x, _side] call FUNC(getNearestBase);
@@ -43,9 +43,9 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 			_ordered = if(_distance < RETREAT_RADIUS) then {"ordered"} else {"unordered"};
 		};
 		
-		if(_classCode > 0) then {
+		if (_classCode > 0) then {
 			["UPDATE armeen SET rueckzug = '" + _ordered + "' WHERE code = '" + str _classCode 
-				+ "' && einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = ''"] call FUNC(transferSQLRequestToDataBase);
+				+ "' && einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' LIMIT 1"] call FUNC(transferSQLRequestToDataBase);
 		};
 			
 		// retreat occopied vehcicle as well
@@ -61,6 +61,6 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 } count playableUnits;
 
 // retreat all un-spaned units
-["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = ''"] call FUNC(transferSQLRequestToDataBase);
+["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' && partei = " + str _side] call FUNC(transferSQLRequestToDataBase);
 
 nil
