@@ -26,7 +26,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 {
 	if((_x select 1) isEqualTo _side) then {
-		private _vehicles = nearestObjects [_x select RETREAT_RADIUS, ["LandVehicle", "Air"], 10];
+		private _vehicles = nearestObjects [_x select 2, ["LandVehicle", "Air"], RETREAT_RADIUS];
 		
 		{
 			private _id = (_x getVariable [VEHICLE_ID, nil]) select [3];
