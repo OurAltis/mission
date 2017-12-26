@@ -21,7 +21,7 @@ GVAR(shotCount) = 0;
 GVAR(grenadeCount) = 0;
 GVAR(rocketCount) = 0;
 
-if (!PGVAR(retreat)) then {
+if (!(missionNamespace getVariable [QPGVAR(Retreat), false])) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
 	GVAR(radioTrigger) setTriggerActivation ["Alpha", "PRESENT", false];
 	GVAR(radioTrigger) setTriggerStatements ["this", "[side group player, clientOwner] remoteExecCall ['OurA_fnc_retreat', 2]", ""];

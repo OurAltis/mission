@@ -2,7 +2,7 @@
 /**
  * OurAltis_Mission - fn_retreat
  * 
- * Author: PhilipJFry
+ * Author: PhilipJFry, Raven
  * 
  * Description:
  * End mission if someone decide to retreat 
@@ -35,7 +35,7 @@ private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 // end mission
 [_winnerSide] call FUNC(endMission);
 
-// check infantry retreat-mode -> ordered or unordered
+// retreat troups
 [_side] call FUNC(retreatInfantry);
 [_side] call FUNC(retreatVehicles);
 
