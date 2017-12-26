@@ -44,6 +44,6 @@ _pos set [2,0]; // make sure z-index is present and zero
 	};
 	
 	nil;
-} count GVAR(BaseList)
+} count GVAR(BaseList);
 
 _base
