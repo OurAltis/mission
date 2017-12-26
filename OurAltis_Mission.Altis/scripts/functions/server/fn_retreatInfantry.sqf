@@ -61,6 +61,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 } count playableUnits;
 
 // retreat all un-spaned units
-["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' && partei = " + str _side] call FUNC(transferSQLRequestToDataBase);
+private _sideName = if(_side isEqualTo west) then {"west"} else {"ost"};
+["UPDATE armeen SET rueckzug = 'ordered' WHERE einsatz = '" + GVAR(targetAreaName) + "' && rueckzug = '' && bestand = '' && partei = " + _sideName] call FUNC(transferSQLRequestToDataBase);
 
 nil
