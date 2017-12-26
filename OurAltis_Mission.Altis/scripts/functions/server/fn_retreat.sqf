@@ -20,24 +20,23 @@ private _success = params [
 	["_side", sideUnknown, [west]],
 	["_clientID", -1, [0]]
 ];
- 
+
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-if (PGVAR(retreat)) exitWith {NOTIFICATION_LOG(Retreat in Progress!)};
+if (PGVAR(retreat)) exitWith {NOTIFICATION_LOG(Retreat already in Progress!)};
 
 PGVAR(retreat) = true;
 publicVariable QPGVAR(retreat);
 
-[_side] remoteExecCall [QFUNC(deleteRadioMsg), -2];
+[] remoteExecCall [QFUNC(deleteRetreatOption), -2];
 
 private _winnerSide = if (_side isEqualTo west) then {east} else {west};
 
-[
-	{
-		(_this select 0) call FUNC(endMission);
-	},
-	[_winnerSide],
-	30
-] call CBA_fnc_waitAndExecute;
+// end mission
+[_winnerSide] call FUNC(endMission);
+
+// check infantry retreat-mode -> ordered or unordered
+[_side] call FUNC(retreatInfantry);
+[_side] call FUNC(retreatVehicles);
 
 nil

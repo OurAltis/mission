@@ -23,7 +23,7 @@ class CfgFunctions
 			
 			class clientInit {postInit = 1;};
 			class doWithServerPermission {};
-			class deleteRadioMsg {};
+			class deleteRetreatOption {};
 			class showUnitsOutsideMarker {};
 			class synchronizeBaseList {};
 			class workWithBaseList {};
@@ -48,6 +48,8 @@ class CfgFunctions
 			class watchCapturingFOB {};
 			class watchFlagpoleStatus {};
 			class retreat {};
+			class retreatInfantry {};
+			class retreatVehicles {};
 			class reportDeadCivilian {};
 			class createTasks {};
 			class reportServerStatus {};
@@ -145,6 +147,7 @@ class CfgFunctions
 			class getConfigRespawnDelay {};
 			class getInternalClassName {};
 			class getLoadoutsForBase {};
+			class getNearestBase {};
 			class getReinforcementCount {};
 			class hideMarkerByPrefix {};
 			class hideUserMapMarker {};
