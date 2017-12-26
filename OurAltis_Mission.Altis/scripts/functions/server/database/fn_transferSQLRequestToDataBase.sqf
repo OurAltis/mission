@@ -19,6 +19,9 @@ private _success = params [
 	["_sqlStatement", "", [""]]
 ];
 
+// Msg for WebGUI-checking program
+diag_log (QUOTE(TAG) + " " + QUOTE(VERSION) + " [DATABASE]: " + _sqlStatement);
+
 #ifdef DISABLE_DATABASE
 	// log the SQL instead of executing it
 	diag_log (QUOTE(OurAltis VERSION [Pseudo-Database]: ) + _sqlStatement);
