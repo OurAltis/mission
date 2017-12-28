@@ -93,7 +93,7 @@ GVAR(markerSpy) = createMarker ["marker_spy", _position];
 GVAR(markerSpy) setMarkerShape "ELLIPSE";
 GVAR(markerSpy) setMarkerSize [5,5];
 GVAR(markerSpy) setMarkerColor "ColorRed";
-//GVAR(markerSpy) setMarkerAlpha 0;
+GVAR(markerSpy) setMarkerAlpha 0;
 
 nil
  

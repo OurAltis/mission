@@ -88,6 +88,7 @@ private _marker = "";
 		_marker setMarkerSize [_size select 0, _size select 1];
 		_marker setMarkerDir (_azi + _azimuth);
 		_marker setMarkerColor "ColorRed";
+		_marker setMarkerAlpha 0;
 		
 		_terrainObjects = nearestTerrainObjects [[_posX + (_newRelPos select 0), _posY + (_newRelPos select 1)], [], if ((_size select 0) >= (_size select 1)) then {_size select 0} else {_size select 1}, false, true];
 

@@ -123,7 +123,7 @@ private _baseVehicleList = [west, [], east, []];
 					};
 					
 					if (_type in VEHICLE_BOAT_BIG) then {
-						private _cargoBoat = [] call compile preprocessFileLineNumbers (format ["scripts\compositions\cargoAssaultBoat%1.sqf", _side]);
+						private _cargoBoat = [] call compile preprocessFileLineNumbers (format ["scripts\compositions\cargoSpeedboat%1.sqf", _side]);
 						
 						deleteVehicle _obj;
 						
