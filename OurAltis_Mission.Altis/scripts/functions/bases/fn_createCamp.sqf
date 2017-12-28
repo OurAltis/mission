@@ -43,7 +43,7 @@ _marker setMarkerShape "RECTANGLE";
 _marker setMarkerSize _size;
 _marker setMarkerDir _markerDir;
 _marker setMarkerColor "ColorRed";
-_marker setMarkerAlpha 0;
+//_marker setMarkerAlpha 0;
 
 GVAR(markerNoCiv) pushBack _marker;
 

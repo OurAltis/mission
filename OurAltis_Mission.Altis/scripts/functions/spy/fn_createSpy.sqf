@@ -87,13 +87,13 @@ GVAR(spyUnit) addMPEventHandler [
 
 GVAR(spyUnit) setVariable [QGVAR(info), [_side, _budget]];
 
-[GVAR(spyUnit)] remoteExecCall [QFUNC(createAddAction), -2, QGVAR(createSpyActionJip)];
+[GVAR(spyUnit), objNull] remoteExecCall [QFUNC(createAddAction), -2, QGVAR(createSpyActionJip)];
 
 GVAR(markerSpy) = createMarker ["marker_spy", _position];
 GVAR(markerSpy) setMarkerShape "ELLIPSE";
 GVAR(markerSpy) setMarkerSize [5,5];
 GVAR(markerSpy) setMarkerColor "ColorRed";
-GVAR(markerSpy) setMarkerAlpha 0;
+//GVAR(markerSpy) setMarkerAlpha 0;
 
 nil
  

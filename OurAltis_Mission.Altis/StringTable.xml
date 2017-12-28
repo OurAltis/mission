@@ -143,6 +143,26 @@
 				<German>Der zweite LKW hat kein Material geladen!</German>
 				<Original>The second truck has no cargo left!</Original>
 			</Key>
+			<Key ID="OurA_str_BoatNoWater">
+				<English>You only can deploy the boat near water!</English>
+				<German>Du kannst, das Boot, nur am Wasser abladen!</German>
+				<Original>You only can deploy the boat near water!</Original>
+			</Key>
+			<Key ID="OurA_str_BoatToManyBoats">
+				<English>There are to many boats in the loading area!</English>
+				<German>Es befinden sich zuviele Boote in der Ladezone!</German>
+				<Original>There are to many boats in the loading area!</Original>
+			</Key>
+			<Key ID="OurA_str_BoatNoBoats">
+				<English>There are no boats in the loading area!</English>
+				<German>Es befinden sich keine Boote in der Ladezone!</German>
+				<Original>There are no boats in the loading area!</Original>
+			</Key>
+			<Key ID="OurA_str_BoatCrewInsideBoat">
+				<English>All people have to leave the boat!</English>
+				<German>Alle Insassen müssen das Boot verlassen!</German>
+				<Original>All people have to leave the boat!</Original>
+			</Key>
 		</Container>
 	</Package>
 	<Package name="Actions">
@@ -161,7 +181,17 @@
 				<English>Retreat!</English>
 				<German>Rückzug!</German>
 				<Original>Retreat!</Original>
-			</Key>			
+			</Key>
+			<Key ID="OurA_str_DeployBoat">
+				<English>Deploy Boat</English>
+				<German>Boot abladen</German>
+				<Original>Deploy Boat</Original>
+			</Key>
+			<Key ID="OurA_str_LoadUpBoat">
+				<English>Load up Boat</English>
+				<German>Boot aufladen</German>
+				<Original>Load up Boat</Original>
+			</Key>
 		</Container>
 	</Package>
 	<Package name="Spy">
