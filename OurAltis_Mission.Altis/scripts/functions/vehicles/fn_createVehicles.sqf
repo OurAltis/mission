@@ -64,7 +64,7 @@ private _baseVehicleList = [west, [], east, []];
 				_vehicleCount set [_return, 1];
 			};
 			
-			private _objList = if (_type isKindOf "LandVehicle") then {
+			private _objList = if (_type isKindOf "LandVehicle" || _type isKindOf "Ship") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
 				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];

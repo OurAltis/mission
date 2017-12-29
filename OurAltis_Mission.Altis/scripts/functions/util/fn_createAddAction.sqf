@@ -36,12 +36,12 @@ if (_object1 isKindOf "Car" && (_object1 getVariable [QGVAR(FOBAddAction), -1]) 
 
 if (!isNull _object2) then {
 	if (alive _object2) then {
-		if (_object1 isKindOf "Ship" && (_object2 getVariable [QGVAR(deployAddAction), -1]) isEqualTo -1) then {
+		if (!isNil {_object2 getVariable QGVAR(hasCargo)} && (_object2 getVariable [QGVAR(deployAddAction), -1]) isEqualTo -1) then {
 			private _actionID = _object2 addAction [localize "OurA_str_DeployBoat", {_this call FUNC(deployBoat)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this && _target getVariable ['OurA_hasCargo', false]"];
 			_object2 setVariable [QGVAR(deployAddAction), _actionID];
 		};
 
-		if (_object1 isKindOf "Ship" && (_object2 getVariable [QGVAR(loadUpAddAction), -1]) isEqualTo -1) then {
+		if (!isNil {_object2 getVariable QGVAR(hasCargo)} && (_object2 getVariable [QGVAR(loadUpAddAction), -1]) isEqualTo -1) then {
 			private _actionID = _object2 addAction [localize "OurA_str_LoadUpBoat", {_this call FUNC(loadUpBoat)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this && !(_target getVariable ['OurA_hasCargo', false])"];
 			_object2 setVariable [QGVAR(loadUpAddAction), _actionID];
 		};

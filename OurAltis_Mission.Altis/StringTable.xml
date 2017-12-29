@@ -145,7 +145,7 @@
 			</Key>
 			<Key ID="OurA_str_BoatNoWater">
 				<English>You only can deploy the boat near water!</English>
-				<German>Du kannst, das Boot, nur am Wasser abladen!</German>
+				<German>Du kannst das Boot nur am Wasser abladen!</German>
 				<Original>You only can deploy the boat near water!</Original>
 			</Key>
 			<Key ID="OurA_str_BoatToManyBoats">
