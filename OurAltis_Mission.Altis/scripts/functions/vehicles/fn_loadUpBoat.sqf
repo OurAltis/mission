@@ -27,7 +27,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _pos = _target modelToWorld [0, -12];
 
-private _marker = createMarker ["tempMarker_boat", _pos];
+private _marker = createMarker ["tempMarker_boat_" + str(_target), _pos];
 _marker setMarkerShape "RECTANGLE";
 _marker setMarkerSize [2, 4];
 _marker setMarkerColor "ColorRed";
@@ -36,7 +36,7 @@ _marker setMarkerDir (getDir _target);
 private _objs = _pos nearEntities [VEHICLE_BOAT_SMALL + VEHICLE_BOAT_BIG, 10];
 
 {
-	if !(_x inArea "tempMarker_boat") then {
+	if !(_x inArea _marker) then {
 		_objs set [_forEachIndex, objNull];
 	};
 } forEach _objs;
@@ -55,6 +55,11 @@ if (count _objs > 1) then {
 			if ((typeOf _boat) in VEHICLE_BOAT_SMALL) then {
 				_boat attachTo [_target, _boat getVariable [QGVAR(cargoPos), [0,0,0]]];
 			} else {
+				private _obj = (attachedObjects _target) select 0;
+				
+				_obj animateSource ["Door_1_sound_source", 0];
+				_obj animateSource ["Door_2_sound_source", 0];
+				
 				deleteVehicle _boat;
 			};
 			
@@ -65,6 +70,6 @@ if (count _objs > 1) then {
 	};
 };
 
-deleteMarker "tempMarker_boat";
+deleteMarker _marker;
 
 nil

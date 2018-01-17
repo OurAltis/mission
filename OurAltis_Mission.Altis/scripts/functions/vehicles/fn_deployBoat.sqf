@@ -33,6 +33,9 @@ if (surfaceIsWater _pos && !(lineIntersects [_pos, [_pos select 0, _pos select 1
 		_obj attachTo [_target, [0, -10, 1]];
 		detach _obj;
 	} else {
+		_obj animateSource ["Door_1_sound_source", 1];
+		_obj animateSource ["Door_2_sound_source", 1];
+		
 		private _index = VEHICLE_BOAT_TRANSPORT find (typeOf _target);
 		private _veh = createVehicle [VEHICLE_BOAT_BIG select _index, [0,0,0], [], 0, "CAN_COLLIDE"];
 		_veh setDir (getDir _target);
