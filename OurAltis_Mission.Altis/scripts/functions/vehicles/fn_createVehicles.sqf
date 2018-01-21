@@ -19,12 +19,13 @@
  */
  
 private _baseVehicleList = [west, [], east, []];
- 
+
 {	
 	private _success = _x params [
 		["_id", nil, [""]],
 		["_side", sideUnknown, [sideUnknown]],
-		["_position", nil, [[]], [2,3]]
+		["_position", nil, [[]], [2,3]],
+		["_spawnType", nil, [""]]
 	];
 	
 	CHECK_TRUE(_success, Invalid vehicleFormat!)
@@ -32,6 +33,23 @@ private _baseVehicleList = [west, [], east, []];
 	private _sideVehicleList = [_id, []];
 	private _vehicleType = [];
 	private _vehicleCount = [];
+	private _bigHeli = false;
+	
+	if (_spawnType isEqualTo "bsae") then {
+		{
+			_x params [
+				["_type", "", [""]],
+				["_fuel", 0, [0]],
+				["_damage", 0, [0,"",[]]],
+				["_ammo", [], [[]]],
+				["_spawn", "", [""]]
+			];
+			
+			if (_type in HELI_BIG && _spawn isEqualTo _id) then {_bigHeli = true};
+			
+			nil
+		} count _this;
+	};
 	
 	{
 		_success = _x params [
@@ -67,10 +85,54 @@ private _baseVehicleList = [west, [], east, []];
 			private _objList = if (_type isKindOf "LandVehicle" || _type isKindOf "Ship") then {
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
-				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
+				private _helipads = nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
+				
+				if (_bigHeli) then {
+					_helipads params ["_pad0", "_pad1", "_pad2"];
+					
+					private _dist01 = _pad0 distance2D _pad1;
+					private _dist02 = _pad0 distance2D _pad2;
+					private _dist12 = _pad1 distance2D _pad2;
+					
+					private _matchingPads = if (_dist01 < _dist02) then {
+						if (_dist01 < _dist12) then {[_pad0, _pad1]} else {[_pad1, _pad2]};
+					} else {
+						if (_dist02 < _dist12) then {[_pad0, _pad2]} else {[_pad1, _pad2]};
+					};
+					
+					private _posPad0 = getPos (_matchingPads select 0);
+					private _posPad1 = getPos (_matchingPads select 1);
+					
+					private _mpos = [(_posPad0 select 0) + (_posPad1 select 0), (_posPad0 select 1) + (_posPad1 select 1)];
+					private _dir = _posPad0 getDir _posPad1;
+					_helipads = _helipads - _matchingPads;
+
+					(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
+					{deleteVehicle _x; nil} count _matchingPads;
+					
+					private _obj = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
+					_obj setDir _dir;
+					_obj setVariable [QGVAR(heliBig), true];			
+					
+					_helipads pushBack _obj;
+					
+					_helipads
+				};				
 			};		
 			
-			_objList = [_objList, 100] call FUNC(KK_arrayShuffle);
+			_objList = if (count _helipads isEqualTo 2) then {
+				if (_type in HELI_BIG) then {
+					{
+						if (_x getVariable [QGVAR(heliBig), false]) exitWith {[_x]};
+					} count _objList;
+				} else {
+					{
+						if (_x getVariable [QGVAR(heliSmall), false]) exitWith {[_x]};
+					} count _objList;
+				};
+			} else {
+				[_objList, 100] call FUNC(KK_arrayShuffle)
+			};
 			
 			private _return = {
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {

@@ -38,8 +38,8 @@ if(isServer) then {
 	GVAR(defenderSide) = east;
 	
 	[
-		[[13462.875,15969.920], east, "Aeroport", false, 1, -17.492],
-		[[16372.000,19664.000], blufor, "AgiaTriada", true, 4, 241.375]
+		[[13462.875,15969.920], east, "Aeroport", "base", 1, -17.492],
+		[[16372.000,19664.000], blufor, "AgiaTriada", "camp", 4, 241.375]
 	] call FUNC(createBases);
 	
 	[[12462.875,15969.920], "barracks", 0] call FUNC(createEconomy);

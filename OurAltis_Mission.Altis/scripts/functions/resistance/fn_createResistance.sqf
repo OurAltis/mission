@@ -39,23 +39,23 @@ if (!_isFriendly) then {
 };
 
 private _positionBase = {
-	_x params ["_id", "_side", "_position", "_isCamp"];
-	if (!_isCamp) exitWith {_position};
+	_x params ["_id", "_side", "_position", "_spawn"];
+	if (_spawn isEqualTo "base") exitWith {_position};
 } count GVAR(BaseList);
 
 private _camps = [];
 private _campID = "";
 
 {
-	_x params ["_id", "_side", "_position", "_isCamp"];
-	if (_isCamp) then {_camps pushBack _id};
+	_x params ["_id", "_side", "_position", "_spawn"];
+	if (_spawn in ["camp", "carrier"]) then {_camps pushBack _id};
 	nil
 } count GVAR(BaseList);
 	
 _campID = selectRandom _camps;
 
 {
-	_x params ["_id", "_side", "_position", "_isCamp"];
+	_x params ["_id", "_side", "_position", "_spawn"];
 	
 	if (_id isEqualTo _campID) then {		
 		private _mPos = [((_position select 0) + (_positionBase select 0)) / 2, ((_position select 1) + (_positionBase select 1)) / 2];

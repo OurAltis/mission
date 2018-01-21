@@ -8,7 +8,7 @@
  * Creates and initializes the given bases
  * 
  * Parameter(s):
- * 0: Bases <Array> - format [Position<Position3D, Position2D>, baseSide<Side>, ID<String>, isCamp<Boolean>, baseLevel<Scalar>, angle<Scalar>]
+ * 0: Bases <Array> - format [Position<Position3D, Position2D>, baseSide<Side>, ID<String>, spawn<String>, baseLevel<Scalar>, angle<Scalar>]
  *
  * Return Value:
  * None <Any>
@@ -24,23 +24,31 @@ GVAR(markerNoCiv) = [];
 		["_position", nil, [[]], [2,3]],
 		["_side", sideUnknown, [sideUnknown]],
 		["_id", nil, [""]],
-		["_isCamp", nil, [true]],
+		["_spawn", nil, [""]],
 		["_baseType", 0, [0]],
 		["_baseDir", 0, [0]]		
 	];
 	
 	CHECK_TRUE(_success, Invalid baseFormat!, {});	
 	
-	if(_isCamp) then {
-		// create a camp
-		[_position, _side, _id, _baseDir] call FUNC(createCamp);
-	} else {
-		// create a base
-		[_position, _side, _id, _baseType, _baseDir] call FUNC(createBase);
-	};
+	switch (_spawn) do {
+		case "camp": {
+			// create a camp
+			[_position, _side, _id, _baseDir] call FUNC(createCamp);
+		};
+
+		case "base": {
+			// create a base
+			[_position, _side, _id, _baseType, _baseDir] call FUNC(createBase);
+		};
+		
+		case "carrier": {
+			// create a carrier
+		};
+	};	
 	
 	// add base to list
-	GVAR(BaseList) pushBack [_id, _side, _position, _isCamp]; // [<ID>, <Side>, <Position>, <IsCamp>]
+	GVAR(BaseList) pushBack [_id, _side, _position, _spawn]; // [<ID>, <Side>, <Position>, <Spawn>]
 	
 	nil;
 } count _this;
