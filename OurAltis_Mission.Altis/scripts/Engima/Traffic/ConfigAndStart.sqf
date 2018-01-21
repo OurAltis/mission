@@ -22,7 +22,7 @@ _parameters = [
 			"C_Van_01_box_F",
 			"C_Van_01_fuel_F",
 			"C_Offroad_02_unarmed_F",
-			"C_Van_02_medevac_F".
+			"C_Van_02_medevac_F",
 			"C_Van_02_vehicle_F",
 			"C_Van_02_service_F",
 			"C_Van_02_transport_F",
