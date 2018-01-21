@@ -1,6 +1,6 @@
-call compile preprocessFileLineNumbers "Engima\Traffic\Common\Common.sqf";
-call compile preprocessFileLineNumbers "Engima\Traffic\Common\Debug.sqf";
-call compile preprocessFileLineNumbers "Engima\Traffic\HeadlessClient.sqf";
+call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Common\Common.sqf";
+call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Common\Debug.sqf";
+call compile preprocessFileLineNumbers "scripts\Engima\Traffic\HeadlessClient.sqf";
 
 ENGIMA_TRAFFIC_instanceIndex = -1;
 ENGIMA_TRAFFIC_areaMarkerNames = [];
@@ -26,8 +26,8 @@ else {
 };
 
 if (_runOnThisMachine) then {
-	call compile preprocessFileLineNumbers "Engima\Traffic\Server\Functions.sqf";
-	call compile preprocessFileLineNumbers "Engima\Traffic\Server\MoveVehicle.sqf";
-	call compile preprocessFileLineNumbers "Engima\Traffic\Server\StartTraffic.sqf";
-	call compile preprocessFileLineNumbers "Engima\Traffic\ConfigAndStart.sqf";
+	call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Server\Functions.sqf";
+	call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Server\MoveVehicle.sqf";
+	call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Server\StartTraffic.sqf";
+	call compile preprocessFileLineNumbers "scripts\Engima\Traffic\ConfigAndStart.sqf";
 };
