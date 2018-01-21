@@ -34,8 +34,8 @@ private _baseVehicleList = [west, [], east, []];
 	private _vehicleType = [];
 	private _vehicleCount = [];
 	private _bigHeli = false;
-	
-	if (_spawnType isEqualTo "bsae") then {
+		
+	if (_spawnType isEqualTo "base") then {
 		{
 			_x params [
 				["_type", "", [""]],
@@ -50,6 +50,8 @@ private _baseVehicleList = [west, [], east, []];
 			nil
 		} count _this;
 	};
+	
+	diag_log ("Helitype: " + str(_bigHeli));
 	
 	{
 		_success = _x params [
@@ -116,9 +118,13 @@ private _baseVehicleList = [west, [], east, []];
 					
 					_helipads pushBack _obj;
 					
+					diag_log ("Helipads: " + str(_helipads));
+					
 					_helipads
 				};				
-			};		
+			};
+
+			diag_log ("ObjectList: " + str(_objList));
 			
 			_objList = if (count _helipads isEqualTo 2) then {
 				if (_type in HELI_BIG) then {
@@ -133,6 +139,8 @@ private _baseVehicleList = [west, [], east, []];
 			} else {
 				[_objList, 100] call FUNC(KK_arrayShuffle)
 			};
+			
+			diag_log ("ObjectList: " + str(_objList));
 			
 			private _return = {
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
