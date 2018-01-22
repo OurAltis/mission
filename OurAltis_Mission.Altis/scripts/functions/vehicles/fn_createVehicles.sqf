@@ -45,13 +45,45 @@ private _baseVehicleList = [west, [], east, []];
 				["_spawn", "", [""]]
 			];
 			
-			if (_type in HELI_BIG && _spawn isEqualTo _id) then {_bigHeli = true; diag_log ("IsBigHeli: " + str(_bigHeli))};
+			if (_type in HELI_BIG && _spawn isEqualTo _id) then {
+				private _helipads = nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
+				
+				_helipads params ["_pad0", "_pad1", "_pad2"];
+		
+				private _dist01 = _pad0 distance2D _pad1;
+				private _dist02 = _pad0 distance2D _pad2;
+				private _dist12 = _pad1 distance2D _pad2;
+				
+				private _matchingPads = if (_dist01 < _dist02) then {
+					if (_dist01 < _dist12) then {[_pad0, _pad1]} else {[_pad1, _pad2]};
+				} else {
+					if (_dist02 < _dist12) then {[_pad0, _pad2]} else {[_pad1, _pad2]};
+				};
+				
+				private _posPad0 = getPos (_matchingPads select 0);
+				private _posPad1 = getPos (_matchingPads select 1);
+				
+				private _mpos = [((_posPad0 select 0) + (_posPad1 select 0)) / 2, ((_posPad0 select 1) + (_posPad1 select 1)) / 2];
+				private _dir = _posPad0 getDir _posPad1;
+				_helipads = _helipads - _matchingPads;
+				
+				diag_log ("smallHelipads: " + str(_helipads));
+				
+				(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
+				{deleteVehicle _x; nil} count _matchingPads;
+				
+				private _pad = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
+				_pad setDir _dir;
+				_pad setVariable [QGVAR(heliBig), true];			
+				
+				_helipads pushBack _pad;
+				
+				diag_log ("Helipads: " + str(_helipads));
+			};
 			
 			nil
 		} count _this;
 	};
-	
-	diag_log ("Helitype: " + str(_bigHeli));
 	
 	{
 		_success = _x params [
@@ -89,50 +121,14 @@ private _baseVehicleList = [west, [], east, []];
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
 				diag_log "isAirVehicle";
-				private _helipads = nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
-				
-				if (_bigHeli) then {
-					_helipads params ["_pad0", "_pad1", "_pad2"];
-					
-					private _dist01 = _pad0 distance2D _pad1;
-					private _dist02 = _pad0 distance2D _pad2;
-					private _dist12 = _pad1 distance2D _pad2;
-					
-					private _matchingPads = if (_dist01 < _dist02) then {
-						if (_dist01 < _dist12) then {[_pad0, _pad1]} else {[_pad1, _pad2]};
-					} else {
-						if (_dist02 < _dist12) then {[_pad0, _pad2]} else {[_pad1, _pad2]};
-					};
-					
-					private _posPad0 = getPos (_matchingPads select 0);
-					private _posPad1 = getPos (_matchingPads select 1);
-					
-					private _mpos = [((_posPad0 select 0) + (_posPad1 select 0)) / 2, ((_posPad0 select 1) + (_posPad1 select 1)) / 2];
-					private _dir = _posPad0 getDir _posPad1;
-					_helipads = _helipads - _matchingPads;
-					
-					diag_log ("amallHelipads: " + str(_helipads));
-					
-					(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
-					{deleteVehicle _x; nil} count _matchingPads;
-					
-					private _pad = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
-					_pad setDir _dir;
-					_pad setVariable [QGVAR(heliBig), true];			
-					
-					_helipads pushBack _pad;
-					
-					diag_log ("Helipads: " + str(_helipads));
-					
-					_helipads
-				};				
+				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];								
 			};
 
 			diag_log ("ObjectListBefor: " + str(_objList));
 			
 			_objList = if ((count _objList) isEqualTo 2) then {
 				diag_log "2 Pads";
-							
+				
 				if (_type in HELI_BIG) then {
 					diag_log "HeliIsBig";
 					
