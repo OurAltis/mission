@@ -132,9 +132,7 @@ private _baseVehicleList = [west, [], east, []];
 			
 			_objList = if ((count _objList) isEqualTo 2) then {
 				diag_log "2 Pads";
-				
-				_x setPos [(getPos _x) select 0, (getPos _x) select 1, 0];
-				
+							
 				if (_type in HELI_BIG) then {
 					diag_log "HeliIsBig";
 					
