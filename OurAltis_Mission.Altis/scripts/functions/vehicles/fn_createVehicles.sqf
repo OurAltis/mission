@@ -72,7 +72,7 @@ private _baseVehicleList = [west, [], east, []];
 				diag_log ("smallHelipads: " + str(count _helipads));
 				
 				(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
-				{deleteVehicle _x; nil} count _matchingPads;
+				{_x setPos [0, 0, 0]; deleteVehicle _x; nil} count _matchingPads;
 				
 				private _pad = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
 				_pad setDir _dir;
