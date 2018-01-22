@@ -148,7 +148,9 @@ with uiNamespace do {
 				};				
 			}
 		];
-				
+		
+		_newPlayer addEventHandler ["HandleRating", {0}];
+		
 		private _group = _oldPlayer getVariable [QGVAR(group), grpNull];
 		private _leader = _oldPlayer getVariable [QGVAR(leader), false];
 				
