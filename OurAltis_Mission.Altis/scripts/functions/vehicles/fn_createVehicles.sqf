@@ -45,7 +45,7 @@ private _baseVehicleList = [west, [], east, []];
 				["_spawn", "", [""]]
 			];
 			
-			if (_type in HELI_BIG && _spawn isEqualTo _id) then {_bigHeli = true};
+			if (_type in HELI_BIG && _spawn isEqualTo _id) then {_bigHeli = true; diag_log ("IsBigHeli: " + str(_bigHeli))};
 			
 			nil
 		} count _this;
@@ -85,8 +85,10 @@ private _baseVehicleList = [west, [], east, []];
 			};
 			
 			private _objList = if (_type isKindOf "LandVehicle" || _type isKindOf "Ship") then {
+				diag_log "isLandVehicle";
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
 			} else {
+				diag_log "isAirVehicle";
 				private _helipads = nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
 				
 				if (_bigHeli) then {
@@ -108,15 +110,17 @@ private _baseVehicleList = [west, [], east, []];
 					private _mpos = [(_posPad0 select 0) + (_posPad1 select 0), (_posPad0 select 1) + (_posPad1 select 1)];
 					private _dir = _posPad0 getDir _posPad1;
 					_helipads = _helipads - _matchingPads;
-
+					
+					diag_log ("amallHelipads: " + str(_helipads));
+					
 					(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
 					{deleteVehicle _x; nil} count _matchingPads;
 					
-					private _obj = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
-					_obj setDir _dir;
-					_obj setVariable [QGVAR(heliBig), true];			
+					private _pad = createVehicle ["Land_HelipadCircle_F", _mpos, [], 0, "CAN_COLLIDE"];
+					_pad setDir _dir;
+					_pad setVariable [QGVAR(heliBig), true];			
 					
-					_helipads pushBack _obj;
+					_helipads pushBack _pad;
 					
 					diag_log ("Helipads: " + str(_helipads));
 					
@@ -124,27 +128,36 @@ private _baseVehicleList = [west, [], east, []];
 				};				
 			};
 
-			diag_log ("ObjectList: " + str(_objList));
+			diag_log ("ObjectListBefor: " + str(_objList));
 			
 			_objList = if (count _helipads isEqualTo 2) then {
+				diag_log "2 Pads";
 				if (_type in HELI_BIG) then {
+					diag_log "HeliIsBig";
+					
 					{
 						if (_x getVariable [QGVAR(heliBig), false]) exitWith {[_x]};
 					} count _objList;
 				} else {
+					diag_log "HeliIsSmall";
+				
 					{
 						if (_x getVariable [QGVAR(heliSmall), false]) exitWith {[_x]};
 					} count _objList;
 				};
 			} else {
+				diag_log "More Pads";
 				[_objList, 100] call FUNC(KK_arrayShuffle)
 			};
 			
-			diag_log ("ObjectList: " + str(_objList));
+			diag_log ("ObjectListAfter: " + str(_objList));
 			
 			private _return = {
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
 					private _obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
+					
+					diag_log ("CreateVehicle: " + str(_obj));
+					diag_log ("CreateVehiclePos: " + str(getpos _x));
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						private _jipID = str(position _x);
