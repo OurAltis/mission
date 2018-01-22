@@ -107,7 +107,7 @@ private _baseVehicleList = [west, [], east, []];
 					private _posPad0 = getPos (_matchingPads select 0);
 					private _posPad1 = getPos (_matchingPads select 1);
 					
-					private _mpos = [(_posPad0 select 0) + (_posPad1 select 0), (_posPad0 select 1) + (_posPad1 select 1)];
+					private _mpos = [((_posPad0 select 0) + (_posPad1 select 0)) / 2, ((_posPad0 select 1) + (_posPad1 select 1)) / 2];
 					private _dir = _posPad0 getDir _posPad1;
 					_helipads = _helipads - _matchingPads;
 					
