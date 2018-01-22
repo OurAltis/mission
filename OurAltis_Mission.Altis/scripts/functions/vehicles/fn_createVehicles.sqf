@@ -48,6 +48,8 @@ private _baseVehicleList = [west, [], east, []];
 			if (_type in HELI_BIG && _spawn isEqualTo _id) then {
 				private _helipads = nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];
 				
+				diag_log ("baseHelipads: " + str(_helipads));
+				
 				_helipads params ["_pad0", "_pad1", "_pad2"];
 		
 				private _dist01 = _pad0 distance2D _pad1;
@@ -67,7 +69,7 @@ private _baseVehicleList = [west, [], east, []];
 				private _dir = _posPad0 getDir _posPad1;
 				_helipads = _helipads - _matchingPads;
 				
-				diag_log ("smallHelipads: " + str(_helipads));
+				diag_log ("smallHelipads: " + str(count _helipads));
 				
 				(_helipads select 0) setVariable [QGVAR(heliSmall), true]; 
 				{deleteVehicle _x; nil} count _matchingPads;
@@ -78,7 +80,7 @@ private _baseVehicleList = [west, [], east, []];
 				
 				_helipads pushBack _pad;
 				
-				diag_log ("Helipads: " + str(_helipads));
+				diag_log ("Helipads: " + str(count _helipads));
 			};
 			
 			nil
@@ -124,7 +126,8 @@ private _baseVehicleList = [west, [], east, []];
 				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];								
 			};
 
-			diag_log ("ObjectListBefor: " + str(_objList));
+			diag_log ("ObjectListBefor: " + str(count _objList));
+			diag_log ("VehicleType: " + str(_type));
 			
 			_objList = if ((count _objList) isEqualTo 2) then {
 				diag_log "2 Pads";
@@ -147,7 +150,7 @@ private _baseVehicleList = [west, [], east, []];
 				[_objList, 100] call FUNC(KK_arrayShuffle)
 			};
 			
-			diag_log ("ObjectListAfter: " + str(_objList));
+			diag_log ("ObjectListAfter: " + str(count _objList));
 			
 			private _return = {
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
