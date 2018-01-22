@@ -130,7 +130,7 @@ private _baseVehicleList = [west, [], east, []];
 
 			diag_log ("ObjectListBefor: " + str(_objList));
 			
-			_objList = if (count _helipads isEqualTo 2) then {
+			_objList = if ((count _objList) isEqualTo 2) then {
 				diag_log "2 Pads";
 				if (_type in HELI_BIG) then {
 					diag_log "HeliIsBig";
