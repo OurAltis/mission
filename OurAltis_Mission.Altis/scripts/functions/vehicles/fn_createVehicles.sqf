@@ -132,7 +132,13 @@ private _baseVehicleList = [west, [], east, []];
 			
 			private _return = {
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {					
-					private _obj = createVehicle [_type, if (_spawnType isEqualTo "carrier") then {_x getVariable [QGVAR(vehiclePos), []]} else {_x}, [], 0, "CAN_COLLIDE"];
+					private _obj = if (_spawnType isEqualTo "carrier") then {
+						private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+						_obj setPosASL (_x getVariable [QGVAR(vehiclePos), []]);
+						_obj
+					} else {
+						createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
+					};
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						private _jipID = str(position _x);
