@@ -21,7 +21,7 @@
 private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_side", sideUnknown, [sideUnknown]],
-	["_id", nil, [""]]
+	["_id", nil, [""]],
 	["_baseDir", 0, [0]]
 ];
 
