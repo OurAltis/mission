@@ -150,10 +150,10 @@ private _spawnPos = [];
 	_cObjs pushBack _newObj;	
 	_newObj allowDamage false;
 	_newObj setDir (_azi + _azimuth);
-	_newObj setPosASL _newPos;
+	if (surfaceIsWater _newPos) then {_newObj setPosASL _newPos} else {_newObj setPos _newPos};
 	
 	if (_type isEqualTo "Land_Carrier_01_base_F") then {
-		[_newObj] call BIS_fnc_Carrier01PosUpdate;
+		[_newObj] call BIS_fnc_Carrier01PosUpdate;		
 	};
 	
 	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};		
