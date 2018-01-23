@@ -21,8 +21,7 @@
 private _success = params [
 	["_position", nil, [[]], [2,3]],
 	["_side", sideUnknown, [sideUnknown]],
-	["_id", nil, [""]],
-	["_baseType", 0, [0]],
+	["_id", nil, [""]]
 	["_baseDir", 0, [0]]
 ];
 
@@ -30,6 +29,6 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\carrier.sqf";
 
-_objsArray = [_position, _baseDir, _objsArray, []] call FUNC(objectsMapper);
+_objsArray = [_position, _baseDir, _objsArray, [], true] call FUNC(objectsMapper);
 
 nil
