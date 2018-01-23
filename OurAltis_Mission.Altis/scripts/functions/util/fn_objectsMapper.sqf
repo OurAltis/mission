@@ -141,7 +141,7 @@ private _spawnPos = [];
 			_group createUnit [_type, _newPos, [], 0, "NONE"];
 		} else {
 			//_type createVehicle _newPos
-			createVehicle [_type, if (_type isEqualTo "Land_Carrier_01_base_F") then {_newPos} else {[0,0,0]}, [], if (_type isEqualTo "Land_Carrier_01_base_F") then {500} else {0}, "CAN_COLLIDE"];
+			createVehicle [_type, [0,0,0], [], 0, "CAN_COLLIDE"];
 		};
 	};	
 		
@@ -150,10 +150,11 @@ private _spawnPos = [];
 	_cObjs pushBack _newObj;	
 	_newObj allowDamage false;
 	_newObj setDir (_azi + _azimuth);
+	_newObj setPosASL _newPos;
 	
 	if (_type isEqualTo "Land_Carrier_01_base_F") then {
 		[_newObj] call BIS_fnc_Carrier01PosUpdate;
-	} else {_newObj setPosASL _newPos};
+	};
 	
 	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};		
 	if (_init != "") then {_newObj call (compile ("this = _this; " + _init))};	
