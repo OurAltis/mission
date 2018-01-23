@@ -122,6 +122,7 @@ with uiNamespace do {
 		
 		
 		// create unit by calling the stored creation code with the respective information
+		_position = if (surfaceIsWater _position) then {_position pushBack 21.8};
 		_newPlayer = [_roleData select 0, _position, _baseName] call (_roleData select 1);
 		
 		CHECK_FALSE(isNil "_newPlayer", Failed at creating new player unit!, {})

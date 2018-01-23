@@ -29,6 +29,8 @@ private _sidePrefix = toString [toArray str group player select 0];
 
 private _newPlayerUnit = group player createUnit [_sidePrefix + "_Survivor_F", _position, [], 0, "NONE"];
 
+if (surfaceIsWater _position) then {_newPlayerUnit setPosASL _position};
+
 private _internalClassName = [_className] call FUNC(getInternalClassName);
 
 [_newPlayerUnit, _internalClassName] call FUNC(equipUnitAsClass);
