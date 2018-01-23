@@ -15,6 +15,7 @@ class CfgFunctions
 			class getBaseDir {};
 			class createFOB {};
 			class adjustBuildingsToMap {};
+			class createCarrier {};
 		};
 		
 		class client

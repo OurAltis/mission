@@ -77,7 +77,7 @@ private _baseVehicleList = [west, [], east, []];
 			
 			nil
 		} count _this;
-	};
+	};	
 	
 	{
 		_success = _x params [
@@ -131,9 +131,9 @@ private _baseVehicleList = [west, [], east, []];
 			};
 			
 			private _return = {
-				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {
-					private _obj = createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
-										
+				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {					
+					private _obj = createVehicle [_type, if (_spawnType isEqualTo "carrier") then {_x getVariable [QGVAR(vehiclePos), []]} else {_x}, [], 0, "CAN_COLLIDE"];
+					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						private _jipID = str(position _x);
 						
@@ -203,7 +203,7 @@ private _baseVehicleList = [west, [], east, []];
 					private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 				
 					_objWebGUI setFuel _fuel;					
-					_obj setDir (getDir _x);
+					if (_spawnType isEqualTo "carrier") then {_obj setDir (_x getVariable [QGVAR(vehicleDir), 0])} else {_obj setDir (getDir _x)};
 					
 					// apply damage
 					if (typeName _damage isEqualTo typeName 0) then {

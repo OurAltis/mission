@@ -11,6 +11,7 @@
 	1: azimuth of the template in degrees - <Number>
 	2: objects for the template - <Array>
 	3: classname of object which will be returned - <Array>
+	4: template is carrier - <Booln>
 
 	Returns:
 	Special objects (Array) (last element is always the marker)
@@ -20,7 +21,8 @@ params [
 	["_pos", [], [[]]],
 	["_azi", 0, [0]],
 	["_objs", [], [[]]],
-	["_objClass", [], [[]]]
+	["_objClass", [], [[]]],
+	["_isCarrier", false, [true]]
 ];
 
 //Make sure there are definitions in the final object array
@@ -105,6 +107,8 @@ private _marker = "";
 
 private _cObjs = [];
 private _return = [];
+private _zOffset = 0;
+private _spawnPos = [];
 
 {		
 	_x params [
@@ -120,12 +124,14 @@ private _return = [];
 		["_isRectangle", false, [true]]
 	];
 	
+	if (_type isEqualTo "Land_Carrier_01_base_F") then {_zOffset = _relPos select 2};
+	
 	private _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
 
 	//Backwards compatability causes for height to be optional
 	private _z = if ((count _relPos) > 2) then {_relPos select 2} else {0};
 
-	private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+	private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), if (_type isEqualTo "Land_Carrier_01_base_F") then {_z} else {_z - abs(_zOffset)}];
 	
 	private _newObj = if (_isSimpleObject) then {
 		createSimpleObject [_type, _newPos];
@@ -138,16 +144,26 @@ private _return = [];
 			createVehicle [_type, [0,0,0], [], 0, "CAN_COLLIDE"];
 		};
 	};	
-	
+		
 	if (_type in _objClass) then {_return pushBack _newObj};
+	
 	_cObjs pushBack _newObj;	
 	_newObj allowDamage false;
 	_newObj setDir (_azi + _azimuth);
-	_newObj setPosATL _newPos;
-	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};
 	
+	if (_type isEqualTo "Land_Carrier_01_base_F") then {
+		_newObj setPosASL _newPos;
+		[_newObj] call BIS_fnc_Carrier01PosUpdate;
+	} else {_newObj setPosASL _newPos};
+	
+	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};		
 	if (_init != "") then {_newObj call (compile ("this = _this; " + _init))};	
-	if (!_simulation) then {_newObj enableSimulationGlobal false};	
+	if (!_simulation) then {_newObj enableSimulationGlobal false};
+	
+	if (_type in (VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR) && _isCarrier) then {
+		_newObj setVariable [QGVAR(vehiclePos), _newPos];
+		_newObj setVariable [QGVAR(vehicleDir), (_azi + _azimuth)];
+	};
 	
 	nil
 } count _objs;

@@ -44,6 +44,7 @@ GVAR(markerNoCiv) = [];
 		
 		case "carrier": {
 			// create a carrier
+			[_position, _side, _id, random 360] call FUNC(createCarrier);
 		};
 	};	
 	
