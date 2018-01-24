@@ -244,7 +244,7 @@ private _baseVehicleList = [west, [], east, []];
 						};
 					};
 					
-					_obj setPosATL (getPos _x vectorAdd [0,0,0.2]);
+					//_obj setPosATL (getPos _x vectorAdd [0,0,0.2]);
 					
 					clearWeaponCargoGlobal _obj;
 					clearBackpackCargoGlobal _obj;
