@@ -68,7 +68,7 @@ if (isServer) then {
 	[] call FUNC(createDBEntryStatistic);
 	
 	[] call compile preprocessFileLineNumbers "scripts\Engima\Civilians\Init.sqf";
-	[] call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Init.sqf";
+	//[] call compile preprocessFileLineNumbers "scripts\Engima\Traffic\Init.sqf";
 	
 	//[] call compile preprocessFileLineNumbers "scripts\advancedSlingLoading\functions\fn_advancedSlingLoadingInit.sqf";
 	
