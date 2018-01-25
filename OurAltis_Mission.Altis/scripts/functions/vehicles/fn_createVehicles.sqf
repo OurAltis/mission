@@ -111,9 +111,9 @@ private _baseVehicleList = [west, [], east, []];
 			};
 			
 			private _objList = if (_type isKindOf "LandVehicle" || _type isKindOf "Ship") then {
-				nearestObjects [_position, VEHICLE_SPAWN_LAND, 80];
+				nearestObjects [_position, VEHICLE_SPAWN_LAND, if (_spawnType isEqualTo "carrier") then {200} else {80}];
 			} else {
-				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];								
+				nearestObjects [_position, VEHICLE_SPAWN_AIR, if (_spawnType isEqualTo "carrier") then {200} else {80}];								
 			};
 			
 			diag_log _spawnType;
