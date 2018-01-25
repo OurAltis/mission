@@ -116,6 +116,9 @@ private _baseVehicleList = [west, [], east, []];
 				nearestObjects [_position, VEHICLE_SPAWN_AIR, 80];								
 			};
 			
+			diag_log _spawnType;
+			diag_log (count _objList);
+			
 			_objList = if ((count _objList) isEqualTo 2) then {				
 				if (_type in HELI_BIG) then {					
 					{
@@ -213,7 +216,8 @@ private _baseVehicleList = [west, [], east, []];
 					private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 				
 					_objWebGUI setFuel _fuel;					
-					if (_spawnType isEqualTo "carrier") then {_obj setDir (_x getVariable [QGVAR(vehicleDir), 0])} else {_obj setDir (getDir _x)};
+					//if (_spawnType isEqualTo "carrier") then {_obj setDir (_x getVariable [QGVAR(vehicleDir), 0])} else {_obj setDir (getDir _x)};
+					_obj setDir (getDir _x);
 					
 					// apply damage
 					if (typeName _damage isEqualTo typeName 0) then {
@@ -244,7 +248,7 @@ private _baseVehicleList = [west, [], east, []];
 						};
 					};
 					
-					//_obj setPosATL (getPos _x vectorAdd [0,0,0.2]);
+					if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_x getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _x vectorAdd [0,0,0.2])};
 					
 					clearWeaponCargoGlobal _obj;
 					clearBackpackCargoGlobal _obj;

@@ -168,6 +168,9 @@ private _spawnPos = [];
 	nil
 } count _objs;
 
+diag_log _cObjs;
+diag_log (count _cObjs);
+
 {
 	_x allowDamage true;
 } count _cObjs;
