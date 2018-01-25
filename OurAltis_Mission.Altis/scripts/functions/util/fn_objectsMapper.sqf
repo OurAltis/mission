@@ -153,7 +153,8 @@ private _spawnPos = [];
 	if (surfaceIsWater _newPos) then {_newObj setPosASL _newPos} else {_newObj setPos _newPos};
 	
 	if (_type isEqualTo "Land_Carrier_01_base_F") then {
-		[_newObj] call BIS_fnc_Carrier01PosUpdate;		
+		[_newObj] call BIS_fnc_Carrier01PosUpdate;
+		[_newObj] call BIS_fnc_Carrier01PosUpdate;
 	};
 	
 	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};		
