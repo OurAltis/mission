@@ -69,16 +69,11 @@ private _marker = "";
 	if ((_type find "EmptyDetector") > -1) then {		
 		if ((_varName find "FOB") > -1) then {
 			private _count = {
-				diag_log _varName;
 				private _index = _varName find "FOB";
-				diag_log _index;
 				private _string = _varName select [_index];
-				diag_log _string;
 				
 				if ((_x find _string) > -1) then {true} else {false};
 			} count allMapMarkers;
-			
-			diag_log _count;
 			
 			_varName = (_varName select [_varName find "FOB"]) + (if (_count isEqualTo 0) then {"1"} else {str(_count + 1)}); 
 		};
@@ -154,7 +149,6 @@ private _spawnPos = [];
 	
 	if (_type isEqualTo "Land_Carrier_01_base_F") then {
 		[_newObj] call BIS_fnc_Carrier01PosUpdate;
-		[_newObj] call BIS_fnc_Carrier01PosUpdate;
 	};
 	
 	if (_newObj isKindOf "AllVehicles") then {_newObj lock _lockState};		
@@ -163,14 +157,10 @@ private _spawnPos = [];
 	
 	if (_type in (VEHICLE_SPAWN_LAND + VEHICLE_SPAWN_AIR) && _isCarrier) then {
 		_newObj setVariable [QGVAR(vehiclePos), _newPos];
-		_newObj setVariable [QGVAR(vehicleDir), (_azi + _azimuth)];
 	};
 	
 	nil
 } count _objs;
-
-diag_log _cObjs;
-diag_log (count _cObjs);
 
 {
 	_x allowDamage true;

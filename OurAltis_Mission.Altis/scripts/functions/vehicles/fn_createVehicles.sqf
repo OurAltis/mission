@@ -114,10 +114,7 @@ private _baseVehicleList = [west, [], east, []];
 				nearestObjects [_position, VEHICLE_SPAWN_LAND, if (_spawnType isEqualTo "carrier") then {200} else {80}];
 			} else {
 				nearestObjects [_position, VEHICLE_SPAWN_AIR, if (_spawnType isEqualTo "carrier") then {200} else {80}];								
-			};
-			
-			diag_log _spawnType;
-			diag_log (count _objList);
+			};			
 			
 			_objList = if ((count _objList) isEqualTo 2) then {				
 				if (_type in HELI_BIG) then {					
@@ -137,15 +134,11 @@ private _baseVehicleList = [west, [], east, []];
 				if (!(_x getVariable [QGVAR(VehiclePlaced), false])) exitWith {					
 					private _obj = if (_spawnType isEqualTo "carrier") then {
 						private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
-						diag_log (_x getVariable [QGVAR(vehiclePos), []]);
 						_obj setPosASL (_x getVariable [QGVAR(vehiclePos), []]);
-						diag_log _obj;
 						_obj
 					} else {
 						createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					};
-					
-					diag_log _obj;
 					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						private _jipID = str(position _x);
@@ -216,7 +209,6 @@ private _baseVehicleList = [west, [], east, []];
 					private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 				
 					_objWebGUI setFuel _fuel;					
-					//if (_spawnType isEqualTo "carrier") then {_obj setDir (_x getVariable [QGVAR(vehicleDir), 0])} else {_obj setDir (getDir _x)};
 					_obj setDir (getDir _x);
 					
 					// apply damage
