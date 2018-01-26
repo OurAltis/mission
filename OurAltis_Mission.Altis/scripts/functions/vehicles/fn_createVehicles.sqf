@@ -140,6 +140,8 @@ private _baseVehicleList = [west, [], east, []];
 						createVehicle [_type, _x, [], 0, "CAN_COLLIDE"];
 					};
 					
+					_obj allowDamage false;
+					
 					if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
 						private _jipID = str(position _x);
 						
@@ -210,6 +212,9 @@ private _baseVehicleList = [west, [], east, []];
 				
 					_objWebGUI setFuel _fuel;					
 					_obj setDir (getDir _x);
+					if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_x getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _x vectorAdd [0,0,0.2])};
+					
+					_obj allowDamage true;
 					
 					// apply damage
 					if (typeName _damage isEqualTo typeName 0) then {
@@ -238,9 +243,7 @@ private _baseVehicleList = [west, [], east, []];
 						for "_i" from 0 to ((count _ammo) - 1) do {							
 							_objWebGUI addMagazineTurret [(_ammo select _i) select 0, (_ammo select _i) select 1, (_ammo select _i) select 2];
 						};
-					};
-					
-					if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_x getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _x vectorAdd [0,0,0.2])};
+					};				
 					
 					clearWeaponCargoGlobal _obj;
 					clearBackpackCargoGlobal _obj;
