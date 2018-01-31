@@ -234,6 +234,8 @@ private _baseVehicleList = [west, [], east, []];
 						{
 							_this params ["_damage", "_objWebGUI"];
 							
+							_objWebGUI setDamage 0;
+							
 							if (typeName _damage isEqualTo typeName 0) then {
 								_objWebGUI setDamage _damage;
 							} else {
@@ -249,7 +251,7 @@ private _baseVehicleList = [west, [], east, []];
 							};
 						},
 						[_damage, _objWebGUI],
-						1
+						6
 					] call CBA_fnc_waitAndExecute;
 					
 					// apply ammo
