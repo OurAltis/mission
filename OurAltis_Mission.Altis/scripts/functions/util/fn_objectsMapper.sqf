@@ -126,7 +126,7 @@ private _spawnPos = [];
 	//Backwards compatability causes for height to be optional
 	private _z = if ((count _relPos) > 2) then {_relPos select 2} else {0};
 
-	private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), if (_type isEqualTo "Land_Carrier_01_base_F") then {_z} else {_z - abs(_zOffset)}];
+	private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), if (_type isEqualTo "Land_Carrier_01_base_F" || _type isEqualTo "Land_Pier_F") then {_z} else {_z - abs(_zOffset)}];
 	
 	private _newObj = if (_isSimpleObject) then {
 		createSimpleObject [_type, _newPos];
