@@ -212,10 +212,11 @@ private _baseVehicleList = [west, [], east, []];
 				
 					_objWebGUI setFuel _fuel;					
 					_obj setDir (getDir _x);
+					
 					if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_x getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _x vectorAdd [0,0,0.2])};
-									
+					
 					// apply damage
-					if (typeName _damage isEqualTo typeName 0) then {
+					/*if (typeName _damage isEqualTo typeName 0) then {
 						_objWebGUI setDamage _damage;
 					} else {
 						if (typeName _damage isEqualTo typeName "") then {
@@ -227,7 +228,29 @@ private _baseVehicleList = [west, [], east, []];
 						for "_i" from 0 to (count (_damage select 0) - 1) do {
 							_objWebGUI setHitPointDamage [_damage select 0 select _i, _damage select 2 select _i];
 						};
-					};
+					};*/
+					
+					[
+						{
+							_this params ["_damage", "_objWebGUI"];
+							
+							if (typeName _damage isEqualTo typeName 0) then {
+								_objWebGUI setDamage _damage;
+							} else {
+								if (typeName _damage isEqualTo typeName "") then {
+									// convert string into array
+									_damage = parseSimpleArray _damage;
+								};
+								
+								// apply damage to each part
+								for "_i" from 0 to (count (_damage select 0) - 1) do {
+									_objWebGUI setHitPointDamage [_damage select 0 select _i, _damage select 2 select _i];
+								};
+							};
+						},
+						[_damage, _objWebGUI],
+						1
+					] call CBA_fnc_waitAndExecute;
 					
 					// apply ammo
 					if !((count _ammo) isEqualTo 0) then {
