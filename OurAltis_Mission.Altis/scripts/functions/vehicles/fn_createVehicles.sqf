@@ -234,7 +234,7 @@ private _baseVehicleList = [west, [], east, []];
 						{
 							_this params ["_damage", "_objWebGUI"];
 							
-							//_objWebGUI setDamage 0;
+							_objWebGUI setDamage 0;
 							
 							if (typeName _damage isEqualTo typeName 0) then {
 								_objWebGUI setDamage _damage;
