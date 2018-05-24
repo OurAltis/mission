@@ -191,6 +191,12 @@ class CfgFunctions
 			class cargoVehicle {};
 			class deployBoat {};
 			class loadUpBoat {};
+			class getVehicleSpawn {};
+			class prepareAirVehicleSpawn {};
+			class prepareVehicleBoat {};
+			class prepareVehicleMobileCamp {};
+			class resizeVehicleSpawn {};
+			class sortVehicles {};
 		};
 		
 		class economy
