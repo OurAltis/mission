@@ -16,6 +16,8 @@
  *
  */
 
+diag_log ("resizeVehicleSpawn: " + str(_this));
+ 
 private _success = params [
 	["_spawnPointsLandShuffled", [], [[]]],
 	["_countVehicles", 0, [0]]
