@@ -36,7 +36,11 @@ CHECK_TRUE(_success, Invalid Vehicle format!)
 	
 	private _sortedVehicles = [_baseID, _vehicles] call FUNC(sortVehicles);
 	
+	diag_log ("createVehicles sortedVehicles: " + str(_sortedVehicles));
+	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
+	
+	diag_log ("createVehicles matchedAirVehicles: " + str(_matchedAirVehicles));
 	
 	_vehicles = _vehicles - _matchedLandVehicles - _matchedAirVehicles - _matchedSeeVehicles;
 	
