@@ -27,8 +27,8 @@ private _matchedLandVehicles = [];
 private _matchedAirVehicles = [];
 private _matchedSeeVehicles = [];
 
-diag_log _this;
-diag_log _vehicles;
+diag_log "sortVehicles: _this: " + str(_this);
+diag_log "sortVehicles: _this: " + str(_vehicles);
 
 _vehicles params [
 	["_type", "", [""]],
