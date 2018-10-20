@@ -30,6 +30,13 @@ private _matchedAirVehicles = [];
 private _matchedSeeVehicles = [];
 
 {
+	diag_log ("_x count: " + str(count _x));
+	diag_log ("_x e1: " + str(_x select 0));
+	diag_log ("_x e2: " + str(_x select 1));
+	diag_log ("_x e3: " + str(_x select 2));
+	diag_log ("_x e4: " + str(_x select 3));
+	diag_log ("_x e5: " + str(_x select 4));
+	
 	_x params [
 		["_type", "", [""]],
 		["_fuel", 0, [0]],
@@ -39,10 +46,10 @@ private _matchedSeeVehicles = [];
 	];
 	
 	diag_log ("sortedVehicles _type: " + str(_type));
-	diag_log ("sortedVehicles: _fuel" + str(_fuel));
+	diag_log ("sortedVehicles: _fuel: " + str(_fuel));
 	diag_log ("sortedVehicles _damage: " + str(_damage));
-	diag_log ("sortedVehicles: _ammo" + str(_ammo));
-	diag_log ("sortedVehicles: _spawn" + str(_spawn));
+	diag_log ("sortedVehicles: _ammo: " + str(_ammo));
+	diag_log ("sortedVehicles: _spawn: " + str(_spawn));
 	
 	if (_baseID isEqualTo _spawn) then {
 		if (_type isKindOf "LandVehicle") then {
