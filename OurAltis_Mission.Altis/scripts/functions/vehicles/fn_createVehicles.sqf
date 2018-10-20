@@ -62,6 +62,8 @@ CHECK_TRUE(_success, Invalid Vehicle format!)
 	_spawnPointsLandShuffled = [_spawnPointsLandShuffled, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);	
 	
 	private _spawnPointsAir = [_position, _spawnType, false] call FUNC(getVehicleSpawn);	
+	diag_log ("createVehicles _spawnPointsAir: " + str(_spawnPointsAir));
+	
 	private _spawnPointsAirShuffled = if (_mustBeSorted) then {
 		if ((_spawnPointsAir select 0) getVariable [QGVAR(heliSmall, false)]) then {_spawnPointsAir} else {[_spawnPointsAir select 1, _spawnPointsAir select 0]};
 	} else {
