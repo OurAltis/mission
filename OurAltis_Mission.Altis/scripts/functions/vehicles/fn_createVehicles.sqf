@@ -34,9 +34,9 @@ CHECK_TRUE(_success, Invalid Vehicle format!)
 	
 	CHECK_TRUE(_success, Invalid base format!)
 	
-	diag_log ("createVehicles: _this: " + str(_vehicles));
+	diag_log ("createVehicles: _this: " + str(_this));
 	
-	private _sortedVehicles = [_baseID, _vehicles] call FUNC(sortVehicles);
+	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);
 	
 	diag_log ("createVehicles sortedVehicles: " + str(_sortedVehicles));
 	
