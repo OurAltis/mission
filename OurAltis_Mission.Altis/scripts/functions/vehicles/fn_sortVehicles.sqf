@@ -23,6 +23,8 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+diag_log ("sortedVehicles vehicles count: " + str(count _vehicles));
+
 private _matchedLandVehicles = [];
 private _matchedAirVehicles = [];
 private _matchedSeeVehicles = [];
@@ -36,8 +38,11 @@ private _matchedSeeVehicles = [];
 		["_spawn", "", [""]]
 	];
 	
-	diag_log ("sortedVehicles: " + str(_type));
-	diag_log ("sortedVehicles: " + str(_fuel));
+	diag_log ("sortedVehicles _type: " + str(_type));
+	diag_log ("sortedVehicles: _fuel" + str(_fuel));
+	diag_log ("sortedVehicles _damage: " + str(_damage));
+	diag_log ("sortedVehicles: _ammo" + str(_ammo));
+	diag_log ("sortedVehicles: _spawn" + str(_spawn));
 	
 	if (_baseID isEqualTo _spawn) then {
 		if (_type isKindOf "LandVehicle") then {
