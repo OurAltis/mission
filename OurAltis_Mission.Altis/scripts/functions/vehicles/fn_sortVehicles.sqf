@@ -31,11 +31,7 @@ private _matchedSeeVehicles = [];
 
 {
 	diag_log ("_x count: " + str(count _x));
-	diag_log ("_x e1: " + str(_x select 0));
-	diag_log ("_x e2: " + str(_x select 1));
-	diag_log ("_x e3: " + str(_x select 2));
-	diag_log ("_x e4: " + str(_x select 3));
-	diag_log ("_x e5: " + str(_x select 4));
+	diag_log ("_x: " + str(_x));
 	
 	_x params [
 		["_type", "", [""]],
