@@ -24,8 +24,6 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid Vehicle format!)
 
-diag_log "createVehicles: _this: " + str(_this);
-diag_log "createVehicles: _this: " + str(_vehicles);
 {	
 	_success = _x params [
 		["_baseID", nil, [""]],
@@ -36,7 +34,7 @@ diag_log "createVehicles: _this: " + str(_vehicles);
 	
 	CHECK_TRUE(_success, Invalid base format!)
 	
-	diag_log "createVehicles: _this: " + str(_vehicles);
+	diag_log ("createVehicles: _this: " + str(_vehicles));
 	
 	private _sortedVehicles = [_baseID, _vehicles] call FUNC(sortVehicles);
 	

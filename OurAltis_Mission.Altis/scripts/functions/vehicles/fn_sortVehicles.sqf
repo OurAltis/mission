@@ -27,18 +27,15 @@ private _matchedLandVehicles = [];
 private _matchedAirVehicles = [];
 private _matchedSeeVehicles = [];
 
-diag_log "sortVehicles: _this: " + str(_this);
-diag_log "sortVehicles: _this: " + str(_vehicles);
-
-_vehicles params [
-	["_type", "", [""]],
-	["_fuel", 0, [0]],
-	["_damage", 0, [0,"",[]]],
-	["_ammo", [], [[]]],
-	["_spawn", "", [""]]
-];
-
 {
+	_x params [
+		["_type", "", [""]],
+		["_fuel", 0, [0]],
+		["_damage", 0, [0,"",[]]],
+		["_ammo", [], [[]]],
+		["_spawn", "", [""]]
+	];
+
 	if (_baseID isEqualTo _spawn) then {
 		if (_type isKindOf "LandVehicle") then {
 			_matchedLandVehicles pushBack _x;
