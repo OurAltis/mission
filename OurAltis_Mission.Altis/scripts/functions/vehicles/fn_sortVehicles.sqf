@@ -35,7 +35,10 @@ private _matchedSeeVehicles = [];
 		["_ammo", [], [[]]],
 		["_spawn", "", [""]]
 	];
-
+	
+	diag_log ("sortedVehicles: " + str(_type));
+	diag_log ("sortedVehicles: " + str(_fuel));
+	
 	if (_baseID isEqualTo _spawn) then {
 		if (_type isKindOf "LandVehicle") then {
 			_matchedLandVehicles pushBack _x;
