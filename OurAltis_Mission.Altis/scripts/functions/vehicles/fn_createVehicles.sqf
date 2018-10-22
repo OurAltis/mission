@@ -32,6 +32,10 @@
 	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
 	
+	diag_log ("createVehicles count _matchedLandVehicles: " + str(count _matchedLandVehicles));
+	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
+	diag_log ("createVehicles count _matchedSeeVehicles: " + str(count _matchedSeeVehicles));
+	
 	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
 	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 	
