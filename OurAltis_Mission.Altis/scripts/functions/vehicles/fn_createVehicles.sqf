@@ -54,7 +54,9 @@
 	private _spawnPointsLand = [_position, _spawnType, true] call FUNC(getVehicleSpawn);
 	private _spawnPointsLandShuffled = [_spawnPointsLand, 100] call FUNC(KK_arrayShuffle);	
 	
-	_spawnPointsLandShuffled = [_spawnPointsLandShuffled, (_matchedLandVehicles + _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);	
+	_spawnPointsLandShuffled = [_spawnPointsLandShuffled, (count _matchedLandVehicles + count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);	
+	
+	diag_log ("createVehicles _spawnPointsLandShuffled" + str(count _matchedLandVehicles + count _matchedSeeVehicles));
 	
 	private _spawnPointsAir = [_position, _spawnType, false] call FUNC(getVehicleSpawn);	
 	diag_log ("createVehicles _spawnPointsAir: " + str(_spawnPointsAir));
@@ -68,7 +70,7 @@
 	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
 	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 	
-	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
+	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
 		
 	{
 		_success = _x params [
