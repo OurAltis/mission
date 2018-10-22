@@ -15,6 +15,8 @@
  * 
  */
 
+diag_log ("pAvS _this: " + str(_this));
+ 
 private _success = params [
 	["_matchedAirVehicles", [], [[]]]
 ];
@@ -24,6 +26,8 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _hasChanged = false;
 
 {
+	diag_log ("pAvS _x: " + str(_x));
+	
 	_x params [
 		["_type", "", [""]]
 	];

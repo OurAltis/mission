@@ -17,12 +17,6 @@
  * None <Any>
  * 
  */
- 
-private _success = params [
-	["_vehicles", [], [[]]]
-];
-
-CHECK_TRUE(_success, Invalid Vehicle format!)
 
 {	
 	_success = _x params [
@@ -34,17 +28,9 @@ CHECK_TRUE(_success, Invalid Vehicle format!)
 	
 	CHECK_TRUE(_success, Invalid base format!)
 	
-	diag_log ("createVehicles: _this: " + str(_this));
-	
 	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);
 	
-	diag_log ("createVehicles sortedVehicles: " + str(_sortedVehicles));
-	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
-	
-	diag_log ("createVehicles matchedAirVehicles: " + str(_matchedAirVehicles));
-	
-	_vehicles = _vehicles - _matchedLandVehicles - _matchedAirVehicles - _matchedSeeVehicles;
 	
 	private _mustBeSorted = if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
 		[_matchedAirVehicles] call FUNC(prepareAirVehicleSpawn);
