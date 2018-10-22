@@ -32,15 +32,24 @@
 	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
 	
+	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
+	
 	private _mustBeSorted = if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
 		[_matchedAirVehicles] call FUNC(prepareAirVehicleSpawn);
 	} else {false};
+	
+	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 	
 	_matchedAirVehicles = if (_mustBeSorted) then {		
 		if (((_matchedAirVehicles select 0) select 0) in HELI_BIG) then {
 			[_matchedAirVehicles select 1, _matchedAirVehicles select 0]
 		} else {_matchedAirVehicles};
 	};
+	
+	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 	
 	private _spawnPointsLand = [_position, _spawnType, true] call FUNC(getVehicleSpawn);
 	private _spawnPointsLandShuffled = [_spawnPointsLand, 100] call FUNC(KK_arrayShuffle);	
