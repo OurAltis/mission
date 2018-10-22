@@ -25,6 +25,8 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+_countVehicles = count _countVehicles;
+
 _spawnPointsLandShuffled = if (_countVehicles > count _spawnPointsLandShuffled) then {
 	_spawnPointsLandShuffled resize _countVehicles;
 	_spawnPointsLandShuffled apply {if (isnil "_x") then {""} else {_x}};

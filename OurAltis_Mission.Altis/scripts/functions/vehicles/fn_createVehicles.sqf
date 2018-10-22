@@ -68,7 +68,7 @@
 	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
 	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 	
-	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
+	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
 		
 	{
 		_success = _x params [
