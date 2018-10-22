@@ -65,6 +65,9 @@
 		[_spawnPointsAir, 100] call FUNC(KK_arrayShuffle);
 	};	
 	
+	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
+	
 	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
 		
 	{
