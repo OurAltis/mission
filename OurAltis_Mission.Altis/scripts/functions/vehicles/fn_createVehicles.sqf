@@ -104,6 +104,8 @@
 	
 	diag_log ("End baseID: " + str(_baseID));
 	
+	private _countIndex = 0;
+	
 	{
 		_success = _x params [
 			["_type", "", [""]],
@@ -116,7 +118,10 @@
 
 		CHECK_TRUE(_success, Invalid vehicleFormat!)	
 		
-		{	
+		{
+			_countIndex = _countIndex + 1;
+			diag_log ("countIndex = " + str(_countIndex));
+			
 			private _xDummy = _x;
 			
 			private _obj = if (_spawnType isEqualTo "carrier") then {
@@ -137,9 +142,7 @@
 			
 			if (_type in VEHICLE_MOBILE_CAMP) then {
 				[_obj, _type] call FUNC(prepareVehicleMobileCamp);
-			};			
-			
-			
+			};		
 			
 			private _objBoat = if (_type isKindOf "Ship") then {
 				[_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoot);
