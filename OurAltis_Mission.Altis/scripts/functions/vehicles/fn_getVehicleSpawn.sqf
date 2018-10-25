@@ -25,14 +25,10 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameter!)
 
-diag_log ("getVehicleSpawn: " + str(_this));
-
 private _spawnPoints = nearestObjects [
 	_position,
 	[VEHICLE_SPAWN_AIR, VEHICLE_SPAWN_LAND] select _isLand,
 	[80, 200] select (_spawnType isEqualTo "carrier")
 ];
-
-diag_log ("getVehicleSpawn: " + str(_spawnPoints));
 
 _spawnPoints

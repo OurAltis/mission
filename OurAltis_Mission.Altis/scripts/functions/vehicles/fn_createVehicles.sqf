@@ -28,54 +28,82 @@
 	
 	CHECK_TRUE(_success, Invalid base format!)
 	
+	diag_log ("Start baseID: " + str(_baseID));
+	
+	diag_log "Start getVehicleSpawn";
+	private _landSpawnPoints = [_position, _spawnType, true] call FUNC(getVehicleSpawn);
+	private _airSpawnpoints = [_position, _spawnType, false] call FUNC(getVehicleSpawn);
+	diag_log "End getVehicleSpawn";
+	
+	diag_log "Start sortVehicles";
 	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);
+
+	{	
+		diag_log ("sortedVehicles Index: " + str(_forEachIndex));
+		diag_log ("sortedVehicles Count: " + str(count _x));
+		
+		{
+			diag_log format ["sortedVehicles Class: %1", _x select 0];
+		} forEach _x;
+	} forEach _sortedVehicles;
+	diag_log "End sortVehicles";
 	
-	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
+	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
+	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];	
 	
-	diag_log ("createVehicles count _matchedLandVehicles: " + str(count _matchedLandVehicles));
-	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
-	diag_log ("createVehicles count _matchedSeeVehicles: " + str(count _matchedSeeVehicles));
-	
-	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
-	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
-	
-	private _mustBeSorted = if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
-		[_matchedAirVehicles] call FUNC(prepareAirVehicleSpawn);
-	} else {false};
-	
-	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
-	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
-	
-	_matchedAirVehicles = if (_mustBeSorted) then {		
-		if (((_matchedAirVehicles select 0) select 0) in HELI_BIG) then {
-			[_matchedAirVehicles select 1, _matchedAirVehicles select 0]
-		} else {_matchedAirVehicles};
+	diag_log "Start prepareAirVehicleSpawn";
+	if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
+		_airSpawnpoints = [_matchedAirVehicles, _airSpawnpoints] call FUNC(prepareAirVehicleSpawn);
 	};
 	
-	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
-	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
+	diag_log ("airSpawnPoints Count: " + str(count _airSpawnPoints));
 	
-	private _spawnPointsLand = [_position, _spawnType, true] call FUNC(getVehicleSpawn);
-	private _spawnPointsLandShuffled = [_spawnPointsLand, 100] call FUNC(KK_arrayShuffle);	
+	{
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
+	} forEach _airSpawnPoints;
+	diag_log "End prepareAirVehicleSpawn";
 	
-	diag_log ("createVehicles _spawnPointsLandShuffled" + str(count _matchedLandVehicles + count _matchedSeeVehicles));
+	diag_log "Start landSpawn shuffle";
+	_landSpawnPoints = [_landSpawnPoints, 100] call FUNC(KK_arrayShuffle);
+	diag_log "End landSpawn shuffle";
 	
-	_spawnPointsLandShuffled = [_spawnPointsLandShuffled, (count _matchedLandVehicles + count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);	
-	
-	private _spawnPointsAir = [_position, _spawnType, false] call FUNC(getVehicleSpawn);	
-	diag_log ("createVehicles _spawnPointsAir: " + str(_spawnPointsAir));
-	
-	private _spawnPointsAirShuffled = if (_mustBeSorted) then {
-		if ((_spawnPointsAir select 0) getVariable [QGVAR(heliSmall, false)]) then {_spawnPointsAir} else {[_spawnPointsAir select 1, _spawnPointsAir select 0]};
+	diag_log "Start airSpawn shuffle";
+	_matchedAirVehicles = if ((count _airSpawnpoints) isEqualTo 2) then {
+		if (((_matchedAirVehicles select 0) select 0) in HELI_BIG) then {[_matchedAirVehicles select 1, _matchedAirVehicles select 0]} else {_matchedAirVehicles};
 	} else {
-		[_spawnPointsAir, 100] call FUNC(KK_arrayShuffle);
-	};	
+		[_airSpawnpoints, 100] call FUNC(KK_arrayShuffle);
+		_matchedAirVehicles
+	};
 	
-	diag_log ("createVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
-	diag_log ("createVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
+	diag_log ("airSpawnPoints Count: " + str(count _airSpawnPoints));
 	
-	_spawnPointsAirShuffled = [_spawnPointsAirShuffled, 0] call FUNC(resizeVehicleSpawn);
-		
+	{
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
+	} forEach _airSpawnPoints;
+	diag_log "End airSpawn shuffle";
+	
+	diag_log "Start resizeVehicleSpawn land";
+	_landSpawnPoints = [_landSpawnPoints, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);
+	
+	diag_log ("landSpawnPoints count: " + str(count _landSpawnPoints));
+	
+	{
+		diag_log format ["landSpawnPoints index: %1; landSpawnPoints name: %2; landSpawnPoints HeliBig: %3; landSpawnPoints HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
+	} forEach _landSpawnPoints;
+	diag_log "End resizeVehicleSpawn land";
+	
+	diag_log "Start resizeVehicleSpawn air";
+	_airSpawnpoints = [_airSpawnpoints, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
+	
+	diag_log ("airSpawnpoints count: " + str(count _airSpawnpoints));
+	
+	{
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
+	} forEach _airSpawnpoints;
+	diag_log "End resizeVehicleSpawn air";
+	
+	diag_log ("End baseID: " + str(_baseID));
+	
 	{
 		_success = _x params [
 			["_type", "", [""]],
@@ -206,7 +234,7 @@
 			];		
 			
 			nil
-		} count (_spawnPointsLandShuffled + _spawnPointsAirShuffled);
+		} count (_landSpawnPoints + _airSpawnPoints);
 		
 		nil
 	} count (_matchedLandVehicles + _matchedSeeVehicles + _matchedAirVehicles);		
