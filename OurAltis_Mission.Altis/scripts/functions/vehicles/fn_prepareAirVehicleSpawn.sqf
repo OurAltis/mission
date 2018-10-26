@@ -24,6 +24,8 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+diag_log ("_airSpawnpoints: " + str(_airSpawnpoints));
+
 {		
 	_x params [
 		["_type", "", [""]]
@@ -41,6 +43,8 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 		} else {
 			if (_dist02 < _dist12) then {[_pad0, _pad2]} else {[_pad1, _pad2]};
 		};
+		
+		diag_log ("_matchingPads: " + str(_matchingPads));
 		
 		private _posPad0 = getPos (_matchingPads select 0);
 		private _posPad1 = getPos (_matchingPads select 1);

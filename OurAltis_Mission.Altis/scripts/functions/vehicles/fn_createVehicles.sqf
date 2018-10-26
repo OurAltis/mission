@@ -140,7 +140,7 @@
 			};
 		};
 		
-		_obj setDamage 0;
+		_obj setDamage 0; _x
 		
 		if (_type in VEHICLE_MOBILE_CAMP) then {
 			[_obj, _type] call FUNC(prepareVehicleMobileCamp);
@@ -155,7 +155,7 @@
 		_objWebGUI setFuel _fuel;					
 		_obj setDir (getDir _xDummy);
 		
-		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _x vectorAdd [0,0,0.2])};
+		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
 		
 		[
 			{
@@ -221,7 +221,7 @@
 					};
 					
 					// set the damage to 1 in case it died of critical hit
-					(_this select 0) setDamage 1;
+					(_this select 0) setDamage  1;
 					
 					// report destroyed vehicle to the DB immediately
 					[_this select 0] call FUNC(reportVehicleStatus);
