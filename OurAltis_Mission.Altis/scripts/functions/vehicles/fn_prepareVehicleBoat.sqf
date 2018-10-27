@@ -1,6 +1,6 @@
 #include "macros.hpp"
 /**
- * OurAltis_Mission - fn_prepareVehiclesBoat
+ * OurAltis_Mission - fn_prepareVehicleBoat
  * 
  * Author: PhilipJFry
  * 
@@ -17,8 +17,8 @@
  * Original object <Object>
  * 
  */
-
-diag_log ("prepareVehicleBoat" + str(_this));
+prepareVehicleBoat
+diag_log ("prepareVehicleBoat: " + str(_this));
  
 private _success = params [
 	["_obj", objNull, [objNull]],

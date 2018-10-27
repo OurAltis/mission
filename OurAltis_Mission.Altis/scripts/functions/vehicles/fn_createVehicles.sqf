@@ -147,7 +147,7 @@
 		};		
 		
 		private _objBoat = if (_type isKindOf "Ship") then {
-			[_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoot);
+			[_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
 		} else {objNull};
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
