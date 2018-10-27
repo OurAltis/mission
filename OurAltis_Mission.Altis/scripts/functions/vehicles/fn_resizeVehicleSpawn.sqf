@@ -20,19 +20,20 @@ diag_log ("resizeVehicleSpawn: " + str(_this));
  
 private _success = params [
 	["_spawnPoints", [], [[]]],
-	["_count", 0, [0]]
+	["_countVehiclesVehicles", 0, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-_spawnPoints = if (_count > count _spawnPoints) then {
-	_spawnPoints resize _count;
-	_spawnPoints apply {if (isnil "_x") then {""} else {_x}};
+if (_countVehicles > count _spawnPoints) then {
+	_spawnPoints resize _countVehicles;
+	_spawnPoints = _spawnPoints apply {if (isnil "_x") then {""} else {_x}};
 } else {
-	if (_count < count _spawnPoints) then {
-		_spawnPoints resize _count;
-		_spawnPoints
+	if (_countVehicles < count _spawnPoints) then {
+		_spawnPoints resize _countVehicles;		
 	};
 };
+
+diag_log ("resizeVehicleSpawn: " + str(_spawnPoints));
 
 _spawnPoints
