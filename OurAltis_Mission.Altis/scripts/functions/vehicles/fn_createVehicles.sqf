@@ -140,7 +140,7 @@
 			};
 		};
 		
-		_obj setDamage 0; _x
+		_obj setDamage 0;
 		
 		if (_type in VEHICLE_MOBILE_CAMP) then {
 			[_obj, _type] call FUNC(prepareVehicleMobileCamp);
