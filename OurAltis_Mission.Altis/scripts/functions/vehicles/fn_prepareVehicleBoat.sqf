@@ -36,7 +36,7 @@ if (_type in VEHICLE_BOAT_SMALL) then {
 	
 	deleteVehicle _obj;
 	
-	_obj = createVehicle [[VEHICLE_BOAT_TRANSPORT select 0, VEHICLE_BOAT_TRANSPORT select 1] select (_side isEqualTo east), _x, [], 0, "CAN_COLLIDE"];
+	_obj = createVehicle [[VEHICLE_BOAT_TRANSPORT select 0, VEHICLE_BOAT_TRANSPORT select 1] select (_side isEqualTo east), _position, [], 0, "CAN_COLLIDE"];
 	
 	for "_i" from 1 to 15 do {
 		_obj lockCargo [_i, true];
@@ -56,7 +56,7 @@ if (_type in VEHICLE_BOAT_BIG) then {
 	
 	deleteVehicle _obj;
 	
-	_obj = createVehicle [[VEHICLE_BOAT_TRANSPORT select 0, VEHICLE_BOAT_TRANSPORT select 1] select (_side isEqualTo east), _x, [], 0, "CAN_COLLIDE"];
+	_obj = createVehicle [[VEHICLE_BOAT_TRANSPORT select 0, VEHICLE_BOAT_TRANSPORT select 1] select (_side isEqualTo east), _position, [], 0, "CAN_COLLIDE"];
 	
 	for "_i" from 1 to 15 do {
 		_obj lockCargo [_i, true];
