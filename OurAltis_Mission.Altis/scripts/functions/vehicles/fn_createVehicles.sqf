@@ -146,7 +146,10 @@
 			[_obj, _type] call FUNC(prepareVehicleMobileCamp);
 		};		
 		
+		diag_log ("createVehicle: " + str(_type));
+		
 		private _objBoat = if (_type isKindOf "Ship") then {
+			diag_log ("createVehicle: IsShip");
 			[_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
 		} else {objNull};
 		

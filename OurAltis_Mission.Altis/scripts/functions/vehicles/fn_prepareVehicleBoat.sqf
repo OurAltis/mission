@@ -17,7 +17,7 @@
  * Original object <Object>
  * 
  */
-prepareVehicleBoat
+
 diag_log ("prepareVehicleBoat: " + str(_this));
  
 private _success = params [
