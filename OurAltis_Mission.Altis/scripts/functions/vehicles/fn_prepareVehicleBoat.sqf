@@ -5,7 +5,7 @@
  * Author: PhilipJFry
  * 
  * Description:
- * Adds mobile boots feature to object.
+ * Adds mobile boats feature to object.
  * 
  * Parameter(s):
  * 0: Vehicle Object <Object>
@@ -14,7 +14,7 @@
  * 3: Spawn position <Array>
  *
  * Return Value:
- * Original object <Object>
+ * [Transport vehicle, WebGUI object] <Array>
  * 
  */
 
@@ -71,4 +71,4 @@ if (_type in VEHICLE_BOAT_BIG) then {
 	[_objBoat, _obj] remoteExecCall [QFUNC(createAddAction), -2, _jipID];							
 };
 
-_objBoat
+[_obj, _objBoat]
