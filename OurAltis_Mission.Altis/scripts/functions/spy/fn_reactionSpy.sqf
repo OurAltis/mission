@@ -15,6 +15,8 @@
  * 
  */
  
+diag_log ("reactionSpy _this: " + str(_this));
+ 
 private _success = params [
 	["_caller", objNull, [objNull]]
 ];
@@ -31,6 +33,10 @@ _info params [
 private _spySide = if (_side isEqualTo "west") then {west} else {east};
 
 if (side (group _caller) isEqualTo _spySide) then {
+	diag_log ("reactionSpy _budget: " + str(_budget));
+	diag_log ("reactionSpy GVAR(Vehicles): " + str(GVAR(Vehicles)));
+	diag_log ("reactionSpy GVAR(spyInfantryList): " + str(GVAR(spyInfantryList)));
+	diag_log ("reactionSpy GVAR(resistanceUnits): " + str(GVAR(resistanceUnits)));
 	[_budget, GVAR(Vehicles), GVAR(spyInfantryList), GVAR(resistanceUnits)] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
 	[
