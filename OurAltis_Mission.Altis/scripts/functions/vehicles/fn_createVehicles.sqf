@@ -56,8 +56,8 @@
 		_airSpawnpoints = [_matchedAirVehicles, _airSpawnpoints] call FUNC(prepareAirVehicleSpawn);
 	};
 	
-	diag_log ("airSpawnPoints Count: " + str(count _airSpawnPoints));
-	
+	diag_log ("airSpawnPoints 1 Count: " + str(count _airSpawnPoints));
+	/*
 	{
 		if (_x != "") then { 
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
@@ -65,6 +65,11 @@
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];
 		};
 	} forEach _airSpawnpoints;
+	*/
+	{		
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];		
+	} forEach _airSpawnpoints;
+	
 	diag_log "End prepareAirVehicleSpawn";
 	
 	diag_log "Start landSpawn shuffle";
@@ -79,8 +84,9 @@
 		_matchedAirVehicles
 	};
 	
-	diag_log ("airSpawnPoints Count: " + str(count _airSpawnPoints));
+	diag_log ("airSpawnPoints 2 Count: " + str(count _airSpawnPoints));
 	
+	/*
 	{
 		if (_x != "") then { 
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
@@ -88,13 +94,18 @@
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];
 		};
 	} forEach _airSpawnpoints;
+	*/
+	
+	{		
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];		
+	} forEach _airSpawnpoints;
 	diag_log "End airSpawn shuffle";
 	
 	diag_log "Start resizeVehicleSpawn land";
 	_landSpawnPoints = [_landSpawnPoints, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);
 	
 	diag_log ("landSpawnPoints count: " + str(count _landSpawnPoints));
-	
+	/*
 	{
 		if (_x != "") then {
 			diag_log format ["landSpawnPoints index: %1; landSpawnPoints name: %2; landSpawnPoints HeliBig: %3; landSpawnPoints HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
@@ -102,20 +113,29 @@
 			diag_log format ["landSpawnPoints index: %1; landSpawnPoints name: %2", _forEachIndex, _x];
 		};
 	} forEach _landSpawnPoints;
+	*/
+	
+	{		
+		diag_log format ["landSpawnPoints index: %1; landSpawnPoints name: %2", _forEachIndex, _x];		
+	} forEach _landSpawnPoints;
 	diag_log "End resizeVehicleSpawn land";
 	
 	diag_log "Start resizeVehicleSpawn air";
 	_airSpawnpoints = [_airSpawnpoints, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
 	
-	diag_log ("airSpawnpoints count: " + str(count _airSpawnpoints));
-	
+	diag_log ("airSpawnpoints 3 count: " + str(count _airSpawnpoints));
+	/*
 	{
 		if (_x != "") then { 
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2; airSpawnPoint HeliBig: %3; airSpawnPoint HeliSmall: %4", _forEachIndex, _x, _x getVariable [QGVAR(heliBig), false], _x getVariable [QGVAR(heliSmall), false]];
 		} else {
 			diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];
 		};
-	} forEach _airSpawnpoints;	
+	} forEach _airSpawnpoints;
+	*/
+	{		
+		diag_log format ["airSpawnPoint index: %1; airSpawnPoint name: %2", _forEachIndex, _x];		
+	} forEach _airSpawnpoints;
 	diag_log "End resizeVehicleSpawn air";
 	
 	private _allSpawnPoints = _landSpawnPoints + _airSpawnPoints;
