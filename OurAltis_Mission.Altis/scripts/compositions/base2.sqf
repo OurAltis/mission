@@ -184,7 +184,7 @@
 	["WaterPump_01_forest_F",[61.6521,-28.2837,0],9.36252,"","",true,true,0,[],false], 
 	["Land_WaterTank_F",[-8.6311,10.4663,0],22.757,"","",true,false,0,[],false], 
 	["Land_WoodenCrate_01_stack_x3_F",[-8.47876,27.3042,0],90,"","",true,false,0,[],false], 
-	["Land_BarGate_F",[37.0642,18.3511,0],179.037,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[37.0642,18.3511,0],179.037,"","",true,false,0,[],false], 
 	["Land_Cargo_House_V3_F",[22.6211,-1.94824,0],90,"","this setVariable [""OurA_IsRespawnBuilding"", true, true];",true,false,0,[],false], 
 	["EmptyDetectorAreaR50",[24.918,-2.62891,0],0,"centerBase2","",false,false,0,[45,45,0],true]
 ]

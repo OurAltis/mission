@@ -174,7 +174,7 @@
 	["WaterPump_01_forest_F",[61.7639,-29.9126,0],9.36252,"","",true,true,0,[],false], 
 	["Land_WaterTank_F",[-8.51929,10.3472,0],22.757,"","",true,false,0,[],false], 
 	["Land_WoodenCrate_01_stack_x3_F",[-8.13843,28.7788,0],90,"","",true,false,0,[],false], 
-	["Land_BarGate_F",[37.176,18.2319,0],179.037,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[37.176,18.2319,0],179.037,"","",true,false,0,[],false], 
 	["Land_Cargo20_military_green_F",[2.65601,-32.415,0],94.726,"","",true,true,0,[],false], 
 	["Land_Cargo20_military_green_F",[2.61206,-32.5298,2.635],274.712,"","",true,true,0,[],false], 
 	["Land_Cargo20_military_green_F",[-7.76685,-25.106,0],97.658,"","",true,true,0,[],false], 

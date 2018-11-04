@@ -5,7 +5,7 @@
 */
 
 [
-	["Land_BarGate_F",[-6.92627,-34.4541,0],221.06,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[-6.92627,-34.4541,0],221.06,"","",true,false,0,[],false], 
 	["Land_PaperBox_open_full_F",[57.5586,-18.3184,0],12.2416,"","",true,false,0,[],false], 
 	["Land_CampingTable_small_F",[21.7378,-0.916992,0],282.328,"","",true,false,0,[],false], 
 	["CargoNet_01_barrels_F",[21.2378,-4.46387,0],281.459,"","",true,false,0,[],false], 
@@ -192,6 +192,6 @@
 	["WaterPump_01_forest_F",[61.7534,-28.3232,0],9.36255,"","",true,true,0,[],false], 
 	["Land_WaterTank_F",[-8.52979,10.4268,0],22.757,"","",true,false,0,[],false], 
 	["Land_WoodenCrate_01_stack_x3_F",[-8.37744,27.2646,0],90,"","",true,false,0,[],false], 
-	["Land_BarGate_F",[37.1655,18.3115,0],179.037,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[37.1655,18.3115,0],179.037,"","",true,false,0,[],false], 
 	["EmptyDetectorAreaR50",[25.4529,-2.31885,0],0,"centerBase4","",false,false,0,[45,45,0],true]
 ]

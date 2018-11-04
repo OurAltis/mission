@@ -45,7 +45,7 @@ if (!isNull _object2) then {
 			private _actionID = _object2 addAction [localize "OurA_str_LoadUpBoat", {_this call FUNC(loadUpBoat)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3 && (vehicle _this) isEqualTo _this && !(_target getVariable ['OurA_hasCargo', false])"];
 			_object2 setVariable [QGVAR(loadUpAddAction), _actionID];
 		};
-	} else {NOTIFICATION_LOG(Object2 is not there!)};
+	} else {NOTIFICATION_LOG(Object2 is not alive!)};
 };
 
 nil

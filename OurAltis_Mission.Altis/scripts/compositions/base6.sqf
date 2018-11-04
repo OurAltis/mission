@@ -5,8 +5,8 @@
 */
 
 [
-	["Land_BarGate_F",[37.1787,15.1331,0],179.037,"","",true,false,0,[],false], 
-	["Land_BarGate_F",[-6.91309,-34.3884,0],221.06,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[37.1787,15.1331,0],179.037,"","",true,false,0,[],false], 
+	//["Land_BarGate_F",[-6.91309,-34.3884,0],221.06,"","",true,false,0,[],false], 
 	["Land_PaperBox_open_full_F",[57.9104,-17.8967,0],14.0363,"","",true,false,0,[],false], 
 	["CargoNet_01_barrels_F",[21.251,-4.39819,0],281.459,"","",true,false,0,[],false], 
 	["CargoNet_01_box_F",[45.8096,28.6624,0],165.5,"","",true,false,0,[],false], 

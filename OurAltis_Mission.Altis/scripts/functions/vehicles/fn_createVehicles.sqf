@@ -154,9 +154,16 @@
 		} else {objNull};
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
-	
-		_objWebGUI setFuel _fuel;					
+		
+		_objWebGUI setFuel _fuel;				
+		
+		diag_log ("createVehicle dir _xDummy: " + str(getDir _xDummy));
+		diag_log ("createVehicle dir _obj: " + str(getDir _obj));
+		
 		_obj setDir (getDir _xDummy);
+		
+		diag_log ("createVehicle dir _obj: " + str(getDir _obj));
+		
 		
 		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
 		
