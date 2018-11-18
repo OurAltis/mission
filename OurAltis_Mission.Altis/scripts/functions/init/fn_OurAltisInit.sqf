@@ -32,6 +32,7 @@ if(isServer) then {
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];
 	GVAR(Vehicles) = [];
+	diag_log ("Init Vehicles: " + str(missionNamespace getVariable [QGVAR(Vehicles), false]));
 	GVAR(OperationName) = "Graceful Bird";
 	GVAR(MissionID) = 11483;
 	GVAR(targetAreaName) = "Aeroport";
