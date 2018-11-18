@@ -31,6 +31,7 @@ if(isServer) then {
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(VehicleListVirtual) = [];
+	GVAR(Vehicles) = [];
 	GVAR(OperationName) = "Graceful Bird";
 	GVAR(MissionID) = 11483;
 	GVAR(targetAreaName) = "Aeroport";

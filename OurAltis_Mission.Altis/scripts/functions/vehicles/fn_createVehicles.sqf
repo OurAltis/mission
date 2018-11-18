@@ -193,7 +193,9 @@
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 		
-		_objWebGUI setFuel _fuel;				
+		_objWebGUI setFuel _fuel;			
+		
+		GVAR(Vehicles) pushback _objWebGUI;
 		
 		diag_log ("createVehicle dir _xDummy: " + str(getDir _xDummy));
 		diag_log ("createVehicle dir _obj: " + str(getDir _obj));
