@@ -196,6 +196,7 @@
 		_objWebGUI setFuel _fuel;			
 		
 		GVAR(Vehicles) pushback _objWebGUI;
+		diag_log ("createVehicles Vehicles: " + str(GVAR(Vehicles)));
 		
 		diag_log ("createVehicle dir _xDummy: " + str(getDir _xDummy));
 		diag_log ("createVehicle dir _obj: " + str(getDir _obj));
@@ -295,5 +296,7 @@
 	
 	nil
 } count GVAR(BaseList);
+
+diag_log ("createVehicles End Vehicles: " + str(GVAR(Vehicles)));
 
 nil
