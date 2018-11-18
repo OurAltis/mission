@@ -161,6 +161,7 @@
 		diag_log ("countIndex = " + str(_countIndex));
 		
 		private _xDummy = _allSpawnPoints select ((count _allSpawnPoints) - 1);
+		diag_log ("createVehicles xDummy: " + str(_xDummy)); 		
 		
 		private _obj = if (_spawnType isEqualTo "carrier") then {
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
