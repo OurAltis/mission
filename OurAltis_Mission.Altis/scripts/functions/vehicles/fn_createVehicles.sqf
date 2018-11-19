@@ -69,7 +69,7 @@
 	
 	{
 		if (_x isEqualType "") then {
-			(GVAR(vehicles) select (_indexSide + 1)) select (_indexBase + 1)) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
+			((GVAR(vehicles) select (_indexSide + 1)) select (_indexBase + 1)) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
 			diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
 		};
 	} forEach _vehicleListType;
