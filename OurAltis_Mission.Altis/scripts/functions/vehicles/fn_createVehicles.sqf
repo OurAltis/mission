@@ -17,7 +17,7 @@
  * None <Any>
  * 
  */
-
+ 
 {	
 	_success = _x params [
 		["_baseID", nil, [""]],
@@ -37,7 +37,7 @@
 	
 	diag_log "Start sortVehicles";
 	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);
-
+	
 	{	
 		diag_log ("sortedVehicles Index: " + str(_forEachIndex));
 		diag_log ("sortedVehicles Count: " + str(count _x));
@@ -47,6 +47,32 @@
 		} forEach _x;
 	} forEach _sortedVehicles;
 	diag_log "End sortVehicles";
+	
+	private _vehicleListType = [];
+	
+	{
+		private _index = _vehicleListType pushBackUnique _x;
+		
+		if (_return != -1) then {
+			private _type = _x;			
+			private _count = {_x isEqualTo _type} count _sortedVehicles;
+			_vehicleListType pushBack _count;
+		};
+		
+		nil
+	} count _sortedVehicles;
+	
+	private _indexSide = GVAR(vehicles) find _side;	
+	private _indexBase = GVAR(vehicles) select (_indexSide + 1) pushBack [_baseID, []];
+	
+	diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
+	
+	{
+		if (_x isEqualType "") then {
+			(GVAR(vehicles) select (_indexSide + 1)) select (_indexBase + 1)) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
+			diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
+		};
+	} forEach _vehicleListType;
 	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
 	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];	
