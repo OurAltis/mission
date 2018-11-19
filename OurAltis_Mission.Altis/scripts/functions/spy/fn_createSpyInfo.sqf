@@ -25,6 +25,7 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+diag_log ("createSpyInfo sidePlayer: " + str(side (group player)));
 private _side = if (side (group player) isEqualTo west) then {east} else {west};
 private _indexVehicleList = _vehicleList find _side;
 
@@ -111,6 +112,8 @@ if !(GVAR(Resist) isEqualTo "") then {
 hint (localize "OurA_str_SpyInfoReceived");
 
 private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
+
+diag_log ("createSpyInfo info: " + str(_info));
 
 player createDiaryRecord ["Diary", ["Intel", (format [localize "OurA_str_Money", _general, _budget]) + _endl + _endl + _info]];
 

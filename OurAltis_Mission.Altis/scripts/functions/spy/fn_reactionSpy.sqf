@@ -37,6 +37,8 @@ if (side (group _caller) isEqualTo _spySide) then {
 	diag_log ("reactionSpy GVAR(Vehicles): " + str(GVAR(Vehicles)));
 	diag_log ("reactionSpy GVAR(spyInfantryList): " + str(GVAR(spyInfantryList)));
 	diag_log ("reactionSpy GVAR(resistanceUnits): " + str(GVAR(resistanceUnits)));
+	
+	diag_log ("reactionSpy side: " + str(side (group _caller)));
 	[_budget, GVAR(Vehicles), GVAR(spyInfantryList), GVAR(resistanceUnits)] remoteExecCall [QFUNC(createSpyInfo), side (group _caller), true];
 	
 	[
