@@ -48,6 +48,9 @@
 	} forEach _sortedVehicles;
 	diag_log "End sortVehicles";
 	
+	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
+	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];	
+	
 	private _vehicleListType = [];
 	
 	{
@@ -60,7 +63,9 @@
 		};
 		
 		nil
-	} count _sortedVehicles;
+	} count (_matchedLandVehicles + _matchedAirVehicles + _matchedSeeVehicles);
+	
+	diag_log ("createVehicle _vehicleListType: " + str(_vehicleListType));
 	
 	private _indexSide = GVAR(vehicles) find _side;	
 	private _indexBase = GVAR(vehicles) select (_indexSide + 1) pushBack [_baseID, []];
@@ -68,14 +73,12 @@
 	diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
 	
 	{
+		diag_log ("createVehicle _vehicleListType _x: " + str(_x));
 		if (_x isEqualType "") then {
 			((GVAR(vehicles) select (_indexSide + 1)) select (_indexBase + 1)) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
 			diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
 		};
-	} forEach _vehicleListType;
-	
-	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
-	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];	
+	} forEach _vehicleListType;	
 	
 	diag_log "Start prepareAirVehicleSpawn";
 	if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
@@ -220,10 +223,7 @@
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 		
-		_objWebGUI setFuel _fuel;			
-		
-		GVAR(Vehicles) pushback _objWebGUI;
-		diag_log ("createVehicles Vehicles: " + str(GVAR(Vehicles)));
+		_objWebGUI setFuel _fuel;		
 		
 		diag_log ("createVehicle dir _xDummy: " + str(getDir _xDummy));
 		diag_log ("createVehicle dir _obj: " + str(getDir _obj));
