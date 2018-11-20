@@ -66,7 +66,7 @@
 	{
 		private _index = _vehicleListType pushBackUnique _x;
 		
-		if (_return != -1) then {
+		if (_index != -1) then {
 			private _type = _x;			
 			private _count = {_x isEqualTo _type} count _vehicleClass;
 			_vehicleListType pushBack _count;
