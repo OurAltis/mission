@@ -16,6 +16,7 @@
  */
 
 GVAR(markerNoCiv) = [];
+GVAR(markerCamps) = [];
 
 {
 	private ["_success"];

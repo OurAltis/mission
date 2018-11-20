@@ -229,7 +229,12 @@
 		</Container>
 	</Package>
 	<Package name="Tasks">
-		<Container name="Text">
+		<Container name="Text">			
+			<Key ID="OurA_str_CampTitle">
+				<English>Location of your Camp</English>
+				<German>Position Ihres Camps</German>
+				<Original>Location of your Camp</Original>
+			</Key>
 			<Key ID="OurA_str_BaseBorderDescription">
 				<English>Eliminate all enemy forces!</English>
 				<German>Schlagen sie die Feindkräfte in die Flucht!</German>

@@ -46,5 +46,6 @@ _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 
 GVAR(markerNoCiv) pushBack _marker;
+GVAR(markerCamps) pushBack _marker;
 
 nil
