@@ -59,6 +59,8 @@
 		nil
 	} count _sortedVehicles;
 	
+	diag_log ("createVehicle _vehicleClass: " + str(_vehicleClass));
+	
 	private _vehicleListType = [];
 	
 	{
