@@ -48,8 +48,16 @@
 	} forEach _sortedVehicles;
 	diag_log "End sortVehicles";
 	
-	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
-	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];	
+	private _vehicleClass = [];
+	
+	{	
+		{
+			_vehicleClass pushBack (_x select 0);
+			nil
+		} count _x;
+		
+		nil
+	} count _sortedVehicles;
 	
 	private _vehicleListType = [];
 	
@@ -58,12 +66,12 @@
 		
 		if (_return != -1) then {
 			private _type = _x;			
-			private _count = {_x isEqualTo _type} count _sortedVehicles;
+			private _count = {_x isEqualTo _type} count _vehicleClass;
 			_vehicleListType pushBack _count;
 		};
 		
 		nil
-	} count (_matchedLandVehicles + _matchedAirVehicles + _matchedSeeVehicles);
+	} count _vehicleClass;
 	
 	diag_log ("createVehicle _vehicleListType: " + str(_vehicleListType));
 	
@@ -78,7 +86,10 @@
 			((GVAR(vehicles) select (_indexSide + 1)) select (_indexBase + 1)) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
 			diag_log ("createVehicle GVAR(Vehicles): " + str(GVAR(vehicles)));
 		};
-	} forEach _vehicleListType;	
+	} forEach _vehicleListType;
+	
+	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];		
+	diag_log format ["count LandVeh: %1; count AirVeh: %2; count SeeVeh: %3", count _matchedLandVehicles, count _matchedAirVehicles, count _matchedSeeVehicles];
 	
 	diag_log "Start prepareAirVehicleSpawn";
 	if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
