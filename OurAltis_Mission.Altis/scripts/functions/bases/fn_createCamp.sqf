@@ -48,4 +48,10 @@ _marker setMarkerAlpha 0;
 GVAR(markerNoCiv) pushBack _marker;
 GVAR(markerCamps) pushBack _marker;
 
+_marker = createMarker ["marker_camp_" + _id, _position];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "mil_dot";
+_marker setMarkerColor "ColorBlack";
+_marker setMarkerText ("Camp " + _id);
+
 nil

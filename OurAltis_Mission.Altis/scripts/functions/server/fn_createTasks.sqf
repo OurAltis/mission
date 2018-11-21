@@ -33,7 +33,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		false
 	] call BIS_fnc_taskCreate;	
 	
-	[
+	/*[
 		GVAR(BaseList) select 0 select 1,
 		"camp" + str(GVAR(BaseList) select 0 select 1),
 		[
@@ -47,7 +47,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		false,
 		"default",
 		false
-	] call BIS_fnc_taskCreate;
+	] call BIS_fnc_taskCreate;*/
 	
 	[
 		GVAR(BaseList) select 1 select 1,
@@ -65,7 +65,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		false
 	] call BIS_fnc_taskCreate;
 	
-	[
+	/*[
 		GVAR(BaseList) select 1 select 1,
 		"camp" + str(GVAR(BaseList) select 1 select 1),
 		[
@@ -79,7 +79,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		false,
 		"default",
 		false
-	] call BIS_fnc_taskCreate;
+	] call BIS_fnc_taskCreate;*/
 } else {	
 	private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
 	
@@ -115,7 +115,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		false
 	] call BIS_fnc_taskCreate;
 	
-	{
+	/*{
 		[
 			_attackerSide,
 			"camp" + str(_forEachIndex),
@@ -131,7 +131,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"default",
 			false
 		] call BIS_fnc_taskCreate;
-	} forEach GVAR(markerCamps);
+	} forEach GVAR(markerCamps);*/
 	
 	if (!isNil QGVAR(spyUnit)) then {
 		[

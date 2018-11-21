@@ -38,9 +38,13 @@ private _infantryListNew = if ((_infantryList select 0) isEqualTo objNull) then 
 _infantryListNew append (if ((_infantryList select 1) isEqualTo objNull) then {[]} else {_infantryList select 1});
 private _indexInfantryList = _infantryListNew find _side;
 
+diag_log ("createSpyInfo _vehicleList: " + str(_vehicleList));
+diag_log ("createSpyInfo _vehicleList: " + str(_vehicleList select (_indexVehicleList + 1)));
+
 private _info = "";
 
 {
+	diag_log ("createSpyInfo _vehicleList _x: " + str(_x));
 	_x params [
 		["_locationVehicle", "MissingNo", [""]],
 		["_objectsVehicle", [], [[]]] 
@@ -49,6 +53,7 @@ private _info = "";
 	_info = _info + format ["<font color='#00ff00'>%1</font>", _locationVehicle] + _endl + _separateLong + _tab + localize "OurA_str_Fleet" + _endl + _tab + _separateShort;
 	
 	{
+		diag_log ("createSpyInfo _objectsVehicle _x: " + str(_x));
 		_x params [
 			["_objectType", "", [""]],
 			["_amount", 0, [0]]
@@ -63,6 +68,7 @@ private _info = "";
 	_info = _info + _endl + _tab + localize "OurA_str_Troop" + _endl + _tab + _separateShort;
 	
 	{
+		diag_log ("createSpyInfo _infantryListNew _x: " + str(_x));
 		_x params [
 			["_locationInfantry", "MissingNo", [""]],
 			["_objectsInfantry", [], [[]]] 
@@ -70,6 +76,7 @@ private _info = "";
 		
 		if (_locationInfantry isEqualTo _locationVehicle) then {
 			{
+				diag_log ("createSpyInfo _objectsInfantry _x: " + str(_x));
 				_x params [
 					["_objectType", "", [""]],
 					["_amount", 0, [0]]
