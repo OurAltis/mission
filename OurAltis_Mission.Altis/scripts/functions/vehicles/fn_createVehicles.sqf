@@ -212,6 +212,7 @@
 		} else {
 			if (_xDummy isEqualType "") then {
 				private _suitablePos = _position findEmptyPosition [150, 500, _type];
+				diag_log ("createVehicle: _suitablePos: " + str([_suitablePos, _type]));
 				_xDummy = createVehicle ["Land_HelipadCircle_F", _suitablePos, [], 0, "CAN_COLLIDE"];
 				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
 			} else {

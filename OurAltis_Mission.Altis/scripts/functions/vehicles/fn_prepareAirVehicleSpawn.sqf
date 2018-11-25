@@ -70,6 +70,7 @@ if ((_matchedAirVehicles select 0) select 0 in HELI_BIG) then {
 	_pad setVariable [QGVAR(heliBig), true];
 	
 	_airSpawnpoints pushback _pad;
+	reverse _airSpawnpoints;
 };
 
 diag_log ("_airSpawnpoints: " + str(_airSpawnpoints));
