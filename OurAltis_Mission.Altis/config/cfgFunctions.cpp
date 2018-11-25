@@ -162,6 +162,7 @@ class CfgFunctions
 			class setFlagTexture {};
 			class createAddAction {};
 			class checkFOBPosition {};
+			class createMarkerCamps {};
 		};
 		
 		class events

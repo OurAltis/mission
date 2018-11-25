@@ -15,8 +15,10 @@
  * 
  */
 
+private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
+ 
 GVAR(markerNoCiv) = [];
-GVAR(markerCamps) = [];
+PGVAR(markerCamps) = [_attackerSide];
 
 {
 	private ["_success"];

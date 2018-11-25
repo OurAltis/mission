@@ -43,6 +43,11 @@ with uiNamespace do {
 // close map again
 openMap [false, false];
 
+{
+	_x setMarkerAlpha 1;
+	nil
+} count GVAR(markerCamps);
+
 // remove escape handler
 (findDisplay 12) displayRemoveEventHandler ["KeyDown", RGVAR(RespawnMenuEscHandler)];
 // remove the EH that prevents marler placement

@@ -33,6 +33,11 @@ player linkItem "ItemMap";
 // open map
 openMap [true, true];
 
+{
+	_x setMarkerAlpha 0;
+	nil
+} count GVAR(markerCamps);
+
 with  uiNamespace do {
 	// show controls
 	RGVAR(RespawnMenuControlsGroup) ctrlShow true;

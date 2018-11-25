@@ -80,6 +80,7 @@ if (isServer) then {
 	publicVariable QPGVAR(INF_CHANGED);
 	publicVariable QPGVAR(retreat);
 	publicVariable QPGVAR(countFOB);
+	publicVariable QPGVAR(markerCamps);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);

@@ -20,6 +20,7 @@ if (!hasInterface) exitWith {}; // server shouldn't execute this
 GVAR(shotCount) = 0;
 GVAR(grenadeCount) = 0;
 GVAR(rocketCount) = 0;
+GVAR(markerCamps) = [];
 
 if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side group player in GVAR(canRetreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
@@ -34,6 +35,10 @@ if (!isNil QGVAR(markerBorderWar)) then {
 		1,
 		[GVAR(markerBorderWar)]
 	] call CBA_fnc_addPerFrameHandler;
+};
+
+if (side (group player) isEqualTo PGVAR(markerCamps) select 0) then {
+	[] call FUNC(createMarkerCamps);
 };
 
 [] call FUNC(compileLoadouts);
