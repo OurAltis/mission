@@ -67,10 +67,10 @@ if (count _heliBig >= 1) then {
 	_heliBig deleteAt 0;
 };
 
-diag_log ("_sortVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+diag_log ("_sortVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 
 _matchedAirVehicles = _matchedAirVehicles + _heliSmall + _heliBig;
 
-diag_log ("_sortVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
+diag_log ("_sortVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
 
 [_matchedLandVehicles, _matchedAirVehicles, _matchedSeeVehicles]
