@@ -118,14 +118,14 @@
 	_landSpawnPoints = [_landSpawnPoints, 100] call FUNC(KK_arrayShuffle);
 	diag_log "End landSpawn shuffle";
 	
-	diag_log "Start airSpawn shuffle";
+	/*diag_log "Start airSpawn shuffle";
 	_matchedAirVehicles = if ((count _airSpawnpoints) isEqualTo 2) then {
 		if (((_matchedAirVehicles select 0) select 0) in HELI_BIG) then {[_matchedAirVehicles select 1, _matchedAirVehicles select 0]} else {_matchedAirVehicles};
 	} else {
 		[_airSpawnpoints, 100] call FUNC(KK_arrayShuffle);
 		_matchedAirVehicles
 	};
-	
+	*/
 	diag_log ("airSpawnPoints 2 Count: " + str(count _airSpawnPoints));
 	
 	/*
