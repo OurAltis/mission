@@ -37,7 +37,9 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	] call CBA_fnc_addPerFrameHandler;
 };
 
-if (side (group player) isEqualTo PGVAR(markerCamps) select 0) then {
+diag_log ("clientInit PGVAR(markerCamps): " + str(PGVAR(markerCamps)));
+
+if (side (group player) isEqualTo (PGVAR(markerCamps) select 0)) then {
 	[] call FUNC(createMarkerCamps);
 };
 
