@@ -286,9 +286,9 @@
 				<Original>Defend the %1!</Original>
 			</Key>
 			<Key ID="OurA_str_EcoAttDescription">
-				<English>The enemy have a %1 in %2. If you are forced to retreat destroy it to affect enemy enonomy!</English>
-				<German>Der Feind hat in %2 eine %1. Wenn Sie gezwungen sind sich zurückzuziehen zerstören Sie die Gebäude um der Wirtschaft des Feindes zu Schaden!</German>
-				<Original>The enemy have a %1 in %2! If you are forced to retreat destroy it to affect enemy enonomy!</Original>
+				<English>The enemy have a %1 in %2. If you are forced to retreat destroy it (pictures) to affect enemy enonomy!</English>
+				<German>Der Feind hat in %2 eine %1. Wenn Sie gezwungen sind sich zurückzuziehen zerstören Sie die Gebäude (Fotos) um der Wirtschaft des Feindes zu Schaden!</German>
+				<Original>The enemy have a %1 in %2! If you are forced to retreat destroy it (pictures) to affect enemy enonomy!</Original>
 			</Key>
 			<Key ID="OurA_str_EcoAttTitle">
 				<English>Destroy the %1!</English>

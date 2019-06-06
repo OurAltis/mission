@@ -123,6 +123,23 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		{
 			_x params ["_type", "_buildingCount", "_indexDB"];
 			
+			private _ecoPictures = "";
+			
+			if (_type isEqualTo "barracks") then {
+				GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				_ecoPictures = "</br></br><img image='image\barraks1.jpg' width='160' height='90'/>";
+			};
+			
+			if (_type isEqualTo "factory") then {
+				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				_ecoPictures = "</br></br><img image='image\factory1.jpg' width='160' height='90'/><img image='image\factory2.jpg' width='160' height='90'/>";
+			};
+			
+			if (_type isEqualTo "hangar") then {
+				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				_ecoPictures = "</br></br><img image='image\hangar1.jpg' width='160' height='90'/><img image='image\hangar2.jpg' width='160' height='90'/>";
+			};
+			
 			[
 				GVAR(defenderSide),
 				"ecoDefender_" + str(_indexDB),
@@ -143,7 +160,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				_attackerSide,
 				"ecoAttacker_" + str(_indexDB), 
 				[
-					format [localize "OurA_str_EcoAttDescription", _type, GVAR(targetAreaName)],
+					format [(localize "OurA_str_EcoAttDescription") + _ecoPictures, _type, GVAR(targetAreaName)],
 					format [localize "OurA_str_EcoAttTitle", _type],
 					""
 				],
@@ -154,18 +171,6 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				"destroy",
 				false
 			] call BIS_fnc_taskCreate;
-			
-			if (_type isEqualTo "barracks") then {
-				GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			if (_type isEqualTo "factory") then {
-				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			if (_type isEqualTo "hangar") then {
-				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
 			
 			nil
 		} count GVAR(economy);
