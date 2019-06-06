@@ -266,9 +266,9 @@
 				<Original>Capture the enemy base!</Original>
 			</Key>		
 			<Key ID="OurA_str_SpyDescription">
-				<English>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will usefull find him and get the Intel!</English>
+				<English>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will be usefull find him and get the Intel!</English>
 				<German>Soldat, die Aufklärung ist in kontakt mit einer Person die sich selbst 'Der Duke' nennt. Er sagt, er habe Informationen über die feindliche Truppenstärke in %1 und mehr! Wenn sie glauben das diese Infos hilfreich sein könnten treffen sie den Spion.</German>
-				<Original>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will usefull find him and get the Intel!</Original>
+				<Original>Soldier, we are in contact with a person who named himself Duke! He said, he have information about the strength of enemy forces in %1 and more! If you think it will be usefull find him and get the Intel!</Original>
 			</Key>
 			<Key ID="OurA_str_SpyTitle">
 				<English>Meet the Spy!</English>

@@ -127,17 +127,17 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			
 			if (_type isEqualTo "barracks") then {
 				GVAR(taskState) set [1, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\barraks1.jpg' width='160' height='90'/>";
+				_ecoPictures = "<br/><br/><img image='image\barraks.jpg' width='160' height='90'/>";
 			};
 			
 			if (_type isEqualTo "factory") then {
 				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\factory1.jpg' width='160' height='90'/><img image='image\factory2.jpg' width='160' height='90'/>";
+				_ecoPictures = "<br/><br/><img image='image\factory.jpg' width='160' height='90'/>";
 			};
 			
 			if (_type isEqualTo "hangar") then {
 				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\hangar1.jpg' width='160' height='90'/><img image='image\hangar2.jpg' width='160' height='90'/>";
+				_ecoPictures = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
 			};
 			
 			[
