@@ -88,7 +88,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			GVAR(defenderSide),
 			"spyDefender",
 			[
-				format [localize "OurA_str_SpyDescription", GVAR(targetAreaName)],
+				format [(localize "OurA_str_SpyDescription") + "<br/><br/><img image='image\spy.jpg' width='160' height='90'/>", GVAR(targetAreaName)],
 				localize "OurA_str_SpyTitle",
 				""
 			],
@@ -104,7 +104,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_attackerSide,
 			"spyAttacker",
 			[
-				format [localize "OurA_str_SpyDescription", GVAR(targetAreaName)],
+				format [(localize "OurA_str_SpyDescription") + "<br/><br/><img image='image\spy.jpg' width='160' height='90'/>", GVAR(targetAreaName)],
 				localize "OurA_str_SpyTitle",
 				""
 			],
