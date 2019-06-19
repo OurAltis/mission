@@ -24,6 +24,7 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameter!)
 
 if (_type isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+	private _pos = getPosATL _obj;
 	private _jipID = str(_pos);
 	
 	_obj setVariable [QGVAR(spawnPosition), _pos, true];

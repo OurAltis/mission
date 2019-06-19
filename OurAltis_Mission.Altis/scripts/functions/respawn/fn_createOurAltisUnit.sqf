@@ -74,6 +74,7 @@ _newPlayerUnit addMPEventHandler [
 	}
 ];
 
+[_newPlayerUnit, objNull] call FUNC(createAddAction);
 
 // Variable assigned in init; return created unit
 _newPlayerUnit;

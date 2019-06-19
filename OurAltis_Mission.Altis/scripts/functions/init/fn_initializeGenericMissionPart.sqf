@@ -31,6 +31,7 @@ if (isServer) then {
 	// [spy, economy, resistance]
 	GVAR(taskState) = [0, 0, 0, 0, 0];
 	GVAR(nameFOB) = [[], []];
+	GVAR(playerVote) = [];
 	
 	if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		[] call FUNC(createBorderWar);
@@ -58,6 +59,7 @@ if (isServer) then {
 	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
 	PGVAR(retreat) = false;
 	PGVAR(countFOB) = [0, 0];
+	PGVAR(votingFinish) = false;
 	
 	[] call FUNC(configureServerEventHandler);
 	
@@ -81,6 +83,7 @@ if (isServer) then {
 	publicVariable QPGVAR(retreat);
 	publicVariable QPGVAR(countFOB);
 	publicVariable QPGVAR(markerCamps);
+	publicVariable QPGVAR(votingFinish);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);

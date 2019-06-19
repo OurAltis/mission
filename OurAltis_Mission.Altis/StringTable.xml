@@ -192,6 +192,16 @@
 				<German>Boot aufladen</German>
 				<Original>Load up Boat</Original>
 			</Key>
+			<Key ID="OurA_str_voteOptionReady">
+				<English>I'm ready!</English>
+				<German>Ich bin bereit!</German>
+				<Original>I'm ready!</Original>
+			</Key>
+			<Key ID="OurA_str_voteOptionNotReady">
+				<English>I have to pee!</English>
+				<German>Ich muss aufs Klo!</German>
+				<Original>I have to pee!</Original>
+			</Key>
 		</Container>
 	</Package>
 	<Package name="Spy">

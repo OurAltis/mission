@@ -166,7 +166,24 @@ addMissionEventHandler [
 	}
 ] call FUNC(addEventHandler);
 
-// handler for when all players iof one side are dead
+// handler for voting and round start
+[
+	UNIT_VOTE,
+	{
+		private _success = params [
+			["_clientID", nil, [0]],
+			["_vote", false, [true]]
+		];
+		
+		CHECK_TRUE(_success, Invalid parameters!, {})		
+		
+		[_clientID, _vote] call FUNC(confirmVote);
+		
+		nil;
+	}
+] call FUNC(addEventHandler);
+
+// handler for when all players of one side are dead
 [
 	ALL_PLAYER_OF_SIDE_DEAD,
 	{

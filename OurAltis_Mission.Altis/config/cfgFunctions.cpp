@@ -29,6 +29,7 @@ class CfgFunctions
 			class synchronizeBaseList {};
 			class workWithBaseList {};
 			class workWithInfantryList {};
+			class doVote {};
 		};
 		
 		class server
@@ -66,7 +67,8 @@ class CfgFunctions
 			class reportDestroyedVehicleStatistic {};
 			class reportDeadUnitStatistic {};
 			class reportIncident {};
-			class switchGroupAndLeader {};
+			class switchGroupAndLeader {};			
+			class confirmVote {};
 		};
 		
 		class database
