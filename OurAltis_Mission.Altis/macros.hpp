@@ -98,6 +98,8 @@
   
  #define SEND_STATISTIC QUOTE(EVENT_PREFIX.sendStatistic)
  
+ #define UNIT_VOTE QUOTE(EVENT_PREFIX.unitVote)
+ 
  // define constants
  #define BASES_CHANGED baseListChangedOnServer
  #define INF_CHANGED infantryListChangedOnServer
