@@ -25,7 +25,7 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameter!, {})
 
-private _vote = missionNamespace getVariable [QGVAR(playerReady), false];
+private _vote = GVAR(playerReady);
 
 GVAR(playerReady) = !_vote;
 
