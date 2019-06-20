@@ -29,8 +29,8 @@ if (_object1 isKindOf "Man") then {
 		GVAR(spyAddAction) = _object1 addAction [localize "OurA_str_SpyGetInfo", {_this call FUNC(askSpy)}, nil, 0, false, true, "", "(_target distance2D _this) <= 3"];
 		_object1 setVariable [QGVAR(askSpyAction), GVAR(spyAddAction)];
 	} else {
-		GVAR(voteActionReady) = _object1 addAction [localize "OurA_str_voteOptionReady", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(votingFinish) "+ ) && !(" + QGVAR(playerReady) + ")"];
-		GVAR(voteActionNotReady) = _object1 addAction [localize "OurA_str_voteOptionNotReady", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(votingFinish) "+ ) && " + QGVAR(playerReady)];
+		GVAR(voteActionReady) = _object1 addAction [localize "OurA_str_voteOptionReady", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(votingFinish) + ") && !(" + QGVAR(playerReady) + ")"];
+		GVAR(voteActionNotReady) = _object1 addAction [localize "OurA_str_voteOptionNotReady", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(votingFinish) + ") && " + QGVAR(playerReady)];
 	}
 };
 
