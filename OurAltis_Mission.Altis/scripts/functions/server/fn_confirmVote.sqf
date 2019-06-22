@@ -17,7 +17,7 @@
  */
 
 private _success = params [
-	["_clientID", -1, [0]],
+	["_playerUID", -1, [0]],
 	["_vote", false, [true]]
 ];
 
@@ -26,9 +26,9 @@ CHECK_TRUE(_success, Invalid parameter!, {})
 
 if !(PGVAR(votingFinish)) then {
 	if (_vote) then {
-		GVAR(playerVote) pushBack _clientID;
+		GVAR(playerVote) pushBack _playerUID;
 	} else {
-		private _index = GVAR(playerVote) find _clientID;
+		private _index = GVAR(playerVote) find _playerUID;
 		
 		if (_index isEqualTo -1) then {
 			diag_log "ERROR: fn_doVote, player not in array";

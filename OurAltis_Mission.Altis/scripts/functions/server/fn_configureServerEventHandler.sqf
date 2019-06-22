@@ -17,10 +17,19 @@
 
 // add EH for disconnects
 addMissionEventHandler [
-	"HandleDisconnect",
-	{		
-		// kill player's unit in order for the 'Killed' EH to get executed
-		_this select 0 setDamage 1;
+	"HandleDisconnect",	{
+		params ["_unit", "_id", "_uid", "_name"];
+		
+		// kill player's unit in order for the 'Killed' EH to get executed		
+		_unit setDamage 1;	
+		
+		private _index = GVAR(playerVote) find _uid;
+		
+		if (_index isEqualTo -1) then {
+			diag_log "ERROR: HandleDisconnect, player not in array";
+		} else {
+			GVAR(playerVote) deleteAt _index;
+		};
 		
 		nil;
 	}
@@ -172,12 +181,13 @@ addMissionEventHandler [
 	{
 		private _success = params [
 			["_clientID", nil, [0]],
-			["_vote", false, [true]]
+			["_vote", false, [true]],
+			["_playerUID", "", [""]]
 		];
 		
 		CHECK_TRUE(_success, Invalid parameters!, {})		
 		
-		[_clientID, _vote] call FUNC(confirmVote);
+		[_playerUID, _vote] call FUNC(confirmVote);
 		
 		nil;
 	}

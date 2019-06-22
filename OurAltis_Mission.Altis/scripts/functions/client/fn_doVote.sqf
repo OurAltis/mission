@@ -31,7 +31,7 @@ GVAR(playerReady) = !_vote;
 
 [
 	UNIT_VOTE,
-	[GVAR(playerReady)],
+	[GVAR(playerReady), getPlayerUID player],
 	true
 ] call FUNC(fireServerEvent);
 
