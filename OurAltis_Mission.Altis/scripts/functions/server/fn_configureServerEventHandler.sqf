@@ -23,13 +23,7 @@ addMissionEventHandler [
 		// kill player's unit in order for the 'Killed' EH to get executed		
 		_unit setDamage 1;	
 		
-		private _index = GVAR(playerVote) find _uid;
-		
-		if (_index isEqualTo -1) then {
-			diag_log "ERROR: HandleDisconnect, player not in array";
-		} else {
-			GVAR(playerVote) deleteAt _index;
-		};
+		[_uid, false] call FUNC(confirmVote);
 		
 		nil;
 	}
