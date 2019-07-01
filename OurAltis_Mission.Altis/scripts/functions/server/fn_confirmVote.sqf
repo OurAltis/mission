@@ -24,7 +24,7 @@ private _success = params [
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
 CHECK_TRUE(_success, Invalid parameter!, {})
 
-if !(PGVAR(votingFinish)) then {
+if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 	if (_vote) then {
 		GVAR(playerVote) pushBack _playerUID;
 	} else {
@@ -38,8 +38,8 @@ if !(PGVAR(votingFinish)) then {
 	};
 
 	if (count playableUnits isEqualTo count GVAR(playerVote)) then {		
-		PGVAR(votingFinish) = true;
-		publicVariable QPGVAR(votingFinish);		
+		PGVAR(PREPARATION_FINISHED) = [true, CBA_missionTime + 10];
+		publicVariable QPGVAR(PREPARATION_FINISHED);	
 	};
 };
 nil

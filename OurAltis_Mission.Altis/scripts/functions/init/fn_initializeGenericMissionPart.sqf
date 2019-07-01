@@ -59,7 +59,7 @@ if (isServer) then {
 	PGVAR(SERVER_ERRORS) = []; // an array of Strings containing error messages from the server
 	PGVAR(retreat) = false;
 	PGVAR(countFOB) = [0, 0];
-	PGVAR(votingFinish) = false;
+	PGVAR(PREPARATION_FINISHED) = [false, 0];
 	
 	[] call FUNC(configureServerEventHandler);
 	
@@ -83,7 +83,7 @@ if (isServer) then {
 	publicVariable QPGVAR(retreat);
 	publicVariable QPGVAR(countFOB);
 	publicVariable QPGVAR(markerCamps);
-	publicVariable QPGVAR(votingFinish);
+	publicVariable QPGVAR(PREPARATION_FINISHED);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);
@@ -149,6 +149,36 @@ if (hasInterface) then {
 				] call FUNC(fireEvent);
 			};
 			
+			QPGVAR(PREPARATION_FINISHED) addPublicVariableEventHandler {
+				(_this select 1) params [					
+					["_preparationFinished", false, [true]],
+					["_time", -1, [0]]
+				];				
+				
+				if (_preparationFinished) then {
+					[
+						{
+							private _succcess = params [
+								["_args", [], [[]]],
+								["_handlerID", -1, [0]]
+							];
+
+							CHECK_TRUE(_succcess, Invalid parameters!, {})
+							
+							if ((_args select 0) >= CBA_missionTime) then {							
+								_text = format ["<t color='#99ffffff' size='2' align='center'>All players are prepared! Mission starts in $1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
+								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];
+							} else {
+								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", ""];
+								[_handlerID] call CBA_fnc_removePerFrameHandler;
+							}
+						},
+						1,
+						[_time]
+					] call CBA_fnc_addPerFrameHandler;					
+				};
+			};
+			
 			[] call FUNC(synchronizeBaseList);
 			
 			// wait for the server to initialize the framework and for the local baseList to get synchronnized
@@ -172,6 +202,27 @@ if (hasInterface) then {
 					};
 				}
 			] call CBA_fnc_waitUntilAndExecute;
+			
+			nil;
+		}
+	] call CBA_fnc_waitUntilAndExecute;
+	
+	[
+		{
+			// wait until main display is loaded
+			!((findDisplay 46) isEqualTo displayNull)
+		},
+		{
+			with uiNamespace do {
+				_text = "Mission starts when all players are prepared to fight!";
+				
+				GVAR(infoControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
+				
+				GVAR(infoControl) ctrlSetPosition [safeZoneX, 0, safeZoneW, 0.1];	
+				GVAR(infoControl) ctrlCommit 0;
+				GVAR(infoControl) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];		
+				GVAR(infoControl) ctrlCommit 0;		
+			};
 			
 			nil;
 		}
