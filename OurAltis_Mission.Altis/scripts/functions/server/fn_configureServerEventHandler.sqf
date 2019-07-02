@@ -181,7 +181,7 @@ addMissionEventHandler [
 		
 		CHECK_TRUE(_success, Invalid parameters!, {})		
 		
-		[_playerUID, _vote] call FUNC(confirmVote);
+		[_vote, _playerUID] call FUNC(confirmVote);
 		
 		nil;
 	}
