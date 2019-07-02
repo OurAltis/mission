@@ -166,7 +166,7 @@ if (hasInterface) then {
 							CHECK_TRUE(_succcess, Invalid parameters!, {})
 							
 							if ((_args select 0) >= CBA_missionTime) then {							
-								_text = format ["<t color='#99ffffff' size='2' align='center'>All players are prepared! Mission starts in $1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
+								_text = format ["<t color='#99ffffff' size='2' align='center'>All players are prepared! Mission starts in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];
 							} else {
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", ""];
