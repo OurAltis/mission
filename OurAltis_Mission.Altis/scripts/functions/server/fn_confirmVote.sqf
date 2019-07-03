@@ -37,9 +37,28 @@ if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 		};
 	};
 
-	if (count playableUnits isEqualTo count GVAR(playerVote)) then {		
-		PGVAR(PREPARATION_FINISHED) = [true, CBA_missionTime + 10];
-		publicVariable QPGVAR(PREPARATION_FINISHED);	
+	if (count playableUnits isEqualTo count GVAR(playerVote)) then {
+		private _time = CBA_missionTime + 10;
+		
+		PGVAR(PREPARATION_FINISHED) = [true, _time];
+		publicVariable QPGVAR(PREPARATION_FINISHED);
+		
+		[
+			FUNC(timeLimitExceeded),
+			[],
+			_time + (GVAR(timeLimit) * 60)
+		] call CBA_fnc_waitAndExecute;
+		
+		[
+			{
+				{
+					_x lock 0;
+					nil
+				} count GVAR(vehicleListAll);
+			},
+			[],
+			_time - CBA_missionTime
+		] call CBA_fnc_waitAndExecute;		
 	};
 };
 nil

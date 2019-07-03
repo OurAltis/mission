@@ -60,7 +60,7 @@ class CfgFunctions
 			class shrinkMarker {};
 			class reportPlayerStatistic {};
 			class createDBEntryStatistic {};
-			class watchTimelimit {};
+			class timeLimitExceeded {};
 			class reportVehicleStatistic {};
 			class reportStatusSideMissions {};
 			class reportMissionDuration {};

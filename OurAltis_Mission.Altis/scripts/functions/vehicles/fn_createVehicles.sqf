@@ -232,11 +232,13 @@
 			diag_log ("createVehicle: IsShip");
 			private _objs = [_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
 			_obj = _objs select 0;
+			GVAR(vehicleListAll) pushBack _obj;
 			_objs select 1
 		} else {objNull};
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 		
+		GVAR(vehicleListAll) pushBack _objWebGUI;
 		_objWebGUI setFuel _fuel;		
 		
 		diag_log ("createVehicle dir _xDummy: " + str(getDir _xDummy));
@@ -337,6 +339,11 @@
 	
 	nil
 } count GVAR(BaseList);
+
+{
+	_x lock 3;
+	nil
+} count GVAR(vehicleListAll);
 
 diag_log ("createVehicles End Vehicles: " + str(GVAR(Vehicles)));
 

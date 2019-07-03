@@ -88,12 +88,6 @@ if (isServer) then {
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);
 	
-	GVAR(timelimitHandlerID) = [
-		FUNC(watchTimelimit),
-		1,
-		[]
-	] call CBA_fnc_addPerFrameHandler;
-	
 	// give the server some time to really start the mission in order to prevent it from doing stupid stuff on its own
 	[
 		{
