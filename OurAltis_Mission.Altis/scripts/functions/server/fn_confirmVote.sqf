@@ -52,7 +52,7 @@ if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 		[
 			{
 				{
-					_x lock 0;
+					_x lock false;
 					nil
 				} count GVAR(vehicleListAll);
 			},

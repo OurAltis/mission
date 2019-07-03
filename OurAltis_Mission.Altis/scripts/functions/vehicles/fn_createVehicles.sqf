@@ -341,7 +341,7 @@
 } count GVAR(BaseList);
 
 {
-	_x lock 3;
+	_x lock true;
 	nil
 } count GVAR(vehicleListAll);
 
