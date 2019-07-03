@@ -23,7 +23,7 @@ addMissionEventHandler [
 		// kill player's unit in order for the 'Killed' EH to get executed		
 		_unit setDamage 1;	
 		
-		[_uid, false] call FUNC(confirmVote);
+		[false, _uid] call FUNC(confirmVote);
 		
 		nil;
 	}

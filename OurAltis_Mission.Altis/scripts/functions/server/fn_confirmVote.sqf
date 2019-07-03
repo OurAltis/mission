@@ -8,8 +8,8 @@
  * Manage vote from player
  * 
  * Parameter(s):
- * 0: Client ID <SCALAR>
- * 1: Vote <BOOLN>
+ * 0: Vote <BOOLN>
+ * 1: Client ID <STRING>
  * 
  * Return Value:
  * None <Any>
