@@ -18,6 +18,8 @@
  * 
  */
  
+GVAR(vehicleListAll) = [];
+
 {	
 	_success = _x params [
 		["_baseID", nil, [""]],
