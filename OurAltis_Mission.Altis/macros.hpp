@@ -100,6 +100,8 @@
  
  #define UNIT_VOTE QUOTE(EVENT_PREFIX.unitVote)
  
+ #define SEND_READYPLAYER QUOTE(EVENT_PREFIX.sendReadyPlayer)
+ 
  // define constants
  #define BASES_CHANGED baseListChangedOnServer
  #define INF_CHANGED infantryListChangedOnServer

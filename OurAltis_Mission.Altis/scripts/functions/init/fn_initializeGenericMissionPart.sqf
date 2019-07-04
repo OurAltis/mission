@@ -222,7 +222,7 @@ if (hasInterface) then {
 		{
 			with uiNamespace do {
 				_text1 = format ["<t color='#99ffffff' size='2' align='center'>Mission starts when all players are prepared to fight!</t>"];
-				_text2 = format ["<t color='#99ffffff' size='1' align='center'>Player ready: 0%1</t>", "%"];
+				_text2 = format ["<t color='#99ffffff' size='1' align='center'>Players ready: 0%1</t>", "%"];
 				
 				GVAR(infoControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
 				
