@@ -14,7 +14,7 @@
  * None <Any>
  * 
  */
-diag_log "createRestrictedArea: " + str(PGVAR(restrictedArea));
+diag_log ("createRestrictedArea: " + str(PGVAR(restrictedArea)));
 
 private _positionTrigger = [];
 private _dirTrigger = [];
