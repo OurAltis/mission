@@ -41,6 +41,8 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 		format ["call %1", FUNC(triggerRADeact)]
 	];
 	
+	_trigger enableSimulation false;
+	
 	_triggerAll pushBack _trigger;
 	
 	nil

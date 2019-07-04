@@ -70,6 +70,19 @@ _newPlayerUnit addMPEventHandler [
 			};
 		};
 		
+		if (hasInterface) then {
+			private _unit = _this select 0;			
+			
+			if (local _unit) then {
+				diag_log "MPKilled: Unit is local!";
+				
+				{
+					_x enableSimulation false;					
+					nil
+				} count GVAR(triggerRA);
+			};
+		};	
+		
 		nil;
 	}
 ];

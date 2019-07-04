@@ -182,6 +182,11 @@ with uiNamespace do {
 		// close the respawn dialog
 		[] call FUNC(hideRespawnMenu);
 		
+		{
+			_x enableSimulation true;
+			nil
+		} count GVAR(triggerRA);
+		
 		[
 			{
 				// restore the sound + fade in
