@@ -216,7 +216,7 @@ if (hasInterface) then {
 	[
 		{
 			// wait until main display is loaded
-			!((findDisplay 46) isEqualTo displayNull) && (findDisplay 12) isEqualTo displayNull
+			!((findDisplay 46) isEqualTo displayNull)
 		},
 		{
 			with uiNamespace do {
