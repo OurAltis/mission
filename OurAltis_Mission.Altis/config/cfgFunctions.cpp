@@ -30,6 +30,9 @@ class CfgFunctions
 			class workWithBaseList {};
 			class workWithInfantryList {};
 			class doVote {};
+			class createRestrictedArea {};
+			class triggerRAAct {};
+			class triggerRADeact {};
 		};
 		
 		class server

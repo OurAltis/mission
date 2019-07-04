@@ -60,6 +60,7 @@ if (isServer) then {
 	PGVAR(retreat) = false;
 	PGVAR(countFOB) = [0, 0];
 	PGVAR(PREPARATION_FINISHED) = [false, 0];
+	PGVAR(restrictedArea) = [GVAR(defenderSide), getMarkerPos GVAR(markerBase), markerDir GVAR(markerBase)];
 	
 	[] call FUNC(configureServerEventHandler);
 	
@@ -84,6 +85,7 @@ if (isServer) then {
 	publicVariable QPGVAR(countFOB);
 	publicVariable QPGVAR(markerCamps);
 	publicVariable QPGVAR(PREPARATION_FINISHED);
+	publicVariable QPGVAR(restrictedArea);
 	
 	publicVariable QPGVAR(SERVER_ERRORS);
 	[] call FUNC(reportServerStatus);
@@ -164,6 +166,16 @@ if (hasInterface) then {
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];
 							} else {
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", ""];
+								
+								if (!GVAR(inTriggerRA)) then {
+									[] call FUNC(triggerRADeact);
+								};
+								
+								{
+									deleteVehicle _x;
+									nil									
+								} count GVAR(triggerRA);
+								
 								[_handlerID] call CBA_fnc_removePerFrameHandler;
 							}
 						},

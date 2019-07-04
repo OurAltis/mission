@@ -14,7 +14,7 @@
  * None <Any>
  * 
  */
-
+ 
 if (!hasInterface) exitWith {}; // server shouldn't execute this
 
 GVAR(shotCount) = 0;
@@ -22,6 +22,7 @@ GVAR(grenadeCount) = 0;
 GVAR(rocketCount) = 0;
 GVAR(markerCamps) = [];
 GVAR(playerReady) = false;
+GVAR(triggerRA) = [];
 
 if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side group player in GVAR(canRetreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
@@ -44,6 +45,7 @@ if (side (group player) isEqualTo (PGVAR(markerCamps) select 0)) then {
 	[] call FUNC(createMarkerCamps);
 };
 
+GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 [] call FUNC(compileLoadouts);
 
 // set up client EHs
