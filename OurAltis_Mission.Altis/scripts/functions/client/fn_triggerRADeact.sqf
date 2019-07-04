@@ -17,6 +17,6 @@
 
 GVAR(inTriggerRA) = true;
 'colorCorrections' ppEffectEnable false; 
-titleFadeOut 0;
+(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText "";
 
 nil
