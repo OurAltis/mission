@@ -36,7 +36,13 @@ if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 			GVAR(playerVote) deleteAt _index;
 		};
 	};
-
+	
+	[
+		SEND_READYPLAYER,
+		[count GVAR(playerVote)],
+		false
+	] call FUNC(fireGlobalClientEvent);
+	
 	if (count playableUnits isEqualTo count GVAR(playerVote)) then {
 		private _time = CBA_missionTime + 10;
 		

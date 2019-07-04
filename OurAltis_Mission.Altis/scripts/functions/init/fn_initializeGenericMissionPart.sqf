@@ -166,6 +166,7 @@ if (hasInterface) then {
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText _text;
 							} else {
 								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText "";
+								(uiNamespace getVariable [QGVAR(infoPlayerReady), displayNull]) ctrlSetStructuredText parseText "";
 								
 								if (!GVAR(inTriggerRA)) then {
 									[] call FUNC(triggerRADeact);
@@ -220,18 +221,25 @@ if (hasInterface) then {
 		},
 		{
 			with uiNamespace do {
-				_text = format ["<t color='#99ffffff' size='2' align='center'>Mission starts when all players are prepared to fight!</t>"];
+				_text1 = format ["<t color='#99ffffff' size='2' align='center'>Mission starts when all players are prepared to fight!</t>"];
+				_text2 = format ["<t color='#99ffffff' size='1' align='center'>Player ready: 0%1</t>", "%"];
 				
 				GVAR(infoControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
 				
 				GVAR(infoControl) ctrlSetPosition [safeZoneX, 0, safeZoneW, 0.1];
-				GVAR(infoControl) ctrlSetStructuredText parseText _text;
+				GVAR(infoControl) ctrlSetStructuredText parseText _text1;
 				GVAR(infoControl) ctrlCommit 0;
 
 				GVAR(infoPunishmentControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
 				
 				GVAR(infoPunishmentControl) ctrlSetPosition [safeZoneX,safeZoneY + 0.5,safeZoneW,0.1];	
-				GVAR(infoPunishmentControl) ctrlCommit 0;		
+				GVAR(infoPunishmentControl) ctrlCommit 0;
+				
+				GVAR(infoPlayerReady) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
+	
+				GVAR(infoPlayerReady) ctrlSetPosition [safeZoneX,safeZoneY + 0.35,safeZoneW,0.1];
+				GVAR(infoPlayerReady) ctrlSetStructuredText parseText _text2;	
+				GVAR(infoPlayerReady) ctrlCommit 0;				
 			};
 			
 			nil;
