@@ -163,9 +163,9 @@ if (hasInterface) then {
 							
 							if ((_args select 0) >= CBA_missionTime) then {							
 								_text = format ["<t color='#99ffffff' size='2' align='center'>All players are prepared! Mission starts in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
-								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];
+								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText _text;
 							} else {
-								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", ""];
+								(uiNamespace getVariable [QGVAR(infoControl), displayNull]) ctrlSetStructuredText parseText "";
 								
 								if (!GVAR(inTriggerRA)) then {
 									[] call FUNC(triggerRADeact);
@@ -216,18 +216,22 @@ if (hasInterface) then {
 	[
 		{
 			// wait until main display is loaded
-			!((findDisplay 46) isEqualTo displayNull)
+			!((findDisplay 46) isEqualTo displayNull) && (findDisplay 12) isEqualTo displayNull
 		},
 		{
 			with uiNamespace do {
-				_text = "Mission starts when all players are prepared to fight!";
+				_text = format ["<t color='#99ffffff' size='2' align='center'>Mission starts when all players are prepared to fight!</t>"];
 				
 				GVAR(infoControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
 				
-				GVAR(infoControl) ctrlSetPosition [safeZoneX, 0, safeZoneW, 0.1];	
+				GVAR(infoControl) ctrlSetPosition [safeZoneX, 0, safeZoneW, 0.1];
+				GVAR(infoControl) ctrlSetStructuredText parseText _text;
 				GVAR(infoControl) ctrlCommit 0;
-				GVAR(infoControl) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='2' align='center'>%1</t>", _text];		
-				GVAR(infoControl) ctrlCommit 0;		
+
+				GVAR(infoPunishmentControl) = findDisplay 46 ctrlCreate ["RscStructuredText", -1];
+				
+				GVAR(infoPunishmentControl) ctrlSetPosition [safeZoneX,safeZoneY + 0.5,safeZoneW,0.1];	
+				GVAR(infoPunishmentControl) ctrlCommit 0;		
 			};
 			
 			nil;
