@@ -14,12 +14,13 @@
  * None <Any>
  * 
  */
- 
+diag_log "createRestrictedArea: " + str(PGVAR(restrictedArea));
+
 private _positionTrigger = [];
 private _dirTrigger = [];
 private _triggerAll = [];
 
-if (side (group player) isEqualTo PGVAR(restrictedArea) select 0) then {
+if (side (group player) isEqualTo (PGVAR(restrictedArea)) select 0) then {
 	_positionTrigger pushBack (PGVAR(restrictedArea) select 1);
 	_dirTrigger pushBack (PGVAR(restrictedArea) select 2);
 } else {	
