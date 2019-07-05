@@ -92,6 +92,24 @@ GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 	}
 ] call FUNC(addEventHandler);
 
+[
+	SEND_READYPLAYER,
+	{
+		private _success = params [
+			["_clientID", nil, [0]],
+			["_playerReadyCount", -1, [0]]
+		];
+		
+		CHECK_TRUE(_success, Invalid parameters!, {})		
+		
+		private _playerReadypercentage = (_playerReadyCount / count playableUnits) * 100;
+		
+		(uiNamespace getVariable [QGVAR(infoPlayerReady), displayNull]) ctrlSetStructuredText parseText format ["<t color='#99ffffff' size='1' align='center'>Players ready: %1%2</t>", _playerReadypercentage, "%"];;
+		
+		nil;
+	}
+] call FUNC(addEventHandler);
+
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 [] call compile preprocessFileLineNumbers "scripts\slmd\fn_initClient.sqf";
