@@ -197,7 +197,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		} count GVAR(economy);
 	};
 	
-	if !(GVAR(supplypoint) isEqualTo []) then {		
+	if (count GVAR(supplypoint) isEqualTo 0) then {
 		[
 			GVAR(defenderSide),
 			"IDAPDefender",
