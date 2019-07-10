@@ -31,8 +31,8 @@ if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 	CHECK_TRUE(_success, Invalid parameters!, {})
 
 	private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
-
-	_objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+	
+	_objsArray = [_position, _dir, _objsArray, if (_type isEqualTo "IDAPCamp") then {VEHICLE_IDAP + [FLAGPOLE]} else {[FLAGPOLE]}] call FUNC(objectsMapper);
 
 	private _marker = _objsArray deleteAt (count _objsArray - 1);
 	private _size = getMarkerSize _marker;
@@ -42,7 +42,25 @@ if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 	deleteMarker _marker;	
 	
 	[GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture);
-
+	
+	if (_type isEqualTo "IDAPCamp") then {
+		diag_log ("createSupplyPoint IDAPCamp: " + str(_objsArray));
+		
+		{
+			if ((typeOf _x) in VEHICLE_IDAP) then {			
+				_x addEventHandler [
+					"Killed", {		
+						params ["_unit", "_killer", "_instigator"];
+						
+						[_instigator] call FUNC(reportAidSupplyDestroyed);
+					}
+				];				
+			};
+			
+			nil
+		} count _objsArray;
+	};	
+	
 	_objsArray = nearestObjects [_position, ["house"], 90];
 
 	private _buildingCount = {

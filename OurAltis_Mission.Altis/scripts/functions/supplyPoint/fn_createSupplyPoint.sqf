@@ -26,9 +26,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objsArray = call compile preprocessFileLineNumbers "scripts\compositions\supplyPoint.sqf";
 
-_objsArray = [_position, _dir, _objsArray, VEHICLE_IDAP] call FUNC(objectsMapper);
-
-diag_log ("createSupplyPoint: " + str(_objsArray));
+_objsArray = [_position, _dir, _objsArray, []] call FUNC(objectsMapper);
 
 private _marker = _objsArray deleteAt (count _objsArray - 1);
 private _size = getMarkerSize _marker;
@@ -52,17 +50,5 @@ _trigger setTriggerStatements [
 	"[thisTrigger] call " + QFUNC(checkAidSupply),
 	""
 ];
-
-{
-	_x addEventHandler [
-		"Killed", {		
-			params ["_unit", "_killer", "_instigator"];
-			
-			[_instigator] call FUNC(reportAidSupplyDestroyed);
-		}
-	];
-	
-	nil
-} count _objsArray;
 
 nil
