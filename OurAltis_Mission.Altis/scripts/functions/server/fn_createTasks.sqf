@@ -150,13 +150,13 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				"ecoDefender_" + str(_indexDB),				
 				if (_type isEqualTo "IDAPCamp") then {
 					[
-						format [localize "OurA_str_EcoDefIDAPDescription", _type, GVAR(targetAreaName)]
+						format [localize "OurA_str_EcoDefIDAPDescription", _type, GVAR(targetAreaName)],
 						format [localize "OurA_str_EcoDefIDAPTitle", _type],
 						""
 					]
 				} else {
 					[
-						format [localize "OurA_str_EcoDefDescription", _type, GVAR(targetAreaName)]
+						format [localize "OurA_str_EcoDefDescription", _type, GVAR(targetAreaName)],
 						format [localize "OurA_str_EcoDefTitle", _type],
 						""
 					]
@@ -174,13 +174,13 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				"ecoAttacker_" + str(_indexDB), 
 				if (_type isEqualTo "IDAPCamp") then {
 					[
-						format [localize "OurA_str_EcoAttIDAPDescription", _type, GVAR(targetAreaName)]
+						format [localize "OurA_str_EcoAttIDAPDescription", _type, GVAR(targetAreaName)],
 						format [localize "OurA_str_EcoAttIDAPTitle", _type],
 						""
 					]
 				} else {
 					[
-						format [localize "OurA_str_EcoAttDescription", _type, GVAR(targetAreaName)]
+						format [localize "OurA_str_EcoAttDescription", _type, GVAR(targetAreaName)],
 						format [localize "OurA_str_EcoAttTitle", _type],
 						""
 					]
