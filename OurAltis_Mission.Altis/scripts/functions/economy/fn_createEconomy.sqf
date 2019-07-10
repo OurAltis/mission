@@ -73,7 +73,7 @@ if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 		_isEco
 	} count _objsArray;
 		
-	[_type, _buildingCount, _indexDB] call FUNC(initializeEconomyVariable);	
+	[_type, _buildingCount, _indexDB] call FUNC(initializeEconomyVariable);
 	
 	_marker = createMarker ["marker_eco_" + str(_indexDB), _position];
 	_marker setMarkerShape "RECTANGLE";
