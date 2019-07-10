@@ -14,8 +14,6 @@
  * None <Any>
  * 
  */
-diag_log ("createRestrictedArea: " + str(PGVAR(restrictedArea)));
-
 private _positionTrigger = [];
 private _dirTrigger = [];
 private _triggerAll = [];
@@ -37,8 +35,8 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 	_trigger setTriggerArea [45, 45, _dirTrigger select _forEachIndex, true];
 	_trigger setTriggerActivation ["Any", "NOT PRESENT", true];
 	_trigger setTriggerStatements ["!((vehicle player) in thisList) && alive (vehicle player)",
-		format ["call %1", FUNC(triggerRAAct)],
-		format ["call %1", FUNC(triggerRADeact)]
+		"call " + QFUNC(triggerRAAct),
+		"call " + QFUNC(triggerRADeact)
 	];
 	
 	_trigger enableSimulation false;

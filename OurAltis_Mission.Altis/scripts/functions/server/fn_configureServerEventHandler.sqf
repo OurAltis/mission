@@ -54,16 +54,20 @@ addMissionEventHandler [
 					private _sideDB = if (GVAR(defenderSide) isEqualTo west) then {"ost"} else {"west"};
 					
 					if (_type isEqualTo "barracks") then {
-						GVAR(taskState) set [1, _sideDB];
-					};
-					
-					if (_type isEqualTo "factory") then {
 						GVAR(taskState) set [2, _sideDB];
 					};
 					
-					if (_type isEqualTo "hangar") then {
+					if (_type isEqualTo "factory") then {
 						GVAR(taskState) set [3, _sideDB];
-					};					
+					};
+					
+					if (_type isEqualTo "hangar") then {
+						GVAR(taskState) set [4, _sideDB];
+					};	
+					
+					if (_type isEqualTo "IDAPCamp") then {
+						GVAR(taskState) set [5, _sideDB];
+					};
 				};				
 			} else {
 				_newObj setVariable [IS_ECONOMY_BUILDING, _oldObj getVariable [IS_ECONOMY_BUILDING, false]];

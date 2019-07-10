@@ -142,3 +142,4 @@
  #define BASEBUILDINGS_SAM ["Land_HBarrier_Big_F", "Land_Cargo_HQ_V3_F", "Land_Cargo_Patrol_V3_F", "Land_Cargo_Tower_V3_F", "Land_BagFence_Corner_F", "Land_BagFence_End_F", "Land_BagFence_Long_F", "Land_BagFence_Round_F", "Land_Cargo_House_V1_F", "Land_BagFence_Short_F"]
  #define BASEBUILDINGS_T ["Land_HBarrier_01_big_4_green_F", "Land_Cargo_HQ_V4_F", "Land_Cargo_Patrol_V4_F", "Land_Cargo_Tower_V4_F", "Land_BagFence_01_corner_green_F", "Land_BagFence_01_end_green_F", "Land_BagFence_01_long_green_F", "Land_BagFence_01_round_green_F", "Land_Cargo_House_V4_F", "Land_BagFence_01_short_green_F"]
  #define HELI_BIG ["B_Heli_Transport_03_unarmed_F", "O_Heli_Transport_04_covered_F"]
+ #define VEHICLE_IDAP ["C_IDAP_Truck_02_F", "C_IDAP_Truck_02_water_F"]

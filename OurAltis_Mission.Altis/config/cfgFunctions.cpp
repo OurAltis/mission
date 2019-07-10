@@ -72,6 +72,8 @@ class CfgFunctions
 			class reportIncident {};
 			class switchGroupAndLeader {};			
 			class confirmVote {};
+			class reportAidSupply {};
+			class reportAidSupplyDestroyed {};
 		};
 		
 		class database
@@ -230,6 +232,14 @@ class CfgFunctions
 			file = FUNC_PATH(resistance);
 			
 			class createResistance {};
+		};
+		
+		class supplyPoint
+		{
+			file = FUNC_PATH(supplyPoint);
+			
+			class createSupplyPoint {};
+			class checkAidSupply {};
 		};
 	};
 };

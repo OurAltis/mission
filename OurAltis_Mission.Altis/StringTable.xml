@@ -304,7 +304,37 @@
 				<English>Destroy the %1!</English>
 				<German>Zerstören sie die %1!</German>
 				<Original>Destroy the %1!</Original>
-			</Key>		
+			</Key>
+			<Key ID="OurA_str_EcoDefIDAPDescription">
+				<English>We have a IDAP camp in %2. If they need our help to protect them or to bring their aid consignment, if their is one, to the supply point we will be there!</English>
+				<German>Wir haben ein IDAP Camp in %2. Falls unsere hilfe zum Schutz oder für die Überführung Ihrer Hilflieferungen, wenn es denn welche gibt, werden wir dort sein!</German>
+				<Original>We have a IDAP camp in %2. If they need our help to protect them or to bring their aid consignment, if their is one, to the supply point we will be there!</Original>
+			</Key>
+			<Key ID="OurA_str_EcoDefIDAPTitle">
+				<English>Help the IDAP camp!</English>
+				<German>Helfen Sie dem IDAP Camp!</German>
+				<Original>Help the IDAP camp!</Original>
+			</Key>
+			<Key ID="OurA_str_EcoAttIDAPDescription">
+				<English>The enemy have a IDAP camp in %2. If they plan a aid consignment try to offer a helping hand. Maybe we can win the population in %1 over to our side. If it will be necessary to destabilize the area, destroy the camp even you turn the natives against us!</English>
+				<German>Der Feind hat in %1 ein IDAP Camp errichten lassen. Wenn gerade ein Hilflieferung ansteht, bieten Sie ihre hilfe an, vielleicht können wir so die Bevölkerung in %1 auf unsere Seite ziehen. Falls es aber notwendig ist die Region weiter zu destabilisieren, zerstören Sie das Camp auch wenn es die Einheimischen gegen Sie aufbringen kann!</German>
+				<Original>The enemy have a IDAP camp in %2. If they plan a aid consignment try to offer a helping hand. Maybe we can win the population in %1 over to our side. If it will be necessary to destabilize the area, destroy the camp even you turn the natives against us!</Original>
+			</Key>			
+			<Key ID="OurA_str_EcoAttIDAPTitle">
+				<English>Help or destroy the IDAP Camp!</English>
+				<German>Helfen oder zerstören Sie dem IDAP Camp!</German>
+				<Original>Help or destroy the IDAP Camp!</Original>
+			</Key>
+			<Key ID="OurA_str_IDAPDescription">
+				<English>Bring the convoy from the IDAP camp to the supply point in %1 to gain acceptance from the local population!</English>
+				<German>Bringen sie Sie den Konvoi vom IDAP Camp zum Versorgungspunkt in %1 um die Zustimmung der lokalen Bevölkerung zu gewinnen!</German>
+				<Original>Bring the convoy from the camp to the supply point in %1 to gain acceptance from the local population!</Original>
+			</Key>
+			<Key ID="OurA_str_IDAPTitle">
+				<English>Transport aid consignment!</English>
+				<German>Transportieren Sie Hilfgüter!</German>
+				<Original>Transport aid consignment!</Original>
+			</Key>
 			<Key ID="OurA_str_ResistanceDescription">
 				<English>Soldier, Hawkeye has reported enemy resistance in this area! Be careful we have to fight at two fronts! It will be a good statement if you find and kill them all. Your choice!</English>
 				<German>Soldat, Hawkeye hat uns eine Widerstandsgruppe in dem Gebiet gemeldet! Seien Sie vorsichtig ansonsten kämpfen Sie an zwei Fronten. Dies wäre eine gute Gelegenheit den Widerstand zu zerschlagen. Ihre Entscheidung!</German>

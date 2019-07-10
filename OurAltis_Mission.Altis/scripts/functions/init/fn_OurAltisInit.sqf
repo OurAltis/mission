@@ -20,6 +20,7 @@
 GVAR(MarkerAccuracy) = 500;
 GVAR(SpyInfo) = [[15376,16017], "ost", 20.0];
 GVAR(Resist) = "";
+GVAR(supplyPoint) = [];
 GVAR(NATO) = "Smith";
 GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
@@ -73,6 +74,7 @@ if(isServer) then {
 	
 	 GVAR(SpyInfo) call FUNC(createSpy);
 	 GVAR(Resist) call FUNC(createResistance);
+	 GVAR(supplyPoint) call FUNC(createSupplyPoint);
 };
 
 [] call FUNC(initializeGenericMissionPart);
