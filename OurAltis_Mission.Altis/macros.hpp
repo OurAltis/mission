@@ -16,8 +16,10 @@
  
  #define GVAR(var) TAG##_##var
  #define QGVAR(var) QUOTE(GVAR(var))
- #define PGVAR(var) TAG##_Public_##var
+ #define PGVAR(var) TAG##_public_##var
  #define QPGVAR(var) QUOTE(PGVAR(var))
+ #define WEBVAR(var) TAG##_web_##var
+ #define QWEBVAR(var) QUOTE(QWEBVAR(var))
  
  #define FUNC(function) TAG##_fnc_##function
  #define QFUNC(function) QUOTE(FUNC(function))

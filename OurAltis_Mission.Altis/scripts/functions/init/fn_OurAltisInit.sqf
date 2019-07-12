@@ -15,25 +15,22 @@
  * 
  */
 
-
 // set preferences
-GVAR(MarkerAccuracy) = 500;
 GVAR(SpyInfo) = [[15376,16017], "ost", 20.0];
 GVAR(Resist) = "";
 GVAR(supplyPoint) = [];
 GVAR(NATO) = "Smith";
 GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
-GVAR(canRetreat) = [east];
+GVAR(canRetreat) = [west, east];
 
 if(isServer) then {	
-	GVAR(timeLimit) = 3600;
+	GVAR(timeLimit) = 5;
 	GVAR(round) = 1;
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
 	GVAR(vehicleListAll) = [];
 	GVAR(Vehicles) = [west, [], east, []];
-	diag_log ("Init Vehicles: " + str(missionNamespace getVariable [QGVAR(Vehicles), false]));
 	GVAR(OperationName) = "Graceful Bird";
 	GVAR(MissionID) = 11483;
 	GVAR(targetAreaName) = "Aeroport";
@@ -45,7 +42,9 @@ if(isServer) then {
 		[[16372.000,19664.000], blufor, "AgiaTriada", "camp", 4, 241.375]
 	] call FUNC(createBases);
 	
-	[[12462.875,15969.920], "barracks", 0] call FUNC(createEconomy);
+	[
+		[12462.875,15969.920], "barracks", 0
+	] call FUNC(createEconomy);
 	
 	[0, 05, 15] call FUNC(setMissionParameter);
 	

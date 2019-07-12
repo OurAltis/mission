@@ -94,6 +94,7 @@ class CfgFunctions
 			};
 			
 			class initializeGenericMissionPart {};
+			class variableWebGUI {};
 			class configureTFAR {};
 		};
 		

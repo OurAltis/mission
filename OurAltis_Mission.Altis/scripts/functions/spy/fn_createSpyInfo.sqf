@@ -15,6 +15,7 @@
  * None <Any>
  * 
  */
+diag_log ("createSpyInfo _this: " + str(_this)); 
 
 private _success = params [
 	["_budget", 0, [0]],
@@ -25,7 +26,6 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-diag_log ("createSpyInfo sidePlayer: " + str(side (group player)));
 private _side = if (side (group player) isEqualTo west) then {east} else {west};
 private _indexVehicleList = _vehicleList find _side;
 
@@ -38,13 +38,9 @@ private _infantryListNew = if ((_infantryList select 0) isEqualTo objNull) then 
 _infantryListNew append (if ((_infantryList select 1) isEqualTo objNull) then {[]} else {_infantryList select 1});
 private _indexInfantryList = _infantryListNew find _side;
 
-diag_log ("createSpyInfo _vehicleList: " + str(_vehicleList));
-diag_log ("createSpyInfo _vehicleList: " + str(_vehicleList select (_indexVehicleList + 1)));
-
 private _info = "";
 
-{
-	diag_log ("createSpyInfo _vehicleList _x: " + str(_x));
+{	
 	_x params [
 		["_locationVehicle", "MissingNo", [""]],
 		["_objectsVehicle", [], [[]]] 
@@ -52,8 +48,7 @@ private _info = "";
 		
 	_info = _info + format ["<font color='#00ff00'>%1</font>", _locationVehicle] + _endl + _separateLong + _tab + localize "OurA_str_Fleet" + _endl + _tab + _separateShort;
 	
-	{
-		diag_log ("createSpyInfo _objectsVehicle _x: " + str(_x));
+	{		
 		_x params [
 			["_objectType", "", [""]],
 			["_amount", 0, [0]]
@@ -67,16 +62,14 @@ private _info = "";
 	
 	_info = _info + _endl + _tab + localize "OurA_str_Troop" + _endl + _tab + _separateShort;
 	
-	{
-		diag_log ("createSpyInfo _infantryListNew _x: " + str(_x));
+	{		
 		_x params [
 			["_locationInfantry", "MissingNo", [""]],
 			["_objectsInfantry", [], [[]]] 
 		];
 		
 		if (_locationInfantry isEqualTo _locationVehicle) then {
-			{
-				diag_log ("createSpyInfo _objectsInfantry _x: " + str(_x));
+			{				
 				_x params [
 					["_objectType", "", [""]],
 					["_amount", 0, [0]]
@@ -119,8 +112,6 @@ if !(GVAR(Resist) isEqualTo "") then {
 hint (localize "OurA_str_SpyInfoReceived");
 
 private _general = if (_side isEqualTo west) then {GVAR(NATO)} else {GVAR(CSAT)};
-
-diag_log ("createSpyInfo info: " + str(_info));
 
 player createDiaryRecord ["Diary", ["Intel", (format [localize "OurA_str_Money", _general, _budget]) + _endl + _endl + _info]];
 

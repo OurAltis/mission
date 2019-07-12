@@ -43,9 +43,7 @@ if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 	
 	[GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture);
 	
-	if (_type isEqualTo "IDAPCamp") then {
-		diag_log ("createSupplyPoint IDAPCamp: " + str(_objsArray));
-		
+	if (_type isEqualTo "IDAPCamp") then {		
 		{
 			if ((typeOf _x) in VEHICLE_IDAP) then {			
 				_x addEventHandler [
