@@ -46,7 +46,7 @@ private _trigger = createTrigger ["EmptyDetector", _position, true];
 _trigger setTriggerArea [_size select 0, _size select 1, _markerDir, true];
 _trigger setTriggerActivation ["ANY", "PRESENT", true];
 _trigger setTriggerStatements [
-	"(vehicle player) in thisList && alive (vehicle player) && (vehicle player) getVariable [" + QGVAR(isIDAPVehicle) + ", false]",
+	"(vehicle player) in thisList && alive (vehicle player) && (vehicle player) getVariable ['" + QGVAR(isIDAPVehicle) + "', false]",
 	"[thisTrigger] call " + QFUNC(checkAidSupply),
 	""
 ];
