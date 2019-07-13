@@ -18,7 +18,7 @@
  * 
  */ 
 
-if( _this isEqualTo []) exitWith {}; // if there is no economy simply exit the function
+if (_this isEqualTo []) exitWith {}; // if there is no economy simply exit the function
 
 {
 	private _success = _x params [

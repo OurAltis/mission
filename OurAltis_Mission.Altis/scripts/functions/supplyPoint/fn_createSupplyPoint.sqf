@@ -15,7 +15,7 @@
  * 
  */
  
-if ( _this isEqualTo []) exitWith {}; // if there is no supply point simply exit the function
+if (_this isEqualTo []) exitWith {}; // if there is no supply point simply exit the function
 
 private _success = params [
 	["_position", nil, [[]], [2,3]],

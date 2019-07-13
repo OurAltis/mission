@@ -165,7 +165,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				"Created",
 				5,
 				false,
-				if !(GVAR(supplypoint) isEqualTo [] && _type isEqualTo "IDAPCamp") then {"move"} else {"defend"},
+				if (!(GVAR(supplypoint) isEqualTo []) && _type isEqualTo "IDAPCamp") then {"move"} else {"defend"},
 				false
 			] call BIS_fnc_taskCreate;
 			
@@ -189,7 +189,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				"Created",
 				5,
 				false,
-				if !(GVAR(supplypoint) isEqualTo [] && _type isEqualTo "IDAPCamp") then {"move"} else {"destroy"},
+				if (!(GVAR(supplypoint) isEqualTo []) && _type isEqualTo "IDAPCamp") then {"move"} else {"destroy"},
 				false
 			] call BIS_fnc_taskCreate;
 			
@@ -197,7 +197,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		} count GVAR(economy);
 	};
 	
-	if (count GVAR(supplypoint) isEqualTo 0) then {
+	if !(count GVAR(supplypoint) isEqualTo 0) then {
 		[
 			GVAR(defenderSide),
 			"IDAPDefender",
