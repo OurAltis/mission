@@ -125,8 +125,16 @@ GVAR(vehicleListAll) = [];
 			_objs select 1
 		} else {objNull};
 		
-		if (_type in VEHICLE_IDAP && !(_type isEqualTo (VEHICLE_IDAP select 0))) then {
-			[_obj, _type] call FUNC(prepareVehicleIDAP);
+		if (_type in VEHICLE_IDAP) then {
+			if (isNil QGVAR(countIDAPVehicle)) then {
+				GVAR(countIDAPVehicle) = 1;
+			} else {
+				GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) + 1;
+			};
+			
+			if !(_type isEqualTo (VEHICLE_IDAP select 0)) then {
+				[_obj, _type] call FUNC(prepareVehicleIDAP);
+			};
 		};
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
@@ -204,6 +212,13 @@ GVAR(vehicleListAll) = [];
 					
 					if (typeOf _unit in VEHICLE_IDAP) then {
 						[_instigator] call FUNC(reportAidSupplyDestroyed);
+						
+						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;
+						
+						if (GVAR(countIDAPVehicle) isEqualTo 0) then {
+							["IDAPSupplier", "FAILED"] spawn BIS_fnc_taskSetState;
+							["IDAPDisturber", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+						};
 					};
 					
 					// set the damage to 1 in case it died of critical hit

@@ -54,4 +54,6 @@ _trigger setTriggerStatements [
 	""
 ];
 
+_trigger setVariable [QGVAR(countIDAParrived), 0];
+
 nil

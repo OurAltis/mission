@@ -123,26 +123,26 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		{
 			_x params ["_type", "_buildingCount", "_indexDB"];
 			
-			private _ecoPictures = "";
+			private _ecoPicture = "";
 			
 			if (_type isEqualTo "barracks") then {
 				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\barraks.jpg' width='160' height='90'/>";
+				_ecoPicture = "<br/><br/><img image='image\barraks.jpg' width='160' height='90'/>";
 			};
 			
 			if (_type isEqualTo "factory") then {
 				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\factory.jpg' width='160' height='90'/>";
+				_ecoPicture = "<br/><br/><img image='image\factory.jpg' width='160' height='90'/>";
 			};
 			
 			if (_type isEqualTo "hangar") then {
 				GVAR(taskState) set [4, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
+				_ecoPicture = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
 			};
 			
 			if (_type isEqualTo "IDAPCamp") then {
 				GVAR(taskState) set [5, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPictures = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
+				_ecoPicture = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
 			};
 			
 			_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
@@ -167,7 +167,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				_attackerSide,
 				"ecoAttacker_" + str(_indexDB), 				
 				[
-					format [localize "OurA_str_EcoAttDescription", _typeText, GVAR(targetAreaName)],
+					format [localize "OurA_str_EcoAttDescription" + _ecoPicture, _typeText, GVAR(targetAreaName)],
 					format [localize "OurA_str_EcoAttTitle", _typeText],
 					""
 				],		
@@ -204,7 +204,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_attackerSide,
 			"IDAPSupplier",
 			[
-				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName)],
+				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0]],
 				localize "OurA_str_IDAPSupTitle",
 				""
 			],
@@ -212,7 +212,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"Created",
 			5,
 			false,
-			"meet",
+			"heal",
 			false
 		] call BIS_fnc_taskCreate;
 	};
