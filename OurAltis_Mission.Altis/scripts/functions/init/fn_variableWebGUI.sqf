@@ -14,7 +14,9 @@
  * None <Any>
  * 
  */
- 
+
+// This Function is not yet implemented 
+
 WEBVAR(SpyInfo) = [[13981.633,20772.578], "ost", 90.00];
 WEBVAR(Resist) = "ost";
 WEBVAR(supplyPoint) = [[14674.602,20813.512],348.727];

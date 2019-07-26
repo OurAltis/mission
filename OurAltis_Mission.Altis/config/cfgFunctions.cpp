@@ -171,6 +171,7 @@ class CfgFunctions
 			class createAddAction {};
 			class checkFOBPosition {};
 			class createMarkerCamps {};
+			class getAttackerSide {};
 		};
 		
 		class events
@@ -206,6 +207,7 @@ class CfgFunctions
 			class prepareVehicleMobileCamp {};
 			class resizeVehicleSpawn {};
 			class sortVehicles {};
+			class prepareVehicleIDAP {};
 		};
 		
 		class economy

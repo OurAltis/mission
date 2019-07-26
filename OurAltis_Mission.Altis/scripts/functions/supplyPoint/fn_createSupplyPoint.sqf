@@ -8,7 +8,8 @@
  * Create IDAP supply mission
  * 
  * Parameter(s):
- * 0: None <Any>
+ * 0: Position <Array>
+ * 1: Direction <Scalar>
  * 
  * Return Value:
  * None <Any>
@@ -42,12 +43,14 @@ _marker setMarkerDir _markerDir;
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 
+private _sideAttacker = [GVAR(defender), true] call FUNC(getAttackerSide);
+
 private _trigger = createTrigger ["EmptyDetector", _position, true];
 _trigger setTriggerArea [_size select 0, _size select 1, _markerDir, true];
-_trigger setTriggerActivation ["ANY", "PRESENT", true];
+_trigger setTriggerActivation [_sideAttacker, "PRESENT", true];
 _trigger setTriggerStatements [
-	"(vehicle player) in thisList && alive (vehicle player) && (vehicle player) getVariable ['" + QGVAR(isIDAPVehicle) + "', false]",
-	"[thisTrigger] call " + QFUNC(checkAidSupply),
+	"(vehicle player) in thisList && alive (vehicle player) && typeOf (vehicle player) in " + str(VEHICLE_IDAP),
+	"[thisTrigger, " + _sideAttacker + "] call " + QFUNC(checkAidSupply),
 	""
 ];
 

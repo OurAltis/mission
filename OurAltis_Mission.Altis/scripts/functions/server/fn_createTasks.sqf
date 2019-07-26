@@ -145,51 +145,37 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 				_ecoPictures = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
 			};
 			
+			_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
+			
 			[
 				GVAR(defenderSide),
-				"ecoDefender_" + str(_indexDB),				
-				if (_type isEqualTo "IDAPCamp") then {
-					[
-						format [localize "OurA_str_EcoDefIDAPDescription", _type, GVAR(targetAreaName)],
-						format [localize "OurA_str_EcoDefIDAPTitle", _type],
-						""
-					]
-				} else {
-					[
-						format [localize "OurA_str_EcoDefDescription", _type, GVAR(targetAreaName)],
-						format [localize "OurA_str_EcoDefTitle", _type],
-						""
-					]
-				},
+				"ecoDefender_" + str(_indexDB),
+				[								
+					format [localize "OurA_str_EcoDefDescription", _typeText, GVAR(targetAreaName)],
+					format [localize "OurA_str_EcoDefTitle", _typeText],
+					""
+				],
 				"marker_eco_" + str(_indexDB),
 				"Created",
 				5,
 				false,
-				if (!(GVAR(supplypoint) isEqualTo []) && _type isEqualTo "IDAPCamp") then {"move"} else {"defend"},
+				"defend",
 				false
 			] call BIS_fnc_taskCreate;
 			
 			[
 				_attackerSide,
-				"ecoAttacker_" + str(_indexDB), 
-				if (_type isEqualTo "IDAPCamp") then {
-					[
-						format [localize "OurA_str_EcoAttIDAPDescription", _type, GVAR(targetAreaName)],
-						format [localize "OurA_str_EcoAttIDAPTitle", _type],
-						""
-					]
-				} else {
-					[
-						format [localize "OurA_str_EcoAttDescription", _type, GVAR(targetAreaName)],
-						format [localize "OurA_str_EcoAttTitle", _type],
-						""
-					]
-				},
+				"ecoAttacker_" + str(_indexDB), 				
+				[
+					format [localize "OurA_str_EcoAttDescription", _typeText, GVAR(targetAreaName)],
+					format [localize "OurA_str_EcoAttTitle", _typeText],
+					""
+				],		
 				"marker_eco_"  + str(_indexDB),
 				"Created",
 				5,
 				false,
-				if (!(GVAR(supplypoint) isEqualTo []) && _type isEqualTo "IDAPCamp") then {"move"} else {"destroy"},
+				"destroy",
 				false
 			] call BIS_fnc_taskCreate;
 			
@@ -197,13 +183,13 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		} count GVAR(economy);
 	};
 	
-	if !(count GVAR(supplypoint) isEqualTo 0) then {
+	if !(GVAR(supplyPoint) isEqualTo []) then {
 		[
 			GVAR(defenderSide),
-			"IDAPDefender",
+			"IDAPDisturber",
 			[
-				localize "OurA_str_IDAPDescription",
-				localize "OurA_str_IDAPTitle",
+				format [localize "OurA_str_IDAPDisDescription", GVAR(targetAreaName)],
+				localize "OurA_str_IDAPDisTitle",
 				""
 			],
 			"marker_sup",
@@ -216,10 +202,10 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		
 		[
 			_attackerSide,
-			"IDAPAttacker",
+			"IDAPSupplier",
 			[
-				localize "OurA_str_IDAPDescription",
-				localize "OurA_str_IDAPTitle",
+				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName)],
+				localize "OurA_str_IDAPSupTitle",
 				""
 			],
 			"marker_sup",

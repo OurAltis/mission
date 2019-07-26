@@ -125,6 +125,10 @@ GVAR(vehicleListAll) = [];
 			_objs select 1
 		} else {objNull};
 		
+		if (_type in VEHICLE_IDAP && !(_type isEqualTo (VEHICLE_IDAP select 0))) then {
+			[_obj, _type] call FUNC(prepareVehicleIDAP);
+		}
+		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 		
 		GVAR(vehicleListAll) pushBack _objWebGUI;
@@ -191,22 +195,28 @@ GVAR(vehicleListAll) = [];
 		// add EH for vehicle destruction (MP-EH is needed in case the vehicle's locality changes (e.g. a player enter it))
 		_objWebGUI addMPEventHandler [
 			"MPKilled", {
+				params ["_unit", "_killer", "_instigator"];
+				
 				if (isServer) then {
-					if (typeOf (_this select 0) isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
-						[] remoteExecCall ["", (_this select 0) getVariable [QGVAR(JIPID, "")]];
+					if (typeOf _unit isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+						[] remoteExecCall ["", _unit getVariable [QGVAR(JIPID, "")]];
+					};
+					
+					if (typeOf _unit in VEHICLE_IDAP) then {
+						[_instigator] call FUNC(reportAidSupplyDestroyed);
 					};
 					
 					// set the damage to 1 in case it died of critical hit
-					(_this select 0) setDamage  1;
+					_unit setDamage  1;
 					
 					// report destroyed vehicle to the DB immediately
-					[_this select 0] call FUNC(reportVehicleStatus);
-					[_this select 0] call FUNC(reportDestroyedVehicleStatistic);
+					[_unit] call FUNC(reportVehicleStatus);
+					[_unit] call FUNC(reportDestroyedVehicleStatistic);
 				};
 				
 				if (hasInterface) then {
-					if (typeOf (_this select 0) isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
-						(_this select 0) removeAction ((_this select 0) getVariable [QGVAR(FOBAddAction), -1]);
+					if (typeOf _unit isEqualTo (VEHICLE_MOBILE_CAMP select 0)) then {
+						_unit removeAction (_unit getVariable [QGVAR(FOBAddAction), -1]);
 					};
 				};
 				

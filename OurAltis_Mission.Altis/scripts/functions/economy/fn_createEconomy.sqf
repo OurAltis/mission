@@ -32,8 +32,10 @@ if (_this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 
 	private _objsArray = call compile preprocessFileLineNumbers (format ["scripts\compositions\%1.sqf", _type]);
 	
-	_objsArray = [_position, _dir, _objsArray, if (_type isEqualTo "IDAPCamp") then {VEHICLE_IDAP + [FLAGPOLE]} else {[FLAGPOLE]}] call FUNC(objectsMapper);
-
+	// Depricated IDAP camp functionality
+	//_objsArray = [_position, _dir, _objsArray, if (_type isEqualTo "IDAPCamp") then {VEHICLE_IDAP + [FLAGPOLE]} else {[FLAGPOLE]}] call FUNC(objectsMapper);
+	_objsArray = [_position, _dir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+	
 	private _marker = _objsArray deleteAt (count _objsArray - 1);
 	private _size = getMarkerSize _marker;
 	private _markerDir = markerDir _marker;
@@ -43,6 +45,7 @@ if (_this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 	
 	[GVAR(defenderSide), _objsArray] call FUNC(setFlagTexture);
 	
+	/* // Depricated IDAP camp functionality
 	if (_type isEqualTo "IDAPCamp") then {		
 		{
 			if ((typeOf _x) in VEHICLE_IDAP) then {			
@@ -58,6 +61,7 @@ if (_this isEqualTo []) exitWith {}; // if there is no economy simply exit the f
 			nil
 		} count _objsArray;
 	};	
+	*/
 	
 	_objsArray = nearestObjects [_position, ["house"], 90];
 
