@@ -127,7 +127,7 @@ GVAR(vehicleListAll) = [];
 		
 		if (_type in VEHICLE_IDAP && !(_type isEqualTo (VEHICLE_IDAP select 0))) then {
 			[_obj, _type] call FUNC(prepareVehicleIDAP);
-		}
+		};
 		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
 		
