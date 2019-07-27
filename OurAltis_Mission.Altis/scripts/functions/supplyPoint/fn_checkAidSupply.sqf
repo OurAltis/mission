@@ -15,6 +15,8 @@
  * None <Any>
  * 
  */
+diag_log ("checkAidSupply: this - " + str(_this));
+
 private _success = params [
 	["_triggerObj", objNull, [objNull]],
 	["_side", sideUnknown, [west]]

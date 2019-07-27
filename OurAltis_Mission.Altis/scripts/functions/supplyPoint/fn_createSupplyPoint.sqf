@@ -51,7 +51,7 @@ _trigger setTriggerArea [_size select 0, _size select 1, _markerDir, true];
 _trigger setTriggerActivation [str(_sideAttacker), "PRESENT", true];
 _trigger setTriggerStatements [
 	"this",
-	"[thisTrigger, " + _sideAttacker + "] call " + QFUNC(checkAidSupply),
+	"[thisTrigger, " + str(_sideAttacker) + "] call " + QFUNC(checkAidSupply),
 	""
 ];
 
