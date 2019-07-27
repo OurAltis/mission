@@ -218,6 +218,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"heal",
 			false
 		] call BIS_fnc_taskCreate;
+		
+		GVAR(taskState) set [6, 1];
 	};
 	
 	if !(GVAR(Resist) isEqualTo "") then {

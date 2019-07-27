@@ -220,6 +220,8 @@ GVAR(vehicleListAll) = [];
 						if (GVAR(countIDAPVehicle) isEqualTo 0) then {
 							["IDAPSupplier", "FAILED"] spawn BIS_fnc_taskSetState;
 							["IDAPDisturber", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+							
+							GVAR(taskState) set [6, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
 						};
 					};
 					

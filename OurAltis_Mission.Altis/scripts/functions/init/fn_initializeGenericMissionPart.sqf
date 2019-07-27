@@ -28,8 +28,8 @@ if (isServer) then {
 	GVAR(fuelConsumption) = [0, 0];
 	// [west, ost]
 	GVAR(deadUnits) = [0, 0];
-	// [spy, economy, resistance]
-	GVAR(taskState) = [0, 0, 0, 0, 0, 0];
+	// [spy, resistance, economy, aidSupply]
+	GVAR(taskState) = [0, 0, 0, 0, 0, 0, 0];
 	GVAR(nameFOB) = [[], []];
 	GVAR(playerVote) = [];
 	

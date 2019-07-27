@@ -48,8 +48,9 @@ diag_log ("checkAidSupply: side - " + str(_side));
 		
 		if (_countIDAPArrived isEqualTo GVAR(countIDAPVehicle) && _countIDAPArrived != 0) then {
 			["IDAPSupplier", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-			["IDAPDisturber", "FAILED"] spawn BIS_fnc_taskSetState;
+			["IDAPDisturber", "FAILED"] spawn BIS_fnc_taskSetState;			
 			
+			GVAR(taskState) set [6, if (_side isEqualTo west) then {"west"} else {"ost"}];
 			deleteVehicle _triggerObj;
 		};
 	};
