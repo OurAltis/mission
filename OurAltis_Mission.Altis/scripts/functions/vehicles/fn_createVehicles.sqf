@@ -212,16 +212,18 @@ GVAR(vehicleListAll) = [];
 						[] remoteExecCall ["", _unit getVariable [QGVAR(JIPID, "")]];
 					};
 					
-					if (typeOf _unit in VEHICLE_IDAP) then {
-						[_instigator] call FUNC(reportAidSupplyDestroyed);
+					if (typeOf _unit in VEHICLE_IDAP) then {						
+						[_instigator] call FUNC(reportAidSupplyDestroyed);						
 						
 						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;
 						
 						if (GVAR(countIDAPVehicle) isEqualTo 0) then {
-							["IDAPSupplier", "FAILED"] spawn BIS_fnc_taskSetState;
-							["IDAPDisturber", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
-							
-							GVAR(taskState) set [6, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+							if ((GVAR(taskState) select 6) isEqualType 0) then {
+								["IDAPSupplier", "FAILED"] spawn BIS_fnc_taskSetState;
+								["IDAPDisturber", "SUCCEEDED"] spawn BIS_fnc_taskSetState;
+								
+								GVAR(taskState) set [6, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+							};
 						};
 					};
 					
