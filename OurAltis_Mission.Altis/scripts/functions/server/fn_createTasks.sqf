@@ -184,12 +184,15 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	};
 	
 	if !(GVAR(supplyPoint) isEqualTo []) then {
+		diag_log ("IDAP Task: countIDAPVehicle - " + str(missionNamespace getVariable [QGVAR(countIDAPVehicle), 0]));
+		diag_log ("IDAP Task: countIDAPArrived - " + str(missionNamespace getVariable [QGVAR(countIDAPArrived), 0]));
+	
 		[
 			GVAR(defenderSide),
 			"IDAPDisturber",
 			[
 				format [localize "OurA_str_IDAPDisDescription", GVAR(targetAreaName)],
-				localize "OurA_str_IDAPDisTitle",
+				"OurA_str_IDAPDisTitle",
 				""
 			],
 			"marker_sup",
@@ -204,8 +207,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_attackerSide,
 			"IDAPSupplier",
 			[
-				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0]],
-				localize "OurA_str_IDAPSupTitle",
+				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], missionNamespace getVariable [QGVAR(countIDAPArrived), 0]],
+				"OurA_str_IDAPSupTitle",
 				""
 			],
 			"marker_sup",

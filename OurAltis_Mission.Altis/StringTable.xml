@@ -306,9 +306,9 @@
 				<Original>Destroy the %1!</Original>
 			</Key>			
 			<Key ID="OurA_str_IDAPSupDescription">
-				<English>Bring the truck(s) [0/%2] from your Base to the supply point in %1 to gain acceptance from the local population!</English>
-				<German>Bringen sie die LKW [0/%2] aus Ihrer Basis zum Versorgungspunkt in %1 um die Zustimmung der lokalen Bevölkerung zu gewinnen!</German>
-				<Original>Bring the truck(s) [0/%2] from your Base to the supply point in %1 to gain acceptance from the local population!</Original>
+				<English>Bring the truck(s) [%3/%2] from your Base to the supply point in %1 to gain acceptance from the local population!</English>
+				<German>Bringen sie die LKW [%3/%2] aus Ihrer Basis zum Versorgungspunkt in %1 um die Zustimmung der lokalen Bevölkerung zu gewinnen!</German>
+				<Original>Bring the truck(s) [%3/%2] from your Base to the supply point in %1 to gain acceptance from the local population!</Original>
 			</Key>
 			<Key ID="OurA_str_IDAPSupTitle">
 				<English>Transport aid consignment!</English>

@@ -126,10 +126,12 @@ GVAR(vehicleListAll) = [];
 		} else {objNull};
 		
 		if (_type in VEHICLE_IDAP) then {
-			if (isNil QGVAR(countIDAPVehicle)) then {
+			if (isNil QGVAR(countIDAPVehicle)) then {				
 				GVAR(countIDAPVehicle) = 1;
+				diag_log ("IDAP Vehicle: countIDAPVehicle - " + str(GVAR(countIDAPVehicle)));
 			} else {
 				GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) + 1;
+				diag_log ("IDAP Vehicle: countIDAPVehicle - " + str(GVAR(countIDAPVehicle)));
 			};
 			
 			if !(_type isEqualTo (VEHICLE_IDAP select 0)) then {
