@@ -44,7 +44,7 @@ _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 0;
 
 private _sideAttacker = [GVAR(defenderSide), false] call FUNC(getAttackerSide);
-diag_log ("createSupplyPoint: sideAttacker - " + _sideAttacker);
+diag_log ("createSupplyPoint: sideAttacker - " + str(_sideAttacker));
 
 private _trigger = createTrigger ["EmptyDetector", _position, false];
 _trigger setTriggerArea [_size select 0, _size select 1, _markerDir, true];
