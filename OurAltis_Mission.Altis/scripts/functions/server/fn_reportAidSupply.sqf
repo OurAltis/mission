@@ -28,7 +28,7 @@ CHECK_FALSE(_side isEqualTo sideUnknown No side defined!, {})
 
 private _sideDB = if (_side isEqualTo west) then {"west"} else {"ost"};
 
-_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _side + "','" + GVAR(targetAreaName) + "','sup','','" + _name + "','')"] call FUNC(transferSQLRequestToDataBase);
+_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _sideDB + "','" + GVAR(targetAreaName) + "','sup','','" + _name + "','')"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil
