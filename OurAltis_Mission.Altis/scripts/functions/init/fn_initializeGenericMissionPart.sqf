@@ -75,7 +75,13 @@ if (isServer) then {
 	
 	[] call compile preprocessFileLineNumbers "scripts\advancedSlingLoading\functions\fn_advancedSlingLoadingInit.sqf";
 	
-	[] call FUNC(createTasks);
+	[
+		{
+			[] call FUNC(createTasks);
+		},
+		[]
+	] call CBA_fnc_execNextFrame;
+	
 	["Initialize"] call BIS_fnc_dynamicGroups;
 	
 	// broadcast indicators to all clients

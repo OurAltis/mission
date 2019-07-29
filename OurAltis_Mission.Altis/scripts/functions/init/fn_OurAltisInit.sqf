@@ -67,9 +67,8 @@ if(isServer) then {
 		{
 			VEHICLE_ARRAY call FUNC(createVehicles);
 		},
-		[],
-		0.5
-	] call CBA_fnc_waitAndExecute;
+		[]		
+	] call CBA_fnc_execNextFrame;
 	
 	 GVAR(SpyInfo) call FUNC(createSpy);
 	 GVAR(Resist) call FUNC(createResistance);

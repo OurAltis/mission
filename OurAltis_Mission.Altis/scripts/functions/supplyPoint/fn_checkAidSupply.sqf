@@ -43,7 +43,7 @@ diag_log ("checkAidSupply: side - " + str(_side));
 			"IDAPSupplier",
 			[
 				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], _countIDAPArrived],
-				localize "OurA_str_IDAPSupTitle",
+				"OurA_str_IDAPSupTitle",
 				""
 			]
 		] call BIS_fnc_taskSetDescription;	

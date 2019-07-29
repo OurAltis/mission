@@ -258,4 +258,6 @@ GVAR(vehicleListAll) = [];
 	nil
 } count GVAR(vehicleListAll);
 
+GVAR(createVehicleReady) = "ready";
+
 nil
