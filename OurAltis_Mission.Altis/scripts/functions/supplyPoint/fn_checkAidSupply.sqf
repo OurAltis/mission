@@ -42,7 +42,7 @@ diag_log ("checkAidSupply: side - " + str(_side));
 		[
 			"IDAPSupplier",
 			[
-				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], _countIDAPArrived],
+				format ["OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], _countIDAPArrived],
 				"OurA_str_IDAPSupTitle",
 				""
 			]

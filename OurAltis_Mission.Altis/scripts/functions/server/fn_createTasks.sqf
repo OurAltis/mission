@@ -21,8 +21,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		GVAR(BaseList) select 0 select 1,
 		"base" + str(GVAR(BaseList) select 0 select 1),
 		[
-			localize "OurA_str_BaseBorderDescription",
-			localize "OurA_str_BaseBorderTitle",
+			"OurA_str_BaseBorderDescription",
+			"OurA_str_BaseBorderTitle",
 			""
 		],
 		GVAR(BaseList) select 1 select 2,
@@ -37,8 +37,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		GVAR(BaseList) select 1 select 1,
 		"base" + str(GVAR(BaseList) select 1 select 1),
 		[
-			localize "OurA_str_BaseBorderDescription",
-			localize "OurA_str_BaseBorderTitle",
+			"OurA_str_BaseBorderDescription",
+			"OurA_str_BaseBorderTitle",
 			""
 		],
 		GVAR(BaseList) select 0 select 2,
@@ -56,7 +56,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		"baseDefender",
 		[
 			format [localize "OurA_str_BaseDefDescription", GVAR(targetAreaName)],
-			localize "OurA_str_BaseDefTitle",
+			"OurA_str_BaseDefTitle",
 			""
 		],
 		GVAR(markerBase),
@@ -72,7 +72,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		"baseAttacker",
 		[
 			format [localize "OurA_str_BaseAttDescription",	GVAR(targetAreaName)],
-			localize "OurA_str_BaseAttTitle",
+			"OurA_str_BaseAttTitle",
 			""
 		],
 		GVAR(markerBase),
@@ -89,7 +89,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"spyDefender",
 			[
 				format [(localize "OurA_str_SpyDescription") + "<br/><br/><img image='image\spy.jpg' width='160' height='90'/>", GVAR(targetAreaName)],
-				localize "OurA_str_SpyTitle",
+				"OurA_str_SpyTitle",
 				""
 			],
 			GVAR(markerSpy),
@@ -105,7 +105,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			"spyAttacker",
 			[
 				format [(localize "OurA_str_SpyDescription") + "<br/><br/><img image='image\spy.jpg' width='160' height='90'/>", GVAR(targetAreaName)],
-				localize "OurA_str_SpyTitle",
+				"OurA_str_SpyTitle",
 				""
 			],
 			GVAR(markerSpy),
@@ -191,7 +191,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			GVAR(defenderSide),
 			"IDAPDisturber",
 			[
-				format [localize "OurA_str_IDAPDisDescription", GVAR(targetAreaName)],
+				format ["OurA_str_IDAPDisDescription", GVAR(targetAreaName)],
 				"OurA_str_IDAPDisTitle",
 				""
 			],
@@ -207,7 +207,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_attackerSide,
 			"IDAPSupplier",
 			[
-				format [localize "OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], missionNamespace getVariable [QGVAR(countIDAPArrived), 0]],
+				format ["OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], missionNamespace getVariable [QGVAR(countIDAPArrived), 0]],
 				"OurA_str_IDAPSupTitle",
 				""
 			],
@@ -229,8 +229,8 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_side,
 			"resistance",
 			[
-				localize "OurA_str_ResistanceDescription",
-				localize "OurA_str_ResistanceTitle",
+				"OurA_str_ResistanceDescription",
+				"OurA_str_ResistanceTitle",
 				""
 			],
 			objNull,
