@@ -142,7 +142,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			
 			if (_type isEqualTo "IDAPCamp") then {
 				GVAR(taskState) set [5, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-				_ecoPicture = "<br/><br/><img image='image\hangar.jpg' width='160' height='90'/>";
+				_ecoPicture = "<br/><br/><img image='image\idap.jpg' width='160' height='90'/>";
 			};
 			
 			_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
@@ -184,6 +184,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	};
 	
 	if !(GVAR(supplyPoint) isEqualTo []) then {
+		private _idapPicture = "<br/><br/><img image='image\idapSupply.jpg' width='160' height='90'/>";
 		diag_log ("IDAP Task: countIDAPVehicle - " + str(missionNamespace getVariable [QGVAR(countIDAPVehicle), 0]));
 		diag_log ("IDAP Task: countIDAPArrived - " + str(missionNamespace getVariable [QGVAR(countIDAPArrived), 0]));
 	
@@ -191,7 +192,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			GVAR(defenderSide),
 			"IDAPDisturber",
 			[
-				format ["OurA_str_IDAPDisDescription", GVAR(targetAreaName)],
+				format [localize "OurA_str_IDAPDisDescription" + _idapPicture, GVAR(targetAreaName)],
 				"OurA_str_IDAPDisTitle",
 				""
 			],
@@ -207,7 +208,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 			_attackerSide,
 			"IDAPSupplier",
 			[
-				format ["OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], missionNamespace getVariable [QGVAR(countIDAPArrived), 0]],
+				format [localize "OurA_str_IDAPSupDescription" + _idapPicture, GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], missionNamespace getVariable [QGVAR(countIDAPArrived), 0]],
 				"OurA_str_IDAPSupTitle",
 				""
 			],
