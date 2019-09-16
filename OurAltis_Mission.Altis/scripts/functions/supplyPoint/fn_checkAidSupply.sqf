@@ -39,10 +39,12 @@ diag_log ("checkAidSupply: side - " + str(_side));
 		diag_log ("checkAidSupply: countIDAPArrived - " + str(_countIDAPArrived));
 		missionNamespace setVariable [QGVAR(countIDAPArrived), _countIDAPArrived];
 		
+		private _idapSupplyPic = ["IDAPSupply"] call FUNC(getTaskPic);
+		
 		[
 			"IDAPSupplier",
 			[
-				format ["OurA_str_IDAPSupDescription", GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], _countIDAPArrived],
+				format [localize "OurA_str_IDAPSupDescription" + _idapSupplyPic, GVAR(targetAreaName), missionNamespace getVariable [QGVAR(countIDAPVehicle), 0], _countIDAPArrived],
 				"OurA_str_IDAPSupTitle",
 				""
 			]

@@ -172,6 +172,7 @@ class CfgFunctions
 			class checkFOBPosition {};
 			class createMarkerCamps {};
 			class getAttackerSide {};
+			class getTaskPic {};
 		};
 		
 		class events
