@@ -97,6 +97,8 @@ GVAR(vehicleListAll) = [];
 		_countIndex = _countIndex + 1;
 		
 		private _xDummy = _allSpawnPoints select ((count _allSpawnPoints) - 1);		
+		private _tempPos = [];
+		private _tempDir = 0;
 		
 		private _obj = if (_spawnType isEqualTo "carrier") then {
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
@@ -108,7 +110,8 @@ GVAR(vehicleListAll) = [];
 				_xDummy = createVehicle ["Land_HelipadCircle_F", _suitablePos, [], 0, "CAN_COLLIDE"];
 				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
 			} else {
-				private _tempPos = getPos _xDummy;
+				_tempPos = getPos _xDummy;
+				_tempDir = getDir _xDummy;
 				_xDummy setPos [0, -10, 0];
 				deleteVehicle _xDummy;
 				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
@@ -122,7 +125,8 @@ GVAR(vehicleListAll) = [];
 		};		
 				
 		private _objBoat = if (_type isKindOf "Ship") then {
-			private _objs = [_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
+			//private _objs = [_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
+			private _objs = [_obj, _type, _side, _tempPos] call FUNC(prepareVehicleBoat);
 			_obj = _objs select 0;
 			GVAR(vehicleListAll) pushBack _obj;
 			_objs select 1
@@ -146,7 +150,8 @@ GVAR(vehicleListAll) = [];
 		
 		GVAR(vehicleListAll) pushBack _objWebGUI;
 		_objWebGUI setFuel _fuel;		
-		_obj setDir (getDir _xDummy);		
+		//_obj setDir (getDir _xDummy);	
+		_obj setDir _tempDir;			
 		
 		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
 		
