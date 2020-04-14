@@ -114,7 +114,7 @@
  #define CLASS_NAME_VARIABLE "currentClassName"
  #define CLASS_CODE_VARIABLE "currentClassCode"
  #define SPAWN_BASE_VARIABLE "lastSpawnBase"
- #define VEHICLE_SPAWN_LAND ["Land_HelipadEmpty_F"]
+ #define VEHICLE_SPAWN_LAND ["Land_HelipadEmpty_F", "FlagSmall_F"]
  #define VEHICLE_SPAWN_AIR ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"]
  #define VEHICLE_ID QGVAR(VehicleID)
  #define VEHICLE_TYPE QGVAR(VehicleType)
@@ -136,6 +136,7 @@
  #define VEHICLE_BOAT_TRANSPORT ["B_Truck_01_transport_F", "O_Truck_03_transport_F"]
  #define VALUE_CIV 50
  #define VALUE_RESIST 20
+ #define RESPAWN_BUILDING ["Land_Cargo_HQ_V3_F", "Land_Cargo_HQ_V1_F", "Land_Cargo_House_V3_F", "Land_Cargo_House_V1_F", "Land_Medevac_house_V1_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V1_F"]
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"
  #define SPAWN_BUILDING_POSITIONS "OurA.RespawnBuilding.Positions"
  #define SPAWN_BUILDING_TYPES [["Land_Cargo_House_V1_F","Land_Cargo_HQ_V3_F","Land_Medevac_house_V1_F","Land_Cargo_Tower_V3_F", "Land_Cargo_House_V4_F", "Land_Cargo_HQ_V4_F", "Land_Cargo_Tower_V4_F"], [[], [], [], [9, 18], [], [], [9, 18]]]

@@ -29,7 +29,8 @@ PGVAR(markerCamps) = [_attackerSide];
 		["_id", nil, [""]],
 		["_spawn", nil, [""]],
 		["_baseType", 0, [0]],
-		["_baseDir", 0, [0]]		
+		["_baseDir", 0, [0]],
+		["_baseNumber", 1, [0]]
 	];
 	
 	CHECK_TRUE(_success, Invalid baseFormat!, {});	
@@ -42,7 +43,7 @@ PGVAR(markerCamps) = [_attackerSide];
 
 		case "base": {
 			// create a base
-			[_position, _side, _id, _baseType, _baseDir] call FUNC(createBase);
+			[_position, _side, _id, _baseType, _baseDir, _baseNumber] call FUNC(createBase);
 		};
 		
 		case "carrier": {

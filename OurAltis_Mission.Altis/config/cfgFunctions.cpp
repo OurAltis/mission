@@ -173,6 +173,7 @@ class CfgFunctions
 			class createMarkerCamps {};
 			class getAttackerSide {};
 			class getTaskPic {};
+			class spawnComposition {};
 		};
 		
 		class events
