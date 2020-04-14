@@ -108,7 +108,10 @@ GVAR(vehicleListAll) = [];
 				_xDummy = createVehicle ["Land_HelipadCircle_F", _suitablePos, [], 0, "CAN_COLLIDE"];
 				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
 			} else {
-				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
+				private _tempPos = getPos _xDummy;
+				_xDummy setPos [0, -10, 0];
+				deleteVehicle _xDummy;
+				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
 			};
 		};
 		
