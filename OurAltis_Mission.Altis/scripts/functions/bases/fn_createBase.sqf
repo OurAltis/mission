@@ -51,6 +51,42 @@ if (worldName isEqualTo "Altis") then {
 	GVAR(markerBase) setMarkerDir 0;
 	GVAR(markerBase) setMarkerColor "ColorRed";
 	//GVAR(markerBase) setMarkerAlpha 0;
+	
+	private _allObjs = nearestObjects [_position, ["Land_Mil_WallBig_4m_F"], 500];
+	private _connected = [];
+
+	{
+		if (_x getVariable ["ignor", false]) then {
+			_allObjs set [_forEachIndex, objNull];
+		};
+		
+		if (_x getVariable ["connect", 0] > 0) then {
+			_connected pushBack _x;
+		};
+	} forEach _allObjs;
+
+	_allObjs = _allObjs - [objNull];
+
+	{	
+		deleteVehicle (_x getVariable ["helperObj_backward", objNull]);
+		deleteVehicle (_x getVariable ["helperObj_forward", objNull]);
+		_x setVariable ["helperObj_backward", nil];
+		_x setVariable ["helperObj_forward", nil];
+		_x setVariable ["nextFence_forward", nil];	
+		_x setVariable ["nextFence_backward", nil];
+		_x setVariable ["moreThanOne", nil];
+	} forEach _allObjs;
+
+	private _count = count _allObjs;
+	systemchat ("WALL COUNT: " + str(_count));
+	diag_log ("WALL COUNT: " + str(_count));
+
+	{
+		[_x, true] call FUNC(setNextWall);
+		[_x, false] call FUNC(setNextWall);
+	} forEach _allObjs;
+	
+	[[_position]] call FUNC(getPolygonArray);
 } else {
 	private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", "base" + str(_baseType)]);
 

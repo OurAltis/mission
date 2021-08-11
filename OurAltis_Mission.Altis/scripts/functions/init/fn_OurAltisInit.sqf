@@ -36,6 +36,7 @@ if(isServer) then {
 	GVAR(targetAreaName) = "Aeroport";
 	GVAR(dataBase) = "a";
 	GVAR(defenderSide) = east;
+	GVAR(polygon) = [];
 	
 	[
 		[[13462.875,15969.920], east, "Aeroport", "base", 1, -17.492],

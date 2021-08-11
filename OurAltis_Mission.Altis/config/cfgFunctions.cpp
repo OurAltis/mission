@@ -174,6 +174,8 @@ class CfgFunctions
 			class getAttackerSide {};
 			class getTaskPic {};
 			class spawnComposition {};
+			class setNextWall {};
+			class getPolygonArray {};
 		};
 		
 		class events

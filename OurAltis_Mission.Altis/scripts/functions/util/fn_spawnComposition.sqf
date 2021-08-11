@@ -52,14 +52,25 @@ private _return = objNull;
 		};
 		
 		if (GVAR(baseTier) in (_obj getVariable ["baseTier", []]) || count (_obj getVariable ["baseTier", []]) isEqualTo 0) then {
-			if((_dat select 3) == -100) then {
+			if ((_dat select 3) == -100) then {
 				_obj setposATL (call compile (_dat select 1));
 				if ((_dat select 5) == 0) then {_obj setVectorUp [0,0,1]} else {_obj setVectorUp (surfacenormal (getPosATL _obj))};
 			}
 			else {
 				_obj setposworld [((call compile (_dat select 1)) select 0), ((call compile (_dat select 1)) select 1), (_dat select 3)];
 				[_obj, ((_dat select 7) select 0), ((_dat select 7) select 1)] call BIS_fnc_setPitchBank;
-			};		
+			};
+				
+			if (typeOf _obj != "FlagSmall_F") then {
+				private _markerObj = createmarkerlocal [format["iom_m_%1",_obj], (getPosATL _obj)];
+				_markerObj setMarkerShapelocal "RECTANGLE";
+				_markerObj setMarkerColorlocal "ColorBlack";
+				_markerObj setMarkerAlphaLocal 1;				
+				_markerObj setMarkerBrush "SOLID";
+				_markerObj setMarkerSizelocal [((0 boundingBox _obj select 1) select 0),((0 boundingBox _obj select 1) select 1)];
+				_markerObj setMarkerDirlocal (direction _obj);
+				_obj setVariable ["marker",format["iom_m_%1",_obj],false];
+			};
 		} else {
 			deleteVehicle _obj;
 		};	
