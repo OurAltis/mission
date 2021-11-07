@@ -37,7 +37,7 @@ if(isServer) then {
 	GVAR(dataBase) = "a";
 	GVAR(defenderSide) = east;
 	GVAR(polygon) = [];
-	
+		
 	[
 		[[13462.875,15969.920], east, "Aeroport", "base", 1, -17.492],
 		[[16372.000,19664.000], blufor, "AgiaTriada", "camp", 4, 241.375]

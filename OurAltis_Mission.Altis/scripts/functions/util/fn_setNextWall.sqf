@@ -90,12 +90,12 @@ if (_error > 0) then {
 	diag_log ("Error: " + str(_error) + ", " + str(_obj));
 };
 
-private _helperObj = if (_error > 0) then {
+/*private _helperObj = if (_error > 0) then {
 	createVehicle ["Sign_Arrow_Large_F", _posHelper, [], 0, "CAN_COLLIDE"];
 } else {
 	createVehicle ["Sign_Arrow_Large_Green_F", _posHelper, [], 0, "CAN_COLLIDE"];
 };
 
-_obj setVariable ["helperObj_" + (["backward", "forward"] select _forward), _helperObj];
+_obj setVariable ["helperObj_" + (["backward", "forward"] select _forward), _helperObj];*/
 
 diag_log ("End fn_setNextWall");

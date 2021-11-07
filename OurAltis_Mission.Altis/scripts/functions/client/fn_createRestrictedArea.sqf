@@ -30,7 +30,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 					["_handle", -1, [0]]
 				];		
 				
-				if !((position player) inPolygon (GVAR(polygon) # 0)) then {
+				if !((position player) inPolygon (PGVAR(restrictedArea) # 1)) then {
 					if ((_args select 0) >= CBA_missionTime) then{
 						_text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
 						(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText _text;
