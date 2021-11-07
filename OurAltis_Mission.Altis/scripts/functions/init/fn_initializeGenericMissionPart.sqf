@@ -60,7 +60,7 @@ if (isServer) then {
 	PGVAR(retreat) = false;
 	PGVAR(countFOB) = [0, 0];
 	PGVAR(PREPARATION_FINISHED) = [false, 0];
-	PGVAR(restrictedArea) = [GVAR(defenderSide), if (worldName isEqualTo "Altis") then {GVAR(polygon) # 0} else {getMarkerPos GVAR(markerBase)}, if (worldName isEqualTo "Altis") then {0} else {markerDir GVAR(markerBase)}];
+	PGVAR(restrictedArea) = [GVAR(defenderSide), if (worldName isEqualTo "Altis") then {GVAR(polygon)} else {getMarkerPos GVAR(markerBase)}, if (worldName isEqualTo "Altis") then {0} else {markerDir GVAR(markerBase)}];
 	
 	[] call FUNC(configureServerEventHandler);
 	
