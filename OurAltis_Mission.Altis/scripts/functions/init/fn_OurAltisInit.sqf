@@ -25,7 +25,9 @@ GVAR(resistanceUnits) = [];
 GVAR(canRetreat) = [west, east];
 
 if(isServer) then {	
+	diag_log ("fn_ourAltisInit: Start");
 	GVAR(timeLimit) = 5;
+	diag_log ("fn_ourAltisInit: GVAR(timelimit): " + str(GVAR(timeLimit)));
 	GVAR(round) = 1;
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
