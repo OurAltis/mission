@@ -21,6 +21,9 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+diag_log ("fn_getPolygonArray: start");
+diag_log ("fn_getPolygonArray: _pos - " + str(_pos));
+
 {
 	private _allObjs = nearestObjects [_x, ["Land_Mil_WallBig_4m_F"], 500];
 	
@@ -49,9 +52,13 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 		//_dummyArray pushBack (getpos _x);		
 	} forEach _sortedObjs;	
 	
+	diag_log ("GETPOLYGONARRAY: _dumyArray - " + str(_dummyArray));
+	
 	GVAR(polygon) pushBack _dummyArray;
-	diag_log ("GETPOLYGONARRAY: " + str(GVAR(polygon)));
+	diag_log ("GETPOLYGONARRAY: GVAR(polygon) - " + str(GVAR(polygon)));
 } forEach (_pos);
+
+diag_log ("fn_getPolygonArray: end");
 
 /*
 findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", 

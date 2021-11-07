@@ -86,7 +86,9 @@ if (worldName isEqualTo "Altis") then {
 		[_x, false] call FUNC(setNextWall);
 	} forEach _allObjs;
 	
+	diag_log ("fn_createBase: entry fn_getPolygonArray");
 	[[_position]] call FUNC(getPolygonArray);
+	diag_log ("fn_createBase: exit fn_getPolygonArray");
 } else {
 	private _objsArray = call compile preprocessfilelinenumbers (format["scripts\compositions\%1.sqf", "base" + str(_baseType)]);
 
