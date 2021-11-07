@@ -55,7 +55,7 @@ diag_log ("fn_getPolygonArray: _pos - " + str(_pos));
 	diag_log ("GETPOLYGONARRAY: _dumyArray - " + str(_dummyArray));
 	
 	GVAR(polygon) pushBack _dummyArray;
-	diag_log ("GETPOLYGONARRAY: " + QGVAR(polygon) + " - "  + str(GVAR(polygon)));
+	//diag_log ("GETPOLYGONARRAY: " + QGVAR(polygon) + " - " + str(GVAR(polygon)));
 } forEach (_pos);
 
 diag_log ("fn_getPolygonArray: end");
