@@ -31,13 +31,17 @@ if (_obj isEqualTo objNull) exitWith {
 	diag_log ("ERROR! NO OBJECT GIVIN: " + str(_obj) + " : " + str(_pos));
 };
 
-private _pos = if (count _pos isEqualTo 0) then {
+private _pos = [];
+
+_pos = if (count _pos isEqualTo 0) then {
 	if (_forward) then {			
 		_obj modelToWorld [((0 boundingBox _obj) # 0) # 0, 0, 1];			
 	} else {
 		_obj modelToWorld [((0 boundingBox _obj) # 1) # 0, 0, 1];
 	};
 } else {_pos}; 
+
+diag_log ("_pos: " + str(_pos));
 
 private _posHelper = if (_forward) then {
 	_obj modelToWorld [(((0 boundingBox _obj) # 0) # 0) / 2, 0, ((0 boundingBox _obj) # 1) # 2];
