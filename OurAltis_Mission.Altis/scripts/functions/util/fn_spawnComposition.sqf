@@ -13,7 +13,7 @@
  * Return Value:
  * None <Any>
  * 
- */
+ */ 
 diag_log ("fn_spawnCompositon (all): " + str(_this));
 private _adString = "CAN_COLLIDE";
 private _return = objNull;
@@ -34,7 +34,7 @@ private _return = objNull;
 			6
 		];
 	} else {	
-		private _obj = createVehicle [(_dat select 0), [0, 0, 0], [], 0, _adString];
+		_obj = createVehicle [(_dat select 0), [0, 0, 0], [], 0, _adString];
 		if ((_dat select 0) in RESPAWN_BUILDING) then {_obj setVariable [QGVAR(isRespawnBuilding), true, true]};
 		if ((_dat select 0) in [FLAGPOLE]) then {_return =_obj};
 		if ((_dat select 4) == 0) then {_obj enableSimulation false};
