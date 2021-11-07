@@ -62,13 +62,13 @@ private _return = objNull;
 			};
 				
 			if (typeOf _obj != "FlagSmall_F") then {
-				private _markerObj = createmarkerlocal [format["iom_m_%1",_obj], (getPosATL _obj)];
-				_markerObj setMarkerShapelocal "RECTANGLE";
-				_markerObj setMarkerColorlocal "ColorBlack";
-				_markerObj setMarkerAlphaLocal 1;				
+				private _markerObj = createmarker [format["iom_m_%1",_obj], (getPosATL _obj)];
+				_markerObj setMarkerShape "RECTANGLE";
+				_markerObj setMarkerColor "ColorBlack";
+				_markerObj setMarkerAlpha 1;				
 				_markerObj setMarkerBrush "SOLID";
-				_markerObj setMarkerSizelocal [((0 boundingBox _obj select 1) select 0),((0 boundingBox _obj select 1) select 1)];
-				_markerObj setMarkerDirlocal (direction _obj);
+				_markerObj setMarkerSize [((0 boundingBox _obj select 1) select 0),((0 boundingBox _obj select 1) select 1)];
+				_markerObj setMarkerDir (direction _obj);
 				_obj setVariable ["marker",format["iom_m_%1",_obj],false];
 			};
 		} else {
