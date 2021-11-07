@@ -45,7 +45,7 @@ if (side (group player) isEqualTo (PGVAR(markerCamps) select 0)) then {
 	[] call FUNC(createMarkerCamps);
 };
 
-diag_log ("INITCLIENT PGVAR(restrictedArea): " + QPGVAR(restrictedArea));
+diag_log ("INITCLIENT PGVAR(restrictedArea): " + str(PGVAR(restrictedArea)));
 
 GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 [] call FUNC(compileLoadouts);
