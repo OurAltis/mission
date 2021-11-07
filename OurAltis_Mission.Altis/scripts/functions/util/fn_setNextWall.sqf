@@ -32,6 +32,7 @@ if (_obj isEqualTo objNull) exitWith {
 };
 
 private _pos = [];
+private _class = "Land_Mil_WallBig_4m_F";
 
 _pos = if (count _pos isEqualTo 0) then {
 	if (_forward) then {			
