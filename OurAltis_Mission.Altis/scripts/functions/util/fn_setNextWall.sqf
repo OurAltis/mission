@@ -15,11 +15,16 @@
  * None <Any>
  * 
  */
- 
+
+diag_log ("Start fn_setNextWall");
+
 params [
 	["_obj", objNull, [objNull]],
 	["_forward", true, [true]]
 ];	
+
+diag_log ("Objects: " + str(_obj));
+diag_log ("Forward: " + str(_forward));
 
 if (_obj isEqualTo objNull) exitWith {
 	systemChat ("ERROR! NO OBJECT GIVIN: " + str(_obj) + " : " + str(_pos));
@@ -87,3 +92,5 @@ private _helperObj = if (_error > 0) then {
 };
 
 _obj setVariable ["helperObj_" + (["backward", "forward"] select _forward), _helperObj];
+
+diag_log ("End fn_setNextWall");
