@@ -50,6 +50,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 	} forEach _sortedObjs;	
 	
 	GVAR(polygon) pushBack _dummyArray;
+	diag_log ("GETPOLYGONARRAY: " + str(GVAR(polygon)));
 } forEach (_pos);
 
 /*
