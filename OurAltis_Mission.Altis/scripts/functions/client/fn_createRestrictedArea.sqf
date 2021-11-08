@@ -28,6 +28,53 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 				params[
 					["_args", [], [[]]],
 					["_handle", -1, [0]]
+				];
+				
+				if (!((vehicle player) inPolygon (PGVAR(restrictedArea) # 1)) && alive (vehicle player)) then {
+					if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
+						[_handle] call CBA_fnc_removePerFrameHandler;
+						GVAR(roundStart) = true;
+					};
+					
+					if !(missionNamespace getVariable [QGVAR(outOfZone), false]) then {
+						GVAR(outOfZone) = true;
+						
+						[
+							{
+								params[
+									["_args", [], [[]]],
+									["_handle", -1, [0]]
+								];
+								
+								if (GVAR(outOfZone)) then {
+									if ((_args select 0) >= CBA_missionTime) then{
+										_text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
+										(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText _text;
+									} else {
+										(vehicle player) setDamage 1;
+										[_handle] call CBA_fnc_removePerFrameHandler;
+									};
+								} else {
+									[_handle] call CBA_fnc_removePerFrameHandler;
+								};
+							},
+							1,
+							[CBA_missionTime + 10]
+						] call CBA_fnc_addPerFrameHandler;
+					};				
+				} else {
+					GVAR(outOfZone) = false;
+				};			
+			},
+			1,
+			[]
+		] call CBA_fnc_addPerFrameHandler;
+		
+		/*[
+			{
+				params[
+					["_args", [], [[]]],
+					["_handle", -1, [0]]
 				];		
 				
 				if !((position player) inPolygon (PGVAR(restrictedArea) # 1)) then {
@@ -44,7 +91,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 			},
 			1,
 			[CBA_missionTime + 10]
-		] call CBA_fnc_addPerFrameHandler;
+		] call CBA_fnc_addPerFrameHandler;*/
 	} else {
 		_positionTrigger pushBack (PGVAR(restrictedArea) select 1);	
 		_dirTrigger pushBack (PGVAR(restrictedArea) select 2);
