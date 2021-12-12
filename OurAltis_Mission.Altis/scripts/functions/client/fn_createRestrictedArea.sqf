@@ -23,6 +23,8 @@ private _triggerAll = [];
 
 if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 	if (worldName isEqualTo "Altis") then {
+		GVAR(testKillzone1) = GVAR(testKillzone1) + 1;
+		
 		[
 			{
 				params[
@@ -34,10 +36,13 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 					if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
 						[_handle] call CBA_fnc_removePerFrameHandler;
 						GVAR(roundStart) = true;
+						GVAR(testKillzone1) = GVAR(testKillzone1) - 1;
 					};
 					
 					if !(missionNamespace getVariable [QGVAR(outOfZone), false]) then {
 						GVAR(outOfZone) = true;
+						
+						GVAR(testKillzone2) = GVAR(testKillzone2) + 1;
 						
 						[
 							{
@@ -53,9 +58,11 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 									} else {
 										(vehicle player) setDamage 1;
 										[_handle] call CBA_fnc_removePerFrameHandler;
+										GVAR(testKillzone2) = GVAR(testKillzone2) - 1;
 									};
 								} else {
 									[_handle] call CBA_fnc_removePerFrameHandler;
+									GVAR(testKillzone2) = GVAR(testKillzone2) - 1;
 								};
 							},
 							1,

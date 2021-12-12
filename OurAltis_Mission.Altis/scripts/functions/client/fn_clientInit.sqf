@@ -23,6 +23,8 @@ GVAR(rocketCount) = 0;
 GVAR(markerCamps) = [];
 GVAR(playerReady) = false;
 GVAR(triggerRA) = [];
+GVAR(testKillzone1) = 0;
+GVAR(testKillzone2) = 0;
 
 if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side group player in GVAR(canRetreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
