@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=1;
@@ -8,30 +8,43 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=82;
+		nextID=83;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
 	};
 	class Camera
 	{
-		pos[]={8517.749,140.0504,25027.205};
+		pos[]={8555.3789,313.5658,24828.887};
 		dir[]={-0.010847548,-0.68867105,0.72503507};
 		up[]={-0.010301947,0.72507632,0.68859571};
 		aside[]={0.9999187,3.9446968e-007,0.01495951};
 	};
 };
 binarizationWanted=0;
+sourceName="isleOfMine";
 addons[]=
 {
-	"A3_Characters_F"
+	"A3_Characters_F",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -64,7 +77,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=32;
+		items=33;
 		class Item0
 		{
 			dataType="Group";
@@ -492,7 +505,7 @@ class Mission
 					};
 					id=35;
 					type="O_Soldier_F";
-					atlOffset=-0.020294189;
+					atlOffset=-0.020301819;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -522,7 +535,7 @@ class Mission
 			{
 			};
 			id=34;
-			atlOffset=-0.020294189;
+			atlOffset=-0.020301819;
 		};
 		class Item9
 		{
@@ -546,7 +559,7 @@ class Mission
 					};
 					id=37;
 					type="O_Soldier_F";
-					atlOffset=-0.02028656;
+					atlOffset=-0.020294189;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -576,7 +589,7 @@ class Mission
 			{
 			};
 			id=36;
-			atlOffset=-0.02028656;
+			atlOffset=-0.020294189;
 		};
 		class Item10
 		{
@@ -868,7 +881,7 @@ class Mission
 					};
 					id=49;
 					type="O_Soldier_F";
-					atlOffset=-7.6293945e-006;
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -898,7 +911,7 @@ class Mission
 			{
 			};
 			id=48;
-			atlOffset=-7.6293945e-006;
+			atlOffset=-1.5258789e-005;
 		};
 		class Item16
 		{
@@ -974,7 +987,7 @@ class Mission
 					};
 					id=53;
 					type="O_Soldier_F";
-					atlOffset=-7.6293945e-006;
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1004,7 +1017,7 @@ class Mission
 			{
 			};
 			id=52;
-			atlOffset=-7.6293945e-006;
+			atlOffset=-1.5258789e-005;
 		};
 		class Item18
 		{
@@ -1444,7 +1457,7 @@ class Mission
 					};
 					id=69;
 					type="B_Soldier_F";
-					atlOffset=0.022850037;
+					atlOffset=0.022842407;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1474,7 +1487,7 @@ class Mission
 			{
 			};
 			id=68;
-			atlOffset=0.022850037;
+			atlOffset=0.022842407;
 		};
 		class Item26
 		{
@@ -1679,7 +1692,7 @@ class Mission
 					};
 					id=77;
 					type="B_Soldier_F";
-					atlOffset=0.059371948;
+					atlOffset=0.059364319;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1709,7 +1722,7 @@ class Mission
 			{
 			};
 			id=76;
-			atlOffset=0.059371948;
+			atlOffset=0.059364319;
 		};
 		class Item30
 		{
@@ -1818,6 +1831,19 @@ class Mission
 			};
 			id=80;
 			atlOffset=-0.019691467;
+		};
+		class Item32
+		{
+			dataType="Marker";
+			position[]={8519.0635,112.682,25050.156};
+			name="marker_respawn_start";
+			markerType="RECTANGLE";
+			type="";
+			alpha=0;
+			a=18.694;
+			b=13.669;
+			id=82;
+			atlOffset=0.00015258789;
 		};
 	};
 };
