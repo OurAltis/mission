@@ -32,7 +32,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 					["_handle", -1, [0]]
 				];
 				
-				if (!(position (vehicle player) inPolygon (PGVAR(restrictedArea) # 1)) && alive (vehicle player) && !(position (vehicle player) inArea "marker_respawn_first")) then {
+				if (!(position (vehicle player) inPolygon (PGVAR(restrictedArea) # 1)) && alive (vehicle player) && !(position (vehicle player) inArea "marker_respawn_start")) then {
 					if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
 						[_handle] call CBA_fnc_removePerFrameHandler;
 						GVAR(roundStart) = true;
