@@ -187,6 +187,9 @@ with uiNamespace do {
 			nil
 		} count GVAR(triggerRA);
 		
+		deleteVehicle GVAR(triggerRA);
+		GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+		
 		[
 			{
 				// restore the sound + fade in

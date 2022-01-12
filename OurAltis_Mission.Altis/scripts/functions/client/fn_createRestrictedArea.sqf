@@ -32,46 +32,54 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 					["_handle", -1, [0]]
 				];
 				
-				if (!(position (vehicle player) inPolygon (PGVAR(restrictedArea) # 1)) && alive (vehicle player) && !(position (vehicle player) inArea "marker_respawn_start") && !(position (vehicle player) inArea "marker_respawn_null")) then {
-					if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
-						[_handle] call CBA_fnc_removePerFrameHandler;
-						GVAR(roundStart) = true;
-						GVAR(testKillzone1) = GVAR(testKillzone1) - 1;
-					};
-					
-					if !(missionNamespace getVariable [QGVAR(outOfZone), false]) then {
-						GVAR(outOfZone) = true;
+				if (alive (vehicle player)) then {
+					if (!(position (vehicle player) inPolygon (PGVAR(restrictedArea) # 1))) then {
+						if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
+							[_handle] call CBA_fnc_removePerFrameHandler;
+							GVAR(roundStart) = true;
+							GVAR(testKillzone1) = GVAR(testKillzone1) - 1;
+						};
 						
-						GVAR(testKillzone2) = GVAR(testKillzone2) + 1;
-						
-						[
-							{
-								params[
-									["_args", [], [[]]],
-									["_handle", -1, [0]]
-								];
-								
-								if (GVAR(outOfZone)) then {
-									if ((_args select 0) >= CBA_missionTime) then{
-										_text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
-										(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText _text;
+						if !(missionNamespace getVariable [QGVAR(outOfZone), false]) then {
+							GVAR(outOfZone) = true;
+							
+							GVAR(testKillzone2) = GVAR(testKillzone2) + 1;
+							
+							[
+								{
+									params[
+										["_args", [], [[]]],
+										["_handle", -1, [0]]
+									];
+									
+									if (GVAR(outOfZone) && !(GVAR(roundStart))) then {
+										if ((_args select 0) >= CBA_missionTime) then{
+											_text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
+											(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText _text;
+										} else {
+											(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText "";
+											(vehicle player) setDamage 1;
+											[_handle] call CBA_fnc_removePerFrameHandler;
+											GVAR(testKillzone2) = GVAR(testKillzone2) - 1;
+										};
 									} else {
-										(vehicle player) setDamage 1;
+										(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText "";
 										[_handle] call CBA_fnc_removePerFrameHandler;
 										GVAR(testKillzone2) = GVAR(testKillzone2) - 1;
 									};
-								} else {
-									[_handle] call CBA_fnc_removePerFrameHandler;
-									GVAR(testKillzone2) = GVAR(testKillzone2) - 1;
-								};
-							},
-							1,
-							[CBA_missionTime + 10]
-						] call CBA_fnc_addPerFrameHandler;
-					};				
+								},
+								1,
+								[CBA_missionTime + 10]
+							] call CBA_fnc_addPerFrameHandler;
+						};				
+					} else {
+						GVAR(outOfZone) = false;
+					};
 				} else {
 					GVAR(outOfZone) = false;
-				};			
+					[_handle] call CBA_fnc_removePerFrameHandler;
+					GVAR(testKillzone1) = GVAR(testKillzone1) - 1;
+				};
 			},
 			1,
 			[]

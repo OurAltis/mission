@@ -49,7 +49,7 @@ if (side (group player) isEqualTo (PGVAR(markerCamps) select 0)) then {
 
 diag_log ("INITCLIENT PGVAR(restrictedArea): " + str(PGVAR(restrictedArea)));
 
-GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+//GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 [] call FUNC(compileLoadouts);
 
 // set up client EHs
