@@ -186,8 +186,7 @@ with uiNamespace do {
 			_x enableSimulation true;
 			nil
 		} count GVAR(triggerRA);
-		
-		deleteVehicle GVAR(triggerRA);
+				
 		GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 		
 		[
