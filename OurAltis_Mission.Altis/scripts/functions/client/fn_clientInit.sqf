@@ -25,6 +25,7 @@ GVAR(playerReady) = false;
 GVAR(triggerRA) = [];
 GVAR(testKillzone1) = 0;
 GVAR(testKillzone2) = 0;
+GVAR(roundStart) = false;
 
 if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side group player in GVAR(canRetreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];

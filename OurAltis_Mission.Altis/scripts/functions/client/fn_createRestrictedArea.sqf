@@ -31,7 +31,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 					["_args", [], [[]]],
 					["_handle", -1, [0]]
 				];
-				
+								
 				if (alive (vehicle player)) then {
 					if (!(position (vehicle player) inPolygon (PGVAR(restrictedArea) # 1))) then {
 						if ((PGVAR(PREPARATION_FINISHED) # 1 <= CBA_missionTime) && (PGVAR(PREPARATION_FINISHED) # 1) != 0) then {						
@@ -51,6 +51,8 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 										["_args", [], [[]]],
 										["_handle", -1, [0]]
 									];
+									
+									diag_log ("Player: " + str(player));
 									
 									if (GVAR(outOfZone) && !(GVAR(roundStart))) then {
 										if ((_args select 0) >= CBA_missionTime) then{
