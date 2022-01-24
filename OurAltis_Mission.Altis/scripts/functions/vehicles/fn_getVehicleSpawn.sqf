@@ -28,7 +28,7 @@ CHECK_TRUE(_success, Invalid parameter!)
 private _spawnPoints = nearestObjects [
 	_position,
 	[VEHICLE_SPAWN_AIR, VEHICLE_SPAWN_LAND] select _isLand,
-	[80, 200] select (_spawnType isEqualTo "carrier")
+	[80, 2000] select (_spawnType isEqualTo "carrier")
 ];
 
 _spawnPoints
