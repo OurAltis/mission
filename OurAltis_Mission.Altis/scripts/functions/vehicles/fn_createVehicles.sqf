@@ -35,6 +35,9 @@ GVAR(vehicleListAll) = [];
 	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);	
 	private _vehicleClass = [];
 	
+	diag_log ("Landspanpoints: " + str(_landSpawnPoints));
+	diag_log ("Airspanpoints: " + str(_airSpawnPoints));
+	
 	{	
 		{
 			_vehicleClass pushBack (_x select 0);
