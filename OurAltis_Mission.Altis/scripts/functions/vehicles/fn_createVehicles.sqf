@@ -72,6 +72,8 @@ GVAR(vehicleListAll) = [];
 	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
 	
+	diag_log ("matchedLandVehicles: " + str(_matchedLandVehicles));
+	
 	if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
 		_airSpawnpoints = [_matchedAirVehicles, _airSpawnpoints] call FUNC(prepareAirVehicleSpawn);
 	};
@@ -103,6 +105,8 @@ GVAR(vehicleListAll) = [];
 		private _tempPos = [];
 		private _tempDir = 0;
 		
+		diag_log ("xDummy: " + str(_xDummy));
+		
 		private _obj = if (_spawnType isEqualTo "carrier") then {
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
 			_obj setPosASL (_xDummy getVariable [QGVAR(vehiclePos), []]);
@@ -120,6 +124,8 @@ GVAR(vehicleListAll) = [];
 				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
 			};
 		};
+		
+		diag_log ("Object: " + str(_obj));
 		
 		_obj setDamage 0;
 		
