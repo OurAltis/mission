@@ -121,6 +121,9 @@ GVAR(vehicleListAll) = [];
 				_tempDir = getDir _xDummy;
 				_xDummy setPos [0, -10, 0];
 				deleteVehicle _xDummy;
+				
+				diag_log ("tempPos: " + str(_tempPos));
+				
 				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
 			};
 		};
