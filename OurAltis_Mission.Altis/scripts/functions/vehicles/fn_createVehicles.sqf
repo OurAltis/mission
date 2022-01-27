@@ -129,6 +129,7 @@ GVAR(vehicleListAll) = [];
 		};
 		
 		diag_log ("Object: " + str(_obj));
+		diag_log ("Object Pos: " + str(getPos _obj));
 		
 		_obj setDamage 0;
 		
