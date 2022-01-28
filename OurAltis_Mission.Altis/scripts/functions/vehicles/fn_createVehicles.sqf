@@ -124,9 +124,13 @@ GVAR(vehicleListAll) = [];
 				
 				diag_log ("tempPos: " + str(_tempPos));
 				
-				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
+				createVehicle [_type, [0,0,1000], [], 0, "CAN_COLLIDE"];
 			};
 		};
+		
+		_obj setDir _tempDir;
+		_obj setPos _tempPos;
+		_obj setVectorUp (surfacenormal (getPosATL _obj));	
 		
 		diag_log ("Object: " + str(_obj));
 		diag_log ("Object Pos: " + str(getPos _obj));
