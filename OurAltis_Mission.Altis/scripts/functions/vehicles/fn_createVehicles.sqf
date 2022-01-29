@@ -108,10 +108,10 @@ GVAR(vehicleListAll) = [];
 		diag_log ("xDummy: " + str(_xDummy));
 		
 		private _obj = if (_spawnType isEqualTo "carrier") then {
+			diag_log "wrong loop carrier";
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
 			_obj setPosASL (_xDummy getVariable [QGVAR(vehiclePos), []]);
-			_obj
-			diag_log "wrong loop carrier";
+			_obj			
 		} else {
 			if (_xDummy isEqualType "") then {
 				diag_log "wrong loop empty spawnpoint";
@@ -180,8 +180,8 @@ GVAR(vehicleListAll) = [];
 		diag_log ("Object Webgui Pos 6: " + str(getPos _objWebGUI));
 		diag_log ("Object Pos 7: " + str(getPos _obj));
 		
-		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
-		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_objWebGUI setVectorUp (surfacenormal (getPosATL _objWebGUI))};
+		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
+		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_objWebGUI setVectorUp (surfacenormal (getPosATL _objWebGUI))};
 		
 		[
 			{
