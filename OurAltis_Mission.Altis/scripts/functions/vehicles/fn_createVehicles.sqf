@@ -111,8 +111,10 @@ GVAR(vehicleListAll) = [];
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
 			_obj setPosASL (_xDummy getVariable [QGVAR(vehiclePos), []]);
 			_obj
+			diag_log "wrong loop carrier";
 		} else {
 			if (_xDummy isEqualType "") then {
+				diag_log "wrong loop empty spawnpoint";
 				private _suitablePos = _position findEmptyPosition [150, 500, _type];
 				_xDummy = createVehicle ["Land_HelipadCircle_F", _suitablePos, [], 0, "CAN_COLLIDE"];
 				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
@@ -124,30 +126,31 @@ GVAR(vehicleListAll) = [];
 				
 				diag_log ("tempPos: " + str(_tempPos));
 				
-				createVehicle [_type, [0,0,1000], [], 0, "CAN_COLLIDE"];
+				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
 			};
 		};
-		
-		_obj setDir _tempDir;
-		_obj setPos _tempPos;
-		_obj setVectorUp (surfacenormal (getPosATL _obj));	
-		
+				
 		diag_log ("Object: " + str(_obj));
-		diag_log ("Object Pos: " + str(getPos _obj));
+		diag_log ("Object Pos 0: " + str(getPos _obj));
 		
 		_obj setDamage 0;
 		
 		if (_type in VEHICLE_MOBILE_CAMP) then {
 			[_obj, _type] call FUNC(prepareVehicleMobileCamp);
-		};		
-				
+		};
+		
+		diag_log ("Object Pos 1: " + str(getPos _obj));
+		
 		private _objBoat = if (_type isKindOf "Ship") then {
+			diag_log "wrong loop ship";
 			//private _objs = [_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
 			private _objs = [_obj, _type, _side, _tempPos] call FUNC(prepareVehicleBoat);
 			_obj = _objs select 0;
 			GVAR(vehicleListAll) pushBack _obj;
 			_objs select 1
 		} else {objNull};
+		
+		diag_log ("Object Pos 3: " + str(getPos _obj));		
 		
 		if (_type in VEHICLE_IDAP) then {
 			if (isNil QGVAR(countIDAPVehicle)) then {				
@@ -163,14 +166,22 @@ GVAR(vehicleListAll) = [];
 			};
 		};
 		
+		diag_log ("Object Pos 4: " + str(getPos _obj));	
+		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
+		
+		diag_log ("Object Webgui Pos 5: " + str(getPos _objWebGUI));	
 		
 		GVAR(vehicleListAll) pushBack _objWebGUI;
 		_objWebGUI setFuel _fuel;		
 		//_obj setDir (getDir _xDummy);	
 		_obj setDir _tempDir;			
 		
-		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
+		diag_log ("Object Webgui Pos 6: " + str(getPos _objWebGUI));
+		diag_log ("Object Pos 7: " + str(getPos _obj));
+		
+		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
+		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_objWebGUI setVectorUp (surfacenormal (getPosATL _objWebGUI))};
 		
 		[
 			{
