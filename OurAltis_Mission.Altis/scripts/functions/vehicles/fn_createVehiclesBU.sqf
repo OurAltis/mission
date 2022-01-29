@@ -50,7 +50,7 @@ GVAR(vehicleListAll) = [];
 	} count _sortedVehicles;	
 	
 	private _vehicleListType = [];
-		
+	
 	{
 		private _index = _vehicleListType pushBackUnique _x;
 		
@@ -62,12 +62,10 @@ GVAR(vehicleListAll) = [];
 		
 		nil
 	} count _vehicleClass;
-	diag_log ("_vehicleListType: " + str(_vehicleListType));	
-	
+		
 	private _indexSide = GVAR(vehicles) find _side;	
 	private _indexBase = GVAR(vehicles) select (_indexSide + 1) pushBack [_baseID, []];
-	diag_log (QGVAR(vehicles) + str(GVAR(vehicles)));	
-	
+		
 	{		
 		if (_x isEqualType "") then {
 			((GVAR(vehicles) select (_indexSide + 1)) select _indexBase) select 1 pushBack [_x, _vehicleListType select (_foreachIndex + 1)];
@@ -77,7 +75,11 @@ GVAR(vehicleListAll) = [];
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
 	
 	diag_log ("matchedLandVehicles: " + str(_matchedLandVehicles));
-		
+	
+	if (_spawnType isEqualTo "base" && count _matchedAirVehicles > 0) then {
+		_airSpawnpoints = [_matchedAirVehicles, _airSpawnpoints] call FUNC(prepareAirVehicleSpawn);
+	};
+	
 	_landSpawnPoints = [_landSpawnPoints, 100] call FUNC(KK_arrayShuffle);
 	_landSpawnPoints = [_landSpawnPoints, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);
 	_airSpawnpoints = [_airSpawnpoints, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
@@ -181,7 +183,7 @@ GVAR(vehicleListAll) = [];
 		diag_log ("Object Pos 7: " + str(getPos _obj));
 		
 		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
-		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (_tempPos vectorAdd [0,0,0.2])};
+		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _obj vectorAdd [0,0,0.2])};
 		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_objWebGUI setVectorUp (surfacenormal (getPosATL _objWebGUI))};
 		
 		[
