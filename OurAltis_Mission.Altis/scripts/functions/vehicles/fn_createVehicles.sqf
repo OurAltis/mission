@@ -121,8 +121,11 @@ GVAR(vehicleListAll) = [];
 			} else {
 				_tempPos = getPos _xDummy;
 				_tempDir = getDir _xDummy;
-				_xDummy setPos [0, -10, 0];
-				deleteVehicle _xDummy;
+				
+				if ((typeOf _xDummy) in VEHICLE_SPAWN_LAND) then {
+					_xDummy setPos [0, -10, 0];
+					deleteVehicle _xDummy;
+				};			
 				
 				diag_log ("tempPos: " + str(_tempPos));
 				
