@@ -15,7 +15,7 @@
  * Resized shuffled spawn points <Array>
  *
  */
-
+ 
 diag_log ("resizeVehicleSpawn: " + str(_this));
  
 private _success = params [
@@ -25,15 +25,20 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
+private _notNeededSpawnPoints = [];
+
 if (_countVehicles > count _spawnPoints) then {
 	_spawnPoints resize _countVehicles;
 	_spawnPoints = _spawnPoints apply {if (isnil "_x") then {""} else {_x}};
 } else {
 	if (_countVehicles < count _spawnPoints) then {
-		_spawnPoints resize _countVehicles;		
+		//_spawnPoints resize _countVehicles;
+		
+		_notNeededSpawnPoints = _spawnpoints select [_countVehicles, (count _spawnPoints - _countVehicles)];
+		_spawnPoints = _spawnPoints select [0, _countVehicles];
 	};
 };
 
 diag_log ("resizeVehicleSpawn: " + str(_spawnPoints));
 
-_spawnPoints
+[_spawnPoints, _notNeededSpawnPoints]

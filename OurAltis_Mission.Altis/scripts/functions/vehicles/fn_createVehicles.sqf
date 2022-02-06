@@ -82,7 +82,11 @@ GVAR(vehicleListAll) = [];
 	_landSpawnPoints = [_landSpawnPoints, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);
 	_airSpawnpoints = [_airSpawnpoints, count _matchedAirVehicles] call FUNC(resizeVehicleSpawn);
 	
-	private _allSpawnPoints = _landSpawnPoints + _airSpawnPoints;
+	{
+		deleteVehicle _x;
+	} forEach (_landSpawnPoints # 1);
+	
+	private _allSpawnPoints = (_landSpawnPoints # 0) + (_airSpawnPoints # 0);
 	reverse _allSpawnPoints;
 		
 	private _countIndex = 0;
