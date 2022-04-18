@@ -21,31 +21,49 @@ private _success = params [
 	["_position", nil, [[]], [2, 3]],
 	["_side", nil, [sideUnknown]],
 	["_id", nil, [""]],
-	["_baseDir", 0, [0]]
+	["_baseType", 0, [0]],
+	["_baseDir", 0, [0]],
+	["_baseNumber", 1, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
-_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+if (worldName isEqualTo "Altis") then {
+	private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_base_" + str(_baseNumber) + ".sqf");
+	private _flagpoleObj = _objectArray call FUNC(spawnComposition);
+	GVAR(flagPolesBase) = [[GVAR(defenderSide)] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
+	
+	private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
+	_marker setMarkerShape "RECTANGLE";
+	_marker setMarkerSize [250, 250];
+	_marker setMarkerDir 0;
+	_marker setMarkerColor "ColorRed";
+	_marker setMarkerAlpha 1;
 
-private _marker = _objsArray deleteAt ((count _objsArray) - 1);
-private _size = getMarkerSize _marker;
-private _markerDir = markerDir _marker;
-_position = getMarkerPos _marker;
+	GVAR(markerNoCiv) pushBack _marker;
+	PGVAR(markerCamps) pushBack [_id, _position, _marker];
+} else {
+	private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
+	_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
 
-deleteMarker _marker;
+	private _marker = _objsArray deleteAt ((count _objsArray) - 1);
+	private _size = getMarkerSize _marker;
+	private _markerDir = markerDir _marker;
+	_position = getMarkerPos _marker;
 
-[_side, _objsArray] call FUNC(setFlagTexture);
+	deleteMarker _marker;
 
-_marker = createMarker ["marker_noCiv_" + _id, _position];
-_marker setMarkerShape "RECTANGLE";
-_marker setMarkerSize _size;
-_marker setMarkerDir _markerDir;
-_marker setMarkerColor "ColorRed";
-_marker setMarkerAlpha 0;
+	[_side, _objsArray] call FUNC(setFlagTexture);
 
-GVAR(markerNoCiv) pushBack _marker;
-PGVAR(markerCamps) pushBack [_id, _position];
+	_marker = createMarker ["marker_noCiv_" + _id, _position];
+	_marker setMarkerShape "RECTANGLE";
+	_marker setMarkerSize _size;
+	_marker setMarkerDir _markerDir;
+	_marker setMarkerColor "ColorRed";
+	_marker setMarkerAlpha 0;
+
+	GVAR(markerNoCiv) pushBack _marker;
+	PGVAR(markerCamps) pushBack [_id, _position];
+};
 
 nil

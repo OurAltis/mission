@@ -124,7 +124,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 
 {
 	private _trigger = createTrigger ["EmptyDetector", _x, false];
-	_trigger setTriggerArea [45, 45, _dirTrigger select _forEachIndex, true];
+	_trigger setTriggerArea [250, 250, _dirTrigger select _forEachIndex, true];
 	_trigger setTriggerActivation ["ANY", "NOT PRESENT", true];
 	_trigger setTriggerStatements ["!((vehicle player) in thisList) && alive (vehicle player)",
 		"call " + QFUNC(triggerRAAct),

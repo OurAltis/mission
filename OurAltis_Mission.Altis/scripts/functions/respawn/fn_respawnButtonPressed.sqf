@@ -186,8 +186,10 @@ with uiNamespace do {
 			_x enableSimulation true;
 			nil
 		} count GVAR(triggerRA);
-				
-		GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+		
+		if (count GVAR(triggerRA) isEqualTo 0) then {
+			GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+		};
 		
 		[
 			{
