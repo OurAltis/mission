@@ -38,7 +38,7 @@ PGVAR(markerCamps) = [_attackerSide];
 	switch (_spawn) do {
 		case "camp": {
 			// create a camp
-			[_position, _side, _id, _baseDir] call FUNC(createCamp);
+			[_position, _side, _id, _baseDir, _baseNumber] call FUNC(createCamp);
 		};
 
 		case "base": {
