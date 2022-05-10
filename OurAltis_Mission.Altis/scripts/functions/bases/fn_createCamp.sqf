@@ -28,7 +28,7 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 if (worldName isEqualTo "Altis") then {
-	private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_base_" + str(_baseNumber) + ".sqf");
+	private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
 	private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 	GVAR(flagPolesBase) = [[GVAR(defenderSide)] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 	
