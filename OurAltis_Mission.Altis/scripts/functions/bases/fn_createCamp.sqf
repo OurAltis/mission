@@ -30,7 +30,7 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 if (worldName isEqualTo "Altis") then {
 	private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
 	private _flagpoleObj = _objectArray call FUNC(spawnComposition);
-	GVAR(flagPolesBase) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
+	GVAR(flagPolesCamp) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 	
 	private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
 	_marker setMarkerShape "RECTANGLE";
