@@ -19,7 +19,7 @@ private _adString = "CAN_COLLIDE";
 private _return = objNull;
 
 {
-	private _dat = _x;
+	private _x;
 	diag_log ("fn_spawnCompositon (_dat): " + str(_dat));
 	
 	if ((_dat select 0) isEqualTo "FlagMarker_01_F") then {
@@ -51,7 +51,17 @@ private _return = objNull;
 			_obj addBackpackCargoGlobal ['I_HMG_01_support_F', 8];
 		};
 		
-		if (GVAR(baseTier) in (_obj getVariable ["baseTier", []]) || count (_obj getVariable ["baseTier", []]) isEqualTo 0) then {
+		private _delete = false;
+		
+		if (_obj getVariable ["random", false]) then {
+			_delete = selectRandom [true, false];	
+			
+			if (_obj getVariable ["boat", false] && GVAR(crisis) != 2) then {
+				_delete = true;
+			};					
+		};
+		
+		if (GVAR(baseTier) in (_obj getVariable ["baseTier", []]) || (count (_obj getVariable ["baseTier", []]) isEqualTo 0 && !_delete)) then {
 			if ((_dat select 3) == -100) then {
 				_obj setposATL (call compile (_dat select 1));
 				if ((_dat select 5) == 0) then {_obj setVectorUp [0,0,1]} else {_obj setVectorUp (surfacenormal (getPosATL _obj))};

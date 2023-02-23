@@ -14,7 +14,7 @@
  * None <Any>
  * 
  */ 
-
+ 
 private _success = params [
 	["_vehPosObj", [], [[]]]
 ]; 
@@ -22,7 +22,10 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!)
 
 {
-	private _vehGroup = toLower(_x getVariable [VEHICLE_TYPE, ""]);
+	private _vehGroup = if (typeOf _x isEqualTo "FlagSmall_F") then {"idap"} else {
+		toLower(_x getVariable [VEHICLE_TYPE, ""]);
+	};
+	
 	_vehGroup = if ((_vehGroup find "military") > -1) then {toLower(_vehGroup + "_" + str GVAR(defenderSide))} else {_vehGroup};
 	
 	private _vehArray = switch (_vehGroup) do {
@@ -34,6 +37,7 @@ CHECK_TRUE(_success, Invalid parameters!)
 		case "military_tank_east": {VEHICLE_MILITARY_TANK_EAST};
 		case "military_heli_west": {VEHICLE_MILITARY_HELI_WEST};
 		case "military_heli_east": {VEHICLE_MILITARY_HELI_EAST};
+		case "idap": {VEHICLE_IDAP};
 		default {[]};
 	};
 	

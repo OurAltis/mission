@@ -18,7 +18,8 @@
 // set preferences
 GVAR(SpyInfo) = [[15376,16017], "ost", 20.0];
 GVAR(Resist) = "";
-GVAR(supplyPoint) = [];
+GVAR(supplyPoint) = "";
+GVAR(crisis) = 0;
 GVAR(NATO) = "Smith";
 GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
