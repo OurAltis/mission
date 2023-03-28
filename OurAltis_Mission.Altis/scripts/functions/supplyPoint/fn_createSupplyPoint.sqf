@@ -35,7 +35,7 @@ _objectArray = nearestObjects [position _flagpoleObj, ["Land_RoadCone_01_F"], 10
 private _cornerArray = [];
 
 {
-	if (_x getVariable ["corner", false]) then {_cornerArray pushBack (position2d _x)};
+	if (_x getVariable ["corner", false]) then {_cornerArray pushBack (position _x)};
 } forEach _objectArray;
 
 _cornerArray params ["_corner1", "_corner2", "_corner3", "_corner4"];

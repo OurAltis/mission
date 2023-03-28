@@ -17,10 +17,9 @@
 diag_log ("fn_spawnCompositon (all): " + str(_this));
 private _adString = "CAN_COLLIDE";
 private _return = objNull;
-private _obj = objNull;
 
 {
-	private _x;
+	private _dat = _x;
 	diag_log ("fn_spawnCompositon (_dat): " + str(_dat));
 	
 	if ((_dat select 0) isEqualTo "FlagMarker_01_F") then {
@@ -35,7 +34,7 @@ private _obj = objNull;
 			6
 		];
 	} else {	
-		_obj = createVehicle [(_dat select 0), [0, 0, 0], [], 0, _adString];
+		private _obj = createVehicle [(_dat select 0), [0, 0, 0], [], 0, _adString];
 		if ((_dat select 0) in RESPAWN_BUILDING) then {_obj setVariable [QGVAR(isRespawnBuilding), true, true]};
 		if ((_dat select 0) in [FLAGPOLE]) then {_return =_obj};
 		if ((_dat select 4) == 0) then {_obj enableSimulation false};
