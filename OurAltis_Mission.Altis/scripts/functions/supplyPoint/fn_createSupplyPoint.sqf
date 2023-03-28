@@ -19,7 +19,7 @@
 if (_this isEqualTo []) exitWith {}; // if there is no supply point simply exit the function
 
 private _success = params [
-	["_supplypointPos", nil, 0, 0]
+	["_supplypointPos", 0, [0]]
 ];
 
 CHECK_TRUE(_success, Invalid parameters!, {})
