@@ -17,6 +17,7 @@
 diag_log ("fn_spawnCompositon (all): " + str(_this));
 private _adString = "CAN_COLLIDE";
 private _return = objNull;
+private _obj = objNull;
 
 {
 	private _x;
