@@ -27,6 +27,8 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\idapSupply\" + (toLower GVAR(targetAreaName)) + "_idapSupply_" + str(_supplypointPos) + ".sqf");
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 
+diag_log ("supplyPoint flagpoleobj: " + str(_flagpoleObj));
+
 _objectArray = nearestObjects [position _flagpoleObj, ["FlagSmall_F"], 100];
 _objectArray call FUNC(createAmbientVehicles);
 
