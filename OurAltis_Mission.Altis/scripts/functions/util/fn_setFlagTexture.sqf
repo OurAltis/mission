@@ -32,7 +32,7 @@ private _texture = switch (_side) do {
 private _return = [];
 
 {
-	if (typeOf _x isEqualTo FLAGPOLE) then {
+	if ((typeOf _x) in FLAGPOLE) then {
 		_x setFlagTexture _texture;
 		_return pushBack _x;
 	};

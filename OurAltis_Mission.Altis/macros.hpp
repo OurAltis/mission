@@ -118,7 +118,7 @@
  #define VEHICLE_SPAWN_AIR ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"]
  #define VEHICLE_ID QGVAR(VehicleID)
  #define VEHICLE_TYPE QGVAR(VehicleType)
- #define FLAGPOLE "FlagPole_F"
+ #define FLAGPOLE ["FlagPole_F", "Flag_IDAP_F"]
  #define IS_ECONOMY_BUILDING QGVAR(IsEconomyBuilding)
  #define IS_RESPAWN_BUILDING QGVAR(IsRespawnBuilding)
  #define TYPE_OF_ECONOMY QGVAR(TypeOfEconomy) 
