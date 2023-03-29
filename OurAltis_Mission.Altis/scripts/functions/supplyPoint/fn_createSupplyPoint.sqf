@@ -40,6 +40,8 @@ private _cornerArray = [];
 
 _cornerArray params ["_corner1", "_corner2", "_corner3", "_corner4"];
 
+diag_log ("supplyPoint _cornerArray: " + str(_cornerArray));
+
 private _secondTurn = [];
 
 private _distance12 = _corner1 distance2d _corner2;
@@ -69,6 +71,8 @@ if (_distance24 > _distance34) then {
 
 _secondTurn params ["_pair1", "_pair2", "_pair3"];
 
+diag_log ("supplyPoint _secondTurn: " + str(_secondTurn));
+
 private _finish = [];
 
 if ((_pair1 # 0) distance2d (_pair1 # 1) > (_pair2 # 0) distance2d (_pair2 # 1)) then {
@@ -96,16 +100,27 @@ private _pointB = _line1; //(10|-10)
 private _pointC = _line2; //(-10|-10)
 private _pointD = _line2; //(10|10)
 
+diag_log ("supplyPoint pA: " + str(_pointA));
+diag_log ("supplyPoint pB: " + str(_pointB));
+diag_log ("supplyPoint pC: " + str(_pointC));
+diag_log ("supplyPoint pD: " + str(_pointD));
+
 private _m1 = ((_pointB # 1) - (_pointA # 1)) / ((_pointB # 0) - (_pointA # 0));
 private _t1 = (_pointA # 1) - (_m1 * (_pointA # 0));
+
+diag_log ("supplyPoint m1: " + str(_m1));
+diag_log ("supplyPoint t1: " + str(_t1));
 
 private _m2 = ((_pointD # 1) - (_pointC # 1)) / ((_pointD # 0) - (_pointC # 0));
 private _t2 = (_pointC # 1) - (_m2 * (_pointC # 0));
 
+diag_log ("supplyPoint m2: " + str(_m2));
+diag_log ("supplyPoint t2: " + str(_t2));
+
 private _xS = (_t2 - _t1) / (_m1 - _m2);
 private _yS = _m1 * _pointA + _t1;
 
-
+diag_log ("Abgabepunkt (M): " + str([_xS, _yS]));
 
 private _sideAttacker = [GVAR(defenderSide), false] call FUNC(getAttackerSide);
 diag_log ("createSupplyPoint: sideAttacker - " + str(_sideAttacker));
