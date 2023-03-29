@@ -30,6 +30,7 @@ private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 diag_log ("supplyPoint flagpoleobj: " + str(_flagpoleObj));
 
 _objectArray = nearestObjects [position _flagpoleObj, ["FlagSmall_F"], 100];
+diag_log ("supplyPoint _objectArray: " + str(_objectArray));
 _objectArray call FUNC(createAmbientVehicles);
 
 _objectArray = nearestObjects [position _flagpoleObj, ["Land_RoadCone_01_F"], 100];
@@ -97,10 +98,10 @@ if ((_pair1 # 0) distance2d (_pair1 # 1) > (_pair2 # 0) distance2d (_pair2 # 1))
 
 _finish params ["_line1", "_line2"];
 
-private _pointA = _line1; //(-10|10)
-private _pointB = _line1; //(10|-10)
-private _pointC = _line2; //(-10|-10)
-private _pointD = _line2; //(10|10)
+private _pointA = _line1 # 0; //(-10|10)
+private _pointB = _line1 # 1; //(10|-10)
+private _pointC = _line2 # 0; //(-10|-10)
+private _pointD = _line2 # 1; //(10|10)
 
 diag_log ("supplyPoint pA: " + str(_pointA));
 diag_log ("supplyPoint pB: " + str(_pointB));
