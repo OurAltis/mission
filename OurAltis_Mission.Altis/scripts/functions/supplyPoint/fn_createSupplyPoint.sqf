@@ -31,7 +31,7 @@ diag_log ("supplyPoint flagpoleobj: " + str(_flagpoleObj));
 
 _objectArray = nearestObjects [position _flagpoleObj, ["FlagSmall_F"], 100];
 diag_log ("supplyPoint _objectArray: " + str(_objectArray));
-_objectArray call FUNC(createAmbientVehicles);
+[_objectArray] call FUNC(createAmbientVehicles);
 
 _objectArray = nearestObjects [position _flagpoleObj, ["Land_RoadCone_01_F"], 100];
 
@@ -121,7 +121,7 @@ diag_log ("supplyPoint m2: " + str(_m2));
 diag_log ("supplyPoint t2: " + str(_t2));
 
 private _xS = (_t2 - _t1) / (_m1 - _m2);
-private _yS = _m1 * _pointA + _t1;
+private _yS = _m1 * (_pointA # 0) + _t1;
 
 diag_log ("Abgabepunkt (M): " + str([_xS, _yS]));
 
