@@ -36,7 +36,7 @@ private _return = objNull;
 	} else {	
 		private _obj = createVehicle [(_dat select 0), [0, 0, 0], [], 0, _adString];
 		if ((_dat select 0) in RESPAWN_BUILDING) then {_obj setVariable [QGVAR(isRespawnBuilding), true, true]};
-		if ((_dat select 0) in [FLAGPOLE]) then {_return =_obj};
+		if ((_dat select 0) in FLAGPOLE) then {_return =_obj};
 		if ((_dat select 4) == 0) then {_obj enableSimulation false};
 		if ((_dat select 8) == 0) then {_obj allowDamage false};
 		_obj setdir (_dat select 2);
