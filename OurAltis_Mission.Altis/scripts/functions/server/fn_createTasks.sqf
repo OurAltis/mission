@@ -122,59 +122,59 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 	if (!isNil QGVAR(economy)) then {
 		{
 			_x params ["_type", "_buildingCount", "_indexDB"];
-			
-			private _ecoPicture = [_type] call FUNC(getTaskPic);
-			
-			if (_type isEqualTo "barracks") then {
-				GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			if (_type isEqualTo "factory") then {
-				GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			if (_type isEqualTo "hangar") then {
-				GVAR(taskState) set [4, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			if (_type isEqualTo "IDAPCamp") then {
-				GVAR(taskState) set [5, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
-			};
-			
-			_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
-			
-			[
-				GVAR(defenderSide),
-				"ecoDefender_" + str(_indexDB),
-				[								
-					format [localize "OurA_str_EcoDefDescription", _typeText, GVAR(targetAreaName)],
-					format [localize "OurA_str_EcoDefTitle", _typeText],
-					""
-				],
-				"marker_eco_" + str(_indexDB),
-				"Created",
-				5,
-				false,
-				"defend",
-				false
-			] call BIS_fnc_taskCreate;
-			
-			[
-				_attackerSide,
-				"ecoAttacker_" + str(_indexDB), 				
+			if (_type isNotEqualTo "IDAPCamp") then {
+				private _ecoPicture = [_type] call FUNC(getTaskPic);
+				
+				if (_type isEqualTo "barracks") then {
+					GVAR(taskState) set [2, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				};
+				
+				if (_type isEqualTo "factory") then {
+					GVAR(taskState) set [3, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				};
+				
+				if (_type isEqualTo "hangar") then {
+					GVAR(taskState) set [4, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				};
+				/*
+				if (_type isEqualTo "IDAPCamp") then {
+					GVAR(taskState) set [5, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
+				};*/
+				
+				//_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
+				
 				[
-					format [localize "OurA_str_EcoAttDescription" + _ecoPicture, _typeText, GVAR(targetAreaName)],
-					format [localize "OurA_str_EcoAttTitle", _typeText],
-					""
-				],		
-				"marker_eco_"  + str(_indexDB),
-				"Created",
-				5,
-				false,
-				"destroy",
-				false
-			] call BIS_fnc_taskCreate;
-			
+					GVAR(defenderSide),
+					"ecoDefender_" + str(_indexDB),
+					[								
+						format [localize "OurA_str_EcoDefDescription", _typeText, GVAR(targetAreaName)],
+						format [localize "OurA_str_EcoDefTitle", _typeText],
+						""
+					],
+					"marker_eco_" + str(_indexDB),
+					"Created",
+					5,
+					false,
+					"defend",
+					false
+				] call BIS_fnc_taskCreate;
+				
+				[
+					_attackerSide,
+					"ecoAttacker_" + str(_indexDB), 				
+					[
+						format [localize "OurA_str_EcoAttDescription" + _ecoPicture, _typeText, GVAR(targetAreaName)],
+						format [localize "OurA_str_EcoAttTitle", _typeText],
+						""
+					],		
+					"marker_eco_"  + str(_indexDB),
+					"Created",
+					5,
+					false,
+					"destroy",
+					false
+				] call BIS_fnc_taskCreate;
+			}
 			nil
 		} count GVAR(economy);
 	};
