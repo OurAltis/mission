@@ -137,6 +137,31 @@ _marker setMarkerSize [1, 5];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 1;
 
+_marker = createMarker ["marker_idapSupply_pointA", _pointA];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "hd_dot_noShadow";
+_marker setMarkerColor "ColorGreen";
+
+_marker = createMarker ["marker_idapSupply_pointB", _pointB];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "hd_dot_noShadow";
+_marker setMarkerColor "ColorGreen";
+
+_marker = createMarker ["marker_idapSupply_pointC", _pointC];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "hd_dot_noShadow";
+_marker setMarkerColor "ColorBlue";
+
+_marker = createMarker ["marker_idapSupply_pointD", _pointD];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "hd_dot_noShadow";
+_marker setMarkerColor "ColorBlue";
+
+_marker = createMarker ["marker_idapSupply_center", [_xS, _yS]];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "hd_dot_noShadow";
+_marker setMarkerColor "ColorYellow";
+
 /*
 private _trigger = createTrigger ["EmptyDetector", _position, false];
 _trigger setTriggerArea [_size select 0, _size select 1, _markerDir, true];
