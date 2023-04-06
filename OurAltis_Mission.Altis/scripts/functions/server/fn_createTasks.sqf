@@ -174,7 +174,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 					"destroy",
 					false
 				] call BIS_fnc_taskCreate;
-			}
+			};
 			nil
 		} count GVAR(economy);
 	};
