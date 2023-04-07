@@ -55,15 +55,19 @@ private _distance24 = _corner2 distance2d _corner4;
 private _distance34 = _corner3 distance2d _corner4;
 
 private _distanceArray = [
-	[_distance12, _corner1, corner2],
-	[_distance13, _corner1, corner3],
-	[_distance14, _corner1, corner4],
-	[_distance23, _corner2, corner3],
-	[_distance24, _corner2, corner4],
-	[_distance34, _corner3, corner4]
+	[_distance12, _corner1, _corner2],
+	[_distance13, _corner1, _corner3],
+	[_distance14, _corner1, _corner4],
+	[_distance23, _corner2, _corner3],
+	[_distance24, _corner2, _corner4],
+	[_distance34, _corner3, _corner4]
 ];
 
+diag_log ("_distianceArray: " + str(_distanceArray));
+
 _distanceArray sort false;
+
+diag_log ("_distianceArray sorted: " + str(_distanceArray));
 
 private _finish = [];
 
