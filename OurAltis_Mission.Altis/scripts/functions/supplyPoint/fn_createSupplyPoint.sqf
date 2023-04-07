@@ -54,54 +54,23 @@ private _distance23 = _corner2 distance2d _corner3;
 private _distance24 = _corner2 distance2d _corner4;
 private _distance34 = _corner3 distance2d _corner4;
 
-if (_distance12 > _distance13) then {
-	_secondTurn pushBack [_corner1, _corner2];
-} else {
-	_secondTurn pushBack [_corner1, _corner3];
-};
+private _distanceArray = [
+	[_distance12, _corner1, corner2],
+	[_distance13, _corner1, corner3],
+	[_distance14, _corner1, corner4],
+	[_distance23, _corner2, corner3],
+	[_distance24, _corner2, corner4],
+	[_distance34, _corner3, corner4]
+];
 
-if (_distance14 > _distance23) then {
-	_secondTurn pushBack [_corner1, _corner4];
-} else {
-	_secondTurn pushBack [_corner2, _corner3];
-};
-
-if (_distance24 > _distance34) then {
-	_secondTurn pushBack [_corner2, _corner4];
-} else {
-	_secondTurn pushBack [_corner3, _corner4];
-};
-
-_secondTurn params ["_pair1", "_pair2", "_pair3"];
-
-diag_log ("supplyPoint _secondTurn: " + str(_secondTurn));
+_distanceArray sort false;
 
 private _finish = [];
 
-if ((_pair1 # 0) distance2d (_pair1 # 1) > (_pair2 # 0) distance2d (_pair2 # 1)) then {
-	_finish pushBack _pair1;
-
-	if ((_pair3 # 0) distance2d (_pair3 # 1) > (_pair2 # 0) distance2d (_pair2 # 1)) then {
-		_finish pushBack _pair3;
-	} else {
-		_finish pushBack _pair2;
-	};
-} else {
-	_finish pushBack _pair2;
-
-	if ((_pair1 # 0) distance2d (_pair1 # 1) > (_pair3 # 0) distance2d (_pair3 # 1)) then {
-		_finish pushBack _pair1;
-	} else {
-		_finish pushBack _pair3;
-	};
-};
-
-_finish params ["_line1", "_line2"];
-
-private _pointA = _line1 # 0; //(-10|10)
-private _pointB = _line1 # 1; //(10|-10)
-private _pointC = _line2 # 0; //(-10|-10)
-private _pointD = _line2 # 1; //(10|10)
+private _pointA = _distanceArray # 0 # 1; //(-10|10)
+private _pointB = _distanceArray # 0 # 2; //(10|-10)
+private _pointC = _distanceArray # 1 # 1; //(-10|-10)
+private _pointD = _distanceArray # 1 # 2; //(10|10)
 
 diag_log ("supplyPoint pA: " + str(_pointA));
 diag_log ("supplyPoint pB: " + str(_pointB));
@@ -132,8 +101,8 @@ private _position = [_xS, _yS];
 
 private _marker = createMarker ["marker_idapSupply", _position];
 _marker setMarkerShape "RECTANGLE";
-_marker setMarkerSize [1, 5];
-//_marker setMarkerDir _markerDir;
+_marker setMarkerSize [(_distanceArray # 4 # 0) / 2, (_distanceArray # 2 # 0) / 2];
+_marker setMarkerDir ((_distanceArray # 2 # 1) getDir (_distanceArray # 2 # 2));
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 1;
 
