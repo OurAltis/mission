@@ -141,7 +141,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 					GVAR(taskState) set [5, if (GVAR(defenderSide) isEqualTo west) then {"west"} else {"ost"}];
 				};*/
 				
-				//_typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
+				private _typeText = if (_type isEqualTo "IDAPCamp") then {"IDAP Camp"} else {_type};
 				
 				[
 					GVAR(defenderSide),
