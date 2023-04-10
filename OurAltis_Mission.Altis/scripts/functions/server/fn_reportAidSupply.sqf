@@ -15,10 +15,11 @@
  * None <Any>
  * 
  */
-
+ 
 private _success = params [	
 	["_side", sideUnknown, [west]],
-	["_name", "unknown", [""]]
+	["_name", "unknown", [""]],
+	["_vehicleValue", 20, [0]]
 ];
 
 CHECK_TRUE(isServer, Function can only be executed on the server!, {})
@@ -28,7 +29,13 @@ CHECK_FALSE(_side isEqualTo sideUnknown No side defined!, {})
 
 private _sideDB = if (_side isEqualTo west) then {"west"} else {"ost"};
 
-_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _sideDB + "','" + GVAR(targetAreaName) + "','sup','','" + _name + "','')"] call FUNC(transferSQLRequestToDataBase);
+_result = ["INSERT INTO ereignisse (runde, partei, gebiet, fall, bau, person, waffe) VALUES ('" + str(GVAR(round)) + "','" + _sideDB + "','" + GVAR(targetAreaName) + "','sup','','" + _name + "','" + "" + "')"] call FUNC(transferSQLRequestToDataBase);
+CHECK_DB_RESULT(_result)
+
+private _value = if (_side isEqualTo east) then {"+ " + str(_vehicleValue)} else {"- " + str(_vehicleValue)};
+
+// report status to the DB
+private _result = ["UPDATE gebiete SET pol = pol " + _value + " WHERE gebiet = '" + GVAR(targetAreaName) + "'"] call FUNC(transferSQLRequestToDataBase);
 CHECK_DB_RESULT(_result)
 
 nil

@@ -135,6 +135,7 @@
  #define VEHICLE_BOAT_BIG ["B_Boat_Armed_01_minigun_F", "O_Boat_Armed_01_hmg_F"]
  #define VEHICLE_BOAT_TRANSPORT ["B_Truck_01_transport_F", "O_Truck_03_transport_F"]
  #define VALUE_CIV 50
+ #define VALUE_IDAP 20
  #define VALUE_RESIST 20
  #define RESPAWN_BUILDING ["Land_Cargo_HQ_V3_F", "Land_Cargo_HQ_V1_F", "Land_Cargo_House_V3_F", "Land_Cargo_House_V1_F", "Land_Medevac_house_V1_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V1_F"]
  #define SPAWN_BUILDING_INDICATOR "OurA_IsRespawnBuilding"

@@ -33,7 +33,7 @@ diag_log ("checkAidSupply: side - " + str(_side));
 	if (typeOf (vehicle _x) in VEHICLE_IDAP && !((vehicle _x) getVariable [QGVAR(arrived), false]) && _side isEqualTo side (group (vehicle _x))) then {
 		diag_log ("checkAidSupply: Is IDAP Vehicle");
 		(vehicle _x) setVariable [QGVAR(arrived), true];
-		[_side, name (vehicle _x)] call FUNC(reportAidSupply);	
+		[_side, name (vehicle _x), VALUE_IDAP] call FUNC(reportAidSupply);
 		
 		_countIDAPArrived = _countIDAPArrived + 1;
 		diag_log ("checkAidSupply: countIDAPArrived - " + str(_countIDAPArrived));
