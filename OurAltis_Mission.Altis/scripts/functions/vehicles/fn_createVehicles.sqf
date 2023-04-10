@@ -31,14 +31,9 @@ GVAR(vehicleListAll) = [];
 	CHECK_TRUE(_success, Invalid base format!)
 	
 	private _landSpawnPoints = [_position, _spawnType, true] call FUNC(getVehicleSpawn);
-	diag_log ("land spawnpoints: " + str(count _landSpawnPoints));
 	private _airSpawnpoints = [_position, _spawnType, false] call FUNC(getVehicleSpawn);
-	diag_log ("air spawnpoints: " + str(count _airSpawnpoints));
 	private _sortedVehicles = [_baseID, _this] call FUNC(sortVehicles);	
 	private _vehicleClass = [];
-	
-	diag_log ("Landspanpoints: " + str(_landSpawnPoints));
-	diag_log ("Airspanpoints: " + str(_airSpawnPoints));
 	
 	{	
 		{
@@ -62,11 +57,9 @@ GVAR(vehicleListAll) = [];
 		
 		nil
 	} count _vehicleClass;
-	diag_log ("_vehicleListType: " + str(_vehicleListType));	
 	
 	private _indexSide = GVAR(vehicles) find _side;	
 	private _indexBase = GVAR(vehicles) select (_indexSide + 1) pushBack [_baseID, []];
-	diag_log (QGVAR(vehicles) + str(GVAR(vehicles)));	
 	
 	{		
 		if (_x isEqualType "") then {
@@ -75,8 +68,6 @@ GVAR(vehicleListAll) = [];
 	} forEach _vehicleListType;
 	
 	_sortedVehicles params ["_matchedLandVehicles", "_matchedAirVehicles", "_matchedSeeVehicles"];
-	
-	diag_log ("matchedLandVehicles: " + str(_matchedLandVehicles));
 		
 	_landSpawnPoints = [_landSpawnPoints, 100] call FUNC(KK_arrayShuffle);
 	_landSpawnPoints = [_landSpawnPoints, (count _matchedLandVehicles) + (count _matchedSeeVehicles)] call FUNC(resizeVehicleSpawn);
@@ -109,16 +100,12 @@ GVAR(vehicleListAll) = [];
 		private _tempPos = [];
 		private _tempDir = 0;
 		
-		diag_log ("xDummy: " + str(_xDummy));
-		
 		private _obj = if (_spawnType isEqualTo "carrier") then {
-			diag_log "wrong loop carrier";
 			private _obj = createVehicle [_type, [0, 0, 0], [], 0, "CAN_COLLIDE"];
 			_obj setPosASL (_xDummy getVariable [QGVAR(vehiclePos), []]);
 			_obj			
 		} else {
 			if (_xDummy isEqualType "") then {
-				diag_log "wrong loop empty spawnpoint";
 				private _suitablePos = _position findEmptyPosition [150, 500, _type];
 				_xDummy = createVehicle ["Land_HelipadCircle_F", _suitablePos, [], 0, "CAN_COLLIDE"];
 				createVehicle [_type, _xDummy, [], 0, "CAN_COLLIDE"];
@@ -129,16 +116,11 @@ GVAR(vehicleListAll) = [];
 				if ((typeOf _xDummy) in VEHICLE_SPAWN_LAND) then {
 					_xDummy setPos [0, -10, 0];
 					deleteVehicle _xDummy;
-				};			
-				
-				diag_log ("tempPos: " + str(_tempPos));
+				};
 				
 				createVehicle [_type, _tempPos, [], 0, "CAN_COLLIDE"];
 			};
 		};
-				
-		diag_log ("Object: " + str(_obj));
-		diag_log ("Object Pos 0: " + str(getPos _obj));
 		
 		_obj setDamage 0;
 		
@@ -146,26 +128,19 @@ GVAR(vehicleListAll) = [];
 			[_obj, _type] call FUNC(prepareVehicleMobileCamp);
 		};
 		
-		diag_log ("Object Pos 1: " + str(getPos _obj));
-		
 		private _objBoat = if (_type isKindOf "Ship") then {
-			diag_log "wrong loop ship";
 			//private _objs = [_obj, _type, _side, position _xDummy] call FUNC(prepareVehicleBoat);
 			private _objs = [_obj, _type, _side, _tempPos] call FUNC(prepareVehicleBoat);
 			_obj = _objs select 0;
 			GVAR(vehicleListAll) pushBack _obj;
 			_objs select 1
-		} else {objNull};
-		
-		diag_log ("Object Pos 3: " + str(getPos _obj));		
+		} else {objNull};	
 		
 		if (_type in VEHICLE_IDAP) then {
 			if (isNil QGVAR(countIDAPVehicle)) then {				
 				GVAR(countIDAPVehicle) = 1;
-				diag_log ("IDAP Vehicle: countIDAPVehicle - " + str(GVAR(countIDAPVehicle)));
 			} else {
 				GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) + 1;
-				diag_log ("IDAP Vehicle: countIDAPVehicle - " + str(GVAR(countIDAPVehicle)));
 			};
 			
 			if !(_type isEqualTo (VEHICLE_IDAP select 0)) then {
@@ -173,20 +148,13 @@ GVAR(vehicleListAll) = [];
 			};
 		};
 		
-		diag_log ("Object Pos 4: " + str(getPos _obj));	
-		
 		private _objWebGUI = if (_objBoat isEqualTo objNull) then {_obj} else {_objBoat};					
-		
-		diag_log ("Object Webgui Pos 5: " + str(getPos _objWebGUI));	
-		
+
 		GVAR(vehicleListAll) pushBack _objWebGUI;
 		_objWebGUI setFuel _fuel;		
 		//_obj setDir (getDir _xDummy);	
 		_obj setDir _tempDir;			
-		
-		diag_log ("Object Webgui Pos 6: " + str(getPos _objWebGUI));
-		diag_log ("Object Pos 7: " + str(getPos _obj));
-		
+				
 		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (getPos _xDummy vectorAdd [0,0,0.2])};
 		if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_obj setPosATL (_tempPos vectorAdd [0,0,0.2])};
 		//if (_spawnType isEqualTo "carrier") then {_obj setPosASL ((_xDummy getVariable [QGVAR(vehiclePos), []]) vectorAdd [0,0,0.2])} else {_objWebGUI setVectorUp (surfacenormal (getPosATL _objWebGUI))};
@@ -256,7 +224,8 @@ GVAR(vehicleListAll) = [];
 						[] remoteExecCall ["", _unit getVariable [QGVAR(JIPID, "")]];
 					};
 					
-					if (typeOf _unit in VEHICLE_IDAP) then {						
+					if (typeOf _unit in VEHICLE_IDAP) then {
+						diag_log ("MPKilled (Unit, Killer, WhoPulledTheTrigger): " + str(_unit) + "," + str(_killer) + "," + str(_instigator));
 						[_instigator] call FUNC(reportAidSupplyDestroyed);						
 						
 						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;

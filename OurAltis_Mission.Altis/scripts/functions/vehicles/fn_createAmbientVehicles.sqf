@@ -41,18 +41,23 @@ CHECK_TRUE(_success, Invalid parameters!)
 		default {[]};
 	};
 	
-	if ((count _vehArray) isEqualTo 0) exitWith {NOTIFICATION_LOG(No vehicle type defined!)};
+	if ((count _vehArray) isEqualTo 0) exitWith {NOTIFICATION_LOG(No vehicle type defined!)};	
 	
 	if (selectRandom [true, false]) then {
-		private _obj = createVehicle [selectRandom _vehArray, _x, [], 0, "CAN_COLLIDE"];
-		_obj setDir (getDir _x);
+		private _pos = position _x;
+		private _dir = getDir _x;
+		
+		deleteVehicle _x;
+		
+		private _obj = createVehicle [selectRandom _vehArray, _pos, [], 0, "CAN_COLLIDE"];
+		_obj setDir _dir;
 		_obj lock (if ((_vehGroup find "military") > -1) then {3} else {0});
 		
 		clearWeaponCargoGlobal _obj;
 		clearBackpackCargoGlobal _obj;
 		clearMagazineCargoGlobal _obj;
 		clearItemCargoGlobal _obj;
-	};
+	} else {deleteVehicle _x};
 	
 	nil
 } count _vehPosObj;
