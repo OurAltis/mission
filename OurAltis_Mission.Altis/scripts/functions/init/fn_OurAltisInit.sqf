@@ -26,9 +26,7 @@ GVAR(resistanceUnits) = [];
 GVAR(canRetreat) = [west, east];
 
 if(isServer) then {	
-	diag_log ("fn_ourAltisInit: Start");
 	GVAR(timeLimit) = 5;
-	diag_log ("fn_ourAltisInit: GVAR(timelimit): " + str(GVAR(timeLimit)));
 	GVAR(round) = 1;
 	GVAR(BaseList) = [];
 	GVAR(Infantry) = [];
@@ -40,15 +38,12 @@ if(isServer) then {
 	GVAR(dataBase) = "a";
 	GVAR(defenderSide) = east;
 	GVAR(polygon) = [];
-	diag_log ("fn_ourAltisInit(1): - " + str(GVAR(polygon)));
 	
 	[
 		[[13462.875,15969.920], east, "Aeroport", "base", 1, -17.492],
 		[[16372.000,19664.000], blufor, "AgiaTriada", "camp", 4, 241.375]
 	] call FUNC(createBases);
-	
-	diag_log ("fn_ourAltisInit(2): - " + str(GVAR(polygon)));
-	
+		
 	[
 		[12462.875,15969.920], "barracks", 0
 	] call FUNC(createEconomy);
