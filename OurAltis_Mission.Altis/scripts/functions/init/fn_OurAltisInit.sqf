@@ -25,7 +25,7 @@ GVAR(CSAT) = "Iwanow";
 GVAR(resistanceUnits) = [];
 GVAR(canRetreat) = [west, east];
 
-if(isServer) then {	
+if (isServer) then {	
 	GVAR(timeLimit) = 5;
 	GVAR(round) = 1;
 	GVAR(BaseList) = [];

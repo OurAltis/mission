@@ -27,42 +27,18 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-if (worldName isEqualTo "Altis") then {
-	private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
-	private _flagpoleObj = _objectArray call FUNC(spawnComposition);
-	GVAR(flagPolesCamp) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
-	
-	private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
-	_marker setMarkerShape "RECTANGLE";
-	_marker setMarkerSize [250, 250];
-	_marker setMarkerDir 0;
-	_marker setMarkerColor "ColorRed";
-	_marker setMarkerAlpha 1;
+private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
+private _flagpoleObj = _objectArray call FUNC(spawnComposition);
+GVAR(flagPolesCamp) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 
-	GVAR(markerNoCiv) pushBack _marker;
-	PGVAR(markerCamps) pushBack [_id, _position, _marker];
-} else {
-	private _objsArray = call compile preprocessfilelinenumbers "scripts\compositions\camp.sqf";
-	_objsArray = [_position, _baseDir, _objsArray, [FLAGPOLE]] call FUNC(objectsMapper);
+private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
+_marker setMarkerShape "ELLIPSE";
+_marker setMarkerSize [100, 100];
+_marker setMarkerDir 0;
+_marker setMarkerColor "ColorRed";
+_marker setMarkerAlpha 1;
 
-	private _marker = _objsArray deleteAt ((count _objsArray) - 1);
-	private _size = getMarkerSize _marker;
-	private _markerDir = markerDir _marker;
-	_position = getMarkerPos _marker;
-
-	deleteMarker _marker;
-
-	[_side, _objsArray] call FUNC(setFlagTexture);
-
-	_marker = createMarker ["marker_noCiv_" + _id, _position];
-	_marker setMarkerShape "RECTANGLE";
-	_marker setMarkerSize _size;
-	_marker setMarkerDir _markerDir;
-	_marker setMarkerColor "ColorRed";
-	_marker setMarkerAlpha 0;
-
-	GVAR(markerNoCiv) pushBack _marker;
-	PGVAR(markerCamps) pushBack [_id, _position];
-};
+GVAR(markerNoCiv) pushBack _marker;
+PGVAR(markerCamps) pushBack [_id, _position, _marker];
 
 nil
