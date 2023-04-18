@@ -180,15 +180,17 @@ with uiNamespace do {
 		player setAmmo [currentWeapon player, 0];
 				
 		// close the respawn dialog
-		[] call FUNC(hideRespawnMenu);
+		[] call FUNC(hideRespawnMenu);		
 		
-		{
-			_x enableSimulation true;
-			nil
-		} count GVAR(triggerRA);
-		
-		if (count GVAR(triggerRA) isEqualTo 0) then {
-			GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+		if (!(PGVAR(PREPARATION_FINISHED) # 0) && PGVAR(PREPARATION_FINISHED) # 1 > CBA_missionTime) then
+			if (count GVAR(triggerRA) isEqualTo 0) then {
+				GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
+			};
+
+			{
+				_x enableSimulation true;
+				nil
+			} count GVAR(triggerRA);
 		};
 		
 		[
