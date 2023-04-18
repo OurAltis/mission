@@ -182,6 +182,8 @@ with uiNamespace do {
 		// close the respawn dialog
 		[] call FUNC(hideRespawnMenu);		
 		
+		diag_log ("PGVAR(PREPARATION_FINISHED): " + QPGVAR(PREPARATION_FINISHED));
+
 		if (!(PGVAR(PREPARATION_FINISHED) # 0) && PGVAR(PREPARATION_FINISHED) # 1 > CBA_missionTime) then
 			if (count GVAR(triggerRA) isEqualTo 0) then {
 				GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
@@ -192,7 +194,7 @@ with uiNamespace do {
 				nil
 			} count GVAR(triggerRA);
 		};
-		
+
 		[
 			{
 				// restore the sound + fade in
