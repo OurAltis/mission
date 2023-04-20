@@ -114,15 +114,11 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 		_dirTrigger pushBack (PGVAR(restrictedArea) select 2);
 	};
 } else {
-	NOTIFICATION_FORMAT_LOG(Attacker: true)
+	NOTIFICATION_LOG(Attacker: true)
 
-	{
-		if (_x isEqualType west) then {
-			diag_log ("createRestricedArea: Side is filtered out!: " + str(_x));
-		} else {			
-			_positionTrigger pushback (getMarkerPos _x);
-			_dirTrigger pushback (markerDir _x);		
-		};
+	{				
+		_positionTrigger pushback (getMarkerPos _x);
+		_dirTrigger pushback (markerDir _x);	
 
 		nil
 	} count GVAR(markerCamps);
