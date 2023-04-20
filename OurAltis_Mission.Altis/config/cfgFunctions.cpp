@@ -1,11 +1,8 @@
 #include "macros.hpp"
 
-class CfgFunctions 
-{
-	class TAG 
-	{
-		class bases 
-		{
+class CfgFunctions {
+	class TAG {
+		class bases {
 			file = FUNC_PATH(bases);
 			
 			class createBases {};
@@ -18,8 +15,7 @@ class CfgFunctions
 			class createCarrier {};
 		};
 		
-		class client
-		{
+		class client {
 			file = FUNC_PATH(client);
 			
 			class clientInit {postInit = 1;};
@@ -35,8 +31,7 @@ class CfgFunctions
 			class triggerRADeact {};
 		};
 		
-		class server
-		{
+		class server {
 			file = FUNC_PATH(server);
 			
 			class checkRespawn {};
@@ -76,20 +71,17 @@ class CfgFunctions
 			class reportAidSupplyDestroyed {};
 		};
 		
-		class database
-		{
+		class database {
 			file=FUNC_PATH(server\database);
 			
 			class initializeDataBase {};
 			class transferSQLRequestToDataBase {};
 		};
 		
-		class init
-		{
+		class init {
 			file = FUNC_PATH(init);
 			
-			class OurAltisInit 
-			{
+			class OurAltisInit {
 				preInit = 1;
 			};
 			
@@ -105,8 +97,7 @@ class CfgFunctions
 			class equipUnitAsClass {};
 		};
 		
-		class mapPositions 
-		{
+		class mapPositions {
 			file = FUNC_PATH(mapPositions);
 			
 			class clearMapPositions {};
@@ -117,8 +108,7 @@ class CfgFunctions
 			class setActiveMapPosition {};
 		};
 		
-		class respawn
-		{
+		class respawn {
 			file = FUNC_PATH(respawn);
 			
 			class addMultipleRespawnPositions {};
@@ -145,8 +135,7 @@ class CfgFunctions
 			class updateRespawnData {};
 		};
 		
-		class util
-		{
+		class util {
 			file = FUNC_PATH(util);
 			
 			class calculateOffset {};
@@ -178,8 +167,7 @@ class CfgFunctions
 			class getPolygonArray {};
 		};
 		
-		class events
-		{
+		class events {
 			file = "scripts\events";
 			
 			class addEventHandler {};
@@ -195,8 +183,7 @@ class CfgFunctions
 			class workWithRequest {};
 		};
 		
-		class vehicles
-		{
+		class vehicles {
 			file = FUNC_PATH(vehicles);
 			
 			class createVehicles {};
@@ -214,8 +201,7 @@ class CfgFunctions
 			class prepareVehicleIDAP {};
 		};
 		
-		class economy
-		{
+		class economy {
 			file = FUNC_PATH(economy);
 			
 			class createEconomy {};
@@ -224,8 +210,7 @@ class CfgFunctions
 			class setEconomyVariable {};
 		};
 		
-		class spy
-		{
+		class spy {
 			file = FUNC_PATH(spy);
 			
 			class createSpy {};
@@ -234,15 +219,13 @@ class CfgFunctions
 			class createSpyInfo {};
 		};
 		
-		class resistance
-		{
+		class resistance {
 			file = FUNC_PATH(resistance);
 			
 			class createResistance {};
 		};
 		
-		class supplyPoint
-		{
+		class supplyPoint {
 			file = FUNC_PATH(supplyPoint);
 			
 			class createSupplyPoint {};
