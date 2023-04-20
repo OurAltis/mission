@@ -55,6 +55,7 @@
  // Logging
  #define ERROR_LOG(msg) LOG(<t color='#ff0000'>OurAltis VERSION [Error]:</t> msg)
  #define NOTIFICATION_LOG(msg) LOG(<t color='#50dd00'>OurAltis VERSION [Notification]:</t> msg)
+ #define NOTIFICATION_FORMAT_LOG(msg, var) FORMAT_LOG(<t color='#50dd00'>OurAltis VERSION [Notification]:</t> msg, var)
  #define WARNING_LOG(msg) LOG(<t color='#ff8f00'>OurAltis VERSION [Warning]:</t> msg)
  
  #define SCRIPT_REFERENCE format["(%1: %2)", _fnc_scriptName, __LINE__]

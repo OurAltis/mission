@@ -189,6 +189,8 @@ with uiNamespace do {
 				GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 			};
 
+			NOTIFICATION_FORMAT_LOG(triggerRA: %1, GVAR(triggerRA))
+
 			{
 				_x enableSimulation true;
 				nil

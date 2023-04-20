@@ -109,11 +109,13 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 			1,
 			[CBA_missionTime + 10]
 		] call CBA_fnc_addPerFrameHandler;*/
-	} else {
+	} else {		
 		_positionTrigger pushBack (PGVAR(restrictedArea) select 1);	
 		_dirTrigger pushBack (PGVAR(restrictedArea) select 2);
 	};
-} else {	
+} else {
+	NOTIFICATION_FORMAT_LOG(Attacker: true)
+
 	{
 		if (_x isEqualType west) then {
 			diag_log ("createRestricedArea: Side is filtered out!: " + str(_x));
@@ -121,9 +123,12 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 			_positionTrigger pushback (getMarkerPos _x);
 			_dirTrigger pushback (markerDir _x);		
 		};
-		
+
 		nil
 	} count GVAR(markerCamps);
+
+	NOTIFICATION_FORMAT_LOG(positionTrigger: %1, _positionTrigger)
+	NOTIFICATION_FORMAT_LOG(dirTrigger: %1, _dirTrigger)
 };
 
 {
@@ -141,5 +146,7 @@ if (side (group player) isEqualTo (PGVAR(restrictedArea) select 0)) then {
 	
 	nil
 } forEach _positionTrigger;
+
+NOTIFICATION_FORMAT_LOG(triggerAll: %1, _triggerAll)
 
 _triggerAll
