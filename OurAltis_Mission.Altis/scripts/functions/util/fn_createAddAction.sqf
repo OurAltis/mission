@@ -30,7 +30,7 @@ if (_object1 isKindOf "Man") then {
 		_object1 setVariable [QGVAR(askSpyAction), GVAR(spyAddAction)];
 	} else {
 		GVAR(voteActionReady) = _object1 addAction ["<t color='#3ADF00'>" + localize "OurA_str_voteOptionReady" + "</t>", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(PREPARATION_FINISHED) + " select 0) && !(" + QGVAR(playerReady) + ") && alive _target"];
-		GVAR(voteActionNotReady) = _object1 addAction ["<t color='#3ADF00'>" + localize "OurA_str_voteOptionNotReady" + "</t>", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(PREPARATION_FINISHED) + " select 0) && " + QGVAR(playerReady) + "alive _target"];
+		GVAR(voteActionNotReady) = _object1 addAction ["<t color='#3ADF00'>" + localize "OurA_str_voteOptionNotReady" + "</t>", {_this call FUNC(doVote)}, nil, 0, false, true, "", "!(" + QPGVAR(PREPARATION_FINISHED) + " select 0) && " + QGVAR(playerReady) + " && alive _target"];
 	}
 };
 
