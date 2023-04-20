@@ -184,7 +184,7 @@ with uiNamespace do {
 		
 		diag_log ("PGVAR(PREPARATION_FINISHED): " + str(PGVAR(PREPARATION_FINISHED)));
 
-		if (!(PGVAR(PREPARATION_FINISHED) # 0) && PGVAR(PREPARATION_FINISHED) # 1 > CBA_missionTime) then {
+		if (!(PGVAR(PREPARATION_FINISHED) # 0)) then {
 			if (count GVAR(triggerRA) isEqualTo 0) then {
 				GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 			};
