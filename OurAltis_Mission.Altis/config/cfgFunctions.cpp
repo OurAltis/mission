@@ -11,7 +11,6 @@ class CfgFunctions {
 			class getBaseSide {};
 			class getBaseDir {};
 			class createFOB {};
-			class adjustBuildingsToMap {};
 			class createCarrier {};
 		};
 		
@@ -230,6 +229,12 @@ class CfgFunctions {
 			
 			class createSupplyPoint {};
 			class checkAidSupply {};
+		};
+
+		class obsolete {
+			file = FUNC_PATH(obsolete);
+
+			class adjustBuildingsToMap {};
 		};
 	};
 };

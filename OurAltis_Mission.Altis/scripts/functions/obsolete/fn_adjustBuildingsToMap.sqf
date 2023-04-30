@@ -1,6 +1,6 @@
 #include "macros.hpp"
 /**
- * OurAltis_Mission - fn_adjustBuildingsToMap
+ * OurAltis_Mission - fn_adjustBuildingsToMap   OBSOLETE
  * 
  * Author: PhilipJFry
  * 

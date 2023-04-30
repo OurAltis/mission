@@ -27,14 +27,13 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camps\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
+private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\camp\" + (toLower _id) + "_camp_" + str(_baseNumber) + ".sqf");
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 GVAR(flagPolesCamp) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 
 private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
 _marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [100, 100];
-_marker setMarkerDir 0;
+_marker setMarkerSize [150, 150];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerAlpha 1;
 

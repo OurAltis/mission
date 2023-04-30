@@ -15,8 +15,8 @@
  * 
  */
 
-private _attackerSide = if (GVAR(defenderSide) isEqualTo west) then {east} else {west};
- 
+private _attackerSide = [GVAR(defenderSide), false] call FUNC(getAttackerSide);
+
 GVAR(markerNoCiv) = [];
 PGVAR(markerCamps) = [_attackerSide];
 
