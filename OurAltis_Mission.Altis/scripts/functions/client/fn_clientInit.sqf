@@ -27,7 +27,7 @@ GVAR(testKillzone1) = 0;
 GVAR(testKillzone2) = 0;
 GVAR(roundStart) = false;
 
-if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side group player in GVAR(canRetreat)) then {
+if (!(missionNamespace getVariable [QPGVAR(Retreat), false]) && side (group player) in GVAR(canRetreat)) then {
 	GVAR(radioTrigger) = createTrigger ["EmptyDetector", [0,0,0], false];
 	GVAR(radioTrigger) setTriggerActivation ["Alpha", "PRESENT", false];
 	GVAR(radioTrigger) setTriggerStatements ["this", "[side group player, clientOwner] remoteExecCall ['OurA_fnc_retreat', 2]", ""];
@@ -42,15 +42,10 @@ if (!isNil QGVAR(markerBorderWar)) then {
 	] call CBA_fnc_addPerFrameHandler;
 };
 
-diag_log ("clientInit PGVAR(markerCamps): " + str(PGVAR(markerCamps)));
-
 if (side (group player) isEqualTo (PGVAR(markerCamps) select 0)) then {
 	[] call FUNC(createMarkerCamps);
 };
 
-diag_log ("INITCLIENT PGVAR(restrictedArea): " + str(PGVAR(restrictedArea)));
-
-//GVAR(triggerRA) = [] call FUNC(createRestrictedArea);
 [] call FUNC(compileLoadouts);
 
 // set up client EHs
@@ -72,7 +67,7 @@ diag_log ("INITCLIENT PGVAR(restrictedArea): " + str(PGVAR(restrictedArea)));
 		0 fadeSound 1;
 		
 		// end the mission respectively
-		["End1", side group player isEqualTo _winnerSide, true, true, true, false] call BIS_fnc_endMission;		
+		["End1", side (group player) isEqualTo _winnerSide, true, true, true, false] call BIS_fnc_endMission;		
 		
 		nil;
 	}

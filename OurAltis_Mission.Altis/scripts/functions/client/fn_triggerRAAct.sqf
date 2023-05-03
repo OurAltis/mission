@@ -23,20 +23,20 @@ GVAR(inTriggerRA) = false;
 
 [
 	{
-		params[
+		params [
 			["_args", [], [[]]],
 			["_handle", -1, [0]]
 		];		
 		
 		if (!GVAR(inTriggerRA)) then {
 			if ((_args select 0) >= CBA_missionTime) then{
-				_text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
+				private _text = format ["<t color='#99ffffff' align='center'>Go back or you will die in %1 seconds!</t>", round ((_args select 0) - CBA_missionTime)];
 				(uiNamespace getVariable [QGVAR(infoPunishmentControl), displayNull]) ctrlSetStructuredText parseText _text;
 			} else {
 				(vehicle player) setDamage 1;
 				[_handle] call CBA_fnc_removePerFrameHandler;
 			};
-		}else{
+		} else {
 			[_handle] call CBA_fnc_removePerFrameHandler;
 		};
 	},
