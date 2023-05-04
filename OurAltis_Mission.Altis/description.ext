@@ -2,14 +2,15 @@
 #include "config\cfgRespawnTemplates.cpp"
 #include "macros.hpp"
 
-author = "OurAltis-Team";
-onLoadName = "OurAltis_Mission";
+author = "Recognite & PhilipJFry";
+onLoadName = "ISLE OF MINE";
 onLoadMission = "Mission Description";
-briefingName = "OurAltis_Mission";
-overviewPicture = "images\loadScreen.paa";
+loadScreen = "pic.jpg";
+briefingName = "ISLE OF MINE";
+overviewPicture = "pic.jpg";
 
 class Header {
-	gameType = CTI;
+	gameType = SC;
 	minPlayers = 2;
 	maxPlayers = 32;
 };
