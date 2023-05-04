@@ -31,7 +31,7 @@ private _success = params [
 CHECK_TRUE(_success, Invalid parameters!, {})
 
 GVAR(baseTier) = _baseType;
-private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\base" + (toLower _id) + "_base_" + str(_baseNumber) + ".sqf");
+private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\base\" + (toLower _id) + "_base_" + str(_baseNumber) + ".sqf");
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 GVAR(flagPolesBase) = [GVAR(defenderSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 
