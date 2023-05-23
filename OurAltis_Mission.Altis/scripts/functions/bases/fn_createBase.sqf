@@ -46,7 +46,7 @@ GVAR(markerNoCiv) pushBack _marker;
 
 GVAR(markerBase) = createMarker ["marker_base", getPos _flagpoleObj];
 GVAR(markerBase) setMarkerShape "ELLIPSE";
-GVAR(markerBase) setMarkerSize [20,20];
+GVAR(markerBase) setMarkerSize [300, 300];
 GVAR(markerBase) setMarkerDir 0;
 GVAR(markerBase) setMarkerColor "ColorRed";
 GVAR(markerBase) setMarkerAlpha 0;
