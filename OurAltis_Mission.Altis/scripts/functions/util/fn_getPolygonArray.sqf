@@ -21,9 +21,6 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-diag_log ("fn_getPolygonArray: start");
-diag_log ("fn_getPolygonArray: _pos - " + str(_pos));
-
 {
 	private _allObjs = nearestObjects [_x, ["Land_Mil_WallBig_4m_F"], 500];
 	
@@ -48,25 +45,10 @@ diag_log ("fn_getPolygonArray: _pos - " + str(_pos));
 		private _posBackward = _x modelToWorld [((0 boundingBox _x) # 1) # 0, 0, 1];
 		
 		_dummyArray pushBack _posBackward;
-		_dummyArray pushBack _posForward;
-		//_dummyArray pushBack (getpos _x);		
+		_dummyArray pushBack _posForward;		
 	} forEach _sortedObjs;	
 	
-	diag_log ("GETPOLYGONARRAY: _dumyArray - " + str(_dummyArray));
-	
-	GVAR(polygon) pushBack _dummyArray;
-	//diag_log ("GETPOLYGONARRAY: " + QGVAR(polygon) + " - " + str(GVAR(polygon)));
+	GVAR(polygon) pushBack _dummyArray;	
 } forEach (_pos);
 
-diag_log ("fn_getPolygonArray: end");
-
-/*
-findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", 
-	{		
-		params ["_control"];		
-		
-		{		
-			_control drawPolygon [_x, [0,0,1,1]];
-		} forEach sortedPos;
-	}
-];*/
+nil

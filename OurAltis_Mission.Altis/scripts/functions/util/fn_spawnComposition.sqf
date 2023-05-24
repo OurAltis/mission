@@ -14,14 +14,13 @@
  * None <Any>
  * 
  */ 
-diag_log ("fn_spawnCompositon (all): " + str(_this));
+
 private _adString = "CAN_COLLIDE";
 private _return = objNull;
 
 {
 	private _dat = _x;
-	diag_log ("fn_spawnCompositon (_dat): " + str(_dat));
-	
+		
 	if ((_dat select 0) isEqualTo "FlagMarker_01_F") then {
 		private _pos = call compile (_dat select 1);
 		private _offset = if ((_dat select 6) isEqualType 0) then {_dat select 6} else {0};
@@ -72,12 +71,12 @@ private _return = objNull;
 			};
 				
 			if (typeOf _obj != "FlagSmall_F") then {
-				private _markerObj = createmarker [format["iom_m_%1",_obj], (getPosATL _obj)];
-				_markerObj setMarkerShape "RECTANGLE";
-				_markerObj setMarkerColor "ColorBlack";
-				_markerObj setMarkerAlpha 1;				
-				_markerObj setMarkerBrush "SOLID";
-				_markerObj setMarkerSize [((0 boundingBox _obj select 1) select 0),((0 boundingBox _obj select 1) select 1)];
+				private _markerObj = createmarkerLocal [format["iom_m_%1",_obj], (getPosATL _obj)];
+				_markerObj setMarkerShapeLocal "RECTANGLE";
+				_markerObj setMarkerColorLocal "ColorBlack";
+				_markerObj setMarkerAlphaLocal 1;				
+				_markerObj setMarkerBrushLocal "SOLID";
+				_markerObj setMarkerSizeLocal [((0 boundingBox _obj select 1) select 0),((0 boundingBox _obj select 1) select 1)];
 				_markerObj setMarkerDir (direction _obj);
 				_obj setVariable ["marker",format["iom_m_%1",_obj],false];
 			};

@@ -35,7 +35,8 @@ PGVAR(markerCamps) = [_attackerSide];
 	
 	CHECK_TRUE(_success, Invalid baseFormat!, {});	
 	
-	switch (_spawn) do {
+	// Workaround do to inconsistent position variable in DB (_falgpolPos)
+	private _flagpolPos = switch (_spawn) do {
 		case "camp": {
 			// create a camp
 			[_position, _side, _id, _baseDir, _baseNumber] call FUNC(createCamp);
@@ -53,7 +54,7 @@ PGVAR(markerCamps) = [_attackerSide];
 	};	
 	
 	// add base to list
-	GVAR(BaseList) pushBack [_id, _side, _position, _spawn]; // [<ID>, <Side>, <Position>, <Spawn>]
+	GVAR(BaseList) pushBack [_id, _side, _flagpolPos, _spawn]; // [<ID>, <Side>, <Position>, <Spawn>]
 	
 	nil;
 } count _this;

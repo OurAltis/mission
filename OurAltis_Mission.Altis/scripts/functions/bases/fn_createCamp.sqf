@@ -13,7 +13,7 @@
  * 2: ID <String>
  * 
  * Return Value:
- * None <Any>
+ * Flagpol Position <Array>
  * 
  */
 
@@ -31,13 +31,15 @@ private _objectArray = call compile preprocessfilelinenumbers ("scripts\composit
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 GVAR(flagPolesCamp) = [[GVAR(defenderSide), false] call FUNC(getAttackerSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 
-private _marker = createMarker ["marker_noCiv_" + _id, getPos _flagpoleObj];
-_marker setMarkerShape "ELLIPSE";
-_marker setMarkerSize [150, 150];
-_marker setMarkerColor "ColorRed";
-_marker setMarkerAlpha 1;
+private _flagpolPos = getPos _flagpoleObj;
+
+private _marker = createMarkerLocal ["marker_noCiv_" + _id, _flagpolPos];
+_marker setMarkerShapeLocal "ELLIPSE";
+_marker setMarkerSizeLocal [150, 150];
+//_marker setMarkerColorLocal "ColorRed";
+_marker setMarkerAlphaLocal 0;
 
 GVAR(markerNoCiv) pushBack _marker;
-PGVAR(markerCamps) pushBack [_id, _position, _marker];
+PGVAR(markerCamps) pushBack [_id, _flagpolPos, _marker];
 
-nil
+_flagpolPos
