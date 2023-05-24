@@ -42,7 +42,7 @@ _marker setMarkerShape "RECTANGLE";
 _marker setMarkerSize [250, 250];
 _marker setMarkerDir 0;
 _marker setMarkerColor "ColorRed";
-_marker setMarkerAlpha 1;
+_marker setMarkerAlpha 0;
 
 GVAR(markerNoCiv) pushBack _marker;
 
@@ -51,7 +51,7 @@ GVAR(markerBase) setMarkerShape "ELLIPSE";
 GVAR(markerBase) setMarkerSize [300, 300];
 GVAR(markerBase) setMarkerDir 0;
 GVAR(markerBase) setMarkerColor "ColorRed";
-GVAR(markerBase) setMarkerAlpha 1;
+GVAR(markerBase) setMarkerAlpha 0;
 
 private _allObjs = nearestObjects [_flagpolPos, ["Land_Mil_WallBig_4m_F"], 500];
 private _connected = [];
