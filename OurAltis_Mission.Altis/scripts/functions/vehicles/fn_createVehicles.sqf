@@ -230,7 +230,7 @@ GVAR(vehicleListAll) = [];
 						
 						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;
 						
-						if (GVAR(countIDAPVehicle) isEqualTo 0 && !(GVAR(supplyPoint) isEqualTo [])) then {
+						if (GVAR(countIDAPVehicle) isEqualTo 0 && (GVAR(supplyPoint) isNotEqualTo 0)) then {
 							if ((GVAR(taskState) select 6) isEqualType 0) then {
 								["IDAPSupplier", "FAILED"] spawn BIS_fnc_taskSetState;
 								["IDAPDisturber", "SUCCEEDED"] spawn BIS_fnc_taskSetState;

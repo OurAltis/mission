@@ -35,9 +35,9 @@ private _objectArray = call compile preprocessfilelinenumbers ("scripts\composit
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
 GVAR(flagPolesBase) = [GVAR(defenderSide), [_flagpoleObj]] call FUNC(setFlagTexture);
 
-private _flagplePos = getPos _flagpoleObj;
+private _flagpolPos = getPos _flagpoleObj;
 
-private _marker = createMarker ["marker_noCiv_" + _id, _flagplePos];
+private _marker = createMarker ["marker_noCiv_" + _id, _flagpolPos];
 _marker setMarkerShape "RECTANGLE";
 _marker setMarkerSize [250, 250];
 _marker setMarkerDir 0;
@@ -46,14 +46,14 @@ _marker setMarkerAlpha 1;
 
 GVAR(markerNoCiv) pushBack _marker;
 
-GVAR(markerBase) = createMarker ["marker_base", _flagplePos];
+GVAR(markerBase) = createMarker ["marker_base", _flagpolPos];
 GVAR(markerBase) setMarkerShape "ELLIPSE";
 GVAR(markerBase) setMarkerSize [300, 300];
 GVAR(markerBase) setMarkerDir 0;
 GVAR(markerBase) setMarkerColor "ColorRed";
-GVAR(markerBase) setMarkerAlpha 0;
+GVAR(markerBase) setMarkerAlpha 1;
 
-private _allObjs = nearestObjects [_flagplePos, ["Land_Mil_WallBig_4m_F"], 500];
+private _allObjs = nearestObjects [_flagpolPos, ["Land_Mil_WallBig_4m_F"], 500];
 private _connected = [];
 
 {
@@ -85,6 +85,6 @@ NOTIFICATION_FORMAT_LOG(Walls (Base): , count _allObjs)
 	[_x, false] call FUNC(setNextWall);
 } forEach _allObjs;
 
-[[_flagplePos]] call FUNC(getPolygonArray);
+[[_flagpolPos]] call FUNC(getPolygonArray);
 
-_flagplePos
+_flagpolPos

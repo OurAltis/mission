@@ -179,7 +179,7 @@ if (GVAR(defenderSide) isEqualTo sideUnknown) then {
 		} count GVAR(economy);
 	};
 	
-	if (GVAR(supplyPoint) isNotEqualTo "") then {
+	if (GVAR(supplyPoint) isNotEqualTo 0) then {
 		private _idapSupplyPic = ["IDAPSupply"] call FUNC(getTaskPic);
 		diag_log ("IDAP Task: countIDAPVehicle - " + str(missionNamespace getVariable [QGVAR(countIDAPVehicle), 0]));
 		diag_log ("IDAP Task: countIDAPArrived - " + str(missionNamespace getVariable [QGVAR(countIDAPArrived), 0]));

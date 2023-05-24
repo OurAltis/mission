@@ -15,8 +15,6 @@
  * None <Any>
  * 
  */
- 
-if (_this isEqualTo []) exitWith {diag_log "No Supply Point (Empty this Array)"}; // if there is no supply point simply exit the function
 
 private _success = params [
 	["_supplypointPos", 0, [0]]
@@ -24,7 +22,7 @@ private _success = params [
 
 CHECK_TRUE(_success, Invalid parameters!, {})
 
-if (_supplypointPos isEqualTo 0) exitWith {diag_log "No Supply Point"};
+if (_supplypointPos isEqualTo 0) exitWith {NOTIFICATION_LOG(No Supply Point)};
 
 private _objectArray = call compile preprocessfilelinenumbers ("scripts\compositions\" + (toLower worldName) + "\idapSupply\" + (toLower GVAR(targetAreaName)) + "_idapSupply_" + str(_supplypointPos) + ".sqf");
 private _flagpoleObj = _objectArray call FUNC(spawnComposition);
