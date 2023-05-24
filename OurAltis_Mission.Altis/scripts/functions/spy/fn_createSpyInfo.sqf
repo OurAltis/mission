@@ -15,7 +15,6 @@
  * None <Any>
  * 
  */
-diag_log ("createSpyInfo _this: " + str(_this)); 
 
 private _success = params [
 	["_budget", 0, [0]],

@@ -55,8 +55,7 @@ with uiNamespace do {
 		private _baseName = _this select 2;
 		
 		// search for nearby spawn-buildings
-		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];
-		diag_log _potentialSpawnBuildings;
+		private _potentialSpawnBuildings = nearestObjects [_position, ["House", "Building"], 50];		
 		private _spawnBuildings = [];
 		
 		{
@@ -65,9 +64,7 @@ with uiNamespace do {
 			};
 			
 			nil;
-		} count _potentialSpawnBuildings;
-		
-		diag_log _spawnBuildings;
+		} count _potentialSpawnBuildings;		
 		
 		if (count _spawnBuildings > 0) then {
 			private _building = selectRandom _spawnBuildings;

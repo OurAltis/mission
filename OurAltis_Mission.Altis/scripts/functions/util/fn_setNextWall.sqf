@@ -16,19 +16,13 @@
  * 
  */
 
-diag_log ("Start fn_setNextWall");
-
 params [
 	["_obj", objNull, [objNull]],
 	["_forward", true, [true]]
-];	
+];
 
-diag_log ("Objects: " + str(_obj));
-diag_log ("Forward: " + str(_forward));
-
-if (_obj isEqualTo objNull) exitWith {
-	systemChat ("ERROR! NO OBJECT GIVIN: " + str(_obj) + " : " + str(_pos));
-	diag_log ("ERROR! NO OBJECT GIVIN: " + str(_obj) + " : " + str(_pos));
+if (_obj isEqualTo objNull) exitWith {	
+	ERROR_LOG(objNull)
 };
 
 private _pos = [];
@@ -40,9 +34,7 @@ _pos = if (count _pos isEqualTo 0) then {
 	} else {
 		_obj modelToWorld [((0 boundingBox _obj) # 1) # 0, 0, 1];
 	};
-} else {_pos}; 
-
-diag_log ("_pos: " + str(_pos));
+} else {_pos};
 
 private _posHelper = if (_forward) then {
 	_obj modelToWorld [(((0 boundingBox _obj) # 0) # 0) / 2, 0, ((0 boundingBox _obj) # 1) # 2];
@@ -75,7 +67,7 @@ if (count _nextObj != 1) then {
 			if ((_x getVariable ["connect", 0] isEqualTo _connect) && _x != _obj) exitWith {_x};
 		} forEach _connected;
 		
-		if (_return isEqualTo objNull) then {diag_log ("Error, No connector found: " + str(_obj))};
+		if (_return isEqualTo objNull) then {NOTIFICATION_FORMAT_LOG(No connector found: %1, _obj)};
 		
 		_obj setVariable ["nextFence_" + (["backward", "forward"] select _forward), _return];
 	} else {			
@@ -86,16 +78,7 @@ if (count _nextObj != 1) then {
 _obj setVariable ["error", _error];
 
 if (_error > 0) then {	
-	systemChat ("Error: " + str(_error) + ", " + str(_obj));
-	diag_log ("Error: " + str(_error) + ", " + str(_obj));
+	NOTIFICATION_FORMAT_LOG(Error: %1, _error);
 };
 
-/*private _helperObj = if (_error > 0) then {
-	createVehicle ["Sign_Arrow_Large_F", _posHelper, [], 0, "CAN_COLLIDE"];
-} else {
-	createVehicle ["Sign_Arrow_Large_Green_F", _posHelper, [], 0, "CAN_COLLIDE"];
-};
-
-_obj setVariable ["helperObj_" + (["backward", "forward"] select _forward), _helperObj];*/
-
-diag_log ("End fn_setNextWall");
+nil

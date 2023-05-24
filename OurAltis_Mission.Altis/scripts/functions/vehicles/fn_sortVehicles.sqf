@@ -53,7 +53,4 @@ private _matchedSeeVehicles = [];
 	nil
 } count _vehicles;
 
-diag_log ("_sortVehicles _matchedAirVehicles: " + str(_matchedAirVehicles));
-diag_log ("_sortVehicles count _matchedAirVehicles: " + str(count _matchedAirVehicles));
-
 [_matchedLandVehicles, _matchedAirVehicles, _matchedSeeVehicles]

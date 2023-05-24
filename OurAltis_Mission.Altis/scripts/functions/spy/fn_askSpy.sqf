@@ -16,7 +16,6 @@
  * None <Any>
  * 
  */
-diag_log ("askSpy _this: " + str(_this));
  
 private _success = params [
 	["_target", objNull, [objNull]],

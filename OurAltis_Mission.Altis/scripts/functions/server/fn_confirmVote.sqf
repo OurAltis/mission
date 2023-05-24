@@ -31,7 +31,7 @@ if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 		private _index = GVAR(playerVote) find _playerUID;
 		
 		if (_index isEqualTo -1) then {
-			diag_log "ERROR: fn_doVote, player not in array";
+			NOTIFICATION_FORMAT_LOG(Player not in GVAR(playerVote): %1, GVAR(playerVote))
 		} else {
 			GVAR(playerVote) deleteAt _index;
 		};
@@ -67,4 +67,5 @@ if !(PGVAR(PREPARATION_FINISHED) select 0) then {
 		] call CBA_fnc_waitAndExecute;		
 	};
 };
+
 nil

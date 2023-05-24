@@ -14,7 +14,6 @@
  * None <Any>
  * 
  */
-diag_log ("EndMission: " + str(_this));
 
 private _success = params [
 	["_winnerSide", sideUnknown, [sideUnknown]]

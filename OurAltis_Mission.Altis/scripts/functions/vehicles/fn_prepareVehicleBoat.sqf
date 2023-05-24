@@ -18,8 +18,6 @@
  * 
  */
 
-diag_log ("prepareVehicleBoat: " + str(_this));
- 
 private _success = params [
 	["_obj", objNull, [objNull]],
 	["_type", "", [""]],

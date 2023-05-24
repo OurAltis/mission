@@ -225,7 +225,7 @@ GVAR(vehicleListAll) = [];
 					};
 					
 					if (typeOf _unit in VEHICLE_IDAP) then {
-						diag_log ("MPKilled (Unit, Killer, WhoPulledTheTrigger): " + str(_unit) + "," + str(_killer) + "," + str(_instigator));
+						NOTIFICATION_FORMAT_LOG(MPKilled Variables: %1, [_unit, _killer, _instigator])
 						[_instigator] call FUNC(reportAidSupplyDestroyed);						
 						
 						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;

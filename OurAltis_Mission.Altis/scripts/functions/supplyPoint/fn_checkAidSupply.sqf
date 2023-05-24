@@ -15,7 +15,6 @@
  * None <Any>
  * 
  */
-diag_log ("checkAidSupply: this - " + str(_this));
 
 private _success = params [
 	["_triggerObj", objNull, [objNull]],
@@ -26,17 +25,13 @@ CHECK_TRUE(_success, Invalid parameters!, {})
 
 private _objInTrigger = list _triggerObj;
 private _countIDAPArrived = missionNamespace getVariable [QGVAR(countIDAPArrived), 0];
-diag_log ("checkAidSupply: countIDAPArrived - " + str(_countIDAPArrived));
-diag_log ("checkAidSupply: side - " + str(_side));
 
 {
 	if (typeOf (vehicle _x) in VEHICLE_IDAP && !((vehicle _x) getVariable [QGVAR(arrived), false]) && _side isEqualTo side (group (vehicle _x))) then {
-		diag_log ("checkAidSupply: Is IDAP Vehicle");
 		(vehicle _x) setVariable [QGVAR(arrived), true];
 		[_side, name (vehicle _x), VALUE_IDAP] call FUNC(reportAidSupply);
 		
-		_countIDAPArrived = _countIDAPArrived + 1;
-		diag_log ("checkAidSupply: countIDAPArrived - " + str(_countIDAPArrived));
+		_countIDAPArrived = _countIDAPArrived + 1;		
 		missionNamespace setVariable [QGVAR(countIDAPArrived), _countIDAPArrived];
 		
 		private _idapSupplyPic = ["IDAPSupply"] call FUNC(getTaskPic);
