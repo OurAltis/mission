@@ -58,7 +58,7 @@
  #define NOTIFICATION_FORMAT_LOG(msg, var) FORMAT_LOG(<t color='#50dd00'>OurAltis VERSION [Notification]:</t> msg, var)
  #define WARNING_LOG(msg) LOG(<t color='#ff8f00'>OurAltis VERSION [Warning]:</t> msg)
  
- #define SCRIPT_REFERENCE format["(%1: %2)", _fnc_scriptName, __LINE__ - 150]
+ #define SCRIPT_REFERENCE format["(%1: %2)", _fnc_scriptName, __LINE__]
  
  #ifdef SHOW_ONSCREEN_NOTIFICATIONS
  	//TODO: use popup window for error display
