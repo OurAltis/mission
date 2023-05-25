@@ -225,7 +225,7 @@ GVAR(vehicleListAll) = [];
 					};
 					
 					if (typeOf _unit in VEHICLE_IDAP) then {
-						NOTIFICATION_FORMAT_LOG(MPKilled Variables: %1, [_unit, _killer, _instigator])
+						NOTIFICATION_FORMAT_LOG(MPKilled Variables: %1, _instigator)
 						[_instigator] call FUNC(reportAidSupplyDestroyed);						
 						
 						GVAR(countIDAPVehicle) = GVAR(countIDAPVehicle) - 1;
